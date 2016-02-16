@@ -1,0 +1,19 @@
+{
+  "name": "survarium.pro-frontend-ng2",
+  "version": "0.0.1",
+  "description": "Angular 2 – based version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/survarium/survarium-front-ng2.git"
+  },
+  "author": "Dmitry Vasilyev <vaseker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/survarium/survarium-front-ng2/issues"
+  },
+  "homepage": "https://github.com/survarium/survarium-front-ng2#readme"
+}
