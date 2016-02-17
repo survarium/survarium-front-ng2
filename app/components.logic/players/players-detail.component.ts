@@ -4,17 +4,22 @@ import { RouteParams } from 'angular2/router'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
+import Counts from './players-detail-counts.component'
 
 @Component({
     selector: 'players-detail',
-    directives: [NgIf],
+    directives: [NgIf, Counts],
     providers: [],
     template: `
         <div *ngIf="!show">Loading...</div>
-            <pre *ngIf="error">{{error}}</pre>
-            <div *ngIf="show">
-                <h1>{{data.nickname}}</h1>
-            </div>
+        <pre *ngIf="error">{{error}}</pre>
+        <div *ngIf="show">
+            <h1>
+                <a *ngIf="data.clan" class="player__clan" title="{{data.clan.name}}">[{{data.clan.abbr}}]</a>
+                {{data.nickname}}
+            </h1>
+            <players-detail-counts [data]="data"></players-detail-counts>
+        </div>
     `
 })
 
