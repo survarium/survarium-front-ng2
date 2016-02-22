@@ -16,30 +16,7 @@ import {
 @Component({
     selector: 'data-grid-cell',
     template: `<div #componentAnchor></div>{{content}}`,
-    styles: [
-        `
-        :host {
-            display: inline-block;
-            box-sizing: border-box;
-            padding: .3em .3em;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            vertical-align: middle;
-
-            border: 1px solid #414141;
-            border-left-width: 0;
-            border-bottom-width: 0;
-        }
-
-        :host:first-of-type {
-            border-left-width: 1px;
-        }
-
-        :host.center {
-            text-align: center;
-        }
-        `
-    ]
+    styles: [require('./data-grid-cell.css')]
 })
 
 export class DataGridCell implements OnInit {

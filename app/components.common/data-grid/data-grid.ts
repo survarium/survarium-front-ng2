@@ -6,39 +6,8 @@ import CellTitle from './data-grid-cell-title'
     selector: 'data-grid',
     directives: [Cell, CellTitle],
     inputs: ['data', 'columns'],
-    template: `
-        <div class="header" [style.width]="width">
-            <data-grid-cell-title *ngFor="#column of columns, #i=index" [column]="column" [class]="column.headClasses || column.classes || defaultColumnClasses" [columnIndex]="i" [width]="column.width || defaultColumnWidth" [height]="columnHeadHeight" (click)="headerClick({ column: column, columnIndex: i }, $event)" [title]="column.title"></data-grid-cell-title>
-        </div>
-        <div class="body" [style.width]="width">
-            <div *ngFor="#row of rows, #i=index" class="row">
-                <data-grid-cell *ngFor="#column of columns, #j=index" [row]="row" [column]="column" [class]="column.classes || defaultColumnClasses" [rowIndex]="i" [columnIndex]="j" [width]="column.width || defaultColumnWidth" [height]="columnHeight" (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
-            </div>
-        </div>
-    `,
-    styles: [`
-        :host {
-            max-width: 100%;
-            overflow: auto;
-            display: block;
-        }
-
-        .header {
-            position: relative;
-        }
-
-        .row:hover {
-            background: none repeat scroll 0 0 hsla(0,0%,100%,.04);
-        }
-
-        .row:last-of-type {
-            border-bottom: 1px solid #414141;
-        }
-
-        /*.row:nth-child(even) {
-            background: none repeat scroll 0 0 hsla(0,0%,100%,.02);
-        }*/
-    `]
+    template: require('./data-grid.html'),
+    styles: [require('./data-grid.css')]
 })
 
 export class DataGrid {

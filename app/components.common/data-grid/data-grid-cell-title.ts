@@ -5,30 +5,7 @@ import DataGridCell from './data-grid-cell'
     selector: 'data-grid-cell-title',
     inputs: ['title'],
     template: `{{title}}`,
-    styles: [
-        `
-        :host {
-            display: inline-block;
-            vertical-align: middle;
-            box-sizing: border-box;
-            padding: .2em .3em;
-
-            border: 1px solid #414141;
-            border-left-width: 0;
-            border-bottom-width: 0;
-
-            height: 100%;
-        }
-
-        :host:first-of-type {
-            border-left-width: 1px;
-        }
-
-        :host.center {
-            text-align: center;
-        }
-        `
-    ]
+    styles: [require('./data-grid-cell.css')]
 })
 
 export class DataGridCellTitle extends DataGridCell {

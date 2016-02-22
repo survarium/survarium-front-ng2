@@ -1,0 +1,17 @@
+:host {
+    max-width: 100%;
+    overflow: auto;
+    display: block;
+}
+
+.header {
+    position: relative;
+}
+
+.row:hover {
+    background: none repeat scroll 0 0 hsla(0,0%,100%,.04);
+}
+
+.row:last-of-type {
+    border-bottom: 1px solid #414141;
+}

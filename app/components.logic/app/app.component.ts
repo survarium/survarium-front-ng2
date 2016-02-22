@@ -9,9 +9,6 @@ import I18NPipe from '../../pipes/i18n'
         ROUTER_DIRECTIVES
     ],
     pipes: [I18NPipe],
-    styleUrls: [
-        `app/components.logic/app/app.css`
-    ],
     styles: [`
         survarium-stats {
             font-smoothing: antialiased;
@@ -21,7 +18,8 @@ import I18NPipe from '../../pipes/i18n'
 
         survarium-stats, a, a:visited {
             color: rgba(245, 245, 245, 0.65);
-        }`
+        }`,
+        require('./app.css')
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
