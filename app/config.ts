@@ -3,7 +3,7 @@ import dictEN from './i18n/en';
 
 export const CONFIG = {
     production: false,
-    api: 'http://survarium.dev:3010/api',
+    api: 'http://192.168.1.100:3010/api',
     i18n: {
         languages: [
             {
