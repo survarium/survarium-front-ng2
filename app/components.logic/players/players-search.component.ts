@@ -15,6 +15,8 @@ import Nickname from '../../components.common/nickname/nickname'
         `
         :host { display: block }
         form { padding: 1em; }
+        li { display: list-item; }
+        input[type="submit"] { display: inline-block; }
         `
     ],
     template: `
