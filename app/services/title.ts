@@ -2,7 +2,7 @@ import { Injectable, Component } from 'angular2/core'
 import { Title as TitleProvider } from 'angular2/platform/browser'
 
 @Injectable()
-export class Title {
+export class TitleService {
     constructor(private title: TitleProvider) {}
 
     setTitle(title :string) {
@@ -10,4 +10,4 @@ export class Title {
     }
 }
 
-export default Title
+export default TitleService

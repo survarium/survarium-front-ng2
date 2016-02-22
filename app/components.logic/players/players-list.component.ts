@@ -1,60 +1,107 @@
-import { Component, Inject, OnInit } from 'angular2/core'
-import { NgForm, FORM_DIRECTIVES } from 'angular2/common'
+import { Component, Inject } from 'angular2/core'
 import { Router } from 'angular2/router'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import TitleService from '../../services/title'
+import Nickname from '../../components.common/nickname/nickname'
+import Percent from '../../components.common/percent/percent'
+import DataGrid from '../../components.common/data-grid/data-grid'
+import { I18N, I18NPipe } from '../../services/i18n'
 
 @Component({
-    providers  : [],
-    directives : [NgForm, FORM_DIRECTIVES],
-    styles: [
-        `
-        :host { display: block; background-color: #ddd; transition: height .3s ease-in-out; }
-        form { border: 1px solid #000; padding: 1em; }
-        `
-    ],
-    template: `
-        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-            <input ngControl="nickname" placeholder="Nickname" #nickname (keyup)="search(nickname.value)" />
-            <input type="submit" value="Find" />
-        </form>
-
-        <ul>
-            <li *ngFor="#item of items | async" (click)="showPlayer(item.nickname)">{{item.nickname}}</li>
-        </ul>`,
-    selector   : 'players-list',
+    directives: [DataGrid],
+    styles: [],
+    pipes: [I18NPipe],
+    template: `<div *ngIf="!data">{{'loading' | i18n}}</div><data-grid *ngIf="data" [data]="data" [columns]="columns"></data-grid>`,
+    selector: 'players-list',
 })
 
-export class PlayersListComponent implements OnInit {
+export class PlayersListComponent {
+    data:any[];
+
+    private columns:any[] = [];
+
     constructor(private _router:Router,
                 private _playerService:PlayersService,
-                private _title:TitleService) { }
+                private _title:TitleService,
+                private i18n:I18N) {
+        this._title.setTitle(i18n.get('players:list'));
 
-    ngOnInit():any {
-        this._title.setTitle('Players list');
+        this.columns = [
+            {
+                title: i18n.get('player'),
+                component: Nickname,
+                inputs: {nickname: 'nickname', clan: 'clan'},
+                width: 200
+            }, {
+                title: i18n.get('level'),
+                field: 'progress.level',
+                name: 'exp'
+            }, {
+                title: i18n.get('avgScore'),
+                field: 'total.scoreAvg',
+                name: 'scoreAvg'
+            }, {
+                title: i18n.get('kills'),
+                field: 'total.kills',
+                name: 'kill'
+            }, {
+                title: i18n.get('dies'),
+                field: 'total.dies',
+                name: 'die'
+            }, {
+                title: i18n.get('kd'),
+                field: 'total.kd',
+                name: 'kd'
+            }, {
+                title: i18n.get('wins'),
+                field: 'total.victories',
+                name: 'win'
+            }, {
+                title: i18n.get('matches'),
+                field: 'total.matches',
+                name: 'match'
+            }, {
+                title: i18n.get('winrate'),
+                component: Percent,
+                inputs: {number: 'total.winRate'}
+            }, {
+                title: i18n.get('headshots'),
+                name: 'hs',
+                field: 'total.headshots'
+            }, {
+                title: i18n.get('grenadeKills'),
+                name: 'gk',
+                field: 'total.grenadeKills'
+            }, {
+                title: i18n.get('meleeKills'),
+                name: 'mk',
+                field: 'total.meleeKills'
+            }, {
+                title: i18n.get('artefactKills'),
+                name: 'ak',
+                field: 'total.artefactKills',
+                width: 120
+            }, {
+                title: i18n.get('artefactUses'),
+                name: 'au',
+                field: 'total.artefactUses',
+                width: 120
+            }, {
+                title: i18n.get('pointCaptures'),
+                field: 'total.pointCaptures'
+            }, {
+                title: i18n.get('boxesBringed'),
+                name: 'box',
+                field: 'total.boxesBringed'
+            }
+        ];
+
+        this._playerService.list().subscribe((data:{ data: any[], total :number }) => {
+            console.log(data);
+            return this.data = data.data;
+        }, (err) => {
+            console.error(err);
+        });
     }
-
-    private onSubmit(form) {
-        this.showPlayer(form.nickname)
-    }
-
-    showPlayer(nickname) {
-        if (!nickname) {
-            return;
-        }
-        this._router.navigate(['PlayersDetail', { nickname: nickname.trim() }]);
-    }
-
-    search:(value:string) => void;
-
-    private _searchTermStream =
-        Observable.create(
-            (observer) => this.search = (term) => observer.next(term)
-        );
-
-    private items = this._searchTermStream
-        .debounceTime(300)
-        .distinctUntilChanged()
-        .switchMap((term:string) => this._playerService.search(term));
 }

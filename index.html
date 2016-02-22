@@ -24,6 +24,23 @@
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
+    <!-- Safari Intl polyfill -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,Intl.~locale.ru,Intl.~locale.ua"></script>
+
+    <script>
+        window.WebFontConfig = {
+            google: { families: [ 'Exo+2:400,700:latin,cyrillic' ] }
+        };
+
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    </script>
+
     <script>
         System.config({
             packages: {

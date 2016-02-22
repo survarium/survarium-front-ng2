@@ -1,0 +1,170 @@
+.wf-exo2-n4-active
+{
+    font-family: 'Exo 2', sans-serif;
+}
+
+.panes__tabs
+{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+
+    background: #2a333e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.panes__body
+{
+    position: relative;
+
+    display: block;
+
+    margin-top: 60px;
+}
+
+.panes__pane
+{
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.panes__tab
+{
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 60px;
+
+    position: relative;
+
+    display: inline-block;
+
+    min-width: 50px;
+    height: 60px;
+
+    -webkit-transition: color .25s, background .25s;
+            transition: color .25s, background .25s;
+    vertical-align: top;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: hsla(0, 0%, 96%, .5);
+}
+
+.panes__tab_link
+{
+    display: block;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.8vw;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: hsla(0, 0%, 96%, .5);
+}
+
+.panes__tab:after
+{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    content: '';
+    -webkit-transition: .25s;
+            transition: .25s;
+
+    background: hsla(0, 0%, 96%, 0);
+}
+
+.panes__tab:hover .panes__tab_link,
+.panes__tab.router-link-active .panes__tab_link
+{
+    color: #f5f5f5;
+}
+
+.panes__tab:hover:after,
+.panes__tab.router-link-active:after
+{
+    left: 0;
+
+    width: 100%;
+
+    background: #ffce1f;
+}
+
+.def-list
+{
+    display: inline-block;
+
+    margin: 1em auto 1em 0;
+}
+
+.def-list__title
+{
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 3em;
+
+    margin-bottom: 1px;
+    padding-left: 1.3em;
+
+    text-transform: uppercase;
+
+    color: #f5f5f5;
+    border-radius: 1px;
+    background: rgba(245, 245, 245, .1);
+}
+
+.def-list__values
+{
+    position: relative;
+
+    margin-top: 1px;
+    padding-left: 1.3em;
+
+    border-radius: 3px;
+    background: rgba(245, 245, 245, .05);
+}
+
+.def-list:nth-of-type(1n + 1)
+{
+    margin-right: 1em;
+}
+
+.def-list:last-of-type
+{
+    margin-right: .5em;
+}
+
+.def-list__term
+{
+    text-transform: uppercase;
+}
+
+.def-list__desc
+{
+    margin-left: 0;
+}
+
+.def-list__desc::before
+{
+    display: block;
+
+    margin: .2em 0;
+
+    content: '';
+
+    border-top: 1px solid rgba(245, 245, 245, .2);
+}
