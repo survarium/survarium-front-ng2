@@ -10,10 +10,14 @@ import { I18N, I18NPipe } from '../../services/i18n'
 
 @Component({
     directives: [DataGrid],
-    styles: [],
     pipes: [I18NPipe],
     template: `<div *ngIf="!data">{{'loading' | i18n}}</div><data-grid *ngIf="data" [data]="data" [columns]="columns"></data-grid>`,
     selector: 'players-list',
+    styles: [`
+        data-grid {
+            margin: 2em auto;
+        }
+    `]
 })
 
 export class PlayersListComponent {

@@ -1,5 +1,8 @@
-.wf-exo2-n4-active
-{
+* + * {
+    display: block;
+}
+
+.wf-exo2-n4-active {
     font-family: 'Exo 2', sans-serif;
 }
 

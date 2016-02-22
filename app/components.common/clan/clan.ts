@@ -7,6 +7,9 @@ import { NgIf } from 'angular2/common'
     inputs: ['data'],
     template: `<a *ngIf="data" class="clan" title="{{data.name}}">{{data.abbr}}</a>`,
     styles: [`
+        :host {
+            display: inline;
+        }
         .clan::before {
             content: '[';
         }
