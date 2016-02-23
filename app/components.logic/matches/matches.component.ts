@@ -25,7 +25,7 @@ import I18NPipe from '../../pipes/i18n'
 
 @RouteConfig([
     { path: '/list', name: 'MatchesList', component: MatchesListComponent, useAsDefault: true },
-    { path: '/cw', name: 'MatchesCWList', component: MatchesListCWComponent },
+    { path: '/clanwars', name: 'MatchesCWList', component: MatchesListCWComponent },
     { path: '/:match', name: 'MatchesDetail', component: MatchesDetailComponent }
 ])
 
