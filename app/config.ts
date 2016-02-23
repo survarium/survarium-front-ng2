@@ -2,7 +2,7 @@ import dictRU from './i18n/ru';
 import dictEN from './i18n/en';
 
 export const CONFIG = {
-    production: false,
+    production: process.env.ENV,
     api: process.env.API_PATH,
     i18n: {
         languages: [
