@@ -1,7 +1,8 @@
 import { EventEmitter, Injectable } from 'angular2/core'
 
 var store = {
-    players: []
+    players: [],
+    clans: []
 };
 
 @Injectable()
@@ -14,6 +15,17 @@ export class Store {
             }
             store.players.unshift(nickname);
             store.players.splice(3);
+        }
+    };
+
+    clans = {
+        items: store.clans,
+        add: function (abbr) {
+            if (~store.clans.indexOf(abbr)) {
+                return;
+            }
+            store.clans.unshift(abbr);
+            store.clans.splice(3);
         }
     }
 }

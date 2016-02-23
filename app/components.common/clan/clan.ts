@@ -5,8 +5,8 @@ import { I18N } from '../../services/i18n'
 @Component({
     selector: 'clan',
     directives: [NgIf],
-    inputs: ['data', 'classes', 'win'],
-    template: `<a *ngIf="data" class="clan" href="https://survarium.pro/?clan={{data.abbr}}" target="_blank" title="{{_preTitle}}{{data.name}}" [class]="_classes">{{data.abbr}}</a>`,
+    inputs: ['abbr', 'name', 'classes', 'win'],
+    template: `<a *ngIf="abbr" class="clan" href="https://survarium.pro/?clan={{abbr}}" target="_blank" title="{{_preTitle}}{{name}}" [class]="_classes">{{abbr}}</a>`,
     styles: [`
         :host {
             display: inline;

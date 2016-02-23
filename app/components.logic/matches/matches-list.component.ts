@@ -32,8 +32,8 @@ export class MatchesListComponent {
         let apiLang = i18n.apiLang;
 
         this.columns = [
-            { title: i18n.get('date'), width: 170, component: DateTime, inputs: { date: `date` } },
-            { title: i18n.get('match'), component: Match, inputs: { id: `id` } },
+            { title: i18n.get('date'), width: 110, component: DateTime, inputs: { date: `date`, slim: { useValue: true } } },
+            { title: i18n.get('match'), component: Match, width: 90, inputs: { id: `id` } },
             { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${apiLang}.name` } },
             { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${apiLang}.mode` } },
             { title: i18n.get('level'), field: 'level', width: 80, classes: 'center' }

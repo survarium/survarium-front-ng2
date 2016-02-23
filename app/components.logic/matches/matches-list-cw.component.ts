@@ -33,15 +33,15 @@ export class MatchesListCWComponent {
         let apiLang = i18n.apiLang;
 
         this.columns = [
-            { title: i18n.get('date'), width: 170, component: DateTime, inputs: { date: `date` } },
-            { title: i18n.get('match'), component: Match, inputs: { id: `id` } },
+            { title: i18n.get('date'), width: 110, component: DateTime, inputs: { date: `date`, slim: { useValue: true } } },
+            { title: i18n.get('match'), width: 90, component: Match, inputs: { id: `id` } },
             { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${apiLang}.name` } },
-            { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${apiLang}.mode` } },
+            { title: i18n.get('mode'), component: Mode, width: 90, inputs: { name: `map.lang.${apiLang}.mode` } },
             { title: i18n.get('level'), field: 'level', width: 80, classes: 'center' },
-            { title: i18n.get('matches.cw.clan1.score'), field: `score.0` },
-            { title: i18n.get('matches.cw.clan1.title'), component: Clan, inputs: { classes: { useValue: null }, data: `clans.0.clan`, win: `clans.0.win` } },
-            { title: i18n.get('matches.cw.clan2.title'), component: Clan, inputs: { classes: { useValue: null }, data: `clans.1.clan`, win: `clans.1.win` } },
-            { title: i18n.get('matches.cw.clan2.score'), field: `score.1` }
+            { title: i18n.get('matches.cw.clan1.score'), field: `score.0`, width: 80, classes: 'center' },
+            { title: i18n.get('matches.cw.clan1.title'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.0.clan.abbr`, name: `clans.0.clan.name`, win: `clans.0.win` } },
+            { title: i18n.get('matches.cw.clan2.title'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.1.clan.abbr`, name: `clans.1.clan.name`, win: `clans.1.win` } },
+            { title: i18n.get('matches.cw.clan2.score'), field: `score.1`, width: 80, classes: 'center' }
         ];
 
         this._matchesService.list({ cw: true }).subscribe((data :any[]) => {

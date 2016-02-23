@@ -6,8 +6,8 @@ import { DateTimePipe } from '../../pipes/datetime'
     selector: 'datetime',
     directives: [NgIf],
     pipes: [DateTimePipe],
-    inputs: ['date'],
-    template: `<template [ngIf]="date">{{date | datetime}}</template>`
+    inputs: ['date', 'slim'],
+    template: `<template [ngIf]="date">{{date | datetime: slim ? 'slim' : null}}</template>`
 })
 
 export class DateTime { }

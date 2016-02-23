@@ -71,6 +71,11 @@ let dict = {
             winner: 'Победитель'
         }
     },
+    clans: {
+        one: 'Клан',
+        list: 'Кланы',
+        listCWDescription: 'Показан топ кланов, <strong>участвующих в CW</strong>'
+    },
     loading: 'Загрузка...',
     modes: {
         'Командный бой': 'TDM',

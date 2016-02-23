@@ -1,0 +1,5 @@
+<div *ngIf="!data">{{'loading' | i18n}}</div>
+<template [ngIf]="data">
+    <p innerHTML="{{(showCW ? 'clans.listCWDescription' : 'clans.listDescription') | i18n}}"></p>
+    <data-grid [data]="data" [columns]="columns"></data-grid>
+</template>
