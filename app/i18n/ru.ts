@@ -28,7 +28,6 @@ let dict = {
     role         : 'Роль',
     rating       : 'Рейтинг',
     winrate      : 'Винрейт',
-    matches      : 'Матчи',
     avgScore     : 'Ср.счет',
     victories    : 'Побед',
     totalMatches : 'Всего матчей',
@@ -63,6 +62,15 @@ let dict = {
     'players:list'  : 'Список игроков',
     'players:search': 'Поиск игрока',
     'players:head:title:search': 'Поиск игрока',
+    matches: {
+        list: 'Матчи',
+        cw: {
+            title: 'Клановые бои',
+            clan1: { title: 'Клан 1', score: 'Счет 1' },
+            clan2: { title: 'Клан 2', score: 'Счет 2' },
+            winner: 'Победитель'
+        }
+    },
     loading: 'Загрузка...',
     modes: {
         'Командный бой': 'TDM',

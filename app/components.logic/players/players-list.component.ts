@@ -62,7 +62,7 @@ export class PlayersListComponent {
                 field: 'total.victories',
                 name: 'win'
             }, {
-                title: i18n.get('matches'),
+                title: i18n.get('matches.list'),
                 field: 'total.matches',
                 name: 'match'
             }, {

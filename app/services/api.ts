@@ -69,4 +69,43 @@ export class PlayersService {
     }
 }
 
-export const API_PROVIDERS = [PlayersService];
+
+@Injectable()
+export class MatchesService {
+    private apiLang :string;
+
+    constructor (private http :Http,
+                 @Inject('CONFIG') private config,
+                 private i18n :I18N
+    ) {
+        this.apiLang = i18n.apiLang;
+    }
+
+    private _handle :string = this.config.api + `/v1/matches`;
+
+
+    list(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+        params.set('slim', '1');
+        params.set('lang', this.apiLang);
+        params.set('cw', query.cw ? '1' : '0');
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            .catch(this.handleError.bind(this));
+    }
+
+    private handleError (error :Response) {
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
+        console.error('player.service', error);
+        return Observable.throw(error.json() || 'Server error');
+    }
+}
+
+export const API_PROVIDERS = [PlayersService, MatchesService];

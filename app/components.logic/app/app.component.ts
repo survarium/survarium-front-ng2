@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from 'angular2/core'
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router'
 import { PlayersComponent } from '../players/players.component'
+import { MatchesComponent } from '../matches/matches.component'
 import I18NPipe from '../../pipes/i18n'
 
 @Component({
@@ -25,13 +26,15 @@ import I18NPipe from '../../pipes/i18n'
     template: `
         <nav class="panes__tabs">
             <a class="panes__tab" [routerLink]="['PlayersList']"><span class="panes__tab_link">{{'players' | i18n}}</span></a>
+            <a class="panes__tab" [routerLink]="['MatchesList']"><span class="panes__tab_link">{{'matches.list' | i18n}}</span></a>
         </nav>
         <router-outlet class="panes__body"></router-outlet>
     `
 })
 
 @RouteConfig([
-    { path: '/players/...', name: 'PlayersList', component: PlayersComponent, useAsDefault: true }
+    { path: '/players/...', name: 'PlayersList', component: PlayersComponent, useAsDefault: true },
+    { path: '/matches/...', name: 'MatchesList', component: MatchesComponent }
 ])
 
 export class App {

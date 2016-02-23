@@ -63,7 +63,8 @@ export class DataGridCell implements OnInit {
                 .then((res :ComponentRef) => {
                     if (column.inputs) {
                         Object.keys(column.inputs).forEach((input) => {
-                            res.instance[input] = this.getCell(column.inputs[input]);
+                            let __input = column.inputs[input];
+                            res.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
                         });
                     }
                 });
