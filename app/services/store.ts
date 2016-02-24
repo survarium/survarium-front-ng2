@@ -6,7 +6,7 @@ var store = {
 };
 
 @Injectable()
-export class Store {
+export class StoreService {
     players = {
         items: store.players,
         add: function (nickname) {
@@ -30,4 +30,4 @@ export class Store {
     }
 }
 
-export default Store
+export default StoreService

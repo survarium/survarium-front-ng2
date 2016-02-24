@@ -41,6 +41,10 @@ export class ClansListComponent {
                 inputs: { abbr: 'abbr', name: 'name' },
                 width: 100
             }, {
+                title: i18n.get('elo'),
+                field: 'elo',
+                name: 'elo'
+            }, {
                 title: i18n.get('level'),
                 field: 'level',
                 name: 'exp'

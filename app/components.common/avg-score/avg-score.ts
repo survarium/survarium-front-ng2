@@ -3,7 +3,7 @@ import { Component, Input } from 'angular2/core'
 @Component({
     selector: 'avg-score',
     inputs: ['score', 'matches'],
-    template: `<template [ngIf]="avg">{{avg}}</template>`
+    template: `{{avg}}`
 })
 
 export class AvgScore  {

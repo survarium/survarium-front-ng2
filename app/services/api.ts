@@ -17,6 +17,11 @@ export class PlayersService {
 
     private _handle :string = this.config.api + `/v1/players`;
 
+    /**
+     * Поиск игрока по части никнейма
+     * @param {String} nickname
+     * @returns {Observable<R>}
+     */
     search(nickname :string) :Observable<any> {
         if (!nickname || nickname.length < 2) {
             return Observable.empty();
@@ -34,6 +39,11 @@ export class PlayersService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Получить информацию по никнейму
+     * @param {String} nickname
+     * @returns {Observable<R>}
+     */
     fetch(nickname :string) :Observable<any> {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
@@ -47,6 +57,11 @@ export class PlayersService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Получить список игроков
+     * @param {Object} [query]
+     * @returns {Observable<R>}
+     */
     list(query ?:any) :Observable<any> {
         var params = new URLSearchParams();
         params.set('meta', 'true');
@@ -61,6 +76,11 @@ export class PlayersService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Обработчик ошибок
+     * @param error
+     * @returns {ErrorObservable}
+     */
     private handleError (error :Response) {
         console.error('players.service', error);
         return Observable.throw(error.json() || 'Server error');
@@ -81,6 +101,12 @@ export class MatchesService {
     private _handle :string = this.config.api + `/v1/matches`;
 
 
+    /**
+     * Список матчей
+     * @param {Object} [query]
+     * @param {Boolean} [query.cw] флаг отображения клановых матчей
+     * @returns {Observable<R>}
+     */
     list(query ?:any) :Observable<any> {
         query = query || {};
 
@@ -97,6 +123,11 @@ export class MatchesService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Обработчик ошибок
+     * @param error
+     * @returns {ErrorObservable}
+     */
     private handleError (error :Response) {
         console.error('matches.service', error);
         return Observable.throw(error.json() || 'Server error');
@@ -116,7 +147,12 @@ export class ClansService {
 
     private _handle :string = this.config.api + `/v1/clans`;
 
-
+    /**
+     * Список кланов
+     * @param {Object} [query]
+     * @param {Boolean} [query.publicStats] флаг выборки по публичной статистике
+     * @returns {Observable<R>}
+     */
     list(query ?:any) :Observable<any> {
         query = query || {};
 
@@ -133,6 +169,11 @@ export class ClansService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Получить информацию о клане
+     * @param {String} name Аббревиатура клана
+     * @returns {Observable<R>}
+     */
     fetch(name :string) :Observable<any> {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
@@ -146,6 +187,11 @@ export class ClansService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Обработчик ошибок
+     * @param error
+     * @returns {ErrorObservable}
+     */
     private handleError (error :Response) {
         console.error('clans.service', error);
         return Observable.throw(error.json() || 'Server error');

@@ -5,8 +5,8 @@ import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router'
 
 import { App } from './components.logic/app/app.component'
 import { API_PROVIDERS } from './services/api'
-import Store from './services/store'
-import TitleService from './services/title'
+import { StoreService } from './services/store'
+import { TitleService } from './services/title'
 import { I18N, i18n } from './services/i18n'
 
 import CONFIG from './config'
@@ -26,7 +26,7 @@ bootstrap(App,
         HTTP_PROVIDERS,
         ...ENV_PROVIDERS,
         TitleProvider,
-        Store,
+        StoreService,
         ...API_PROVIDERS,
         TitleService,
         provide(I18N, { useValue: i18n }),

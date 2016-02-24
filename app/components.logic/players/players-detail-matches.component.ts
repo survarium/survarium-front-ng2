@@ -28,7 +28,7 @@ export class PlayersDetailMatches {
         let apiLang = i18n.apiLang;
 
         this.columns = [
-            { title: i18n.get('date'), width: 170, component: DateTime, inputs: { date: `date` } },
+            { title: i18n.get('date'), width: 110, component: DateTime, inputs: { date: `date`, slim: { useValue: true } } },
             { title: i18n.get('match'), component: Match, inputs: { id: `match.id` } },
             { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${apiLang}.name` }, width: 100 },
             { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${apiLang}.mode` }, width: 100 },

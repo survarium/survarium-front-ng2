@@ -40,31 +40,43 @@ export class PlayersListComponent {
             }, {
                 title: i18n.get('level'),
                 field: 'progress.level',
-                name: 'exp'
+                name: 'exp',
+                width: 90
+            }, {
+                title: i18n.get('elo'),
+                field: 'progress.elo',
+                name: 'elo',
+                width: 70
             }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
-                name: 'scoreAvg'
+                name: 'scoreAvg',
+                width: 80
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
-                name: 'kill'
+                name: 'kill',
+                width: 90
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
-                name: 'die'
+                name: 'die',
+                width: 90
             }, {
                 title: i18n.get('kd'),
                 field: 'total.kd',
-                name: 'kd'
+                name: 'kd',
+                width: 70
             }, {
                 title: i18n.get('wins'),
                 field: 'total.victories',
-                name: 'win'
+                name: 'win',
+                width: 80
             }, {
                 title: i18n.get('matches.list'),
                 field: 'total.matches',
-                name: 'match'
+                name: 'match',
+                width: 80
             }, {
                 title: i18n.get('winrate'),
                 component: Percent,
