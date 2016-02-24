@@ -39,15 +39,17 @@ export class ClansListComponent {
                 title: i18n.get('clans.one'),
                 component: Clan,
                 inputs: { abbr: 'abbr', name: 'name' },
-                width: 100
+                width: 110
             }, {
                 title: i18n.get('elo'),
                 field: 'elo',
-                name: 'elo'
+                name: 'elo',
+                width: 70
             }, {
                 title: i18n.get('level'),
                 field: 'level',
-                name: 'exp'
+                name: 'exp',
+                width: 80
             }, {
                 title: i18n.get('avgScore'),
                 component: AvgScore,
@@ -57,11 +59,13 @@ export class ClansListComponent {
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
-                name: 'kill'
+                name: 'kill',
+                width: 90
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
-                name: 'die'
+                name: 'die',
+                width: 90
             }, {
                 title: i18n.get('kd'),
                 component: KD,
@@ -81,7 +85,8 @@ export class ClansListComponent {
             }, {
                 title: i18n.get('winrate'),
                 component: WinRate,
-                inputs: { matches: 'total.matches', victories: 'total.victories' }
+                inputs: { matches: 'total.matches', victories: 'total.victories' },
+                width: 90
             }, {
                 title: i18n.get('headshots'),
                 name: 'hs',
