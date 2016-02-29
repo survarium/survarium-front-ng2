@@ -4,7 +4,7 @@ import PercentUtil from '../utils/percent'
 @Pipe({name: 'percent'})
 export class PercentPipe implements PipeTransform {
     transform(value :number, args:string[]) : any {
-        return value.toFixed(2) + '%';
+        return PercentUtil(value);
     }
 }
 

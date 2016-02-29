@@ -2,6 +2,7 @@
     max-width: 100%;
     overflow: auto;
     display: block;
+    position: relative;
 }
 
 .header {

@@ -4,6 +4,7 @@ import dictEN from './i18n/en';
 export const CONFIG = {
     production: process.env.ENV,
     api: process.env.API_PATH,
+    title: process.env.TITLE,
     i18n: {
         languages: [
             {

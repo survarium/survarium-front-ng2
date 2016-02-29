@@ -145,7 +145,7 @@ export class ClansService {
         this.apiLang = i18n.apiLang;
     }
 
-    private _handle :string = this.config.api + `/v1/clans`;
+    private _handle :string = this.config.api + `/v2/clans`;
 
     /**
      * Список кланов
@@ -157,15 +157,20 @@ export class ClansService {
         query = query || {};
 
         var params = new URLSearchParams();
-        params.set('slim', '1');
         params.set('lang', this.apiLang);
-        params.set('publicStats', query.publicStats ? '1' : '0');
+        query.skip !== undefined && params.set('skip', query.skip);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
+        let options = new Request({
+            url: this._handle + (query.publicStats ? '' : '/cw'),
+            headers: headers,
+            search: params,
+            method: 'get'
+        });
 
         return this.http.request(options)
             .map(res => res.json())
+            .do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 

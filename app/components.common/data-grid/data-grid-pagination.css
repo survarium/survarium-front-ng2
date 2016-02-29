@@ -1,0 +1,18 @@
+:host {
+    display: block;
+    padding: 1em 0;
+}
+
+.data-grid__page {
+    display: inline-block;
+    cursor: pointer;
+    padding: .3em .5em;
+}
+
+.data-grid__page_current {
+    color: #ffce1f;
+}
+
+.data-grid__page_breaker {
+    cursor: auto;
+}

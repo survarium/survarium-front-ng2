@@ -75,7 +75,8 @@ let dict = {
     clans: {
         one: 'Клан',
         list: 'Кланы',
-        listCWDescription: 'Показан топ кланов, <strong>участвующих в CW</strong>'
+        listCWDescription: 'Показан топ кланов, <strong>участвующих в CW</strong>',
+        listDescription: 'Показан <strong>паблик</strong> топ кланов'
     },
     loading: 'Загрузка...',
     modes: {

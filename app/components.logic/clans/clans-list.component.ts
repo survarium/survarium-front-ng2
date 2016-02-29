@@ -1,4 +1,4 @@
-import { Component, Inject } from 'angular2/core'
+import { Component, Inject, ViewQuery, QueryList, ElementRef } from 'angular2/core'
 import { Router } from 'angular2/router'
 import { Observable } from 'rxjs/Observable'
 import { ClansService } from '../../services/api'
@@ -9,29 +9,54 @@ import KD from '../../components.common/kd/kd'
 import WinRate from '../../components.common/winrate/winrate'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N, I18NPipe } from '../../services/i18n'
+import {readdirSync} from "fs";
 
 @Component({
     directives: [DataGrid],
     pipes: [I18NPipe],
     template: require('./clans-list.html'),
     selector: 'clans-list',
-    styles: [`
-        data-grid {
-            margin: 2em auto;
-        }
-    `]
+    styles: [`data-grid {margin: 2em auto;}`, require('./clans-list.css')]
 })
 
 export class ClansListComponent {
-    data:any[];
+    data :any[];
 
-    private columns:any[] = [];
-    private showCW :boolean = true;
+    private columns :any[] = [];
+    private showCW  :boolean = true;
 
-    constructor(private _router:Router,
-                private _clansService:ClansService,
-                private _title:TitleService,
-                private i18n:I18N) {
+    private stream (options ?:any)  {
+        options = options || {};
+        options.publicStats = !this.showCW;
+        var request = this._clansService.list(options);
+        if (options.publicStats) {
+            return request.map((response) => {
+                response.data = response.data.map((item :any) => {
+                    item.total = item.totalPublic;
+                    return item;
+                });
+                return response;
+            });
+        }
+        return request;
+    }
+
+    private grid: DataGrid;
+
+    private changeMode () {
+        this.showCW = !this.showCW;
+        this.grid && this.grid.load({ skip: 0 });
+    }
+
+    constructor(private _clansService :ClansService,
+                private _title :TitleService,
+                private i18n :I18N,
+                @ViewQuery(DataGrid, { descendants: false }) private elList: QueryList<DataGrid>) {
+
+        this.stream = this.stream.bind(this);
+
+        elList.changes.subscribe(() => this.grid = elList.first);
+
         this._title.setTitle(i18n.get('clans.list'));
 
         this.columns = [
@@ -118,12 +143,5 @@ export class ClansListComponent {
                 field: 'total.boxesBringed'
             }
         ];
-
-        this._clansService.list({ publicStats: !this.showCW }).subscribe((data :any[]) => {
-            console.log(data);
-            return this.data = data;
-        }, (err) => {
-            console.error(err);
-        });
     }
 }

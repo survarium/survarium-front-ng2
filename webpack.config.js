@@ -103,7 +103,8 @@ module.exports = {
 		          'process.env': {
 			          'ENV'     : JSON.stringify(metadata.ENV),
 			          'NODE_ENV': JSON.stringify(metadata.ENV),
-			          'API_PATH': JSON.stringify(metadata.API_PATH)
+			          'API_PATH': JSON.stringify(metadata.API_PATH),
+			          'TITLE'   : JSON.stringify(metadata.title)
 		          }
 	          })],
 
