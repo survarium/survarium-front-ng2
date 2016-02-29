@@ -7,11 +7,12 @@ import Nickname from '../../components.common/nickname/nickname'
 import Percent from '../../components.common/percent/percent'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N, I18NPipe } from '../../services/i18n'
+import { PlayersList } from '../../typings/players-list'
 
 @Component({
     directives: [DataGrid],
     pipes: [I18NPipe],
-    template: `<div *ngIf="!data">{{'loading' | i18n}}</div><data-grid *ngIf="data" [data]="data" [columns]="columns"></data-grid>`,
+    template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
     selector: 'players-list',
     styles: [`
         data-grid {
@@ -25,99 +26,115 @@ export class PlayersListComponent {
 
     private columns:any[] = [];
 
-    constructor(private _router:Router,
-                private _playerService:PlayersService,
+    private stream (options ?:any) :Observable<PlayersList> {
+        return this
+            ._playerService
+            .list(options)
+            .map((result :PlayersList) => {
+                result.data = result.data.map((elem) => {
+                    elem.clan = elem.clan_meta;
+                    return elem;
+                });
+                return result;
+            });
+    };
+
+    constructor(private _playerService:PlayersService,
                 private _title:TitleService,
                 private i18n:I18N) {
         this._title.setTitle(i18n.get('players:list'));
 
+        this.stream = this.stream.bind(this);
+
         this.columns = [
+            {
+                title: '№',
+                number: true,
+                width: 80
+            },
             {
                 title: i18n.get('player'),
                 component: Nickname,
-                inputs: {nickname: 'nickname', clan: 'clan'},
-                width: 200
+                inputs: { nickname: 'nickname', clan: 'clan' },
+                width: 250,
+                sort: { 'nickname': { _default: 1 } }
             }, {
                 title: i18n.get('level'),
                 field: 'progress.level',
-                name: 'exp',
-                width: 90
+                width: 90,
+                sort: { 'progress.experience': { value: -1 } }
             }, {
                 title: i18n.get('elo'),
                 field: 'progress.elo',
-                name: 'elo',
-                width: 70
+                width: 70,
+                sort: { 'progress.elo': { } },
             }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
                 name: 'scoreAvg',
-                width: 80
+                width: 80,
+                sort: { 'total.scoreAvg': { } }
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
-                name: 'kill',
-                width: 90
+                width: 90,
+                sort: { 'total.kills': { } }
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
-                name: 'die',
-                width: 90
+                width: 90,
+                sort: { 'total.dies': { } }
             }, {
                 title: i18n.get('kd'),
                 field: 'total.kd',
-                name: 'kd',
-                width: 70
+                width: 70,
+                sort: { 'total.kd': { } }
             }, {
                 title: i18n.get('wins'),
                 field: 'total.victories',
-                name: 'win',
-                width: 80
+                width: 80,
+                sort: { 'total.victories': { } }
             }, {
                 title: i18n.get('matches.list'),
                 field: 'total.matches',
-                name: 'match',
-                width: 80
+                width: 80,
+                sort: { 'total.matches': { } }
             }, {
                 title: i18n.get('winrate'),
                 component: Percent,
-                inputs: {number: 'total.winRate'}
+                inputs: { number: 'total.winRate' },
+                sort: { 'total.winRate': { } }
             }, {
                 title: i18n.get('headshots'),
-                name: 'hs',
-                field: 'total.headshots'
+                field: 'total.headshots',
+                sort: { 'total.headshots': { } }
             }, {
                 title: i18n.get('grenadeKills'),
-                name: 'gk',
-                field: 'total.grenadeKills'
+                field: 'total.grenadeKills',
+                sort: { 'total.grenadeKills': { } }
             }, {
                 title: i18n.get('meleeKills'),
-                name: 'mk',
-                field: 'total.meleeKills'
+                field: 'total.meleeKills',
+                sort: { 'total.meleeKills': { } }
             }, {
                 title: i18n.get('artefactKills'),
-                name: 'ak',
                 field: 'total.artefactKills',
-                width: 120
+                width: 120,
+                sort: { 'total.artefactKills': { } }
             }, {
                 title: i18n.get('artefactUses'),
-                name: 'au',
                 field: 'total.artefactUses',
-                width: 120
+                width: 120,
+                sort: { 'total.artefactUses': { } }
             }, {
                 title: i18n.get('pointCaptures'),
-                field: 'total.pointCaptures'
+                field: 'total.pointCaptures',
+                sort: { 'total.pointCaptures': { } }
             }, {
                 title: i18n.get('boxesBringed'),
-                name: 'box',
-                field: 'total.boxesBringed'
+                field: 'total.boxesBringed',
+                sort: { 'total.boxesBringed': { } }
             }
         ];
-
-        this._playerService.list().subscribe((data:{ data: any[], total :number }) => {
-            console.log(data);
-            return this.data = data.data;
-        }, (err) => {
-            console.error(err);
-        });
     }
 }

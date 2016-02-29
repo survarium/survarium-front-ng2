@@ -8,11 +8,12 @@ import Counts from './players-detail-counts.component'
 import Matches from './players-detail-matches.component'
 import Nickname from '../../components.common/nickname/nickname'
 import { I18N, I18NPipe } from '../../services/i18n'
+import { PercentPipe } from '../../pipes/percent'
 
 @Component({
     selector: 'players-detail',
     directives: [NgIf, Counts, Nickname, Matches],
-    pipes: [I18NPipe],
+    pipes: [I18NPipe, PercentPipe],
     template: `
         <div *ngIf="!show">{{'loading' | i18n}}</div>
         <pre *ngIf="error">{{error}}</pre>

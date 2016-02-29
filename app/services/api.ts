@@ -3,6 +3,7 @@ import { Http, Response } from 'angular2/http'
 import { Headers, Request, URLSearchParams } from 'angular2/http'
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
+import { PlayersList } from '../typings/players-list'
 
 @Injectable()
 export class PlayersService {
@@ -16,6 +17,7 @@ export class PlayersService {
     }
 
     private _handle :string = this.config.api + `/v1/players`;
+    private _handleV2 :string = this.config.api + `/v2/players`;
 
     /**
      * Поиск игрока по части никнейма
@@ -60,16 +62,22 @@ export class PlayersService {
     /**
      * Получить список игроков
      * @param {Object} [query]
-     * @returns {Observable<R>}
+     * @returns {Observable<PlayersList>}
      */
-    list(query ?:any) :Observable<any> {
+    list(query ?:any) :Observable<PlayersList> {
+        query = query || {};
+
         var params = new URLSearchParams();
-        params.set('meta', 'true');
-        params.set('stats', '0');
         params.set('lang', this.apiLang);
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
+        let options = new Request({ url: this._handleV2, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -159,6 +167,12 @@ export class ClansService {
         var params = new URLSearchParams();
         params.set('lang', this.apiLang);
         query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                let _key = query.publicStats ? key.replace(/^total\./, 'totalPublic.') : key;
+                params.set(`sort[${_key}]`, query.sort[key]);
+            });
+        }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({
@@ -170,7 +184,7 @@ export class ClansService {
 
         return this.http.request(options)
             .map(res => res.json())
-            .do(data => console.log(data))
+            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 

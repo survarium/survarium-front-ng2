@@ -57,7 +57,7 @@ import { I18NPipe } from '../../services/i18n'
 
             <dl class="def-list">
               <dt class="def-list__term">{{'winrate' | i18n}}</dt>
-              <dd class="def-list__desc">{{(data.total.winRate).toFixed(2)}} %</dd>
+              <dd class="def-list__desc">{{data.total.winRate | percent}}</dd>
             </dl>
 
             <dl class="def-list">

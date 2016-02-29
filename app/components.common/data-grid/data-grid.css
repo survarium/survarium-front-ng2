@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.container {
+    position: relative;
+}
+
 .row:hover {
     background: none repeat scroll 0 0 hsla(0,0%,100%,.04);
 }

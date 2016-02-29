@@ -24,6 +24,7 @@ export class DataGridCell implements OnInit {
     @Input() columnIndex :number;
     @Input() @Optional() row :any;
     @Input() @Optional() rowIndex :number;
+    @Input() skip :number;
 
     /*@Output() cellClick :EventEmitter<any> = new EventEmitter();
     @HostListener('click', ['$event']) onClick (event) {
@@ -47,7 +48,7 @@ export class DataGridCell implements OnInit {
         }, this.row);
     }
 
-    ngOnInit () {
+    ngOnInit () :any {
         let column = this.column;
 
         if (!column) {
@@ -56,6 +57,10 @@ export class DataGridCell implements OnInit {
 
         if (!this.row) {
             return;
+        }
+
+        if (column.number) {
+            return this.content = this.skip + this.rowIndex + 1;
         }
 
         if (column.component) {

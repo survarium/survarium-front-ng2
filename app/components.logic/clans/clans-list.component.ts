@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'
-import AvgScore from '../../components.common/avg-score/avg-score'
+import Percent from '../../components.common/percent/percent'
 import KD from '../../components.common/kd/kd'
 import WinRate from '../../components.common/winrate/winrate'
 import DataGrid from '../../components.common/data-grid/data-grid'
@@ -61,86 +61,92 @@ export class ClansListComponent {
 
         this.columns = [
             {
+                title: '№',
+                number: true,
+                width: 70
+            },
+            {
                 title: i18n.get('clans.one'),
                 component: Clan,
                 inputs: { abbr: 'abbr', name: 'name' },
-                width: 110
+                width: 110,
+                sort: { 'abbr': { _default: 1 } }
             }, {
                 title: i18n.get('elo'),
                 field: 'elo',
-                name: 'elo',
-                width: 70
+                width: 70,
+                sort: { 'elo': { value: -1 } }
             }, {
                 title: i18n.get('level'),
                 field: 'level',
-                name: 'exp',
-                width: 80
+                width: 80,
+                sort: { 'level': { }, 'elo': { } }
             }, {
                 title: i18n.get('avgScore'),
-                component: AvgScore,
-                inputs: { matches: 'total.matches', score: 'total.score' },
-                name: 'scoreAvg',
-                width: 90
+                field: 'total.scoreAvg',
+                width: 90,
+                sort: { 'total.scoreAvg': { } }
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
-                name: 'kill',
-                width: 90
+                width: 90,
+                sort: { 'total.kills': { } }
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
-                name: 'die',
-                width: 90
+                width: 90,
+                sort: { 'total.dies': { } }
             }, {
                 title: i18n.get('kd'),
-                component: KD,
-                inputs: { kills: 'total.kills', dies: 'total.dies' },
-                name: 'kd',
-                width: 60
+                field: 'total.kd',
+                width: 60,
+                sort: { 'total.kd': { } }
             }, {
                 title: i18n.get('wins'),
                 field: 'total.victories',
-                name: 'win',
-                width: 70
+                width: 70,
+                sort: { 'total.victories': { } }
             }, {
                 title: i18n.get('matches.list'),
                 field: 'total.matches',
-                name: 'match',
-                width: 70
+                width: 70,
+                sort: { 'total.matches': { } }
             }, {
                 title: i18n.get('winrate'),
-                component: WinRate,
-                inputs: { matches: 'total.matches', victories: 'total.victories' },
-                width: 90
+                component: Percent,
+                inputs: { number: 'total.winRate' },
+                width: 90,
+                sort: { 'total.winRate': { } }
             }, {
                 title: i18n.get('headshots'),
-                name: 'hs',
-                field: 'total.headshots'
+                field: 'total.headshots',
+                sort: { 'total.headshots': { } }
             }, {
                 title: i18n.get('grenadeKills'),
-                name: 'gk',
-                field: 'total.grenadeKills'
+                field: 'total.grenadeKills',
+                sort: { 'total.grenadeKills': { } }
             }, {
                 title: i18n.get('meleeKills'),
-                name: 'mk',
-                field: 'total.meleeKills'
+                field: 'total.meleeKills',
+                sort: { 'total.meleeKills': { } }
             }, {
                 title: i18n.get('artefactKills'),
-                name: 'ak',
                 field: 'total.artefactKills',
-                width: 120
+                width: 120,
+                sort: { 'total.artefactKills': { } }
             }, {
                 title: i18n.get('artefactUses'),
-                name: 'au',
                 field: 'total.artefactUses',
-                width: 120
+                width: 120,
+                sort: { 'total.artefactUses': { } }
             }, {
                 title: i18n.get('pointCaptures'),
-                field: 'total.pointCaptures'
+                field: 'total.pointCaptures',
+                sort: { 'total.pointCaptures': { } }
             }, {
                 title: i18n.get('boxesBringed'),
-                name: 'box',
-                field: 'total.boxesBringed'
+                field: 'total.boxesBringed',
+                sort: { 'total.boxesBringed': { } }
             }
         ];
     }
