@@ -1,0 +1,17 @@
+<nav class="panes__tabs">
+    <div class="pad">
+        <a class="panes__tab" [routerLink]="['PlayersList']">
+            <span class="panes__tab_link">{{'players' | i18n}}</span>
+        </a>
+
+        <a class="panes__tab" [routerLink]="['MatchesList']">
+            <span class="panes__tab_link">{{'matches.list' | i18n}}</span>
+        </a>
+
+        <a class="panes__tab" [routerLink]="['ClansList']">
+            <span class="panes__tab_link">{{'clans.list' | i18n}}</span>
+        </a>
+    </div>
+
+</nav>
+<router-outlet class="panes__body"></router-outlet>

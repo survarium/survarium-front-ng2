@@ -8,7 +8,8 @@ import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
-import { I18N, I18NPipe } from '../../services/i18n'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     directives: [DataGrid],
@@ -18,7 +19,7 @@ import { I18N, I18NPipe } from '../../services/i18n'
     styles: []
 })
 
-export class MatchesListComponent {
+export class MatchesList {
     private data :any[];
 
     private columns :any[] = [];

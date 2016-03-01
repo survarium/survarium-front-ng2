@@ -6,8 +6,9 @@ import TitleService from '../../services/title'
 import Nickname from '../../components.common/nickname/nickname'
 import Percent from '../../components.common/percent/percent'
 import DataGrid from '../../components.common/data-grid/data-grid'
-import { I18N, I18NPipe } from '../../services/i18n'
-import { PlayersList } from '../../typings/players-list'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
+import { PlayersList as PlayersListTyping } from '../../typings/players-list'
 
 @Component({
     directives: [DataGrid],
@@ -21,16 +22,16 @@ import { PlayersList } from '../../typings/players-list'
     `]
 })
 
-export class PlayersListComponent {
+export class PlayersList {
     data:any[];
 
     private columns:any[] = [];
 
-    private stream (options ?:any) :Observable<PlayersList> {
+    private stream (options ?:any) :Observable<PlayersListTyping> {
         return this
             ._playerService
             .list(options)
-            .map((result :PlayersList) => {
+            .map((result :PlayersListTyping) => {
                 result.data = result.data.map((elem) => {
                     elem.clan = elem.clan_meta;
                     return elem;

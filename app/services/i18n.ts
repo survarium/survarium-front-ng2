@@ -1,5 +1,4 @@
-import { Injectable } from 'angular2/core';
-import { I18NPipe } from '../pipes/i18n'
+import { Injectable, Pipe } from 'angular2/core';
 
 import CONFIG from '../config'
 import Storage from '../utils/storage'
@@ -66,5 +65,5 @@ class I18N {
 
 let i18n = new I18N(LANGUAGE);
 
-export { LANGUAGE, detectLang, i18n, I18N, I18NPipe }
+export { LANGUAGE, detectLang, i18n, I18N }
 export default I18N

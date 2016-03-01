@@ -8,8 +8,8 @@ import Percent from '../../components.common/percent/percent'
 import KD from '../../components.common/kd/kd'
 import WinRate from '../../components.common/winrate/winrate'
 import DataGrid from '../../components.common/data-grid/data-grid'
-import { I18N, I18NPipe } from '../../services/i18n'
-import {readdirSync} from "fs";
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     directives: [DataGrid],
@@ -19,7 +19,7 @@ import {readdirSync} from "fs";
     styles: [`data-grid {margin: 2em auto;}`, require('./clans-list.css')]
 })
 
-export class ClansListComponent {
+export class ClansList {
     data :any[];
 
     private columns :any[] = [];

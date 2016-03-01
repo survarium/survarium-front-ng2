@@ -4,7 +4,8 @@ import { RouteParams } from 'angular2/router'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
-import { I18N, I18NPipe } from '../../services/i18n'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'clanss-detail',
@@ -20,7 +21,7 @@ import { I18N, I18NPipe } from '../../services/i18n'
     styles: []
 })
 
-export class ClansDetailComponent implements OnInit {
+export class ClansDetail implements OnInit {
     private name  :string;
     private data  :any = {};
     private error :any;

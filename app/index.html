@@ -5,7 +5,7 @@
 
     <meta name="description" content="<%= webpackConfig.metadata.description %>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=0.25, maximum-scale=2">
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/icon/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/icon/apple-touch-icon-114x114.png" />
@@ -34,6 +34,15 @@
         body {
             color: rgba(245, 245, 245, 0.65);
             background-color: #191C23;
+        }
+
+        .bg {
+            background: url(/assets/dstny-bg.jpg) repeat scroll 50% 0/cover #1e222b;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1
         }
     </style>
 
@@ -91,6 +100,7 @@
 </head>
 
 <body>
+    <div class="bg"></div>
     <survarium-stats>Loading...</survarium-stats>
     <% if (webpackConfig.metadata.ENV === 'development') { %>
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>

@@ -1,5 +1,5 @@
 import { Component, Input } from 'angular2/core'
-import { I18NPipe } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'mode',

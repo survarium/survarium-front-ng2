@@ -1,8 +1,5 @@
 import { Component, Inject } from 'angular2/core'
-import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES } from 'angular2/router'
-import { MatchesListComponent } from './matches-list.component';
-import { MatchesListCWComponent } from './matches-list-cw.component';
-import { MatchesDetailComponent } from './matches-detail.component';
+import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
 
@@ -24,11 +21,11 @@ import I18NPipe from '../../pipes/i18n'
 })
 
 @RouteConfig([
-    { path: '/list', name: 'MatchesList', component: MatchesListComponent, useAsDefault: true },
-    { path: '/clanwars', name: 'MatchesCWList', component: MatchesListCWComponent },
-    { path: '/:match', name: 'MatchesDetail', component: MatchesDetailComponent }
+    new AsyncRoute({ path: '/list', name: 'MatchesList', loader: () => require('es6-promise!./matches-list')('MatchesList'), useAsDefault: true }),
+    new AsyncRoute({ path: '/clanwars', name: 'MatchesCWList', loader: () => require('es6-promise!./matches-list-cw')('MatchesListCW') }),
+    new AsyncRoute({ path: '/:match', name: 'MatchesDetail', loader: () => require('es6-promise!./matches-detail')('MatchesDetail') })
 ])
 
-export class MatchesComponent {
+export class Matches {
     constructor (private _store :Store) { }
 }

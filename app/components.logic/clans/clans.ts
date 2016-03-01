@@ -1,7 +1,5 @@
 import { Component, Inject } from 'angular2/core'
-import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES } from 'angular2/router'
-import { ClansListComponent } from './clans-list.component'
-import { ClansDetailComponent } from './clans-detail.component'
+import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
 
@@ -25,11 +23,11 @@ import I18NPipe from '../../pipes/i18n'
 
 @RouteConfig([
     //{ path: '/search', name: 'PlayersSearch', component: PlayersSearchComponent, useAsDefault: true },
-    { path: '/', name: 'ClansList', component: ClansListComponent, useAsDefault: true },
-    { path: '/:abbr', name: 'ClansDetail', component: ClansDetailComponent }
+    new AsyncRoute({ path: '/', loader: () => require('es6-promise!./clans-list')('ClansList'), name: 'ClansList', useAsDefault: true }),
+    new AsyncRoute({ path: '/:abbr', loader: () => require('es6-promise!./clans-detail')('ClansDetail'), name: 'ClansDetail' })
 ])
 
-export class ClansComponent {
+export class Clans {
     get clans() {
         return this._store.clans.items;
     }

@@ -1,8 +1,5 @@
 import { Component, Inject } from 'angular2/core'
-import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES } from 'angular2/router'
-import { PlayersSearchComponent } from './players-search.component';
-import { PlayersListComponent } from './players-list.component';
-import { PlayersDetailComponent } from './players-detail.component';
+import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
 
@@ -25,12 +22,12 @@ import I18NPipe from '../../pipes/i18n'
 })
 
 @RouteConfig([
-    { path: '/search', name: 'PlayersSearch', component: PlayersSearchComponent, useAsDefault: true },
-    { path: '/', name: 'PlayersList', component: PlayersListComponent },
-    { path: '/:nickname', name: 'PlayersDetail', component: PlayersDetailComponent }
+    new AsyncRoute({ path: '/search', loader: () => require('es6-promise!./players-search')('PlayersSearch'), name: 'PlayersSearch', useAsDefault: true }),
+    new AsyncRoute({ path: '/', loader: () => require('es6-promise!./players-list')('PlayersList'), name: 'PlayersList' }),
+    new AsyncRoute({ path: '/:nickname', loader: () => require('es6-promise!./players-detail')('PlayersDetail'), name: 'PlayersDetail' })
 ])
 
-export class PlayersComponent {
+export class Players {
     get players() {
         return this._store.players.items;
     }

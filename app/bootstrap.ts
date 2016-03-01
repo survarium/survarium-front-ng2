@@ -1,9 +1,10 @@
 import { enableProdMode, provide, APP_ID } from 'angular2/core';
-import { bootstrap, Title as TitleProvider, ELEMENT_PROBE_PROVIDERS }    from 'angular2/platform/browser'
+import { bootstrap, Title as TitleProvider, ELEMENT_PROBE_PROVIDERS, ELEMENT_PROBE_PROVIDERS_PROD_MODE } from 'angular2/platform/browser'
 import { HTTP_PROVIDERS } from 'angular2/http'
 import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router'
 
-import { App } from './components.logic/app/app.component'
+
+import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'
 import { StoreService } from './services/store'
 import { TitleService } from './services/title'
@@ -15,6 +16,7 @@ const ENV_PROVIDERS = [];
 
 if (CONFIG.production) {
     enableProdMode();
+    ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS_PROD_MODE);
 } else {
     ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 }

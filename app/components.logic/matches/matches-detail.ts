@@ -4,7 +4,8 @@ import { RouteParams } from 'angular2/router'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
-import { I18N, I18NPipe } from '../../services/i18n'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'matches-detail',
@@ -14,15 +15,15 @@ import { I18N, I18NPipe } from '../../services/i18n'
     styles: []
 })
 
-export class MatchesDetailComponent implements OnInit {
+export class MatchesDetail implements OnInit {
     private match :number;
     private data  :any = {};
     private error :any;
 
-    constructor(private _routeParams:RouteParams,
-                private _playerService:PlayersService,
-                private _title:TitleService,
-                private _store:Store) { }
+    constructor(private _routeParams :RouteParams,
+                private _playerService :PlayersService,
+                private _title :TitleService,
+                private _store :Store) { }
 
     ngOnInit() {
         let match = Number(this._routeParams.get('match'));

@@ -1,0 +1,8 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <input ngControl="nickname" placeholder="{{'nickname' | i18n}}" #nickname (keyup)="search(nickname.value)" />
+    <input type="submit" value="{{'find' | i18n}}" />
+</form>
+
+<ul>
+    <li *ngFor="#item of items | async"><nickname [nickname]="item.nickname" [clan]="item.clan"></nickname></li>
+</ul>

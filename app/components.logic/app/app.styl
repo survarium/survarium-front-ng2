@@ -1,0 +1,106 @@
+* + *
+    display block
+
+.wf-exo2-n4-active
+    font-family 'Exo 2', sans-serif
+
+survarium-stats
+  font-smoothing antialiased
+  position relative
+  display block
+
+  &, a, a:visited
+    color rgba(245, 245, 245, 0.65)
+
+.panes
+  &__tabs
+    position fixed
+    z-index 999
+    top 0
+    left 0
+
+    display block
+
+    box-sizing border-box
+    width 100%
+    height 60px
+
+    background #2a333e
+    box-shadow 0 0 10px rgba(0, 0, 0, .5)
+
+  &__body
+    position relative
+    display block
+    margin-top 60px
+
+
+  &__pane
+    margin-top 60px
+    padding-top 20px
+
+  &__tab
+    font-size 13px
+    font-weight 500
+    line-height 60px
+
+    position relative
+
+    display inline-block
+
+    min-width 50px
+    height 60px
+
+    transition color .25s, background .25s
+    vertical-align top
+    text-decoration none
+    text-transform uppercase
+
+    color hsla(0, 0%, 96%, .5)
+
+
+    &_link
+      display block
+
+      box-sizing border-box
+      width 100%
+      height 100%
+      padding 0 1.8vw
+
+      text-align center
+      text-decoration none
+
+      color hsla(0, 0%, 96%, .5)
+
+
+    &:after
+      position absolute
+      bottom 0
+      left 50%
+
+      width 0
+      height 3px
+
+      content ''
+      transition .25s
+
+      background hsla(0, 0%, 96%, 0)
+
+    &:hover
+    &_link
+    &.router-link-active .&_link
+      color #f5f5f5
+
+    &:hover:after
+    &.router-link-active:after
+      left 0
+
+      width 100%
+
+      background #ffce1f
+
+.pad
+  padding: 0 18px;
+  max-width: 1500px;
+  margin: 0 auto
+
+@import "../../components.common/def-list/def-list.styl"

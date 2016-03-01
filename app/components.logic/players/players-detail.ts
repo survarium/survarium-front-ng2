@@ -4,16 +4,15 @@ import { RouteParams } from 'angular2/router'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
-import Counts from './players-detail-counts.component'
-import Matches from './players-detail-matches.component'
+import Counts from './players-detail-counts'
+import Matches from './players-detail-matches'
 import Nickname from '../../components.common/nickname/nickname'
-import { I18N, I18NPipe } from '../../services/i18n'
-import { PercentPipe } from '../../pipes/percent'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'players-detail',
     directives: [NgIf, Counts, Nickname, Matches],
-    pipes: [I18NPipe, PercentPipe],
+    pipes: [I18NPipe],
     template: `
         <div *ngIf="!show">{{'loading' | i18n}}</div>
         <pre *ngIf="error">{{error}}</pre>
@@ -40,7 +39,7 @@ import { PercentPipe } from '../../pipes/percent'
     `]
 })
 
-export class PlayersDetailComponent implements OnInit {
+export class PlayersDetail implements OnInit {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -49,10 +48,10 @@ export class PlayersDetailComponent implements OnInit {
     private lang :string = 'english';
     private matches :any[] = [];
 
-    constructor(private _routeParams:RouteParams,
-                private _playerService:PlayersService,
-                private _title:TitleService,
-                private _store:Store) { }
+    constructor(private _routeParams :RouteParams,
+                private _playerService :PlayersService,
+                private _title :TitleService,
+                private _store :Store) { }
 
     ngOnInit() {
         this.name = this._routeParams.get('nickname').trim();

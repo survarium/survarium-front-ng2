@@ -10,12 +10,7 @@ import { I18N } from '../../services/i18n'
     selector: 'players-detail-matches',
     directives: [DataGrid],
     inputs: ['data', 'lang'],
-    template: `
-        <!--<button (click)="testNew()">TestNew()</button>
-        <button (click)="testUpdate()">TestUpdate()</button>
-        <button (click)="testClear()">TestClear()</button>-->
-        <data-grid [data]="data" [columns]="columns" [columnHeight]="30"></data-grid>
-    `
+    template: require('./players-detail-matches.html')
 })
 
 export class PlayersDetailMatches {

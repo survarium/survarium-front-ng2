@@ -4,34 +4,20 @@ import { Router } from 'angular2/router'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { TitleService } from '../../services/title'
-import { I18N, I18NPipe } from '../../services/i18n'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 import Nickname from '../../components.common/nickname/nickname'
 
 @Component({
     providers  : [],
     directives : [NgForm, FORM_DIRECTIVES, Nickname],
     pipes: [I18NPipe],
-    styles: [
-        `
-        :host { display: block }
-        form { padding: 1em; }
-        li { display: list-item; }
-        input[type="submit"] { display: inline-block; }
-        `
-    ],
-    template: `
-        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-            <input ngControl="nickname" placeholder="{{'nickname' | i18n}}" #nickname (keyup)="search(nickname.value)" />
-            <input type="submit" value="{{'find' | i18n}}" />
-        </form>
-
-        <ul>
-            <li *ngFor="#item of items | async"><nickname [nickname]="item.nickname" [clan]="item.clan"></nickname></li>
-        </ul>`,
-    selector   : 'players-search',
+    styles: [require('./players-search.styl')],
+    template: require('./players-search.html'),
+    selector: 'players-search',
 })
 
-export class PlayersSearchComponent {
+export class PlayersSearch {
     constructor(private _router :Router,
                 private _playerService :PlayersService,
                 private _title :TitleService,
@@ -64,4 +50,4 @@ export class PlayersSearchComponent {
         .switchMap((term:string) => this._playerService.search(term));
 }
 
-export default PlayersSearchComponent
+export default PlayersSearch

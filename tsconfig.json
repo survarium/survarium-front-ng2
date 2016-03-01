@@ -16,7 +16,8 @@
     "./app/**/*.ts",
     "./test/**/*.ts",
     "!./node_modules/**/*.ts",
-    "typings/browser.d.ts"
+    "typings/browser.d.ts",
+    "app/typings/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

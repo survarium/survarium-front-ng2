@@ -9,7 +9,8 @@ import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
 import Clan from '../../components.common/clan/clan'
-import { I18N, I18NPipe } from '../../services/i18n'
+import { I18N } from '../../services/i18n'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     directives: [DataGrid],
@@ -19,7 +20,7 @@ import { I18N, I18NPipe } from '../../services/i18n'
     styles: []
 })
 
-export class MatchesListCWComponent {
+export class MatchesListCW {
     private data :any[];
 
     private columns :any[] = [];
