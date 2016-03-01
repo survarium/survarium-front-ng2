@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run typings install",
     "start": "API_PATH='http://survarium.dev:3010/api' ENV='development' webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base app/",
-    "postbuild": "rimraf dist && mv dist_prod dist",
+    "postbuild": "rimraf dist && cp -r dist_prod dist",
     "build": "webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached",
     "build:serve": "http-server dist --cors",
     "typings": "typings"
