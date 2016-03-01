@@ -139,20 +139,17 @@ module.exports = helpers.validate({
 			// compress : { screw_ie8 : true, keep_fnames: true, drop_debugger: false, dead_code: false, unused: false, }, // debug
 			// comments: true,//debug
 
-			beautify: false,//prod
-			// disable mangling because of a bug in angular2 beta.1, beta.2 and beta.3
-			// TODO(mastertinner): enable mangling as soon as angular2 beta.4 is out
-			// mangle: { screw_ie8 : true },//prod
-			mangle  : false,
-			compress: { screw_ie8: true },//prod
-			comments: false//prod
+			beautify: false,
+			mangle: { screw_ie8 : true },
+			compress: { screw_ie8: true },
+			comments: false
 
-		})/*, // include uglify in production
+		}), // include uglify in production
 		new CompressionPlugin({
-			algorithm: gzipMaxLevel,
-			regExp   : /\.css$|\.html$|\.js$|\.map$|\.styl$/,
+			algorithm: helpers.gzipMaxLevel,
+			regExp: /\.css$|\.html$|\.js$|\.map$|\.styl$/,
 			threshold: 2 * 1024
-		})*/
+		})
 	], // Other module loader config
 	stylus: {
 		use: [
