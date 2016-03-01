@@ -80,7 +80,7 @@ export class ClansList {
                 title: i18n.get('level'),
                 field: 'level',
                 width: 80,
-                sort: { 'level': { }, 'elo': { } }
+                sort: { 'elo': { } }
             }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
