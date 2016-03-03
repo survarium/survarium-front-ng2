@@ -10,13 +10,8 @@ import { MatchesDetail } from './matches-detail'
     selector: 'matches',
     directives: [RouterOutlet, ROUTER_DIRECTIVES],
     pipes: [I18NPipe],
-    styles: [
-        `
-        .nav-link { display: inline-block; padding: .5em; }
-        `
-    ],
-    template: `
-     <nav>
+    styles: [require('../../components.common/sub-nav/sub-nav.styl')],
+    template: `<nav>
       <a [routerLink]="['./MatchesList']" class="nav-link">{{'matches.list' | i18n}}</a>
       <a [routerLink]="['./MatchesCWList']" class="nav-link">{{'matches.cw.title' | i18n}}</a>
     </nav>
@@ -24,8 +19,8 @@ import { MatchesDetail } from './matches-detail'
 })
 
 @RouteConfig([
-    { path: '/list', name: 'MatchesList', component: MatchesList, useAsDefault: true },
-    { path: '/clanwars', name: 'MatchesCWList', component: MatchesListCW },
+    { path: '/', name: 'MatchesList', component: MatchesList, useAsDefault: true },
+    { path: '../clanwars', name: 'MatchesCWList', component: MatchesListCW },
     { path: '/:match', name: 'MatchesDetail', component: MatchesDetail }/*
     new AsyncRoute({ path: '/list', name: 'MatchesList', loader: () => require('es6-promise!./matches-list')('MatchesList'), useAsDefault: true }),
     new AsyncRoute({ path: '/clanwars', name: 'MatchesCWList', loader: () => require('es6-promise!./matches-list-cw')('MatchesListCW') }),

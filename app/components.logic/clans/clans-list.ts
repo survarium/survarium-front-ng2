@@ -16,14 +16,14 @@ import { I18NPipe } from '../../pipes/i18n'
     pipes: [I18NPipe],
     template: require('./clans-list.html'),
     selector: 'clans-list',
-    styles: [`data-grid {margin: 2em auto;}`, require('./clans-list.css')]
+    styles: [require('./clans-list.styl')]
 })
 
 export class ClansList {
     data :any[];
 
     private columns :any[] = [];
-    private showCW  :boolean = true;
+    private showCW  :boolean = false;
 
     private stream (options ?:any)  {
         options = options || {};
@@ -57,7 +57,7 @@ export class ClansList {
 
         elList.changes.subscribe(() => this.grid = elList.first);
 
-        this._title.setTitle(i18n.get('clans.list'));
+        this._title.setTitle(i18n.get('clans.docTitle'));
 
         this.columns = [
             {

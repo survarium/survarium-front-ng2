@@ -9,13 +9,8 @@ import { ClansDetail } from './clans-detail'
     selector: 'clans',
     directives: [RouterOutlet, ROUTER_DIRECTIVES],
     pipes: [I18NPipe],
-    styles: [
-        `
-        .nav-link { display: inline-block; padding: .5em; }
-        `
-    ],
-    template: `
-     <nav>
+    styles: [require('../../components.common/sub-nav/sub-nav.styl')],
+    template: `<nav>
       <!--<a [routerLink]="['./PlayersSearch']" class="nav-link">{{'clans:search' | i18n}}</a>-->
       <a [routerLink]="['./ClansList']" class="nav-link">{{'clans.list' | i18n}}</a>
       <a *ngFor="#clan of clans" [routerLink]="['./ClansDetail', { abbr: clan }]" class="nav-link">{{clan}}</a>

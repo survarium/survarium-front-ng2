@@ -10,13 +10,8 @@ import { PlayersDetail } from './players-detail'
     selector: 'players',
     directives: [RouterOutlet, ROUTER_DIRECTIVES],
     pipes: [I18NPipe],
-    styles: [
-        `
-        .nav-link { display: inline-block; padding: .5em; }
-        `
-    ],
-    template: `
-     <nav>
+    styles: [require('../../components.common/sub-nav/sub-nav.styl')],
+    template: `<nav>
       <a [routerLink]="['./PlayersSearch']" class="nav-link">{{'players.search.title' | i18n}}</a>
       <a [routerLink]="['./PlayersList']" class="nav-link">{{'players.list' | i18n}}</a>
       <a *ngFor="#player of players" [routerLink]="['./PlayersDetail', { nickname: player }]" class="nav-link">{{player}}</a>

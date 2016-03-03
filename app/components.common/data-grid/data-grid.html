@@ -1,27 +1,29 @@
-<div class="container" [style.width]="width">
-    <div class="header">
-        <data-grid-cell-title
-                *ngFor="#column of columns, #i=index"
-                [column]="column"
-                [columnIndex]="i"
-                [width]="column.width || defaultColumnWidth"
-                [height]="columnHeadHeight"
-                [title]="column.title"
-                [sort]="currentSort"
-                (click)="headerClick({ column: column, columnIndex: i }, $event)"></data-grid-cell-title>
-    </div>
-    <div class="body">
-        <div *ngFor="#row of data, #i=index" class="row">
-            <data-grid-cell
-                    *ngFor="#column of columns, #j=index"
-                    [row]="row"
-                    [rowIndex]="i"
+<div class="grid">
+    <div class="container" [style.width]="width">
+        <div class="header">
+            <data-grid-cell-title
+                    *ngFor="#column of columns, #i=index"
                     [column]="column"
-                    [columnIndex]="j"
+                    [columnIndex]="i"
                     [width]="column.width || defaultColumnWidth"
-                    [height]="columnHeight"
-                    [skip]="skip"
-                    (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
+                    [height]="columnHeadHeight"
+                    [title]="column.title"
+                    [sort]="currentSort"
+                    (click)="headerClick({ column: column, columnIndex: i }, $event)"></data-grid-cell-title>
+        </div>
+        <div class="body">
+            <div *ngFor="#row of data, #i=index" class="row">
+                <data-grid-cell
+                        *ngFor="#column of columns, #j=index"
+                        [row]="row"
+                        [rowIndex]="i"
+                        [column]="column"
+                        [columnIndex]="j"
+                        [width]="column.width || defaultColumnWidth"
+                        [height]="columnHeight"
+                        [skip]="skip"
+                        (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
+            </div>
         </div>
     </div>
 </div>

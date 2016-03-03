@@ -1,0 +1,15 @@
+@import "../variables.styl"
+
+nav
+  padding 1em 0
+
+  & > a
+    display inline-block
+    padding .5em
+
+    &:first-of-type
+      padding-left 0
+
+    &.router-link-active
+      text-decoration none
+      color $highlight

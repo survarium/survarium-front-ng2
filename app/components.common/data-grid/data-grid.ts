@@ -24,7 +24,7 @@ interface Column {
     directives: [Cell, CellTitle, Pagination, Loading, Counters],
     inputs: ['data', 'columns', 'stream'],
     template: require('./data-grid.html'),
-    styles: [require('./data-grid.css')]
+    styles: [require('./data-grid.styl')]
 })
 
 export class DataGrid implements OnChanges {

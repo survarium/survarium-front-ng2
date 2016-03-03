@@ -68,8 +68,10 @@ let dict = {
         }
     },
     clans: {
+        title: 'Clans',
+        docTitle: 'Clans',
         one: 'Clan',
-        list: 'Clans',
+        list: 'Clans list',
         listCWDescription: 'Showing top of clans based on <strong>clawnar statistics</strong>',
         listDescription: 'Showing top of clans based on <strong>all matches</strong>'
     },

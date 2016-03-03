@@ -15,11 +15,7 @@ import { PlayersList as PlayersListTyping } from '../../typings/players-list'
     pipes: [I18NPipe],
     template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
     selector: 'players-list',
-    styles: [`
-        data-grid {
-            margin: 2em auto;
-        }
-    `]
+    styles: []
 })
 
 export class PlayersList {

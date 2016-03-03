@@ -73,8 +73,10 @@ let dict = {
         }
     },
     clans: {
+        title: 'Кланы',
+        docTitle: 'Кланы',
         one: 'Клан',
-        list: 'Кланы',
+        list: 'Список кланов',
         listCWDescription: 'Показан топ кланов, <strong>участвующих в CW</strong>',
         listDescription: 'Показан <strong>паблик</strong> топ кланов'
     },

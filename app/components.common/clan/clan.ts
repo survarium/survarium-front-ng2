@@ -7,21 +7,7 @@ import { I18N } from '../../services/i18n'
     directives: [NgIf],
     inputs: ['abbr', 'name', 'classes', 'win'],
     template: `<a *ngIf="abbr" class="clan" href="https://survarium.pro/?clan={{abbr}}" target="_blank" title="{{_preTitle}}{{name}}" [class]="_classes">{{abbr}}</a>`,
-    styles: [`
-        :host {
-            display: inline;
-        }
-        .clan_default::before {
-            content: '[';
-        }
-        .clan_default::after {
-            content: '] ';
-        }
-        .clan_winner {
-            font-weight: 700;
-            color: #ffce1f;
-        }
-    `]
+    styles: [require('./clan.styl')]
 })
 
 export default class Clan {

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from 'angular2/core'
+import { Component, Inject, OnInit, ViewEncapsulation } from 'angular2/core'
 import { NgForm, FORM_DIRECTIVES } from 'angular2/common'
 import { Router } from 'angular2/router'
 import { Observable } from 'rxjs/Observable'
@@ -15,6 +15,7 @@ import Nickname from '../../components.common/nickname/nickname'
     styles: [require('./players-search.styl')],
     template: require('./players-search.html'),
     selector: 'players-search',
+    encapsulation: ViewEncapsulation.None
 })
 
 export class PlayersSearch {

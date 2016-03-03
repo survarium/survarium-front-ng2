@@ -3,14 +3,14 @@ import { Title as TitleProvider } from 'angular2/platform/browser' // CLIENT-SID
 
 @Injectable()
 export class TitleService {
-    _projectName :string;
+    _appName :string;
 
     constructor(private title :TitleProvider, @Inject('CONFIG') private _config) {
-        this._projectName = _config.title;
+        this._appName = _config.title;
     }
 
     setTitle(title :string) {
-        this.title.setTitle(this._projectName + ' | ' + title);
+        this.title.setTitle(this._appName + ' | ' + title);
     }
 }
 
