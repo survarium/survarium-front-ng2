@@ -5,7 +5,7 @@
 
     <meta name="description" content="<%= webpackConfig.metadata.description %>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=0.25, maximum-scale=2">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=yes, minimum-scale=0.25, maximum-scale=2">
 
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/icon/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/icon/apple-touch-icon-114x114.png" />
@@ -101,7 +101,8 @@
 
 <body>
     <div class="bg"></div>
-    <survarium-stats>Loading...</survarium-stats>
+    <survarium-stats><noindex>Loading...</noindex><%= webpackConfig.metadata.title %>. <%= webpackConfig.metadata.description %></survarium-stats>
+    <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %></small></noindex>
     <% if (webpackConfig.metadata.ENV === 'development') { %>
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
     <% } %>

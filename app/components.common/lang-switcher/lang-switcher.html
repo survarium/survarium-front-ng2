@@ -1,0 +1,1 @@
+<a *ngFor="#lang of languages" class="lang" [class.current]="lang.lang===currentLang.lang" (click)="switch(lang)">{{lang.originName}}</a>

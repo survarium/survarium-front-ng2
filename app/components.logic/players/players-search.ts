@@ -23,7 +23,7 @@ export class PlayersSearch {
                 private _title :TitleService,
                 private i18n :I18N
     ) {
-        _title.setTitle(i18n.get('players:head:title:search'));
+        _title.setTitle(i18n.get('players.search.docTitle'));
     }
 
     private onSubmit(form) {

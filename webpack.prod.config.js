@@ -23,7 +23,9 @@ var metadata = {
 	host       : HOST,
 	port       : PORT,
 	ENV        : ENV,
-	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api'
+	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api',
+	version    : helpers.version,
+	updated    : helpers.updated
 };
 
 /*

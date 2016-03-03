@@ -28,7 +28,6 @@ let dict = {
     role        : 'Role',
     rating      : 'Rating',
     winrate     : 'Winrate',
-    matches     : 'Matches',
     avgScore    : 'Avg.Score',
     victories   : 'Victories',
     totalMatches: 'Total matches',
@@ -41,11 +40,6 @@ let dict = {
     profile     : 'Profile',
     ammunition  : 'Ammunition',
     active      : 'Active',
-    dt          : {
-        basic   : 'General',
-        actions : 'Actions',
-        all     : 'Show all'
-    },
     roles        : {},
     headshots    : 'Headshots',
     grenadeKills : 'Grenade kills',
@@ -54,11 +48,53 @@ let dict = {
     pointCaptures: 'Captured points',
     boxesBringed : 'Brought boxes',
     artefactUses : 'Artifacts usage',
-    players  : 'Players',
-    'players:list'  : 'Players list',
-    'players:search': 'Players search',
-    'players:head:title:search': 'Players search',
-    loading: 'Loading...'
+    elo: 'ELO',
+    players: {
+        docTitle: 'Players',
+        title: 'Players',
+        list: 'Players list',
+        search: {
+            docTitle: 'Player search',
+            title: 'Player search'
+        }
+    },
+    matches: {
+        list: 'Matches',
+        cw: {
+            title: 'Clanwars',
+            clan1: { title: 'Clan 1', score: 'Score 1' },
+            clan2: { title: 'Clan 2', score: 'Score 2' },
+            winner: 'Winner'
+        }
+    },
+    clans: {
+        one: 'Clan',
+        list: 'Clans',
+        listCWDescription: 'Showing top of clans based on <strong>clawnar statistics</strong>',
+        listDescription: 'Showing top of clans based on <strong>all matches</strong>'
+    },
+    loading: 'Loading...',
+    modes: {
+        'Team Deathmatch': 'TDM',
+        'Last Stand': 'DM',
+        'Research': 'Research',
+        'Battery retrieval': 'Batteries'
+    },
+    maps: {
+        'Chemical Plant': 'Chemical Plant',
+        'Vector Laboratory': 'Vector Lab',
+        'Rudnya': 'Rudnya',
+        'Tarakanovsky Fort': 'Fort',
+        'Vostok Radar Station': 'Radar',
+        'Cologne Bridge': 'Cologne',
+        'School': 'School',
+        'London': 'London',
+        'Mamayev Kurgan': 'Kurgan'
+
+    },
+    dataGrid: {
+        counter: 'Showing {{from}} to {{to}} of {{total}} entries'
+    }
 };
 
 export { dict }

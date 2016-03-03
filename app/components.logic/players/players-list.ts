@@ -40,10 +40,10 @@ export class PlayersList {
             });
     };
 
-    constructor(private _playerService:PlayersService,
-                private _title:TitleService,
-                private i18n:I18N) {
-        this._title.setTitle(i18n.get('players:list'));
+    constructor(private _playerService :PlayersService,
+                private _title :TitleService,
+                private i18n :I18N) {
+        this._title.setTitle(i18n.get('players.docTitle'));
 
         this.stream = this.stream.bind(this);
 

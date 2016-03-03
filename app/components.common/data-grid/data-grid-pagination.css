@@ -1,18 +1,25 @@
-:host {
-    display: block;
-    padding: 1em 0;
+:host
+{
+    float: right;
+
+    text-align: right;
 }
 
-.data-grid__page {
+.data-grid__page
+{
     display: inline-block;
-    cursor: pointer;
+
     padding: .3em .5em;
+
+    cursor: pointer;
 }
 
-.data-grid__page_current {
+.data-grid__page_current
+{
     color: #ffce1f;
 }
 
-.data-grid__page_breaker {
+.data-grid__page_breaker
+{
     cursor: auto;
 }

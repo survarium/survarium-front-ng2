@@ -1,0 +1,24 @@
+:host
+  &.sort
+    cursor pointer
+    position relative
+
+    &::after
+      position absolute
+      right .1em
+      top 50%
+      margin-top -.66em
+      content '\21C5'
+      line-height 1.33em
+
+    &_asc
+    &_desc
+      color #fff
+
+    &_asc
+      &::after
+        content '\2191'
+
+    &_desc
+      &::after
+        content '\2193'

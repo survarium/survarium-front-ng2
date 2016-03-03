@@ -3,12 +3,14 @@ import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router'
 import { Players } from '../players/players'
 import { Matches } from '../matches/matches'
 import { Clans } from '../clans/clans'
+import { LangSwitcher } from '../../components.common/lang-switcher/lang-switcher'
 import I18NPipe from '../../pipes/i18n'
 
 @Component({
     selector: 'survarium-stats',
     directives: [
-        ROUTER_DIRECTIVES
+        ROUTER_DIRECTIVES,
+        LangSwitcher
     ],
     pipes: [I18NPipe],
     styles: [require('./app.styl')],

@@ -40,11 +40,6 @@ let dict = {
     profile      : 'Профиль',
     ammunition   : 'Аммуниция',
     active       : 'Активный',
-    dt           : {
-        basic    : 'Общее',
-        actions  : 'Действия',
-        all      : 'Показать все'
-    },
     roles        : {
         commander: 'Командир',
         warlord  : 'Сержант',
@@ -58,11 +53,16 @@ let dict = {
     pointCaptures: 'Точек захвачено',
     boxesBringed : 'Принесено ящиков',
     artefactUses : 'Использовано артефактов',
-    players      : 'Игроки',
     elo          : 'ELO',
-    'players:list'  : 'Список игроков',
-    'players:search': 'Поиск игрока',
-    'players:head:title:search': 'Поиск игрока',
+    players: {
+        docTitle: 'Игроки',
+        title: 'Игроки',
+        list: 'Список игроков',
+        search: {
+            docTitle: 'Поиск игрока',
+            title: 'Поиск игрока'
+        }
+    },
     matches: {
         list: 'Матчи',
         cw: {
@@ -96,6 +96,9 @@ let dict = {
         'Лондон': 'Лондон',
         'Мамаев курган': 'Курган'
 
+    },
+    dataGrid: {
+        counter: 'Показано с {{from}} по {{to}} из {{total}} записей'
     }
 };
 

@@ -1,5 +1,5 @@
 import { Injectable, Component, Inject } from 'angular2/core'
-import { Title as TitleProvider } from 'angular2/platform/browser'
+import { Title as TitleProvider } from 'angular2/platform/browser' // CLIENT-SIDE ONLY
 
 @Injectable()
 export class TitleService {

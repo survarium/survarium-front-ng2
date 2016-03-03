@@ -4,13 +4,26 @@ import { i18n } from '../services/i18n'
 @Pipe({ name: 'i18n' })
 export class I18NPipe implements PipeTransform {
     transform(key :string|number, args:string[]) : any {
-        let options;
         let allowOriginal;
-        if (args[0]) {
-            options = args[0].split(';');
-            allowOriginal = !!~options.indexOf('allowOriginal');
+
+        if (args.length) {
+            let allowOriginalPos = args.indexOf('allowOriginal');
+            allowOriginal = allowOriginalPos !== -1;
+            if (allowOriginal) {
+                args.splice(allowOriginalPos, 1);
+            }
         }
-        return i18n.get(key) || (allowOriginal ? key : `I18N: missing \`${key}\``);
+
+        let opts = {};
+        if (args.length) {
+            args.reduce((opts, arg) => {
+                let [ key, val ] = arg.split('=');
+                opts[key] = val;
+                return opts;
+            }, opts);
+        }
+
+        return i18n.get(key, opts) || (allowOriginal ? key : `I18N: missing \`${key}\``);
     }
 }
 

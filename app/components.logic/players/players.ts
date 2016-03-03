@@ -14,8 +14,8 @@ import I18NPipe from '../../pipes/i18n'
     ],
     template: `
      <nav>
-      <a [routerLink]="['./PlayersSearch']" class="nav-link">{{'players:search' | i18n}}</a>
-      <a [routerLink]="['./PlayersList']" class="nav-link">{{'players:list' | i18n}}</a>
+      <a [routerLink]="['./PlayersSearch']" class="nav-link">{{'players.search.title' | i18n}}</a>
+      <a [routerLink]="['./PlayersList']" class="nav-link">{{'players.list' | i18n}}</a>
       <a *ngFor="#player of players" [routerLink]="['./PlayersDetail', { nickname: player }]" class="nav-link">{{player}}</a>
     </nav>
     <router-outlet></router-outlet>`,

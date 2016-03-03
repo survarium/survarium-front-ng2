@@ -1,4 +1,5 @@
-import { Injectable, Pipe } from 'angular2/core';
+import { Injectable, Pipe } from 'angular2/core'
+import { Language } from '../typings/language'
 
 import CONFIG from '../config'
 import Storage from '../utils/storage'
@@ -7,38 +8,43 @@ let LANGUAGES = CONFIG.i18n.languages;
 
 function detectLang () {
     let language = Storage.getItem('language');
+
+    if (!language) {
+        // CLIENT-SIDE ONLY
+        language = window.navigator.userLanguage || window.navigator.language;
+    }
+
     if (!language) {
         return LANGUAGES[0];
     }
+
     return LANGUAGES.filter(function (lang) {
         return lang.lang === language;
     })[0] || LANGUAGES[0];
 }
 
 let LANGUAGE = detectLang();
-interface LANGUAGE {
-    lang :string,
-    apiLang :string,
-    dict: any
-}
 
 @Injectable()
 class I18N {
     dict  :any;
     cache :any = {};
-    private lang  :LANGUAGE;
+    private lang  :Language;
 
-    constructor (LANG ?:LANGUAGE) {
+    constructor (LANG ?:Language) {
         this.lang = LANG || LANGUAGE;
         this.dict = this.lang.dict;
     }
 
-    get (key) {
-        if (!key) {
-            console.warn(`I18N: no key received`);
-            return null;
-        }
+    private _applyVariables (translation, variables) {
+        Object.keys(variables).forEach((key) => {
+            let exp = '\{\{' + key + '\}\}';
+            translation = translation.replace(new RegExp(exp), variables[key]);
+        });
+        return translation;
+    }
 
+    private _getTranslation (key) {
         let cached = this.cache[key];
         if (cached) {
             return cached;
@@ -58,12 +64,40 @@ class I18N {
         return fetched;
     }
 
+    get (key, options ?:any) {
+        if (!key) {
+            console.warn(`I18N: no key received`);
+            return null;
+        }
+
+        let fetched = this._getTranslation(key);
+
+        if (options) {
+            fetched = this._applyVariables(fetched, options);
+        }
+
+        return fetched;
+    }
+
     get apiLang () {
         return this.lang.apiLang;
+    }
+
+    public switch (language :Language) {
+        if (language.lang === this.lang.lang) {
+            return;
+        }
+        if (!~LANGUAGES.indexOf(language)) {
+            return;
+        }
+        Storage.setItem('language', language.lang);
+
+        // CLIENT-SIDE ONLY
+        window.location.reload();
     }
 }
 
 let i18n = new I18N(LANGUAGE);
 
-export { LANGUAGE, detectLang, i18n, I18N }
+export { LANGUAGE, detectLang, i18n, I18N, LANGUAGES }
 export default I18N

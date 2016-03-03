@@ -12,14 +12,17 @@ import {
     ComponentRef,
     OnInit
 } from 'angular2/core'
+import {unescape} from "querystring";
 
 @Component({
     selector: 'data-grid-cell',
-    template: `<div #componentAnchor></div>{{content}}`,
-    styles: [require('./data-grid-cell.css')]
+    template: `<a #componentAnchor></a>{{content}}`,
+    styles: [require('./data-grid-cell.styl')]
 })
 
 export class DataGridCell implements OnInit {
+    _isTitleCell :boolean = false;
+
     @Input() column :any;
     @Input() columnIndex :number;
     @Input() @Optional() row :any;
@@ -34,6 +37,33 @@ export class DataGridCell implements OnInit {
 
     @HostBinding('style.width')  @Input() width  :number;
     @HostBinding('style.height') @Input() height :number;
+
+    @HostBinding('class') get classes () {
+        let classes = [];
+
+        if (this.column && this.column.classes) {
+            classes.push(this.column.classes);
+        }
+
+        if (this.column && this.column.sort) {
+            classes.push('sort');
+        }
+
+        if (this._sort) {
+            classes.push(`sort_${this._sort > 0 ? 'asc' : 'desc'}`);
+        }
+
+        return classes.join(' ');
+    }
+
+    private _sort :number;
+    @Input('sort') set sort(currentSort :{ column ?:any, dir ?:number }) {
+        if (currentSort.column === this.column) {
+            this._sort = currentSort.dir;
+        } else {
+            this._sort = undefined;
+        }
+    }
 
     private content;
 
