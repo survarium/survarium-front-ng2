@@ -6,11 +6,21 @@
 
 survarium-stats
   font-smoothing antialiased
-  position relative
   display block
 
   &, a, a:visited
     color rgba(245, 245, 245, 0.65)
+
+body
+  margin-bottom 2em
+
+footer
+  height 2em
+  position absolute
+  bottom 0
+  width 100%
+  display block
+  box-sizing border-box
 
 .panes
   &__tabs
@@ -32,6 +42,11 @@ survarium-stats
     position relative
     display block
     margin-top 60px
+
+    & + *
+      padding 0 18px
+      max-width 1500px
+      margin 0 auto
 
 
   &__pane

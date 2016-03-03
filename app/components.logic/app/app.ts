@@ -7,6 +7,13 @@ import { LangSwitcher } from '../../components.common/lang-switcher/lang-switche
 import I18NPipe from '../../pipes/i18n'
 
 @Component({
+    selector: 'home',
+    template: `Home`
+})
+
+export class Home {}
+
+@Component({
     selector: 'survarium-stats',
     directives: [
         ROUTER_DIRECTIVES,
@@ -19,11 +26,10 @@ import I18NPipe from '../../pipes/i18n'
 })
 
 @RouteConfig([
+    //{ path: '/', name: 'Home', component: Home/*, useAsDefault: true*/ },
     { path: '/players/...', name: 'PlayersList', component: Players, useAsDefault: true },
     { path: '/matches/...', name: 'MatchesList', component: Matches },
     { path: '/clans/...', name: 'ClansList', component: Clans }
 ])
 
-export class App {
-
-}
+export class App {}

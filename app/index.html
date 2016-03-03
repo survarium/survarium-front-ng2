@@ -31,6 +31,11 @@
     <meta name="msapplication-square310x310logo" content="/assets/icon/mstile-310x310.png" />
 
     <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
         body {
             color: rgba(245, 245, 245, 0.65);
             background-color: #191C23;
@@ -103,8 +108,11 @@
 
 <body>
     <div class="bg"></div>
-    <survarium-stats><noindex>Loading...</noindex><%= webpackConfig.metadata.title %>. <%= webpackConfig.metadata.description %></survarium-stats>
-    <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %></small></noindex>
+    <survarium-stats>
+        <noindex>Loading...</noindex>
+        <div><%= webpackConfig.metadata.title %>. <%= webpackConfig.metadata.description %></div>
+        <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %></small></noindex>
+    </survarium-stats>
     <% if (webpackConfig.metadata.ENV === 'development') { %>
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
     <% } %>
