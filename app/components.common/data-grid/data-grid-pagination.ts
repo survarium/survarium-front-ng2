@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from 'angular2/core'
     selector: 'data-grid-pagination',
     inputs: ['skip', 'limit', 'total'],
     template: require('./data-grid-pagination.html'),
-    styles: [require('./data-grid-pagination.css')]
+    styles: [require('./data-grid-pagination.styl')]
 })
 
 export class DataGridPagination {
@@ -38,7 +38,7 @@ export class DataGridPagination {
             }
         } else {
             let current = this.current;
-            let _firstUnbreak = 5;
+            let _firstUnbreak = 4;
             if (current < _firstUnbreak - 1 || current > total - _firstUnbreak) {
                 for (let i = 0; i < _firstUnbreak; i++) {
                     _pages.push(this.page(i));
@@ -50,7 +50,7 @@ export class DataGridPagination {
             } else {
                 _pages.push(this.page(0));
                 current !== (_firstUnbreak - 1) && _pages.push(this.breaker());
-                for (let i = current - 3; i < current + 4; i++) {
+                for (let i = Math.max(1, current - _firstUnbreak + 1); i < current + _firstUnbreak; i++) {
                     _pages.push(this.page(i));
                 }
                 current !== (total - _firstUnbreak) && _pages.push(this.breaker());

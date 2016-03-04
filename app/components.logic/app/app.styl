@@ -18,16 +18,20 @@ survarium-stats
   &, a, a:visited
     color rgba(245, 245, 245, 0.65)
 
+
+$footerHeight = 3em
+
 body
-  margin-bottom 2em
+  margin-bottom $footerHeight
 
 footer
-  height 2em
+  height $footerHeight
   position absolute
   bottom 0
   width 100%
   display block
   box-sizing border-box
+  padding-top 1em
 
 .panes
   &__tabs
