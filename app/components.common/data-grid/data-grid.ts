@@ -69,7 +69,7 @@ export class DataGrid implements OnChanges {
             })
             .subscribe(() => {
                 this.loading = false;
-            });
+            }, (err) => {});
 
         this.load();
     }

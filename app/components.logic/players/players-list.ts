@@ -9,6 +9,7 @@ import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { PlayersList as PlayersListTyping } from '../../typings/players-list'
+import {error} from "util";
 
 @Component({
     directives: [DataGrid],
@@ -33,7 +34,7 @@ export class PlayersList {
                     return elem;
                 });
                 return result;
-            });
+            }, (error) => {});
     };
 
     constructor(private _playerService :PlayersService,

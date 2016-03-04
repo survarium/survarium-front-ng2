@@ -13,30 +13,8 @@ import { I18NPipe } from '../../pipes/i18n'
     selector: 'players-detail',
     directives: [NgIf, Counts, Nickname, Matches],
     pipes: [I18NPipe],
-    template: `
-        <div *ngIf="!show">{{'loading' | i18n}}</div>
-        <pre *ngIf="error">{{error}}</pre>
-        <div *ngIf="show">
-            <nickname [nickname]="data.nickname" [clan]="data.clan"></nickname>
-            <players-detail-counts [data]="data"></players-detail-counts>
-            <players-detail-matches [data]="matches" [lang]="lang"></players-detail-matches>
-        </div>
-    `,
-    styles: [`
-        nickname {
-            font-size: 2em;
-            font-weight: 700;
-        }
-
-        nickname .name {
-            color: #ffce1f;
-            text-decoration: none;
-        }
-
-        players-detail-matches {
-            margin: 2em auto;
-        }
-    `]
+    template: require('./players-detail.html'),
+    styles: [require('./players-detail.styl')]
 })
 
 export class PlayersDetail implements OnInit {

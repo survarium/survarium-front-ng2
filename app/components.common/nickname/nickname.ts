@@ -7,12 +7,8 @@ import Clan from '../clan/clan'
     selector: 'nickname',
     directives: [NgIf, Clan, ROUTER_DIRECTIVES],
     inputs: ['nickname', 'clan'],
-    template: `<template [ngIf]="nickname"><clan [abbr]="clan?.abbr" [name]="clan?.name"></clan><a [routerLink]="['PlayersDetail', { nickname: nickname }]" class="name">{{_rawNickname}}</a></template>`,
-    styles: [`
-    :host, .name {
-        display: inline;
-    }
-    `]
+    template: require('./nickname.html'),
+    styles: [require('./nickname.styl')]
 })
 
 export class Nickname {

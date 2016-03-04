@@ -1,0 +1,7 @@
+<div *ngIf="!show">{{'loading' | i18n}}</div>
+<pre *ngIf="error">{{error}}</pre>
+<template [ngIf]="show">
+    <nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname>
+    <players-detail-counts [data]="data"></players-detail-counts>
+    <players-detail-matches [data]="matches" [lang]="lang"></players-detail-matches>
+</template>

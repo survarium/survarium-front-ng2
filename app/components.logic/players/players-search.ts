@@ -48,7 +48,7 @@ export class PlayersSearch {
     private items = this._searchTermStream
         .debounceTime(300)
         .distinctUntilChanged()
-        .switchMap((term:string) => this._playerService.search(term));
+        .switchMap((term:string) => this._playerService.search(term).catch(() => Observable.empty()));
 }
 
 export default PlayersSearch

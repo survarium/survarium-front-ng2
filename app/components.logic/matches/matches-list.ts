@@ -41,10 +41,7 @@ export class MatchesList {
         ];
 
         this._matchesService.list().subscribe((data :any[]) => {
-            console.log(data);
             return this.data = data;
-        }, (err) => {
-            console.error(err);
-        });
+        }, (err) => {});
     }
 }

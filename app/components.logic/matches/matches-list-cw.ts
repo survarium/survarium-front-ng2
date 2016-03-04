@@ -46,10 +46,7 @@ export class MatchesListCW {
         ];
 
         this._matchesService.list({ cw: true }).subscribe((data :any[]) => {
-            console.log(data);
             return this.data = data;
-        }, (err) => {
-            console.error(err);
-        });
+        }, (err) => {});
     }
 }

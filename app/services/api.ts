@@ -37,7 +37,7 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            .do(data => console.log(data))
+            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -55,7 +55,7 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            .do(data => console.log(data))
+            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 

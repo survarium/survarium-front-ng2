@@ -1,0 +1,4 @@
+<template [ngIf]="nickname">
+    <clan [abbr]="clan?.abbr" [name]="clan?.name"></clan>
+    <a [routerLink]="['PlayersDetail', { nickname: nickname }]" class="name">{{_rawNickname}}</a>
+</template>
