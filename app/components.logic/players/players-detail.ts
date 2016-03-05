@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from 'angular2/core'
+import { Component, Inject } from 'angular2/core'
 import { NgIf } from 'angular2/common'
 import { RouteParams } from 'angular2/router'
 import { PlayersService } from '../../services/api'
@@ -17,28 +17,31 @@ import { I18NPipe } from '../../pipes/i18n'
     styles: [require('./players-detail.styl')]
 })
 
-export class PlayersDetail implements OnInit {
+export class PlayersDetail {
     private name  :string;
     private data  :any = {};
     private error :any;
 
     private show :boolean = false;
-    private lang :string = 'english';
-    private matches :any[] = [];
 
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,
                 private _title :TitleService,
-                private _store :Store) { }
+                private _store :Store) {
 
-    ngOnInit() {
         this.name = this._routeParams.get('nickname').trim();
+
         this._playerService
             .fetch(this.name)
             .subscribe(data => {
                 this.data = data;
-                this.matches = data.stats;
+
+                if (this.data.clan_meta) {
+                    this.data.clan = this.data.clan_meta;
+                }
+
                 this.show = true;
+
                 this._title.setTitle(this.data.nickname);
                 this._store.players.add(this.data.nickname);
             }, err => {

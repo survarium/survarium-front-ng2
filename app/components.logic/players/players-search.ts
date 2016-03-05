@@ -6,6 +6,7 @@ import { PlayersService } from '../../services/api'
 import { TitleService } from '../../services/title'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
+import { Storage } from '../../utils/storage'
 import Nickname from '../../components.common/nickname/nickname'
 
 @Component({
@@ -19,6 +20,8 @@ import Nickname from '../../components.common/nickname/nickname'
 })
 
 export class PlayersSearch {
+    value = Storage.getItem('players:search');
+
     constructor(private _router :Router,
                 private _playerService :PlayersService,
                 private _title :TitleService,
@@ -28,14 +31,16 @@ export class PlayersSearch {
     }
 
     private onSubmit(form) {
-        this.showPlayer(form.nickname)
+        this.showPlayer(form.nickname);
     }
 
     showPlayer(nickname) {
         if (!nickname) {
             return;
         }
-        this._router.navigate(['PlayersDetail', { nickname: nickname.trim() }]);
+        nickname = nickname.trim();
+        Storage.setItem('players:search', nickname);
+        this._router.navigate(['PlayersDetail', { nickname: nickname }]);
     }
 
     search:(value:string) => void;

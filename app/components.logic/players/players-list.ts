@@ -9,7 +9,6 @@ import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { PlayersList as PlayersListTyping } from '../../typings/players-list'
-import {error} from "util";
 
 @Component({
     directives: [DataGrid],
@@ -40,6 +39,7 @@ export class PlayersList {
     constructor(private _playerService :PlayersService,
                 private _title :TitleService,
                 private i18n :I18N) {
+
         this._title.setTitle(i18n.get('players.docTitle'));
 
         this.stream = this.stream.bind(this);

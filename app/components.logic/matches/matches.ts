@@ -23,7 +23,7 @@ import I18NPipe from '../../pipes/i18n'
     { path: '../clanwars', name: 'MatchesCWList', component: MatchesListCW },
     { path: '/:match', name: 'MatchesDetail', component: MatchesDetail }*/
     new AsyncRoute({ path: '/list', name: 'MatchesList', loader: () => require('es6-promise!./matches-list')('MatchesList'), useAsDefault: true }),
-    new AsyncRoute({ path: '../clanwars', name: 'MatchesCWList', loader: () => require('es6-promise!./matches-list-cw')('MatchesListCW') }),
+    new AsyncRoute({ path: '/clanwars', name: 'MatchesCWList', loader: () => require('es6-promise!./matches-list-cw')('MatchesListCW') }),
     new AsyncRoute({ path: '/:match', name: 'MatchesDetail', loader: () => require('es6-promise!./matches-detail')('MatchesDetail') })
 ])
 

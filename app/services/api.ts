@@ -51,11 +51,38 @@ export class PlayersService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + '/' + nickname, headers: headers, search: params, method: 'get' });
+        let options = new Request({ url: this._handleV2 + '/' + nickname, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
             //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить статистику игрока
+     * @param {String} nickname
+     * @param {Object} [query]
+     * @returns {Observable<R>}
+     */
+    stats(nickname :string, query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handleV2}/${nickname}/stats`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
 
@@ -69,6 +96,7 @@ export class PlayersService {
 
         var params = new URLSearchParams();
         params.set('lang', this.apiLang);
+
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {
@@ -106,7 +134,7 @@ export class MatchesService {
         this.apiLang = i18n.apiLang;
     }
 
-    private _handle :string = this.config.api + `/v1/matches`;
+    private _handle :string = this.config.api + `/v2/matches`;
 
 
     /**
@@ -119,12 +147,17 @@ export class MatchesService {
         query = query || {};
 
         var params = new URLSearchParams();
-        params.set('slim', '1');
         params.set('lang', this.apiLang);
-        params.set('cw', query.cw ? '1' : '0');
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
+        let options = new Request({ url: this._handle + (query.cw ? '/cw' : ''), headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
