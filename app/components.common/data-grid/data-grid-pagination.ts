@@ -12,6 +12,8 @@ export class DataGridPagination {
     @Input() limit :number;
     @Input() total :number;
 
+    private totalPages :number;
+
     private get current () {
         return this.skip / this.limit;
     };
@@ -25,7 +27,7 @@ export class DataGridPagination {
     }
 
     private get pages () {
-        let total = Math.ceil(this.total / this.limit);
+        let total = this.totalPages = Math.ceil(this.total / this.limit);
         let _pages = [];
 
         if (!total) {

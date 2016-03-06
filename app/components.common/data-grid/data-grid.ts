@@ -58,13 +58,13 @@ export class DataGrid implements OnChanges {
     @Input('stream') set _stream (handler :any) {
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
         this.stream
-            .debounceTime(300)
+            .debounceTime(150)
             .distinctUntilChanged()
             .switchMap((options :any) => { return handler(options) })
             .map((result) => {
-                this.data = result.data;
+                this.data  = result.data;
                 this.total = result.total;
-                this.skip = result.skip;
+                this.skip  = result.skip;
                 this.limit = result.limit;
             })
             .subscribe(() => {

@@ -81,7 +81,8 @@ let dict = {
         listDescription: 'Показан <strong>паблик</strong> топ кланов',
         detailDescription: 'Паблик',
         detailCWDescription: 'CW',
-        publicMatches: 'Матчи в паблике'
+        publicMatches: 'Матчи в паблике',
+        clanwars: 'Clanwars'
     },
     loading: 'Загрузка...',
     modes: {

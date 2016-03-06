@@ -291,6 +291,31 @@ export class ClansService {
     }
 
     /**
+     * Получить информацию о кланварах клана
+     * @param {String} abbr Аббревиатура клана
+     * @returns {Observable<R>}
+     */
+    clanwars(abbr :string, query) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handle}/${abbr}/clanwars`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
      * Обработчик ошибок
      * @param error
      * @returns {ErrorObservable}

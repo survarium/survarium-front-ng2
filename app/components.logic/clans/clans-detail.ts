@@ -8,11 +8,12 @@ import { I18NPipe } from '../../pipes/i18n'
 import Counts from './clans-detail-counts'
 import Players from './clans-detail-players'
 import Matches from './clans-detail-matches'
+import Clanwars from './clans-detail-clanwars'
 
 @Component({
     selector: 'clans-detail',
     pipes: [I18NPipe],
-    directives: [Counts, Players, Matches],
+    directives: [Counts, Players, Matches, Clanwars],
     template: require('./clans-detail.html'),
     styles: [require('./clans-detail.styl')]
 })
