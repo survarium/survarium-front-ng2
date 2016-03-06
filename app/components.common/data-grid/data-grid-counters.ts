@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from 'angular2/core'
 import { I18NPipe } from '../../pipes/i18n'
+import { NumberPipe } from '../../pipes/number'
 
 @Component({
     selector: 'data-grid-counters',
     inputs: ['skip', 'limit', 'total'],
-    pipes: [I18NPipe],
+    pipes: [I18NPipe, NumberPipe],
     template: require('./data-grid-counters.html'),
     styles: [require('./data-grid-counters.styl')]
 })
