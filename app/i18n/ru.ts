@@ -78,7 +78,9 @@ let dict = {
         one: 'Клан',
         list: 'Список кланов',
         listCWDescription: 'Показан топ кланов, <strong>участвующих в CW</strong>',
-        listDescription: 'Показан <strong>паблик</strong> топ кланов'
+        listDescription: 'Показан <strong>паблик</strong> топ кланов',
+        detailDescription: 'Паблик',
+        detailCWDescription: 'CW',
     },
     loading: 'Загрузка...',
     modes: {
@@ -97,7 +99,6 @@ let dict = {
         'Школа': 'Школа',
         'Лондон': 'Лондон',
         'Мамаев курган': 'Курган'
-
     },
     dataGrid: {
         counter: 'Показано с {{from}} по {{to}} из {{total}} записей'

@@ -3,6 +3,7 @@ import { Language } from '../typings/language'
 
 import CONFIG from '../config'
 import Storage from '../utils/storage'
+import {type} from "os";
 
 let LANGUAGES = CONFIG.i18n.languages;
 
@@ -55,7 +56,6 @@ class I18N {
         }, this.dict);
 
         if (!fetched) {
-            console.warn(`I18N: no answer for key \`${key}\``);
             return null;
         }
 
@@ -71,6 +71,16 @@ class I18N {
         }
 
         let fetched = this._getTranslation(key);
+        if (!fetched) {
+            if (options && options.allowOriginal) {
+                if (typeof options.allowOriginal === 'string') {
+                    return options.allowOriginal;
+                }
+                return key;
+            }
+            console.warn(`I18N: no answer for key \`${key}\``);
+            return fetched;
+        }
 
         if (options) {
             fetched = this._applyVariables(fetched, options);

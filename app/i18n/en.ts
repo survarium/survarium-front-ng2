@@ -73,7 +73,9 @@ let dict = {
         one: 'Clan',
         list: 'Clans list',
         listCWDescription: 'Showing top of clans based on <strong>clawnar statistics</strong>',
-        listDescription: 'Showing top of clans based on <strong>all matches</strong>'
+        listDescription: 'Showing top of clans based on <strong>all matches</strong>',
+        detailDescription: 'Public',
+        detailCWDescription: 'CW',
     },
     loading: 'Loading...',
     modes: {

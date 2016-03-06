@@ -2,17 +2,19 @@ import { Component, Input } from 'angular2/core'
 import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
-    selector: 'map',
+    selector: 'role',
     pipes: [I18NPipe],
     template: `{{i18nKey | i18n: { allowOriginal: original } }}`
 })
 
-export default class Map {
-    i18nKey  :string;
-    original :string;
+export class Role {
+    i18nKey :string;
+    private original :string;
 
-    @Input('name') set name (val) {
+    @Input('role') set role (val) {
         this.original = val;
-        this.i18nKey  = `maps.${val}`;
+        this.i18nKey = `roles.${val}`;
     };
 }
+
+export default Role

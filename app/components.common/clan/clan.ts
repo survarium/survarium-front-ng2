@@ -1,12 +1,12 @@
 import { Component, Input } from 'angular2/core'
-import { NgIf } from 'angular2/common'
+import { ROUTER_DIRECTIVES } from 'angular2/router'
 import { I18N } from '../../services/i18n'
 
 @Component({
     selector: 'clan',
-    directives: [NgIf],
+    directives: [ROUTER_DIRECTIVES],
     inputs: ['abbr', 'name', 'classes', 'win'],
-    template: `<a *ngIf="abbr" class="clan" href="https://survarium.pro/?clan={{abbr}}" target="_blank" title="{{_preTitle}}{{name}}" [class]="_classes">{{abbr}}</a>`,
+    template: require('./clan.html'),
     styles: [require('./clan.styl')]
 })
 

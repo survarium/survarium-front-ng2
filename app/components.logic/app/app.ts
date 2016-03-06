@@ -27,9 +27,9 @@ export class Home {}
 
 @RouteConfig([
     //{ path: '/', name: 'Home', component: Home/*, useAsDefault: true*/ },
-    { path: '/players/...', name: 'PlayersList', component: Players, useAsDefault: true },
-    { path: '/matches/...', name: 'MatchesList', component: Matches },
-    { path: '/clans/...', name: 'ClansList', component: Clans }
+    { path: '/players/...', name: 'Players', component: Players, useAsDefault: true },
+    { path: '/matches/...', name: 'Matches', component: Matches },
+    { path: '/clans/...', name: 'Clans', component: Clans }
 ])
 
 export class App {}

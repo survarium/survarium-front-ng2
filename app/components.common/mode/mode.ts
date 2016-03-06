@@ -4,7 +4,7 @@ import { I18NPipe } from '../../pipes/i18n'
 @Component({
     selector: 'mode',
     pipes: [I18NPipe],
-    template: `{{i18nKey | i18n:'allowOriginal'}}`
+    template: `{{i18nKey | i18n: { allowOriginal: true } }}`
 })
 
 export default class Mode {

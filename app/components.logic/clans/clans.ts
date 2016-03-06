@@ -17,7 +17,6 @@ import I18NPipe from '../../pipes/i18n'
     <router-outlet></router-outlet>`,
 })
 
-
 @RouteConfig([
     /*{ path: '/', component: ClansList, name: 'ClansList', useAsDefault: true },
     { path: '/:abbr', component: ClansDetail, name: 'ClansDetail' }*/

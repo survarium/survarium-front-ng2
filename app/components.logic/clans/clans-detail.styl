@@ -1,0 +1,27 @@
+@import "../../components.common/variables.styl"
+
+clans-detail-players
+  display block
+
+.clan__name
+  font-size 2em
+  font-weight 700
+  padding 0
+  margin 0
+
+.clan__abbr
+  color $highlight
+
+.types
+  a
+    display inline-block
+    padding 0.5em
+    &:not(.current)
+      text-decoration underline
+      cursor pointer
+
+    &:first-of-type
+      padding-left 0
+
+    &.current
+      color $highlight

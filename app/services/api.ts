@@ -199,6 +199,7 @@ export class ClansService {
 
         var params = new URLSearchParams();
         params.set('lang', this.apiLang);
+
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {
@@ -223,19 +224,44 @@ export class ClansService {
 
     /**
      * Получить информацию о клане
-     * @param {String} name Аббревиатура клана
+     * @param {String} abbr Аббревиатура клана
      * @returns {Observable<R>}
      */
-    fetch(name :string) :Observable<any> {
+    fetch(abbr :string) :Observable<any> {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + '/' + name, headers: headers, search: params, method: 'get' });
+        let options = new Request({ url: `${this._handle}/${abbr}`, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
-            .do(data => console.log(data))
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить информацию о составе клане
+     * @param {String} abbr Аббревиатура клана
+     * @returns {Observable<R>}
+     */
+    players(abbr :string, query) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handle}/${abbr}/players`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 

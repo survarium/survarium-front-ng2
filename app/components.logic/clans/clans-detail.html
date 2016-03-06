@@ -1,0 +1,11 @@
+<div *ngIf="!show">{{'loading' | i18n}}</div>
+<pre *ngIf="error">{{error}}</pre>
+<div *ngIf="show">
+    <h2 class="clan__name"><span class="clan__abbr">[{{data.abbr}}]</span> {{data.name}}</h2>
+    <nav *ngIf="nav" class="types">
+        <a (click)="setPublic()" [class.current]="isPublic">{{'clans.detailDescription' | i18n}}</a>
+        <a (click)="setCW()" [class.current]="!isPublic">{{'clans.detailCWDescription' | i18n}}</a>
+    </nav>
+    <clans-detail-counts [data]="data" [total]="total"></clans-detail-counts>
+    <clans-detail-players [clan]="data"></clans-detail-players>
+</div>
