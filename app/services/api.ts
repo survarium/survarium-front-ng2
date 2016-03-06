@@ -241,7 +241,7 @@ export class ClansService {
     }
 
     /**
-     * Получить информацию о составе клане
+     * Получить информацию о составе клана
      * @param {String} abbr Аббревиатура клана
      * @returns {Observable<R>}
      */
@@ -258,6 +258,31 @@ export class ClansService {
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({ url: `${this._handle}/${abbr}/players`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить информацию о матчах клана
+     * @param {String} abbr Аббревиатура клана
+     * @returns {Observable<R>}
+     */
+    matches(abbr :string, query) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handle}/${abbr}/matches`, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())

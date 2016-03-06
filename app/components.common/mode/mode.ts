@@ -7,10 +7,12 @@ import { I18NPipe } from '../../pipes/i18n'
     template: `{{i18nKey | i18n: { allowOriginal: true } }}`
 })
 
-export default class Mode {
+export class Mode {
     i18nKey :string;
 
     @Input('name') set name (val) {
         this.i18nKey = `modes.${val}`;
     };
 }
+
+export default Mode

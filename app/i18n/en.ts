@@ -76,6 +76,7 @@ let dict = {
         listDescription: 'Showing top of clans based on <strong>all matches</strong>',
         detailDescription: 'Public',
         detailCWDescription: 'CW',
+        publicMatches: 'Public matches'
     },
     loading: 'Loading...',
     modes: {

@@ -7,5 +7,6 @@
         <a (click)="setCW()" [class.current]="!isPublic">{{'clans.detailCWDescription' | i18n}}</a>
     </nav>
     <clans-detail-counts [data]="data" [total]="total"></clans-detail-counts>
+    <clans-detail-matches *ngIf="isPublic" [clan]="data"></clans-detail-matches>
     <clans-detail-players [clan]="data"></clans-detail-players>
 </div>

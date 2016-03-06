@@ -7,7 +7,7 @@ import { I18NPipe } from '../../pipes/i18n'
     template: `{{i18nKey | i18n: { allowOriginal: original } }}`
 })
 
-export default class Map {
+export class Map {
     i18nKey  :string;
     original :string;
 
@@ -16,3 +16,5 @@ export default class Map {
         this.i18nKey  = `maps.${val}`;
     };
 }
+
+export default Map
