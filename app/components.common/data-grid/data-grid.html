@@ -13,16 +13,19 @@
         </div>
         <div class="body">
             <div *ngFor="#row of data, #i=index" class="row">
-                <data-grid-cell
-                        *ngFor="#column of columns, #j=index"
-                        [row]="row"
-                        [rowIndex]="i"
-                        [column]="column"
-                        [columnIndex]="j"
-                        [width]="column.width || defaultColumnWidth"
-                        [height]="columnHeight"
-                        [skip]="skip"
-                        (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
+                <td *ngIf="row.__group" [attr.colSpan]="columnsCount" class="data-grid-rowgroup">{{row.content}}</td>
+                <template [ngIf]="!row.__group">
+                    <data-grid-cell
+                            *ngFor="#column of columns, #j=index"
+                            [row]="row"
+                            [rowIndex]="rowIndex(row, i)"
+                            [column]="column"
+                            [columnIndex]="j"
+                            [width]="column.width || defaultColumnWidth"
+                            [height]="columnHeight"
+                            [skip]="skip"
+                            (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
+                </template>
             </div>
         </div>
     </div>

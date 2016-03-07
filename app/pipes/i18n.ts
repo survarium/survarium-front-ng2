@@ -4,7 +4,7 @@ import { i18n } from '../services/i18n'
 @Pipe({ name: 'i18n' })
 export class I18NPipe implements PipeTransform {
     transform(key :string|number, args:any) : any {
-        return i18n.get(key, args[0]);
+        return i18n.get(key, args[0]) || `\`i18n:${key}\``;
     }
 }
 

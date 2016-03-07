@@ -1,8 +1,10 @@
 import { Component, Input } from 'angular2/core'
+import { ROUTER_DIRECTIVES } from 'angular2/router'
 
 @Component({
+    directives: [ROUTER_DIRECTIVES],
     selector: 'match',
-    template: `<a href="https://survarium.pro/?match={{id}}" target="_blank">{{id}}</a>`
+    template: `<a [routerLink]="['/Matches', 'MatchesDetail', { match: id }]">{{id}}</a>`
 })
 
 export class Match {

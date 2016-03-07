@@ -136,7 +136,6 @@ export class MatchesService {
 
     private _handle :string = this.config.api + `/v2/matches`;
 
-
     /**
      * Список матчей
      * @param {Object} [query]
@@ -161,6 +160,51 @@ export class MatchesService {
 
         return this.http.request(options)
             .map(res => res.json())
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить информацию о матче
+     * @param {Number} id
+     * @returns {Observable<R>}
+     */
+    fetch(id :number) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: this._handle + '/' + id, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить статистику матча
+     * @param {Number} id
+     * @param {Object} [query]
+     * @returns {Observable<R>}
+     */
+    stats(id :number, query ?:any) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('lang', this.apiLang);
+
+        query = query || {};
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handle}/${id}/stats`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 

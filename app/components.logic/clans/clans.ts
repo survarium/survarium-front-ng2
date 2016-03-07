@@ -2,8 +2,6 @@ import { Component, Inject } from 'angular2/core'
 import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
-//import { ClansList } from './clans-list'
-//import { ClansDetail } from './clans-detail'
 
 @Component({
     selector: 'clans',
@@ -11,6 +9,7 @@ import I18NPipe from '../../pipes/i18n'
     pipes: [I18NPipe],
     styles: [require('../../components.common/sub-nav/sub-nav.styl')],
     template: `<nav>
+      <a [routerLink]="['./ClansSearch']" class="nav-link">{{'clans.search.title' | i18n}}</a>
       <a [routerLink]="['./ClansList']" class="nav-link">{{'clans.list' | i18n}}</a>
       <a *ngFor="#clan of clans" [routerLink]="['./ClansDetail', { abbr: clan }]" class="nav-link">{{clan}}</a>
     </nav>
@@ -18,9 +17,8 @@ import I18NPipe from '../../pipes/i18n'
 })
 
 @RouteConfig([
-    /*{ path: '/', component: ClansList, name: 'ClansList', useAsDefault: true },
-    { path: '/:abbr', component: ClansDetail, name: 'ClansDetail' }*/
-    new AsyncRoute({ path: '/', loader: () => require('es6-promise!./clans-list')('ClansList'), name: 'ClansList', useAsDefault: true }),
+    new AsyncRoute({ path: '/search', loader: () => require('es6-promise!./clans-search')('ClansSearch'), name: 'ClansSearch', useAsDefault: true }),
+    new AsyncRoute({ path: '/', loader: () => require('es6-promise!./clans-list')('ClansList'), name: 'ClansList' }),
     new AsyncRoute({ path: '/:abbr', loader: () => require('es6-promise!./clans-detail')('ClansDetail'), name: 'ClansDetail' })
 ])
 

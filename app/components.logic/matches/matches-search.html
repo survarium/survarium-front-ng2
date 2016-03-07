@@ -1,0 +1,4 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <input ngControl="id" placeholder="ID" #id [ngModel]="value" />
+    <input type="submit" value="{{'find' | i18n}}" />
+</form>

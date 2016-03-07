@@ -22,13 +22,38 @@ interface Column {
 @Component({
     selector: 'data-grid',
     directives: [Cell, CellTitle, Pagination, Loading, Counters],
-    inputs: ['data', 'columns', 'stream'],
+    inputs: ['data', 'columns', 'stream', 'group'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')]
 })
 
-export class DataGrid implements OnChanges {
-    @Input() data    :any[] = [];
+export class DataGrid/* implements OnChanges*/ {
+    @Input('data') set _data (value :any[]) {
+        if (!this.group) {
+            this.data = value;
+        } else {
+            let groupBy = this.group.by;
+            let groupTitle = this.group.title;
+            let grouped = {};
+
+            value.forEach((row) => {
+                (grouped[row[groupBy]] || (grouped[row[groupBy]] = [])).push(row);
+            });
+
+            this.data = Object.keys(grouped).reduce((result, group) => {
+                result.push({ __group: group, content: groupTitle(group) });
+                grouped[group] = grouped[group].map((elem :any, index) => {
+                    elem.__index = index;
+                    return elem;
+                });
+                return result.concat(grouped[group]);
+            }, []);
+        }
+    };
+
+    private data :any[];
+
+    private columnsCount :number;
     private columns  :Column[] = [];
     @Input('columns') set _columns (columns :Column[]) {
         this.columns = columns;
@@ -41,12 +66,14 @@ export class DataGrid implements OnChanges {
                 return;
             }
             this.sort = column;
-        })
+        });
+        this.columnsCount = this.columns.length;
     };
 
     @Input('columnHeadHeight') columnHeadHeight :number = 50;
     @Input('columnHeight') columnHeight :number = 30;
     @Input('colWidth') defaultColumnWidth :number = 100;
+    @Input('group') group :any;
 
     private stream;
     private streamTrigger :(options ?:any) => void;
@@ -58,14 +85,14 @@ export class DataGrid implements OnChanges {
     @Input('stream') set _stream (handler :any) {
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
         this.stream
-            .debounceTime(150)
+            .debounceTime(100)
             .distinctUntilChanged()
             .switchMap((options :any) => { return handler(options) })
             .map((result) => {
-                this.data  = result.data;
-                this.total = result.total;
-                this.skip  = result.skip;
-                this.limit = result.limit;
+                this._data  = result.data;
+                this.total  = result.total;
+                this.skip   = result.skip || 0;
+                this.limit  = result.limit;
             })
             .subscribe(() => {
                 this.loading = false;
@@ -142,7 +169,11 @@ export class DataGrid implements OnChanges {
         });
     }
 
-    ngOnChanges (changes) { }
+    rowIndex (row, index) {
+        return row.__index !== undefined ? row.__index : index;
+    }
+
+    //ngOnChanges (changes) { }
 
     headerClick (params, event) {
         if (params.column.sort === undefined) {
@@ -152,7 +183,7 @@ export class DataGrid implements OnChanges {
     }
 
     cellClick (event) {
-        console.log('cellClick', arguments);
+        //console.log('cellClick', arguments);
     }
 }
 

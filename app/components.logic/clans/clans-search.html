@@ -1,0 +1,4 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <input ngControl="abbr" placeholder="{{'clans.abbr' | i18n}}" #abbr [ngModel]="value" />
+    <input type="submit" value="{{'find' | i18n}}" />
+</form>

@@ -1,4 +1,4 @@
-export default function leadZeros (num :number, rate ?:number) :string {
+export function leadZeros (num :number, rate ?:number) :string {
     rate = rate || 2;
     var str = String(num);
     var fill = rate - str.length;
@@ -7,3 +7,5 @@ export default function leadZeros (num :number, rate ?:number) :string {
     }
     return (new Array(fill + 1)).join('0') + str;
 }
+
+export default leadZeros

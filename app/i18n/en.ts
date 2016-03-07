@@ -70,6 +70,13 @@ let dict = {
             clan1: { title: 'Clan 1', score: 'Score 1' },
             clan2: { title: 'Clan 2', score: 'Score 2' },
             winner: 'Winner'
+        },
+        search: {
+            title: 'Search',
+            docTitle: 'Match search'
+        },
+        match: {
+            docTitle: 'Match | {{id}}'
         }
     },
     clans: {
@@ -82,7 +89,12 @@ let dict = {
         detailDescription: 'Public',
         detailCWDescription: 'CW',
         publicMatches: 'Public matches',
-        clanwars: 'Clanwars'
+        clanwars: 'Clanwars',
+        abbr: 'Clan abbrevation',
+        search: {
+            title: 'Search',
+            docTitle: 'Clan search'
+        }
     },
     loading: 'Loading...',
     modes: {

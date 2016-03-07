@@ -63,6 +63,7 @@ let dict = {
             title: 'Поиск игрока'
         }
     },
+    teamgroup: `Команда {{tag}}`,
     matches: {
         list: 'Матчи',
         cw: {
@@ -70,6 +71,13 @@ let dict = {
             clan1: { title: 'Клан 1', score: 'Счет 1' },
             clan2: { title: 'Клан 2', score: 'Счет 2' },
             winner: 'Победитель'
+        },
+        search: {
+            title: 'Поиск',
+            docTitle: 'Поиск матча'
+        },
+        match: {
+            docTitle: 'Матч | {{id}}'
         }
     },
     clans: {
@@ -82,7 +90,12 @@ let dict = {
         detailDescription: 'Паблик',
         detailCWDescription: 'CW',
         publicMatches: 'Матчи в паблике',
-        clanwars: 'Clanwars'
+        clanwars: 'Clanwars',
+        abbr: 'Аббревиатура клана',
+        search: {
+            title: 'Поиск',
+            docTitle: 'Поиск клана'
+        }
     },
     loading: 'Загрузка...',
     modes: {

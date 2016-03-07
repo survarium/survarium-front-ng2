@@ -11,7 +11,7 @@ function detectLang () {
     let language = Storage.getItem('language');
 
     if (!language) {
-        // CLIENT-SIDE ONLY
+        // FIXME: CLIENT-SIDE ONLY
         language = window.navigator.userLanguage || window.navigator.language;
     }
 
@@ -102,7 +102,7 @@ class I18N {
         }
         Storage.setItem('language', language.lang);
 
-        // CLIENT-SIDE ONLY
+        // FIXME: CLIENT-SIDE ONLY
         window.location.reload();
     }
 }

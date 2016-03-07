@@ -17,7 +17,6 @@ import { i18n } from '../../services/i18n'
 
 export class PlayersDetailMatches {
     @Input() nickname :string;
-    @Input() @Optional() lang :string = 'english';
 
     private apiLang = i18n.apiLang;
 
