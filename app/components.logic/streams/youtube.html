@@ -1,10 +1,12 @@
 <div *ngFor="#type of ['live', 'archive']" [class]="'steams__group streams__group_' + type">
-    <h3 class="streams__heading">{{'streams.' + type | i18n }}</h3>
-    <div *ngFor="#video of data[type]" class="streams__item" [style.width]="size.width">
-        <iframe [attr.width]="size.width" [attr.height]="size.height" src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allowfullscreen></iframe>
-        <a target="_blank" href="https://www.youtube.com/watch?v={{video.id.videoId}}" class="streams__info">
-            <h4 class="streams__title">{{video.snippet.title}}</h4>
-            <small>{{video.snippet.publishedAt | datetime }}</small>
-        </a>
-    </div>
+    <template [ngIf]="data[type] && data[type].length">
+        <h3 class="streams__heading">{{'streams.' + type | i18n }}</h3>
+        <div *ngFor="#video of data[type]" class="streams__item" [style.width]="size.width">
+            <iframe [attr.width]="size.width" [attr.height]="size.height" src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allowfullscreen></iframe>
+            <a target="_blank" href="https://www.youtube.com/watch?v={{video.id.videoId}}" class="streams__info">
+                <h4 class="streams__title">{{video.snippet.title}}</h4>
+                <small>{{video.snippet.publishedAt | datetime }}</small>
+            </a>
+        </div>
+    </template>
 </div>
