@@ -1,5 +1,5 @@
 <div *ngIf="!data.live || !data.live.length">{{'streams.none' | i18n}}</div>
-<div ngIf="data.live && data.live.length" class="steams__group streams__group_live">
+<div *ngIf="data.live && data.live.length" class="steams__group streams__group_live">
     <h3 class="streams__heading">{{'streams.live' | i18n }}</h3>
     <div *ngFor="#video of data.live" class="streams__item" [style.width]="size.width">
         <iframe

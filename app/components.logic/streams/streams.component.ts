@@ -1,4 +1,4 @@
-import { Component, Inject, ViewContainerRef, OnInit } from 'angular2/core'
+import { Component, ViewContainerRef, OnInit } from 'angular2/core'
 
 @Component({
     host: {

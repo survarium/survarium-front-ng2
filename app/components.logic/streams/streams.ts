@@ -1,5 +1,5 @@
-import { Component, Inject, ViewContainerRef } from 'angular2/core'
-import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
+import { Component } from 'angular2/core'
+import { RouteConfig, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 
 @Component({
     selector: 'streams',

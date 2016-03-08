@@ -121,7 +121,7 @@ let dict = {
     },
     streams: {
         title: 'Стримы',
-        docTitle: 'Стримы',
+        docTitle: 'Стримы | {{service}}',
         live: 'LIVE',
         archive: 'Недавние стримы',
         viewers: 'Смотрят: {{count}}',

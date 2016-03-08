@@ -1,7 +1,9 @@
 import { StreamsComponent } from './streams.component'
 import { Component, ViewContainerRef } from 'angular2/core'
 import I18NPipe from '../../pipes/i18n'
+import { I18N } from '../../services/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
+import { TitleService } from '../../services/title'
 import { /*YoutubePlayer, */YoutubeService } from '../../services/youtube'
 
 @Component({
@@ -27,9 +29,13 @@ export class Youtube extends StreamsComponent {
 
     constructor (view :ViewContainerRef,
                  /*private youtube :YoutubePlayer,*/
-                 private youtube :YoutubeService) {
+                 private youtube :YoutubeService,
+                 private title  :TitleService,
+                 i18n: I18N) {
 
         super(view);
+
+        title.setTitle(i18n.get('streams.docTitle', { service: 'Youtube' }));
 
         youtube.list({}).subscribe((data) => {
             this.data.archive = data.items;
