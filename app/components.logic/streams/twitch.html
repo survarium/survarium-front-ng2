@@ -2,11 +2,11 @@
 <div *ngIf="data.live && data.live.length" class="steams__group streams__group_live">
     <h3 class="streams__heading">{{'streams.live' | i18n }}</h3>
     <div *ngFor="#video of data.live" class="streams__item" [style.width]="size.width">
-        <!--https://player.twitch.tv/?channel={{video.channel.name}}-->
+        <!--https://www.twitch.tv/{{video.channel.name}}/hls-->
         <iframe
             [attr.width]="size.width"
             [attr.height]="size.height"
-            src="https://www.twitch.tv/{{video.channel.name}}/hls"
+            src="https://player.twitch.tv/?channel={{video.channel.name}}"
             autoplay="false"
             frameborder="0"
             scrolling="no"
