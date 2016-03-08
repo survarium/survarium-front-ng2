@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from 'angular2/core'
+import { Component, Input } from 'angular2/core'
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'
@@ -27,7 +27,7 @@ interface Column {
     styles: [require('./data-grid.styl')]
 })
 
-export class DataGrid/* implements OnChanges*/ {
+export class DataGrid {
     @Input('data') set _data (value :any[]) {
         if (!this.group) {
             this.data = value;
@@ -173,7 +173,9 @@ export class DataGrid/* implements OnChanges*/ {
         return row.__index !== undefined ? row.__index : index;
     }
 
-    //ngOnChanges (changes) { }
+    private onResize (event) {
+        //console.log(event.target.innerWidth);
+    }
 
     headerClick (params, event) {
         if (params.column.sort === undefined) {

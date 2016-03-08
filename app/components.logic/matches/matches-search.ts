@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, ViewEncapsulation } from 'angular2/core'
 import { NgForm, FORM_DIRECTIVES } from 'angular2/common'
 import { Router } from 'angular2/router'
 import { TitleService } from '../../services/title'
+import { Storage } from '../../utils/storage'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 
@@ -16,6 +17,7 @@ import { I18NPipe } from '../../pipes/i18n'
 })
 
 export class MatchesSearch {
+    value = Storage.getItem('match:find');
 
     constructor(private _router :Router,
                 private _title :TitleService,
@@ -33,6 +35,7 @@ export class MatchesSearch {
             return;
         }
         id = id.trim();
+        Storage.setItem('match:find', id);
         this._router.navigate(['MatchesDetail', { match: id }]);
     }
 }

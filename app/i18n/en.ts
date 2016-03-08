@@ -24,7 +24,8 @@ let dict = {
     team        : 'Team',
     members     : 'Members',
     CWmatches   : 'Clan matches',
-    opponent    : 'Opponents',
+    clanwar     : 'Clanwar',
+    opponent    : 'Opponent',
     role        : 'Role',
     rating      : 'Rating',
     winrate     : 'Winrate',
@@ -63,6 +64,7 @@ let dict = {
             title: 'Player search'
         }
     },
+    teamgroup: `Team {{tag}}`,
     matches: {
         list: 'Matches',
         cw: {

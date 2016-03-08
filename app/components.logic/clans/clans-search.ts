@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from 'angular2/core'
 import { NgForm, FORM_DIRECTIVES } from 'angular2/common'
 import { Router } from 'angular2/router'
+import { Storage } from '../../utils/storage'
 import { TitleService } from '../../services/title'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
@@ -16,6 +17,7 @@ import { I18NPipe } from '../../pipes/i18n'
 })
 
 export class ClansSearch {
+    value = Storage.getItem('clan:find');
 
     constructor(private _router :Router,
                 private _title :TitleService,
@@ -33,6 +35,7 @@ export class ClansSearch {
             return;
         }
         abbr = abbr.trim();
+        Storage.setItem('clan:find', abbr);
         this._router.navigate(['ClansDetail', { abbr: abbr }]);
     }
 }

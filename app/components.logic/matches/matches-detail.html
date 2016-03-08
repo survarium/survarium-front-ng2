@@ -18,9 +18,22 @@
             <dd class="def-list__desc">{{data.level}}</dd>
         </dl>
 
-        <dl *ngIf="winner" class="def-list">
+        <dl *ngIf="data.clans && data.clans.length" class="def-list">
+            <dt class="def-list__term">{{'clanwar' | i18n }}</dt>
+            <dd class="def-list__desc">
+                <clan [abbr]="data.clans[0].clan.abbr" [classes]="winner === data.clans[0].clan.abbr ? 'clan_winner clan_nounderline' : 'clan_nounderline'"></clan> vs
+                <clan [abbr]="data.clans[1].clan.abbr" [classes]="winner === data.clans[1].clan.abbr ? 'clan_winner clan_nounderline' : 'clan_nounderline'"></clan>
+            </dd>
+        </dl>
+
+        <dl *ngIf="winner && !data.clanwar" class="def-list">
             <dt class="def-list__term">{{'win' | i18n }}</dt>
             <dd class="def-list__desc">{{winner}}</dd>
+        </dl>
+
+        <dl *ngIf="score" class="def-list">
+            <dt class="def-list__term">{{'score' | i18n }}</dt>
+            <dd class="def-list__desc">{{score}}</dd>
         </dl>
 
         <dl class="def-list">

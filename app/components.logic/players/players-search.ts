@@ -20,7 +20,7 @@ import Nickname from '../../components.common/nickname/nickname'
 })
 
 export class PlayersSearch {
-    value = Storage.getItem('players:search');
+    value = Storage.getItem('players:find');
 
     constructor(private _router :Router,
                 private _playerService :PlayersService,

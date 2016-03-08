@@ -10,7 +10,7 @@ import { I18N } from '../../services/i18n'
     styles: [require('./clan.styl')]
 })
 
-export default class Clan {
+export class Clan {
     classDefault = 'clan_default';
     private _classes :string = this.classDefault;
 
@@ -34,3 +34,5 @@ export default class Clan {
         this._classes += ' clan_winner';
     }
 }
+
+export default Clan

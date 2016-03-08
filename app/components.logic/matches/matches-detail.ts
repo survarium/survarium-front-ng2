@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { Nickname } from '../../components.common/nickname/nickname'
+import { Clan } from '../../components.common/clan/clan'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
@@ -13,7 +14,7 @@ import { duration } from '../../utils/duration'
 
 @Component({
     selector: 'matches-detail',
-    directives: [DataGrid],
+    directives: [DataGrid, Clan],
     pipes: [I18NPipe, DateTimePipe],
     template: require('./matches-detail.html'),
     styles: [require('./matches-detail.styl')]
@@ -80,6 +81,10 @@ export class MatchesDetail {
                 return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' })
             }
         }
+    }
+
+    private get score () {
+        return this.data.score.join(':');
     }
 
     private columns :any[] = [

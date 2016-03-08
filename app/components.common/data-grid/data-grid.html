@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="grid" (window:resize)="onResize($event)">
     <div class="container" [style.width]="width">
         <div class="header">
             <data-grid-cell-title
@@ -13,7 +13,7 @@
         </div>
         <div class="body">
             <div *ngFor="#row of data, #i=index" class="row">
-                <td *ngIf="row.__group" [attr.colSpan]="columnsCount" class="data-grid-rowgroup">{{row.content}}</td>
+                <td *ngIf="row.__group" [attr.colSpan]="columnsCount" class="data-grid-rowgroup" [innerHTML]="row.content"></td>
                 <template [ngIf]="!row.__group">
                     <data-grid-cell
                             *ngFor="#column of columns, #j=index"
