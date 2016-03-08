@@ -119,6 +119,14 @@ let dict = {
     },
     dataGrid: {
         counter: 'Showing {{from}} to {{to}} of {{total}} entries'
+    },
+    streams: {
+        title: 'Streams',
+        docTitle: 'Streams',
+        live: 'LIVE',
+        archive: 'Finished streams',
+        viewers: 'Viewers: {{count}}',
+        none: 'No streams on air'
     }
 };
 

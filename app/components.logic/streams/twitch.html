@@ -1,0 +1,20 @@
+<div *ngIf="!data.live || !data.live.length">{{'streams.none' | i18n}}</div>
+<div class="steams__group streams__group_live">
+    <h3 class="streams__heading">{{'streams.live' | i18n }}</h3>
+    <div *ngFor="#video of data.live" class="streams__item" [style.width]="size.width">
+        <iframe
+            [attr.width]="size.width"
+            [attr.height]="size.height"
+            src="http://player.twitch.tv/?channel={{video.channel.name}}"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen="true">
+        </iframe>
+        <a target="_blank" [href]="video.channel.url" class="streams__info">
+            <div class="streams__viewers">{{'streams.viewers' | i18n : { count: video.viewers } }}</div>
+            <h4 class="streams__title">{{video.channel.display_name}}</h4>
+            <h4 class="streams__title">{{video.channel.status}}</h4>
+            <small>{{video.created_at | datetime }}</small>
+        </a>
+    </div>
+</div>

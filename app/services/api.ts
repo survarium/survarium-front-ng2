@@ -1,6 +1,5 @@
 import { Injectable, Inject } from 'angular2/core'
-import { Http, Response } from 'angular2/http'
-import { Headers, Request, URLSearchParams } from 'angular2/http'
+import { Http, Response, Headers, Request, URLSearchParams } from 'angular2/http'
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
 import { PlayersList } from '../typings/players-list'

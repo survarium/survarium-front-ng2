@@ -24,7 +24,10 @@ interface Column {
     directives: [Cell, CellTitle, Pagination, Loading, Counters],
     inputs: ['data', 'columns', 'stream', 'group'],
     template: require('./data-grid.html'),
-    styles: [require('./data-grid.styl')]
+    styles: [require('./data-grid.styl')],
+    host: {
+        '(window:resize)': 'onResize($event)'
+    }
 })
 
 export class DataGrid {

@@ -28,7 +28,7 @@ export class PlayersList {
             ._playerService
             .list(options)
             .map((result :PlayersListTyping) => {
-                result.data = result.data.map((elem) => {
+                result.data = result.data.map((elem :any) => {
                     elem.clan = elem.clan_meta;
                     return elem;
                 });

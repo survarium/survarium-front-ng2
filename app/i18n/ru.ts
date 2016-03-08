@@ -118,6 +118,14 @@ let dict = {
     },
     dataGrid: {
         counter: 'Показано с {{from}} по {{to}} из {{total}} записей'
+    },
+    streams: {
+        title: 'Стримы',
+        docTitle: 'Стримы',
+        live: 'LIVE',
+        archive: 'Недавние стримы',
+        viewers: 'Смотрят: {{count}}',
+        none: 'Нет активных трансляций'
     }
 };
 
