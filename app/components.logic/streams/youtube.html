@@ -1,3 +1,4 @@
+<div *ngIf="!data.live">{{'loading' | i18n}}</div>
 <div *ngFor="#type of ['live', 'archive']" [class]="'steams__group streams__group_' + type">
     <template [ngIf]="data[type] && data[type].length">
         <h3 class="streams__heading">{{'streams.' + type | i18n }}</h3>

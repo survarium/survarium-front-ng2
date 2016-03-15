@@ -126,7 +126,12 @@ let dict = {
         live: 'LIVE',
         archive: 'Finished streams',
         viewers: 'Viewers: {{count}}',
-        none: 'No streams on air'
+        none: 'No streams on air',
+        size: {
+            title: 'Size',
+            medium: 'Medium',
+            large: 'Large'
+        }
     }
 };
 

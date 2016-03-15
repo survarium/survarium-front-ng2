@@ -1,4 +1,5 @@
-import { Component, ViewContainerRef, OnInit } from 'angular2/core'
+import { Component, ViewContainerRef } from 'angular2/core'
+import { StreamsFormatsService } from './streams__formats'
 
 @Component({
     host: {
@@ -6,44 +7,55 @@ import { Component, ViewContainerRef, OnInit } from 'angular2/core'
     }
 })
 
-export class StreamsComponent implements OnInit {
-    private _size :any;
+export class StreamsComponent {
+    private _resize :any;
     private resize () {
-        this.size = Math.random();
+        clearTimeout(this._resize);
+        this._resize = setTimeout(() => {
+            this.size = Math.random();
+        }, 30);
     }
+
+    private minWidth = 360;
+    private width = this.minWidth;
+
     private get size () {
-        return this._size;
+        return {
+            width: this.width,
+            height: Math.floor(this.width / 2)
+        };
     }
-    private set size (val) {
-        let width = this.view.element.nativeElement.offsetWidth;
-        let maxWidth = 1500;
-        let minWith = 470;
-        let minHeight = minWith / 2;
-        if (width <= minWith) {
-            this._size = {
-                width: minWith,
-                height: minHeight
-            };
-        } else if (width < maxWidth) {
-            this._size = {
-                width: width,
-                height: Math.floor(width / 2)
+
+    private set size (val :any) {
+        let width  = this.view.element.nativeElement.offsetWidth;
+        let _width = this.minWidth;
+
+        if (!width) {
+            setTimeout(() => {
+                this.size = Math.random();
+            }, 100);
+        } else {
+            let maxWidth = this.format === 'large' ? 1500 : width / 2;
+
+            if (width < maxWidth) {
+                _width = width;
+            } else if (width => maxWidth) {
+                _width = maxWidth;
             }
-        } else if (width => maxWidth) {
-            this._size = {
-                width: maxWidth,
-                height: Math.floor(maxWidth / 2)
-            };
         }
+
+        this.width = Math.max(_width || this.minWidth, this.minWidth);
     }
 
     view: ViewContainerRef;
+    private format;
 
-    constructor (view :ViewContainerRef) {
+    constructor (view :ViewContainerRef, private service :StreamsFormatsService) {
         this.view = view;
-    }
-
-    ngOnInit () {
         this.size = Math.random();
+        service.observe.subscribe((val) => {
+            this.format = val;
+            this.size = Math.random();
+        });
     }
 }

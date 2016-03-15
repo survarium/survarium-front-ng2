@@ -5,6 +5,7 @@ import { TitleService } from '../../services/title'
 import I18NPipe from '../../pipes/i18n'
 import { I18N } from '../../services/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
+import { StreamsFormatsService } from './streams__formats'
 
 @Component({
     selector: 'twitch',
@@ -19,15 +20,16 @@ import { DateTimePipe } from '../../pipes/datetime'
 
 export class Twitch extends StreamsComponent{
     private data = {
-        live: []
+        live: null
     };
 
     constructor(view :ViewContainerRef,
                 private twitch :TwitchService,
                 private title  :TitleService,
-                i18n: I18N) {
+                i18n :I18N,
+                service :StreamsFormatsService) {
 
-        super(view);
+        super(view, service);
 
         title.setTitle(i18n.get('streams.docTitle', { service: 'Twitch' }));
 

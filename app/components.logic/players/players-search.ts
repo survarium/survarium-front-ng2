@@ -20,7 +20,7 @@ import Nickname from '../../components.common/nickname/nickname'
 })
 
 export class PlayersSearch {
-    value = Storage.getItem('players:find');
+    value = Storage.getItem('player:find');
 
     constructor(private _router :Router,
                 private _playerService :PlayersService,
@@ -39,7 +39,7 @@ export class PlayersSearch {
             return;
         }
         nickname = nickname.trim();
-        Storage.setItem('players:search', nickname);
+        Storage.setItem('player:find', nickname);
         this._router.navigate(['PlayersDetail', { nickname: nickname }]);
     }
 

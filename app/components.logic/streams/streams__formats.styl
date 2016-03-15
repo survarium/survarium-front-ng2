@@ -1,0 +1,16 @@
+@import "../../components.common/variables.styl"
+
+:host
+  margin 0 auto 1em
+  display  block
+
+.streams__size
+  display inline-block
+  padding 0 .3em
+
+.streams__size:not(.streams__size_current)
+  cursor pointer
+  text-decoration underline
+
+.streams__size_current
+  color $highlight

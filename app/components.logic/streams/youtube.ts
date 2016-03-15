@@ -5,6 +5,7 @@ import { I18N } from '../../services/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
 import { TitleService } from '../../services/title'
 import { /*YoutubePlayer, */YoutubeService } from '../../services/youtube'
+import { StreamsFormatsService } from './streams__formats'
 
 @Component({
     selector: 'streams',
@@ -23,17 +24,18 @@ export class Youtube extends StreamsComponent {
     private player;
 
     private data = {
-        live: [],
-        archive: []
+        live: null,
+        archive: null
     };
 
     constructor (view :ViewContainerRef,
                  /*private youtube :YoutubePlayer,*/
                  private youtube :YoutubeService,
-                 private title  :TitleService,
-                 i18n: I18N) {
+                 private title   :TitleService,
+                 i18n :I18N,
+                 service :StreamsFormatsService) {
 
-        super(view);
+        super(view, service);
 
         title.setTitle(i18n.get('streams.docTitle', { service: 'Youtube' }));
 

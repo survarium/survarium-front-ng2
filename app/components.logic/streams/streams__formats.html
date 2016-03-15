@@ -1,0 +1,4 @@
+<div>
+    <span>{{'streams.size.title' | i18n}}: </span>
+    <a *ngFor="#_format of formats" class="streams__size" [class.streams__size_current]="format === _format" (click)="change(_format)">{{'streams.size.' + _format | i18n}}</a>
+</div>
