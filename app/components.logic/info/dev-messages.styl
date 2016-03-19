@@ -27,11 +27,11 @@ a
     padding-bottom .3em
     position relative
     font-size .9em
-    &:nth-of-type(1n + 2)
-      &::before
+    &:not(:last-of-type)
+      &::after
         content '>'
         position absolute
-        left -.75em
+        right -.75em
 
 .text
   padding-top .5em
@@ -61,3 +61,7 @@ a
 :host
   cite
     display block
+
+  blockquote
+    margin-left 2vw
+    margin-right 3vw
