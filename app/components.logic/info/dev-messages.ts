@@ -5,12 +5,14 @@ import TitleService from '../../services/title'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
+import { DataGridCounters } from '../../components.common/data-grid/data-grid-counters'
+import { DataGridPagination } from '../../components.common/data-grid/data-grid-pagination'
 import { Observable } from 'rxjs'
 
 @Component({
     selector: 'dev-messages',
     pipes: [I18NPipe, DateTimePipe],
-    directives: [],
+    directives: [DataGridCounters, DataGridPagination],
     template: require('./dev-messages.html'),
     styles: [require('./dev-messages.styl')]
 })
@@ -18,6 +20,11 @@ import { Observable } from 'rxjs'
 export class DevMessages {
     private error :any;
     private devs :{ id: number, name: string }[];
+
+    private htmlEntities (value :string) {
+        return value.replace(/&quot;/gm, '"');
+    }
+
     private _data :any[];
     private get data() {
         return this._data;
@@ -32,11 +39,11 @@ export class DevMessages {
             message.crumbs = [
                 message.forum.id && {
                     url: `https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}`,
-                    name: message.forum.name
+                    name: this.htmlEntities(message.forum.name)
                 },
                 message.topic.id && {
                     url: `https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}`,
-                    name: message.topic.name
+                    name: this.htmlEntities(message.topic.name)
                 }
             ].filter(Boolean);
             return message;
@@ -65,5 +72,16 @@ export class DevMessages {
         }, (err) => {
             this.error = JSON.stringify(err, null, 4);
         });
+    }
+
+    paginate (skip) {
+        this._vgService
+            .messages({ skip })
+            .subscribe((x) => {
+                this.data = x;
+                window.scrollTo(0, 0); // FIXME: CLIENT-SIDE ONLY
+            }, (err) => {
+                this.error = JSON.stringify(err, null, 4);
+            })
     }
 }

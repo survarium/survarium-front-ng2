@@ -12,3 +12,8 @@
     {{'info.messages.telegram' | i18n}}
     <a href="https://telegram.me/survarium_pro" target="_blank" rel="nofollow">Telegram/@survarium_pro</a>
 </div>
+
+<div *ngIf="data" class="footer">
+    <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total"></data-grid-counters>
+    <data-grid-pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="paginate($event)"></data-grid-pagination>
+</div>
