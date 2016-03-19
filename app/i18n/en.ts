@@ -132,6 +132,13 @@ let dict = {
             medium: 'Medium',
             large: 'Large'
         }
+    },
+    info: {
+        title: 'Info',
+        messages: {
+            title: 'Developer messages',
+            telegram: 'Also you can receive developer messages to your pocket device via '
+        }
     }
 };
 

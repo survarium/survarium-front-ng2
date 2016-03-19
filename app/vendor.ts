@@ -13,6 +13,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/empty';
+import 'rxjs/add/observable/forkJoin';
 
 if ('production' === process.env.ENV) {
 } else {

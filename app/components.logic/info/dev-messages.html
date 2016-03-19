@@ -1,0 +1,14 @@
+<template [ngIf]="data">
+    <div *ngFor="#message of data.data" class="message">
+        <a [href]="message.dev.url" target="_blank" rel="nofollow" class="author">{{message.dev.name}}</a><a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.date | datetime}}</a>
+        <nav *ngIf="message.crumbs.length" class="crumbs">
+            <a *ngFor="#crumb of message.crumbs" [href]="crumb.url" target="_blank" rel="nofollow">{{crumb.name}}</a>
+        </nav>
+        <div [innerHTML]="message.text" class="text"></div>
+    </div>
+</template>
+
+<div class="telegram">
+    {{'info.messages.telegram' | i18n}}
+    <a href="https://telegram.me/survarium_pro" target="_blank" rel="nofollow">Telegram/@survarium_pro</a>
+</div>
