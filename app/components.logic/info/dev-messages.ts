@@ -7,12 +7,13 @@ import { I18NPipe } from '../../pipes/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
 import { DataGridCounters } from '../../components.common/data-grid/data-grid-counters'
 import { DataGridPagination } from '../../components.common/data-grid/data-grid-pagination'
+import { TelegramChannel } from '../../components.common/telegram-channel/telegram-channel'
 import { Observable } from 'rxjs'
 
 @Component({
     selector: 'dev-messages',
     pipes: [I18NPipe, DateTimePipe],
-    directives: [DataGridCounters, DataGridPagination],
+    directives: [DataGridCounters, DataGridPagination, TelegramChannel],
     template: require('./dev-messages.html'),
     styles: [require('./dev-messages.styl')]
 })
