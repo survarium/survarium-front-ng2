@@ -1,8 +1,8 @@
 import { Component, Input } from 'angular2/core'
-import { ROUTER_DIRECTIVES } from 'angular2/router'
+import { RouterLink } from 'angular2/router'
 
 @Component({
-    directives: [ROUTER_DIRECTIVES],
+    directives: [RouterLink],
     selector: 'match',
     template: `<a [routerLink]="['/Matches', 'MatchesDetail', { match: id }]">{{id}}</a>`
 })

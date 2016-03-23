@@ -5,7 +5,7 @@
   padding-top .5em
   padding-bottom .5em
   padding-left .5em
-  padding-right 1em
+  padding-right .5em
   text-overflow ellipsis
   overflow hidden
   vertical-align middle
@@ -16,6 +16,13 @@
 
   &:first-of-type
     border-left-width 1px
+
+  &.nowrap
+    white-space nowrap
+
+  &.blockLink
+    a
+      display block
 
   &.center
     text-align center

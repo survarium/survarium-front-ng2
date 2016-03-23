@@ -27,7 +27,7 @@ export class ClansDetailMatches {
     };
 
     private columns = [
-        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'date': {  } } },
+        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'date': {  } }, classes: 'nowrap' },
         { title: i18n.get('match'), component: Match, width: 90, inputs: { id: `match.id` }, sort: { 'date': { value: -1 } } },
         { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
         { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
@@ -36,7 +36,8 @@ export class ClansDetailMatches {
             title: i18n.get('player'),
             component: Nickname,
             inputs: { nickname: 'player.nickname' },
-            width: 180
+            width: 180,
+            classes: 'nowrap'
         }, {
             title: i18n.get('score'),
             field: 'score',

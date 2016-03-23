@@ -21,7 +21,7 @@ export class PlayersDetailMatches {
     private apiLang = i18n.apiLang;
 
     private columns :any[] = [
-        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { date: { } } },
+        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { date: { } }, classes: 'nowrap' },
         { title: i18n.get('match'), component: Match, inputs: { id: `match.id` }, sort: { date: { value: -1 } } },
         { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` }, width: 100 },
         { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` }, width: 100 },
@@ -31,7 +31,7 @@ export class PlayersDetailMatches {
         }, classes: 'center', sort: { victory: {  } } },
         { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
         { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
-        { title: i18n.get('kd'), field: `kd`, classes: 'center', width: 80, sort: { kd: {} } },
+        { title: i18n.get('kd'), field: `kd`, classes: 'center nowrap', width: 80, sort: { kd: {} } },
         { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: {} } },
         { title: i18n.get('headshots'), field: `headshots`, classes: 'center', sort: { headshots: {} } },
         { title: i18n.get('grenadeKills'), field: `grenadeKills`, classes: 'center', sort: { grenadeKills: {} } },

@@ -10,7 +10,7 @@ interface Column {
     title :string,
     width ?:number,
     sort ?:{
-        _default ?:number,
+        default ?:number,
         value ?:number
     },
     number ?:boolean,
@@ -119,7 +119,7 @@ export class DataGrid {
         Object.keys(column.sort).forEach((key) => {
             let sort = column.sort[key];
             let sortDir = fromZero ?
-                !sort.value ? sort._default || -1 : sort.value :
+                !sort.value ? sort.default || -1 : sort.value :
                 sort.value === 1 ? -1 : 1;
 
             column.sort[key].value = sortDir;

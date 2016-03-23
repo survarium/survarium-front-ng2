@@ -1,3 +1,3 @@
-<template ngIf="totalPages">
+<template [ngIf]="totalPages > 1">
     <a *ngFor="#page of pages" (click)="!page.breaker && switch(page.num)" class="data-grid__page" [class.data-grid__page_breaker]="page.breaker" [class.data-grid__page_current]="page.num === current">{{page.breaker ? '...' : (page.num + 1)}}</a>
 </template>

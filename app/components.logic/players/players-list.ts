@@ -55,83 +55,100 @@ export class PlayersList {
                 component: Nickname,
                 inputs: { nickname: 'nickname', clan: 'clan' },
                 width: 250,
-                sort: { 'nickname': { _default: 1 } }
+                sort: { 'nickname': { default: 1 } },
+                classes: 'nowrap'
             }, {
                 title: i18n.get('level'),
                 field: 'progress.level',
                 width: 90,
-                sort: { 'progress.experience': { value: -1 } }
+                sort: { 'progress.experience': { value: -1 } },
+                classes: 'center'
             }, {
                 title: i18n.get('elo'),
                 field: 'progress.elo',
                 width: 70,
                 sort: { 'progress.elo': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
                 name: 'scoreAvg',
                 width: 80,
-                sort: { 'total.scoreAvg': { } }
+                sort: { 'total.scoreAvg': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
                 width: 90,
-                sort: { 'total.kills': { } }
+                sort: { 'total.kills': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
                 width: 90,
-                sort: { 'total.dies': { } }
+                sort: { 'total.dies': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('kd'),
                 field: 'total.kd',
                 width: 70,
-                sort: { 'total.kd': { } }
+                sort: { 'total.kd': { } },
+                classes: 'center nowrap'
             }, {
                 title: i18n.get('wins'),
                 field: 'total.victories',
                 width: 80,
-                sort: { 'total.victories': { } }
+                sort: { 'total.victories': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('matches.list'),
                 field: 'total.matches',
                 width: 80,
-                sort: { 'total.matches': { } }
+                sort: { 'total.matches': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('winrate'),
                 component: Percent,
                 inputs: { number: 'total.winRate' },
-                sort: { 'total.winRate': { } }
+                sort: { 'total.winRate': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('headshots'),
                 field: 'total.headshots',
-                sort: { 'total.headshots': { } }
+                sort: { 'total.headshots': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('grenadeKills'),
                 field: 'total.grenadeKills',
-                sort: { 'total.grenadeKills': { } }
+                sort: { 'total.grenadeKills': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('meleeKills'),
                 field: 'total.meleeKills',
-                sort: { 'total.meleeKills': { } }
+                sort: { 'total.meleeKills': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('artefactKills'),
                 field: 'total.artefactKills',
                 width: 120,
-                sort: { 'total.artefactKills': { } }
+                sort: { 'total.artefactKills': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('artefactUses'),
                 field: 'total.artefactUses',
                 width: 120,
-                sort: { 'total.artefactUses': { } }
+                sort: { 'total.artefactUses': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('pointCaptures'),
                 field: 'total.pointCaptures',
-                sort: { 'total.pointCaptures': { } }
+                sort: { 'total.pointCaptures': { } },
+                classes: 'center'
             }, {
                 title: i18n.get('boxesBringed'),
                 field: 'total.boxesBringed',
-                sort: { 'total.boxesBringed': { } }
+                sort: { 'total.boxesBringed': { } },
+                classes: 'center'
             }
         ];
     }

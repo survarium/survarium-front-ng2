@@ -97,12 +97,13 @@ export class MatchesDetail {
             title: i18n.get('player'),
             component: Nickname,
             inputs: { nickname: 'player.nickname', clan: 'player.clan_meta' },
-            width: 250
+            width: 250,
+            classes: 'nowrap'
         },
         { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: { value: -1 } } },
         { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
         { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
-        { title: i18n.get('kd'), field: `kd`, classes: 'center', width: 80, sort: { kd: {} } },
+        { title: i18n.get('kd'), field: `kd`, classes: 'center nowrap', width: 80, sort: { kd: {} } },
         { title: i18n.get('headshots'), field: `headshots`, classes: 'center', sort: { headshots: {} } },
         { title: i18n.get('grenadeKills'), field: `grenadeKills`, classes: 'center', sort: { grenadeKills: {} } },
         { title: i18n.get('meleeKills'), field: `meleeKills`, classes: 'center', sort: { meleeKills: {} } },

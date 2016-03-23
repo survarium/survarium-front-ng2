@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from 'angular2/core'
 
 @Component({
-    selector: 'data-grid-pagination',
+    selector: '[pagination]',
     inputs: ['skip', 'limit', 'total'],
     template: require('./data-grid-pagination.html'),
     styles: [require('./data-grid-pagination.styl')]
@@ -12,7 +12,9 @@ export class DataGridPagination {
     @Input() limit :number;
     @Input() total :number;
 
-    private totalPages :number;
+    get totalPages () :number {
+        return Math.ceil(this.total / this.limit);
+    };
 
     private get current () {
         return this.skip / this.limit;
@@ -27,7 +29,7 @@ export class DataGridPagination {
     }
 
     private get pages () {
-        let total = this.totalPages = Math.ceil(this.total / this.limit);
+        let total = this.totalPages;
         let _pages = [];
 
         if (!total) {

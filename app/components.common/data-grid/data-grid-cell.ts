@@ -12,11 +12,10 @@ import {
     ComponentRef,
     OnInit
 } from 'angular2/core'
-import {unescape} from "querystring";
 
 @Component({
     selector: 'data-grid-cell',
-    template: `<a #componentAnchor></a>{{content}}`,
+    template: `<i #componentAnchor></i>{{content}}`,
     styles: [require('./data-grid-cell.styl')]
 })
 
@@ -45,7 +44,7 @@ export class DataGridCell implements OnInit {
             classes.push(this.column.classes);
         }
 
-        if (this.column && this.column.sort) {
+        if (this.column && this.column.sort && this._isTitleCell) {
             classes.push('sort');
         }
 

@@ -1,3 +1,5 @@
+<div class="loading" *ngIf="!data">{{'loading' | i18n}}</div>
+
 <template [ngIf]="data">
     <div *ngFor="#message of data.data" class="message">
         <a [href]="message.dev.url" target="_blank" rel="nofollow" class="author">{{message.dev.name}}</a><a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.date | datetime}}</a>
@@ -10,10 +12,10 @@
 
 <div class="telegram">
     {{'info.messages.telegram' | i18n}}
-    <telegram-channel></telegram-channel>
+    <a telegram-channel></a>
 </div>
 
 <div *ngIf="data" class="footer">
     <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total"></data-grid-counters>
-    <data-grid-pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="paginate($event)"></data-grid-pagination>
+    <div pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="paginate($event)"></div>
 </div>
