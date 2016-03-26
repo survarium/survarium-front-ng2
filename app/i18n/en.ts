@@ -150,6 +150,14 @@ let dict = {
     },
     home: {
         title: 'pro'
+    },
+    about: {
+        docTitle: 'About',
+        title: 'About',
+        telegram: 'Project channel',
+        vk: 'Feedback',
+        developer: 'Fan-site developer',
+        text: 'Fan-site with matches, players and clans statistic. Statistic on this site counting from January 2016.'
     }
 };
 

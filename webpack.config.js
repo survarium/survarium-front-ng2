@@ -90,7 +90,9 @@ module.exports = {
 				'ENV'     : JSON.stringify(metadata.ENV),
 				'NODE_ENV': JSON.stringify(metadata.ENV),
 				'API_PATH': JSON.stringify(metadata.API_PATH),
-				'TITLE'   : JSON.stringify(metadata.title)
+				'TITLE'   : JSON.stringify(metadata.title),
+				'VERSION' : JSON.stringify(metadata.version),
+				'UPDATED' : JSON.stringify(metadata.updated)
 			}
 		})],
 

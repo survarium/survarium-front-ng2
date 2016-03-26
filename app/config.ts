@@ -5,6 +5,10 @@ export const CONFIG = {
     production: process.env.ENV,
     api: process.env.API_PATH,
     title: process.env.TITLE,
+    app: {
+        version: process.env.VERSION,
+        updated: process.env.UPDATED,
+    },
     i18n: {
         languages: [
             {

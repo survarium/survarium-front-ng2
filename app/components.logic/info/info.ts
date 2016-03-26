@@ -10,12 +10,14 @@ import I18NPipe from '../../pipes/i18n'
     styles: [require('../../components.common/sub-nav/sub-nav.styl')],
     template: `<nav>
       <a [routerLink]="['./DevMessages']" class="nav-link">{{'info.messages.title' | i18n}}</a>
+      <a [routerLink]="['./About']" class="nav-link">{{'about.title' | i18n}}</a>
     </nav>
     <router-outlet></router-outlet>`,
 })
 
 @RouteConfig([
-    new AsyncRoute({ path: '/messages', loader: () => require('es6-promise!./dev-messages')('DevMessages'), name: 'DevMessages', useAsDefault: true })
+    new AsyncRoute({ path: '/messages', loader: () => require('es6-promise!./dev-messages')('DevMessages'), name: 'DevMessages', useAsDefault: true }),
+    new AsyncRoute({ path: '/about', loader: () => require('es6-promise!./about')('About'), name: 'About' })
 ])
 
 export class Info {

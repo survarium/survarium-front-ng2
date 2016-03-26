@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from 'angular2/core'
+import { Component, ViewEncapsulation, Inject } from 'angular2/core'
 import { RouteConfig, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
 import { Home } from '../home/home'
 import { Players } from '../players/players'
@@ -32,4 +32,6 @@ import I18NPipe from '../../pipes/i18n'
     { path: '/**', name: 'Error-404', component: Error404 }
 ])
 
-export class App {}
+export class App {
+    constructor (@Inject('CONFIG') private config) {}
+}
