@@ -16,6 +16,7 @@ let dict = {
     mode        : 'Mode',
     loose       : 'Loose',
     level       : 'Level',
+    lvl         : 'Lvl',
     score       : 'Score',
     kills       : 'Kills',
     dies        : 'Dies',
@@ -62,6 +63,9 @@ let dict = {
         search: {
             docTitle: 'Player search',
             title: 'Player search'
+        },
+        top: {
+            title: 'Top players of last hour'
         }
     },
     teamgroup: `Team {{tag}}`,
@@ -79,6 +83,10 @@ let dict = {
         },
         match: {
             docTitle: 'Match | {{id}}'
+        },
+        timeline: {
+            title: 'Matches count of latest 24h',
+            totals: 'Summary'
         }
     },
     clans: {
@@ -139,6 +147,9 @@ let dict = {
             title: 'Developer messages',
             telegram: 'Also you can receive developer messages to your pocket device via '
         }
+    },
+    home: {
+        title: 'pro'
     }
 };
 

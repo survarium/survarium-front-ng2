@@ -9,8 +9,8 @@ export class TitleService {
         this._appName = _config.title;
     }
 
-    setTitle(title :string) {
-        this.title.setTitle(this._appName + ' | ' + title);
+    setTitle(title ?:string) {
+        this.title.setTitle(this._appName + (title ? ' | ' + title : ''));
     }
 }
 

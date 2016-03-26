@@ -112,6 +112,21 @@ export class PlayersService {
     }
 
     /**
+     * Получить топ игроков за последний час
+     * @returns {Observable<R>}
+     */
+    top() :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handleV2}/top`, headers: headers, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+
+    /**
      * Обработчик ошибок
      * @param error
      * @returns {ErrorObservable}
@@ -200,6 +215,20 @@ export class MatchesService {
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({ url: `${this._handle}/${id}/stats`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Получить таймлайн матчей за последние сутки
+     * @returns {Observable<R>}
+     */
+    timeline() :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handle}/timeline`, headers: headers, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())

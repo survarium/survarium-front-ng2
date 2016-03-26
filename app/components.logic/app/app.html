@@ -1,5 +1,9 @@
 <div class="panes__wrap">
     <nav class="panes__tabs">
+        <a class="panes__tab" [routerLink]="['Home']">
+            <span class="panes__tab_link">{{'home.title' | i18n}}</span>
+        </a>
+
         <a class="panes__tab" [routerLink]="['Players']">
             <span class="panes__tab_link">{{'players.title' | i18n}}</span>
         </a>
@@ -23,5 +27,7 @@
 </div>
 <router-outlet class="panes__body"></router-outlet>
 <footer>
-    <lang-switcher class="pad"></lang-switcher>
+    <div class="pad">
+        <lang-switcher></lang-switcher>
+    </div>
 </footer>

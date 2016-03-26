@@ -1,0 +1,10 @@
+<h2>{{'players.top.title' | i18n}}</h2>
+<div *ngIf="!data">{{'loading' | i18n}}</div>
+<div *ngIf="data" class="list">
+   <div *ngFor="#item of data" class="elem">
+       <h4 class="title">{{'level' | i18n}} {{item.level}}:</h4>
+       <nickname [nickname]="item.player.nickname" [clan]="item.player.clan_meta"></nickname>
+       <div>{{'score' | i18n}}: {{item.score | number}}</div>
+       <div>{{'match' | i18n}}: <match [id]="item.match"></match></div>
+   </div>
+</div>

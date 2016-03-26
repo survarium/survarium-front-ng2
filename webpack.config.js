@@ -71,6 +71,9 @@ module.exports = {
 	},
 
 	plugins: [
+		new webpack.ProvidePlugin({
+			'Chart': 'chart.js'
+		}),
 		new webpack.optimize.OccurenceOrderPlugin(true),
 		new webpack.optimize.CommonsChunkPlugin({
 			name     : 'vendor',

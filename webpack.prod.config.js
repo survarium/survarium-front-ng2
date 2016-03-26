@@ -103,6 +103,9 @@ module.exports = helpers.validate({
 		new WebpackMd5Hash(),
 		new DedupePlugin(),
 		new OccurenceOrderPlugin(true),
+		new webpack.ProvidePlugin({
+			'Chart': 'chart.js'
+		}),
 		new CommonsChunkPlugin({
 			name    : 'vendor',
 			filename: 'vendor.[chunkhash].bundle.js',
