@@ -67,6 +67,9 @@ let dict = {
         },
         top: {
             title: 'Top players of last hour'
+        },
+        unique: {
+            title: 'Unique players of latest 24h'
         }
     },
     teamgroup: `Team {{tag}}`,

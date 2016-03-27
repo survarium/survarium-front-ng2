@@ -124,6 +124,20 @@ export class PlayersService {
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
+    
+    /**
+     * Получить число игроков за последние сутки
+     * @returns {Observable<R>}
+     */
+    unique() :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handleV2}/unique`, headers: headers, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
 
 
     /**
