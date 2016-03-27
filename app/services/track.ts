@@ -10,7 +10,7 @@ export class TrackService {
     // FIXME: CLIENT-SIDE ONLY
 
     private host :string;
-    constructor(private location :Location, @Inject('CONFIG') private window) {
+    constructor(private location :Location, @Inject('window') private window) {
         let winLocation :any = window.location;
         this.host = winLocation.protocol + '//' + winLocation.host;
     }
@@ -22,13 +22,13 @@ export class TrackService {
             let title = params.title;
 
             try {
-                ga && ga('set', 'page', page);
-                ga && ga('send', {
+                typeof ga !== 'undefined' && ga('set', 'page', page);
+                typeof ga !== 'undefined' && ga('send', {
                     hitType: 'pageview',
                     page   : page,
                     title  : title
                 });
-                metrika && metrika.hit(page, {
+                typeof metrika !== 'undefined' && metrika.hit(page, {
                     title: title
                 });
             } catch (e) {
