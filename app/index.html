@@ -45,6 +45,37 @@
     </style>
 
     <script>
+        (function (location) {
+            var v1Detection = location.search.toString();
+            if (v1Detection === '' || !v1Detection.match(/^\??(player|players|match|clan|streams)\=(.+)$/)) {
+                return;
+            }
+
+            var component = RegExp.$1;
+            var value = RegExp.$2;
+
+            switch (component) {
+                case 'player':
+                    location.assign('/players/' + encodeURIComponent(value));
+                    break;
+                case 'players':
+                    location.assign('/players');
+                    break;
+                case 'match':
+                    location.assign('/match/' + encodeURIComponent(value));
+                    break;
+                case 'clan':
+                    location.assign('/clans/' + encodeURIComponent(value));
+                    break;
+                case 'streams':
+                    location.assign('/streams/youtube');
+                    break;
+                default: break;
+            }
+        })(window.location);
+    </script>
+
+    <script>
         window.WebFontConfig = {
             google: { families: [ 'Exo+2:400,700:latin,cyrillic' ] }
         };
@@ -101,6 +132,7 @@
     <div class="bg"></div>
     <survarium-stats>
         <noindex>Loading...</noindex>
+        <div><noindex><a href="https://v1.survarium.pro" style="color: rgba(245, 245, 245, 0.65);">Survarium.pro V1</a></noindex></div>
         <div><%= webpackConfig.metadata.title %>. <%= webpackConfig.metadata.description %></div>
         <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %></small></noindex>
     </survarium-stats>
