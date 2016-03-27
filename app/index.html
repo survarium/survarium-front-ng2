@@ -44,8 +44,14 @@
         }
     </style>
 
+    <% if (webpackConfig.metadata.ENV === 'production') { %>
     <script>
         (function (location) {
+            var httpsDetection = location.href.match(/^http:\/\/(.*)/);
+            if (httpsDetection) {
+                return location.assign(location.href.replace(/^http/, 'https'));
+            }
+
             var v1Detection = location.search.toString();
             if (v1Detection === '' || !v1Detection.match(/^\??(player|players|match|clan|streams)\=(.+)$/)) {
                 return;
@@ -74,6 +80,7 @@
             }
         })(window.location);
     </script>
+    <% } %>
 
     <script>
         window.WebFontConfig = {
