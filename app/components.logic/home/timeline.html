@@ -4,6 +4,7 @@
     <chart [data]="data" [options]="options"></chart>
     <h2>{{'matches.timeline.totals' | i18n}}</h2>
     <ul>
-        <li *ngFor="#item of legend"><i [style.backgroundColor]="item.color"></i><span>{{item.label}}:</span> {{item.total | number}}</li>
+        <li *ngFor="#item of legend"><i [style.backgroundColor]="item.color"></i><span>{{item.label}}:</span> <strong>{{item.total | number}}</strong></li>
     </ul>
+    <div class="total"><span>{{'total' | i18n}}:</span> <strong>{{total | number}}</strong></div>
 </template>

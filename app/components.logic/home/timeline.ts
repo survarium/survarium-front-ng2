@@ -42,6 +42,7 @@ export class Timeline {
 
     private legend :any;
     private data :any;
+    private total :number;
     private set timeline (val) {
         var datasets = [];
 
@@ -53,6 +54,7 @@ export class Timeline {
         var mapping = [];
         var hours   = [];
         var legend  = [];
+        var total   = 0;
 
         for (let i = 0; i < 23; i++) {
             i && start.setHours(start.getHours() + 1);
@@ -90,7 +92,8 @@ export class Timeline {
                     pointHighlightStroke: this.styleLevels[dataset.level].pointHighlightStroke
                 });
 
-                legend.push({ level: dataset.level, label: label, color: this.styleLevels[dataset.level].color, total: dataset.total })
+                legend.push({ level: dataset.level, label: label, color: this.styleLevels[dataset.level].color, total: dataset.total });
+                total += dataset.total;
             });
 
         this.data = {
@@ -99,6 +102,8 @@ export class Timeline {
         };
 
         this.legend = legend;
+
+        this.total = total;
     };
 
     constructor (private matchesService :MatchesService) {

@@ -56,6 +56,7 @@ let dict = {
     boxesBringed : 'Принесено ящиков',
     artefactUses : 'Использовано артефактов',
     elo          : 'ELO',
+    total        : 'Всего',
     players: {
         docTitle: 'Игроки',
         title: 'Игроки',

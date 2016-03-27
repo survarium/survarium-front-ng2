@@ -42,6 +42,7 @@ let dict = {
     profile     : 'Profile',
     ammunition  : 'Ammunition',
     active      : 'Active',
+    total       : 'Total',
     roles        : {
         commander: 'Commander',
         warlord  : 'Warlord',
