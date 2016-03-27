@@ -18,7 +18,7 @@ export class TrackService {
     visit (params :{ title :string }) {
         setTimeout(() => {
             let path  = this.location.path();
-            let page  = this.host + path;
+            let page  = (this.host + path).replace(/^\//, '');
             let title = params.title;
 
             try {
