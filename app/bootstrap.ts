@@ -25,7 +25,7 @@ if (CONFIG.production) {
 bootstrap(App,
     [
         provide(APP_ID, { useValue: 'survarium-pro' }),
-        provide(Window, { useValue: window }),
+        provide('Window', { useValue: window }),
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
         ...ENV_PROVIDERS,

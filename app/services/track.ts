@@ -1,4 +1,4 @@
-import { Injectable } from 'angular2/core'
+import { Injectable, Inject } from 'angular2/core'
 import { Location } from 'angular2/router'
 
 declare var ga :any;
@@ -10,7 +10,7 @@ export class TrackService {
     // FIXME: CLIENT-SIDE ONLY
 
     private host :string;
-    constructor(private location :Location, private window :Window) {
+    constructor(private location :Location, @Inject('CONFIG') private window) {
         let winLocation :any = window.location;
         this.host = winLocation.protocol + '//' + winLocation.host;
     }
