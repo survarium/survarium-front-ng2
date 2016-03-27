@@ -1,9 +1,8 @@
-import { Injectable, Pipe } from 'angular2/core'
+import { Injectable } from 'angular2/core'
 import { Language } from '../typings/language'
 
 import CONFIG from '../config'
 import Storage from '../utils/storage'
-import {type} from "os";
 
 let LANGUAGES = CONFIG.i18n.languages;
 
@@ -20,7 +19,7 @@ function detectLang () {
     }
 
     return LANGUAGES.filter(function (lang) {
-        return lang.lang === language;
+        return (new RegExp(`${lang.lang}`, 'i')).test(language);
     })[0] || LANGUAGES[0];
 }
 
