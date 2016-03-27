@@ -1,0 +1,16 @@
+@import "../../components.common/variables.styl"
+
+.thanks
+  margin-bottom .3em
+  margin-top .5em
+  font-weight 400
+  font-size 1.2em
+
+.elem
+  padding .5em 0
+
+.thankful
+  &:not(:last-of-type)::after
+    content ', '
+    display inline-block
+    margin-right .2em

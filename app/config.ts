@@ -1,5 +1,6 @@
 import dictRU from './i18n/ru'
 import dictEN from './i18n/en'
+import dictUA from './i18n/ua'
 
 export const CONFIG = {
     production: process.env.ENV,
@@ -16,6 +17,12 @@ export const CONFIG = {
                 apiLang: 'russian',
                 originName: 'Русский',
                 dict: dictRU
+            },
+            {
+                lang: 'ua',
+                apiLang: 'russian',
+                originName: 'Українська',
+                dict: dictUA
             },
             {
                 lang: 'en',
