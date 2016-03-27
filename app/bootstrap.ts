@@ -7,6 +7,7 @@ import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router'
 import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'
 import { StoreService } from './services/store'
+import { TrackService } from './services/track'
 import { TitleService } from './services/title'
 import { I18N, i18n } from './services/i18n'
 
@@ -24,12 +25,14 @@ if (CONFIG.production) {
 bootstrap(App,
     [
         provide(APP_ID, { useValue: 'survarium-pro' }),
+        provide(Window, { useValue: window }),
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
         ...ENV_PROVIDERS,
         TitleProvider,
         StoreService,
         ...API_PROVIDERS,
+        TrackService,
         TitleService,
         provide(I18N, { useValue: i18n }),
         provide(APP_BASE_HREF, { useValue: '/' }),
