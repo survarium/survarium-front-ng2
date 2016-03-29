@@ -16,6 +16,15 @@ import { Match } from '../../components.common/match/match'
 export class PlayersTop {
     private data :any;
     private set top (val) {
+        var best = { score: 0, index: -1 };
+        val.forEach((elem, index) => {
+            if (elem.score > best.score) {
+                best = { score: elem.score, index };
+            }
+        });
+        if (best.index > -1) {
+            val[best.index].best = true;
+        }
         this.data = val;
     };
 

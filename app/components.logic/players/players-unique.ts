@@ -8,7 +8,7 @@ import { NumberPipe } from '../../pipes/number'
     pipes: [I18NPipe, NumberPipe],
     directives: [],
     template: require('./players-unique.html'),
-    styles: [require('./players-top.styl')]
+    styles: [require('./players-unique.styl')]
 })
 
 export class PlayersUnique {

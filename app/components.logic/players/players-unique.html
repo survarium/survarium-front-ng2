@@ -1,4 +1,4 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
 <div *ngIf="data">
-    <h2>{{'players.unique.title' | i18n}}: {{data}}</h2>
+    <h2>{{'players.unique.title' | i18n}}: <span class="value">{{data | number}}</span></h2>
 </div>
