@@ -1,0 +1,12 @@
+<h5>{{filter.title}}</h5>
+<div>
+    <label>From-to <input type="radio" #typeFromTo [checked]="type === typeFromTo.value" value="from-to" (change)="typeChange($event)"></label>
+    <label>Equal <input type="radio" #typeEq [checked]="type === typeEq.value" value="equal" (change)="typeChange($event)"></label>
+</div>
+<template [ngIf]="type === typeFromTo.value">
+From: <input type="number" [min]="filter.min" [max]="filter.max" [(ngModel)]="from">
+To: <input type="number" [min]="filter.min" [max]="filter.max" [(ngModel)]="to">
+</template>
+<template [ngIf]="type === typeEq.value">
+    Equal: <input type="number" [min]="filter.min" [max]="filter.max" [(ngModel)]="eq">
+</template>

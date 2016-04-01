@@ -1,5 +1,4 @@
-import { Component, Inject } from 'angular2/core'
-import { Router } from 'angular2/router'
+import { Component } from 'angular2/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import TitleService from '../../services/title'
@@ -62,7 +61,8 @@ export class PlayersList {
                 field: 'progress.level',
                 width: 90,
                 sort: { 'progress.experience': { value: -1 } },
-                classes: 'center'
+                classes: 'center',
+                filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { from: 72, to: 100 } }
             }, {
                 title: i18n.get('elo'),
                 field: 'progress.elo',
@@ -105,7 +105,8 @@ export class PlayersList {
                 field: 'total.matches',
                 width: 80,
                 sort: { 'total.matches': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { field: 'total.matches', type: 'number', value: { from: 100 } }
             }, {
                 title: i18n.get('winrate'),
                 component: Percent,

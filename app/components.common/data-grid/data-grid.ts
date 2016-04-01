@@ -4,6 +4,7 @@ import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'
 import Counters from './data-grid-counters'
 import Loading from './data-grid-loading'
+import Filters from './data-grid-filters'
 import { Observable } from 'rxjs/Observable'
 
 interface Column {
@@ -16,17 +17,18 @@ interface Column {
     number ?:boolean,
     component ?:any,
     inputs ?:any,
-    field ?:string
+    field ?:string,
+    filter ?:any
 }
 
 @Component({
     selector: 'data-grid',
-    directives: [Cell, CellTitle, Pagination, Loading, Counters],
+    directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters],
     inputs: ['data', 'columns', 'stream', 'group'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')],
     host: {
-        '(window:resize)': 'onResize($event)'
+        //'(window:resize)': 'onResize($event)'
     }
 })
 
@@ -58,17 +60,25 @@ export class DataGrid {
 
     private columnsCount :number;
     private columns  :Column[] = [];
+    private _columnSort (column) {
+        if (!column.sort) {
+            return;
+        }
+        let sort = Object.keys(column.sort);
+        if (!column.sort[sort[0]].value) {
+            return;
+        }
+        this.sort = column;
+    }
+    private get filters () {
+        return this.columns.filter(column => {
+            return column.filter;
+        });
+    }
     @Input('columns') set _columns (columns :Column[]) {
         this.columns = columns;
         this.columns.forEach((column) => {
-            if (!column.sort) {
-                return;
-            }
-            let sort = Object.keys(column.sort);
-            if (!column.sort[sort[0]].value) {
-                return;
-            }
-            this.sort = column;
+            this._columnSort(column);
         });
         this.columnsCount = this.columns.length;
     };
@@ -159,6 +169,21 @@ export class DataGrid {
         this.load({ skip: skip });
     }
 
+    _filter = undefined;
+    filter (conditions) {
+        if (this._filter === conditions) {
+            return;
+        }
+
+        if (!conditions || !conditions.length) {
+            this._filter = undefined;
+        } else {
+            this._filter = conditions;
+        }
+
+        this.load();
+    }
+
     public load (options ?:any) {
         if (!this.streamTrigger) {
             return;
@@ -168,7 +193,8 @@ export class DataGrid {
         this.loading = true;
         this.streamTrigger({
             skip: options.skip !== undefined ? options.skip : this.skip,
-            sort: this.sort
+            sort: this.sort,
+            filter: this._filter
         });
     }
 

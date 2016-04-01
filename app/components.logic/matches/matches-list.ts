@@ -1,5 +1,4 @@
-import { Component, Inject } from 'angular2/core'
-import { Router } from 'angular2/router'
+import { Component } from 'angular2/core'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import TitleService from '../../services/title'
@@ -29,7 +28,7 @@ export class MatchesList {
         { title: i18n.get('match'), component: Match, width: 90, inputs: { id: `id` }, sort: { 'id': { value: -1 } }, classes: 'blockLink' },
         { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
         { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
-        { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } }
+        { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } }/*, filter: { field: 'level', type: 'number', min: 0, max: 10, value: { eq: 2 } }*/ }
     ];
 
     private stream (options ?:any) :Observable<any> {

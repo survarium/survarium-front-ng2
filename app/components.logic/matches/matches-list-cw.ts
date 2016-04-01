@@ -1,5 +1,4 @@
-import { Component, Inject } from 'angular2/core'
-import { Router } from 'angular2/router'
+import { Component } from 'angular2/core'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import TitleService from '../../services/title'
@@ -46,8 +45,7 @@ export class MatchesListCW {
             .list(options);
     };
 
-    constructor(private _router :Router,
-                private _matchesService :MatchesService,
+    constructor(private _matchesService :MatchesService,
                 private _title :TitleService) {
 
         this._title.setTitle(i18n.get('matches.cw.title'));
