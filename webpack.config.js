@@ -9,7 +9,7 @@ var ENV               = process.env.ENV || 'development';
 
 var metadata = {
 	title      : 'Survarium stats',
-	description: 'Статистика игроков, матчей, кланов Survarim. Стримы Survarium. Сообщения разработчиков Survarium.',
+	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
 	baseUrl    : '/',
 	host       : 'localhost',
 	port       : 3000,
@@ -92,7 +92,8 @@ module.exports = {
 				'API_PATH': JSON.stringify(metadata.API_PATH),
 				'TITLE'   : JSON.stringify(metadata.title),
 				'VERSION' : JSON.stringify(metadata.version),
-				'UPDATED' : JSON.stringify(metadata.updated)
+				'UPDATED' : JSON.stringify(metadata.updated),
+				'APP_DESCRIPTION': JSON.stringify(metadata.description)
 			}
 		})],
 

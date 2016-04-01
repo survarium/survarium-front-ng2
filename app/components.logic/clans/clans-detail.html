@@ -1,7 +1,7 @@
 <div *ngIf="!show">{{'loading' | i18n}}</div>
 <pre *ngIf="error">{{error}}</pre>
 <div *ngIf="show">
-    <h2 class="clan__name"><span class="clan__abbr">[{{data.abbr}}]</span> {{data.name}}</h2>
+    <h1 class="clan__name detail"><span class="subtitle">{{'clans.detail' | i18n}}</span><span class="clan__abbr">[{{data.abbr}}]</span> {{data.name}}</h1>
     <nav *ngIf="nav" class="types">
         <a (click)="setPublic()" [class.current]="isPublic">{{'clans.detailDescription' | i18n}}</a>
         <a (click)="setCW()" [class.current]="!isPublic">{{'clans.detailCWDescription' | i18n}}</a>

@@ -70,7 +70,8 @@ let dict = {
         },
         unique: {
             title: 'Уникальных игроков за последние сутки'
-        }
+        },
+        detail: 'Статистика игрока в survarium'
     },
     teamgroup: `Команда {{tag}}`,
     matches: {
@@ -108,7 +109,8 @@ let dict = {
         search: {
             title: 'Поиск',
             docTitle: 'Поиск клана'
-        }
+        },
+        detail: 'Статистика клана survarium'
     },
     loading: 'Загрузка...',
     modes: {

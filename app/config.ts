@@ -9,6 +9,7 @@ export const CONFIG = {
     app: {
         version: process.env.VERSION,
         updated: process.env.UPDATED,
+        description: process.env.APP_DESCRIPTION
     },
     i18n: {
         languages: [
