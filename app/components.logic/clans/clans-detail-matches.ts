@@ -60,7 +60,7 @@ export class ClansDetailMatches {
             title: i18n.get('kd'),
             field: 'kd',
             width: 70,
-            classes: 'center',
+            classes: 'center nowrap',
             sort: { 'kd': { } }
         }, {
             title: i18n.get('headshots'),
