@@ -62,7 +62,7 @@ export class PlayersList {
                 width: 90,
                 sort: { 'progress.experience': { value: -1 } },
                 classes: 'center',
-                filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { from: 72, to: 100 } }
+                filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { $gte: 72, $lte: 100 } }
             }, {
                 title: i18n.get('elo'),
                 field: 'progress.elo',
@@ -106,7 +106,7 @@ export class PlayersList {
                 width: 80,
                 sort: { 'total.matches': { } },
                 classes: 'center',
-                filter: { field: 'total.matches', type: 'number', value: { from: 100 } }
+                filter: { field: 'total.matches', type: 'number', value: { $gte: 100 } }
             }, {
                 title: i18n.get('winrate'),
                 component: Percent,

@@ -62,15 +62,19 @@ export class DataGridFiltersNumber {
         this.filter = val;
         let initial = val.value;
         if (initial) {
-            if (initial.eq !== undefined) {
+            if (initial.$eq !== undefined) {
                 this.type = 'equal';
-                this.eq = initial.eq;
-            } else if (initial.from !== undefined || initial.to !== undefined) {
-                this.from = initial.from;
-                this.to = initial.to;
+                this.eq = initial.$eq;
+            } else if (initial.$gte !== undefined || initial.$lte !== undefined) {
+                this.from = initial.$gte;
+                this.to = initial.$lte;
             }
         }
     };
+
+    del (filter) {
+        this.filter.value = false;
+    }
 
     get condition () {
         let result :any;

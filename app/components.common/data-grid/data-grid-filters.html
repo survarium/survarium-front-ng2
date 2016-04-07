@@ -1,6 +1,9 @@
 <template [ngIf]="filters.length">
     <h3>Filters</h3>
-    <div *ngFor="#filter of filters">
+    <select [(ngModel)]="selectedFilter">
+        <option *ngFor="#filter of unused" [value]="filter">{{filter.title}}</option>
+    </select>
+    <div *ngFor="#filter of used">
         <data-grid-filters-number *ngIf="filter.type === 'number'" [filter]="filter"></data-grid-filters-number>
     </div>
     <button *ngIf="used.length" (click)="trigger()">Filter</button>

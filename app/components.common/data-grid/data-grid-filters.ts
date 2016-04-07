@@ -38,6 +38,16 @@ export class DataGridFilters implements OnInit {
         }));
     }
 
+    private _selectedFilter :any = this.unused[0];
+    get selectedFilter () {
+        console.log('get filter', this._selectedFilter);
+        return this._selectedFilter;
+    }
+    set selectedFilter (event) {
+        console.log('set filter', event);
+        this._selectedFilter = event;
+    }
+
     ngOnInit () {
         this.trigger();
     }

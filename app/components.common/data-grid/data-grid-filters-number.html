@@ -1,4 +1,5 @@
 <h5>{{filter.title}}</h5>
+<a (click)="del(filter)">Delete</a>
 <div>
     <label>From-to <input type="radio" #typeFromTo [checked]="type === typeFromTo.value" value="from-to" (change)="typeChange($event)"></label>
     <label>Equal <input type="radio" #typeEq [checked]="type === typeEq.value" value="equal" (change)="typeChange($event)"></label>
