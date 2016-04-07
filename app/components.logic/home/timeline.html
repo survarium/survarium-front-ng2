@@ -1,5 +1,5 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
-<template [ngIf]="data?.length">
+<template [ngIf]="total">
     <h2>{{'matches.timeline.title' | i18n}}</h2>
     <chart [data]="data" [options]="options"></chart>
     <h2>{{'matches.timeline.totals' | i18n}}</h2>
