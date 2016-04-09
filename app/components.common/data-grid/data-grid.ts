@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core'
+import { Component, Input, OnInit } from 'angular2/core'
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'
@@ -24,7 +24,7 @@ interface Column {
 @Component({
     selector: 'data-grid',
     directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters],
-    inputs: ['data', 'columns', 'stream', 'group'],
+    inputs: ['data', 'columns', 'stream', 'group', 'name'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')],
     host: {
@@ -32,7 +32,7 @@ interface Column {
     }
 })
 
-export class DataGrid {
+export class DataGrid implements OnInit {
     @Input('data') set _data (value :any[]) {
         if (!this.group) {
             this.data = value;
@@ -56,6 +56,11 @@ export class DataGrid {
         }
     };
 
+    @Input('name') private _name = Math.random() * 1e5 >>> 0;
+    private get name () {
+        return 'DG-' + this._name;
+    }
+
     private data :any[];
 
     private columnsCount :number;
@@ -70,17 +75,18 @@ export class DataGrid {
         }
         this.sort = column;
     }
-    private get filters () {
-        return this.columns.filter(column => {
-            return column.filter;
-        });
-    }
+    private filters = [];
     @Input('columns') set _columns (columns :Column[]) {
+        let filters = [];
         this.columns = columns;
         this.columns.forEach((column) => {
             this._columnSort(column);
+            if (column.filter) {
+                filters.push(column);
+            }
         });
         this.columnsCount = this.columns.length;
+        this.filters = filters;
     };
 
     @Input('columnHeadHeight') columnHeadHeight :number = 50;
@@ -215,6 +221,9 @@ export class DataGrid {
 
     cellClick (event) {
         //console.log('cellClick', arguments);
+    }
+
+    ngOnInit () {
     }
 }
 

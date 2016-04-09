@@ -1,5 +1,5 @@
-import { enableProdMode, provide, APP_ID } from 'angular2/core';
-import { bootstrap, Title as TitleProvider, ELEMENT_PROBE_PROVIDERS, ELEMENT_PROBE_PROVIDERS_PROD_MODE } from 'angular2/platform/browser'
+import { enableProdMode, provide, APP_ID, ComponentRef } from 'angular2/core';
+import { bootstrap, Title as TitleProvider, enableDebugTools } from 'angular2/platform/browser'
 import { HTTP_PROVIDERS } from 'angular2/http'
 import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router'
 
@@ -13,13 +13,8 @@ import { I18N, i18n } from './services/i18n'
 
 import CONFIG from './config'
 
-const ENV_PROVIDERS = [];
-
 if (CONFIG.production) {
     enableProdMode();
-    ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS_PROD_MODE);
-} else {
-    ENV_PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
 }
 
 bootstrap(App,
@@ -28,7 +23,6 @@ bootstrap(App,
         provide('window', { useValue: window }),
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
-        ...ENV_PROVIDERS,
         TitleProvider,
         StoreService,
         ...API_PROVIDERS,
@@ -38,6 +32,11 @@ bootstrap(App,
         provide(APP_BASE_HREF, { useValue: '/' }),
         provide('CONFIG', { useValue: CONFIG })
     ])
+    .then((appRef :ComponentRef) => {
+        if (!CONFIG.production) {
+            CONFIG.enableDebugTools && enableDebugTools(appRef);
+        }
+    })
     .catch(err => console.error(err));
 
 // For vendors for example jQuery, Lodash, angular2-jwt just import them anywhere in your app

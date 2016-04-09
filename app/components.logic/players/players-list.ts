@@ -12,15 +12,15 @@ import { PlayersList as PlayersListTyping } from '../../typings/players-list'
 @Component({
     directives: [DataGrid],
     pipes: [I18NPipe],
-    template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
+    template: `<data-grid [stream]="stream" [columns]="columns" [name]="'players-list-global'"></data-grid>`,
     selector: 'players-list',
     styles: []
 })
 
 export class PlayersList {
-    data:any[];
+    data :any[];
 
-    private columns:any[] = [];
+    private columns :any[] = [];
 
     private stream (options ?:any) :Observable<PlayersListTyping> {
         return this
@@ -62,44 +62,50 @@ export class PlayersList {
                 width: 90,
                 sort: { 'progress.experience': { value: -1 } },
                 classes: 'center',
-                filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { $gte: 72, $lte: 100 } }
+                filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { $gte: 10 } }
             }, {
                 title: i18n.get('elo'),
                 field: 'progress.elo',
                 width: 70,
                 sort: { 'progress.elo': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
                 name: 'scoreAvg',
                 width: 80,
                 sort: { 'total.scoreAvg': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('kills'),
                 field: 'total.kills',
                 width: 90,
                 sort: { 'total.kills': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('dies'),
                 field: 'total.dies',
                 width: 90,
                 sort: { 'total.dies': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('kd'),
                 field: 'total.kd',
                 width: 70,
                 sort: { 'total.kd': { } },
-                classes: 'center nowrap'
+                classes: 'center nowrap',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('wins'),
                 field: 'total.victories',
                 width: 80,
                 sort: { 'total.victories': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('matches.list'),
                 field: 'total.matches',
@@ -112,44 +118,52 @@ export class PlayersList {
                 component: Percent,
                 inputs: { number: 'total.winRate' },
                 sort: { 'total.winRate': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { field: 'total.winRate', type: 'number', max: 100 }
             }, {
                 title: i18n.get('headshots'),
                 field: 'total.headshots',
                 sort: { 'total.headshots': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('grenadeKills'),
                 field: 'total.grenadeKills',
                 sort: { 'total.grenadeKills': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('meleeKills'),
                 field: 'total.meleeKills',
                 sort: { 'total.meleeKills': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('artefactKills'),
                 field: 'total.artefactKills',
                 width: 120,
                 sort: { 'total.artefactKills': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('artefactUses'),
                 field: 'total.artefactUses',
                 width: 120,
                 sort: { 'total.artefactUses': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('pointCaptures'),
                 field: 'total.pointCaptures',
                 sort: { 'total.pointCaptures': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }, {
                 title: i18n.get('boxesBringed'),
                 field: 'total.boxesBringed',
                 sort: { 'total.boxesBringed': { } },
-                classes: 'center'
+                classes: 'center',
+                filter: { type: 'number' }
             }
         ];
     }

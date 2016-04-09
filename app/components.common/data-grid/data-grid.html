@@ -1,5 +1,5 @@
 <div class="grid">
-    <div [filters]="filters" (onFilter)="filter($event)"></div>
+    <div [filters]="filters" [name]="name" (onFilter)="filter($event)"></div>
     <div class="container" [style.width]="width">
         <div class="header">
             <data-grid-cell-title

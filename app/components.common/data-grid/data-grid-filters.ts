@@ -1,18 +1,39 @@
 import { Component, EventEmitter, Input, Output, OnInit } from 'angular2/core'
 import { DataGridFiltersNumber } from './data-grid-filters-number';
+import { I18NPipe } from '../../pipes/i18n'
+import { Storage } from '../../utils/storage'
 
 @Component({
     selector: '[filters]',
     directives: [DataGridFiltersNumber],
+    pipes: [I18NPipe],
     template: require('./data-grid-filters.html'),
     styles: [require('./data-grid-filters.styl')]
 })
 
 export class DataGridFilters implements OnInit {
     filters :any[] = [];
+    name :string;
+    saved :any;
 
-    @Input('filters') set function (columns) {
+    @Input('name') set _name (name) {
+        this.name = name;
+        this.saved = JSON.parse(Storage.getItem(this.name));
+    };
+
+    @Input('filters') set _setFilters (columns) {
+        let saved = this.saved && this.saved.filters;
+
         this.filters = columns.map(column => {
+            if (!column.filter.field) {
+                column.filter.field = column.field;
+            }
+
+            let savedValue = saved && saved[column.filter.field];
+            if ([null, undefined].indexOf(savedValue) === -1) {
+                column.filter.value = savedValue;
+            }
+
             column.filter.title = column.title;
             return column.filter;
         });
@@ -33,19 +54,40 @@ export class DataGridFilters implements OnInit {
     }
 
     private trigger() {
-        this.event.emit(this.used.map(function (filter) {
-            return { field: filter.field, value: filter.value };
-        }));
+        let storeFilters = {};
+        let used = [];
+
+        this.filters.forEach((filter) => {
+            if ([undefined, null].indexOf(filter.value) === -1) {
+                storeFilters[filter.field] = filter.value;
+            }
+
+            if (filter.value) {
+                used.push({ field: filter.field, value: filter.value });
+            }
+        });
+
+        this.event.emit(used);
+
+        let saved = this.saved || {};
+        saved.filters = storeFilters;
+        this.name && Storage.setItem(this.name, JSON.stringify(saved));
     }
 
-    private _selectedFilter :any = this.unused[0];
-    get selectedFilter () {
-        console.log('get filter', this._selectedFilter);
-        return this._selectedFilter;
-    }
-    set selectedFilter (event) {
-        console.log('set filter', event);
-        this._selectedFilter = event;
+    private addFilter(byField :string) {
+        if (!byField) {
+            return;
+        }
+
+        byField = byField.replace(/^\d+\:\s/, '');
+
+        let filter = this.unused.filter(unused => { return unused.field === byField })[0];
+
+        if (!filter) {
+            return;
+        }
+
+        filter.value = {};
     }
 
     ngOnInit () {

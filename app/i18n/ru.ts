@@ -131,7 +131,19 @@ let dict = {
         'Мамаев курган': 'Курган'
     },
     dataGrid: {
-        counter: 'Показано с {{from}} по {{to}} из {{total}} записей'
+        counter: 'Показано с {{from}} по {{to}} из {{total}} записей',
+        filters: {
+            title: 'Фильтры',
+            apply: 'Найти'
+        },
+        filter: {
+            title: 'Фильтр',
+            add: 'Добавить',
+            fromTo: 'Диапазон',
+            equal: 'Равно',
+            from: 'От',
+            to: 'До'
+        }
     },
     streams: {
         title: 'Стримы',
@@ -166,7 +178,7 @@ let dict = {
         thanks: {
             title: 'Благодарность'
         }
-}
+    }
 };
 
 export { dict }

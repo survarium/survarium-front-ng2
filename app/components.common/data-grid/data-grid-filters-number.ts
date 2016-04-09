@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Input, Output } from 'angular2/core'
+import { Component, Input } from 'angular2/core'
+import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'data-grid-filters-number',
-    template: require('./data-grid-filters-number.html')
+    pipes: [I18NPipe],
+    template: require('./data-grid-filters-number.html'),
+    styles: [require('./data-grid-filters-number.styl')]
 })
 
 export class DataGridFiltersNumber {
@@ -76,8 +79,16 @@ export class DataGridFiltersNumber {
         this.filter.value = false;
     }
 
+    get min () {
+        return this.filter && this.filter.min || 0;
+    }
+
+    get max () {
+        return this.filter && this.filter.max || 1e6;
+    }
+
     get condition () {
-        let result :any;
+        let result :any = {};
         if (this.type === 'from-to') {
             if (this._from !== undefined) {
                 (result || (result = {})).$gte = this._from;

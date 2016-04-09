@@ -3,7 +3,8 @@ import dictEN from './i18n/en'
 import dictUA from './i18n/ua'
 
 export const CONFIG = {
-    production: process.env.ENV,
+    production: process.env.ENV === 'production',
+    enableDebugTools: false,
     api: process.env.API_PATH,
     title: process.env.TITLE,
     app: {

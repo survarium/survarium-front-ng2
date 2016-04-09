@@ -1,10 +1,17 @@
 <template [ngIf]="filters.length">
-    <h3>Filters</h3>
-    <select [(ngModel)]="selectedFilter">
-        <option *ngFor="#filter of unused" [value]="filter">{{filter.title}}</option>
-    </select>
-    <div *ngFor="#filter of used">
-        <data-grid-filters-number *ngIf="filter.type === 'number'" [filter]="filter"></data-grid-filters-number>
+    <h3 class="title">{{'dataGrid.filters.title' | i18n}}</h3>
+    <div *ngIf="unused?.length">
+        <select [(ngModel)]="filterToAdd" #ffa>
+            <option *ngFor="#filter of unused" [ngValue]="filter.field">{{filter.title}}</option>
+        </select>
+        <button (click)="addFilter(ffa.value)">{{'dataGrid.filter.add' | i18n}}</button>
+        <button (click)="trigger()">{{'dataGrid.filters.apply' | i18n}}</button>
     </div>
-    <button *ngIf="used.length" (click)="trigger()">Filter</button>
+    <div *ngIf="used?.length">
+        <div class="filters">
+            <div *ngFor="#filter of used" class="filter">
+                <data-grid-filters-number *ngIf="filter.type === 'number'" [filter]="filter"></data-grid-filters-number>
+            </div>
+        </div>
+    </div>
 </template>
