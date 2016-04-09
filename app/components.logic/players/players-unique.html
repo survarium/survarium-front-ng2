@@ -1,4 +1,4 @@
-<div *ngIf="!data">{{'loading' | i18n}}</div>
-<div *ngIf="data">
+<div *ngIf="data === undefined">{{'loading' | i18n}}</div>
+<div *ngIf="data !== undefined">
     <h2>{{'players.unique.title' | i18n}}: <span class="value">{{data | number}}</span></h2>
 </div>
