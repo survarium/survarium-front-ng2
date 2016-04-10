@@ -30,7 +30,8 @@ export class Timeline {
 
     private options = {
         multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
-        scaleFontColor: Colors['gray-4'].color
+        scaleFontColor: Colors['gray-4'].color,
+        responsive: true
     };
 
     private formatDate (date) {

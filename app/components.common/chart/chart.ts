@@ -5,7 +5,8 @@ declare var Chart :any;
 @Component({
     selector: 'chart',
     inputs: [],
-    template: `<canvas style="width: 100%; height: 100%;" (click)="click($event)" (mousemove)="hover($event)"></canvas>`,
+    template: `<canvas style="width: 100%; height: 400px;" (click)="click($event)" (mousemove)="hover($event)"></canvas>`,
+    styles: [require('./chart.styl')]
 })
 
 export class ChartComponent implements OnInit, OnDestroy {
@@ -39,9 +40,7 @@ export class ChartComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit () {
-        this.zone.runOutsideAngular(() => {
-            this.chart = new Chart(this.element.nativeElement.children[0].getContext('2d'))[this.chartType](this.data, this.options);
-        });
+        this.chart = new Chart(this.element.nativeElement.children[0].getContext('2d'))[this.chartType](this.data, this.options);
     }
 
     ngOnDestroy () {
