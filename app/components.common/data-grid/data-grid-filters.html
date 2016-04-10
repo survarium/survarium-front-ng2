@@ -5,8 +5,8 @@
             <option *ngFor="#filter of unused" [ngValue]="filter.field">{{filter.title}}</option>
         </select>
         <button (click)="addFilter(ffa.value)">{{'dataGrid.filter.add' | i18n}}</button>
-        <button (click)="trigger()">{{'dataGrid.filters.apply' | i18n}}</button>
     </div>
+    <button (click)="trigger()" class="find">{{'dataGrid.filters.apply' | i18n}}</button>
     <div *ngIf="used?.length">
         <div class="filters">
             <div *ngFor="#filter of used" class="filter">
