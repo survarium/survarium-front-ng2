@@ -148,7 +148,20 @@ let dict = {
         }
     },
     dataGrid: {
-        counter: 'Показано з {{from}} до {{to}} із {{total}} записів'
+        counter: 'Показано з {{from}} до {{to}} із {{total}} записів',
+        counterFiltered: 'Показано з {{from}} до {{to}} із {{filtered}} записів (усього {{total}})',
+        filters: {
+            title: 'Фільтри',
+            apply: 'Знайти'
+        },
+        filter: {
+            title: 'Фільтр',
+            add: 'Додати',
+            fromTo: 'Діапазон',
+            equal: 'Одно',
+            from: 'Від',
+            to: 'До'
+        }
     },
     streams: {
         title: 'Стріми',

@@ -132,6 +132,7 @@ let dict = {
     },
     dataGrid: {
         counter: 'Показано с {{from}} по {{to}} из {{total}} записей',
+        counterFiltered: 'Показано с {{from}} по {{to}} из {{filtered}} записей (всего {{total}})',
         filters: {
             title: 'Фильтры',
             apply: 'Найти'

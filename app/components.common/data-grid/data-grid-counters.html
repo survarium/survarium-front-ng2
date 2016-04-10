@@ -1,1 +1,2 @@
-<template [ngIf]="!isNaN(to)">{{'dataGrid.counter' | i18n: { from: (skip+1) | number, to: to | number, total: total | number } }}</template>
+<template [ngIf]="!isNaN(to) && isNaN(filtered)">{{'dataGrid.counter' | i18n: { from: (skip+1) | number, to: to | number, total: total | number } }}</template>
+<template [ngIf]="!isNaN(to) && !isNaN(filtered)">{{'dataGrid.counterFiltered' | i18n: { from: (skip+1) | number, to: to | number, total: total | number, filtered: filtered | number } }}</template>

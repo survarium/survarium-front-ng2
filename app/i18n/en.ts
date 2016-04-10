@@ -132,7 +132,20 @@ let dict = {
 
     },
     dataGrid: {
-        counter: 'Showing {{from}} to {{to}} of {{total}} entries'
+        counter: 'Showing {{from}} to {{to}} of {{total}} entries',
+        counterFiltered: 'Showing {{from}} to {{to}} of {{filtered}} entries (total {{total}})',
+        filters: {
+            title: 'Filters',
+            apply: 'Find'
+        },
+        filter: {
+            title: 'Filter',
+            add: 'Add',
+            fromTo: 'Range',
+            equal: 'Equal',
+            from: 'From',
+            to: 'To'
+        }
     },
     streams: {
         title: 'Streams',

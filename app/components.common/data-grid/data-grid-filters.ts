@@ -55,11 +55,13 @@ export class DataGridFilters implements OnInit {
 
     private trigger() {
         let storeFilters = {};
+        let storedFilters = 0;
         let used = [];
 
         this.filters.forEach((filter) => {
             if ([undefined, null].indexOf(filter.value) === -1) {
                 storeFilters[filter.field] = filter.value;
+                storedFilters++;
             }
 
             if (filter.value) {
@@ -71,7 +73,10 @@ export class DataGridFilters implements OnInit {
 
         let saved = this.saved || {};
         saved.filters = storeFilters;
-        this.name && Storage.setItem(this.name, JSON.stringify(saved));
+
+        if (this.name && storedFilters) {
+            Storage.setItem(this.name, JSON.stringify(saved));
+        }
     }
 
     private addFilter(byField :string) {

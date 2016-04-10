@@ -97,6 +97,7 @@ export class DataGrid implements OnInit {
     private stream;
     private streamTrigger :(options ?:any) => void;
     private total :number;
+    private filtered :number;
     private limit :number;
     private skip  :number;
     private loading :boolean;
@@ -108,10 +109,11 @@ export class DataGrid implements OnInit {
             .distinctUntilChanged()
             .switchMap((options :any) => { return handler(options) })
             .map((result) => {
-                this._data  = result.data;
-                this.total  = result.total;
-                this.skip   = result.skip || 0;
-                this.limit  = result.limit;
+                this._data    = result.data;
+                this.total    = result.total;
+                this.filtered = result.filtered !== undefined ? result.filtered : result.total;
+                this.skip     = result.skip || 0;
+                this.limit    = result.limit;
             })
             .subscribe(() => {
                 this.loading = false;
@@ -186,6 +188,8 @@ export class DataGrid implements OnInit {
         } else {
             this._filter = conditions;
         }
+
+        this.skip = 0;
 
         this.load();
     }
