@@ -103,7 +103,7 @@
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        })(window, document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-72532245-2', 'auto');
 
@@ -132,6 +132,22 @@
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
         })(document, window, "yandex_metrika_callbacks");
+
+        (function(d, t, p) {
+            var j = d.createElement(t); j.async = true; j.type = "text/javascript";
+            j.src = ("https:" == p ? "https:" : "http:") + "//stat.sputnik.ru/cnt.js";
+            var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
+        })(document, "script", document.location.protocol);
+
+        var _tmr = window._tmr || (window._tmr = []);
+        _tmr.push({id: "2768528", type: "pageView", start: (new Date()).getTime()});
+        (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+            var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+        })(document, window, "topmailru-code");
     </script>
     <% } %>
 </head>
