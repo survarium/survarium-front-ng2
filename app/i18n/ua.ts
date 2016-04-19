@@ -42,6 +42,7 @@ let dict = {
     profile: 'Профіль',
     ammunition: 'Амуніція',
     active: 'Активний',
+    lastUpdate: 'Оновлено',
     roles: {
         commander: 'Командир',
         warlord: 'Сержант',
@@ -196,6 +197,9 @@ let dict = {
         thanks: {
             title: 'Подяка за переклад сайту'
         }
+    },
+    badges: {
+        'svpro-developer': 'Розробник survarium.pro'
     }
 };
 

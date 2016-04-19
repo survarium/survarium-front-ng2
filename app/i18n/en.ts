@@ -43,6 +43,7 @@ let dict = {
     ammunition  : 'Ammunition',
     active      : 'Active',
     total       : 'Total',
+    lastUpdate  : 'Updated',
     roles        : {
         commander: 'Commander',
         warlord  : 'Warlord',
@@ -180,6 +181,9 @@ let dict = {
         thanks: {
             title: 'Thanks'
         }
+    },
+    badges: {
+        'svpro-developer': 'survarium.pro developer'
     }
 };
 

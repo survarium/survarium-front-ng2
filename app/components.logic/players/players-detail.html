@@ -2,6 +2,7 @@
 <pre *ngIf="error">{{error}}</pre>
 <template [ngIf]="show">
     <h1 class="title"><span>{{'players.detail' | i18n}}</span><nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname></h1>
+    <badges [player]="data"></badges>
     <players-detail-counts [data]="data"></players-detail-counts>
     <players-detail-matches [nickname]="data.nickname"></players-detail-matches>
 </template>

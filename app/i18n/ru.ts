@@ -57,6 +57,7 @@ let dict = {
     artefactUses : 'Использовано артефактов',
     elo          : 'ELO',
     total        : 'Всего',
+    lastUpdate   : 'Обновлено',
     players: {
         docTitle: 'Игроки',
         title: 'Игроки',
@@ -179,6 +180,9 @@ let dict = {
         thanks: {
             title: 'Благодарность'
         }
+    }, 
+    badges: {
+        'svpro-developer': 'Разработчик survarium.pro'
     }
 };
 

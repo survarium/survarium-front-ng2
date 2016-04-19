@@ -5,6 +5,7 @@ import { ClansService } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
 import { Percent } from '../../components.common/percent/percent'
 import { Role } from '../../components.common/role/role'
+import { DateTime } from '../../components.common/datetime/datetime'
 import DataGrid from '../../components.common/data-grid/data-grid'
 
 @Component({
@@ -58,6 +59,13 @@ export class ClansDetailPlayers {
             width: 80,
             sort: { 'total.scoreAvg': { } },
             classes: 'center'
+        }, {
+            title: i18n.get('lastUpdate'),
+            width: 125,
+            component: DateTime,
+            inputs: { date: `updatedAt`, slim: { useValue: true } },
+            sort: { 'updatedAt': {  } },
+            classes: 'nowrap'
         }, {
             title: i18n.get('kills'),
             field: 'total.kills',

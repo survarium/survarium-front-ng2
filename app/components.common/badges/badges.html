@@ -1,0 +1,3 @@
+<template [ngIf]="badges?.length">
+    <badge *ngFor="#badge of badges">{{'badges.' + badge | i18n}}</badge>
+</template>

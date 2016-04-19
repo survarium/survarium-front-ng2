@@ -7,11 +7,12 @@ import TitleService from '../../services/title'
 import Counts from './players-detail-counts'
 import Matches from './players-detail-matches'
 import Nickname from '../../components.common/nickname/nickname'
+import Badges from '../../components.common/badges/badges'
 import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'players-detail',
-    directives: [NgIf, Counts, Nickname, Matches],
+    directives: [NgIf, Counts, Nickname, Matches, Badges],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]
