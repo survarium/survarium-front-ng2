@@ -49,7 +49,7 @@
     <% if (webpackConfig.metadata.ENV === 'production') { %>
     <script>
         (function (location) {
-            var httpsDetection = location.href.match(/^http:\/\/(.*)/);
+            var httpsDetection = location.href.match(/^http:/);
             if (httpsDetection) {
                 return location.assign(location.href.replace(/^http/, 'https'));
             }
@@ -163,6 +163,16 @@
     <% if (webpackConfig.metadata.ENV === 'development') { %>
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
     <% } %>
+
+    <script type="text/javascript" src="https://yastatic.net/browser-updater/v1/script.js" charset="utf-8"></script>
+    <script>
+        var __lang = window.navigator.userLanguage || window.navigator.language;
+        var __langDefault = 'en';
+        __lang = !__lang ? 'en' :
+                __lang.match(/ru/i) ? 'ru' : 'en';
+
+        var yaBrowserUpdater = new ya.browserUpdater.init({"lang":__lang,"browsers":{"yabrowser":"15.12","chrome":"48","ie":"10","opera":"34","safari":"8","fx":"43","amigo":"Infinity","iron":"35","flock":"Infinity","palemoon":"25","camino":"Infinity","maxthon":"4.5","seamonkey":"2.3"},"theme":"yellow"});
+    </script>
 </body>
 
 </html>
