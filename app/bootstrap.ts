@@ -36,6 +36,12 @@ bootstrap(App,
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }
+
+        var adsbygoogle = window['adsbygoogle'] || [];
+        adsbygoogle.push({
+            google_ad_client: "ca-pub-8677968039358823",
+            enable_page_level_ads: CONFIG.isMobile
+        });
     })
     .catch(err => console.error(err));
 

@@ -5,6 +5,7 @@ import dictUA from './i18n/ua'
 export const CONFIG = {
     production: process.env.ENV === 'production',
     enableDebugTools: false,
+    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
     api: process.env.API_PATH,
     title: process.env.TITLE,
     app: {
