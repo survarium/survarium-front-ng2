@@ -84,7 +84,7 @@ module.exports = {
 			from: 'app/assets',
 			to  : 'assets'
 		}]), // generating html
-		new HtmlWebpackPlugin({ template: 'app/index.html' }),
+		new HtmlWebpackPlugin(Object.assign({}, helpers.HtmlWebpackPluginParams, { minify: false })),
 		new webpack.DefinePlugin({
 			'process.env': {
 				'ENV'     : JSON.stringify(metadata.ENV),

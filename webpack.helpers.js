@@ -45,3 +45,4 @@ function prependExt(extensions, args) {
 }
 exports.prependExt = prependExt;
 exports.prepend = prependExt;
+exports.HtmlWebpackPluginParams = { template: 'app/index.html', inject: 'body', minify: { collapseWhitespace: true, minifyJS: true, removeComments: true, minifyCSS: true } };

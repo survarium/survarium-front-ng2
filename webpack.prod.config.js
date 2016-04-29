@@ -115,7 +115,7 @@ module.exports = helpers.validate({
 			from: 'app/assets',
 			to  : 'assets'
 		}]),
-		new HtmlWebpackPlugin({ template: 'app/index.html' }),
+		new HtmlWebpackPlugin(helpers.HtmlWebpackPluginParams),
 		new DefinePlugin({
 			// Environment helpers
 			'process.env': {
