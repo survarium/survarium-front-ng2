@@ -2,7 +2,6 @@ import { Injectable, Inject } from 'angular2/core'
 import { Http, Response, Headers, Request, URLSearchParams } from 'angular2/http'
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
-import { PlayersList } from '../typings/players-list'
 
 @Injectable()
 export class PlayersService {
@@ -90,7 +89,7 @@ export class PlayersService {
      * @param {Object} [query]
      * @returns {Observable<PlayersList>}
      */
-    list(query ?:any) :Observable<PlayersList> {
+    list(query ?:any) :Observable<any> {
         query = query || {};
 
         var params = new URLSearchParams();

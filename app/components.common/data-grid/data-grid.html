@@ -3,7 +3,7 @@
     <div class="container" [style.width]="width">
         <div class="header">
             <data-grid-cell-title
-                    *ngFor="#column of columns, #i=index"
+                    *ngFor="let column of columns, let i=index"
                     [column]="column"
                     [columnIndex]="i"
                     [width]="column.width || defaultColumnWidth"
@@ -13,11 +13,11 @@
                     (click)="headerClick({ column: column, columnIndex: i }, $event)"></data-grid-cell-title>
         </div>
         <div class="body">
-            <div *ngFor="#row of data, #i=index" class="row">
+            <div *ngFor="let row of data, let i=index" class="row">
                 <td *ngIf="row.__group" [attr.colSpan]="columnsCount" class="data-grid-rowgroup" [innerHTML]="row.content"></td>
                 <template [ngIf]="!row.__group">
                     <data-grid-cell
-                            *ngFor="#column of columns, #j=index"
+                            *ngFor="let column of columns, let j=index"
                             [row]="row"
                             [rowIndex]="rowIndex(row, i)"
                             [column]="column"

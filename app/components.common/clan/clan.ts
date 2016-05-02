@@ -5,7 +5,7 @@ import { I18N } from '../../services/i18n'
 @Component({
     selector: 'clan',
     directives: [ROUTER_DIRECTIVES],
-    inputs: ['abbr', 'name', 'classes', 'win'],
+    inputs: ['abbr', 'name', 'classes', 'win', 'nowrap'],
     template: require('./clan.html'),
     styles: [require('./clan.styl')]
 })
@@ -32,6 +32,11 @@ export class Clan {
         }
         this._preTitle = this.i18n.get('matches.cw.winner') + ': ';
         this._classes += ' clan_winner';
+    }
+
+    private nowrap :boolean;
+    @Input('nowrap') set _nowrap (val :boolean) {
+        this.nowrap = !!val;
     }
 }
 

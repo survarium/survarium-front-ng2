@@ -1,1 +1,4 @@
-<a *ngIf="abbr" [routerLink]="['/Clans', 'ClansDetail', { abbr: abbr }]" title="{{_preTitle}}{{name}}" class="clan" [class]="_classes">{{abbr}}</a>
+<a *ngIf="abbr" [routerLink]="['/Clans', 'ClansDetail', { abbr: abbr }]" title="{{_preTitle}}{{name}}" class="clan" [class]="_classes">
+    <template [ngIf]="nowrap">{{abbr}}</template>
+    <template [ngIf]="!nowrap">[{{abbr}}]</template>
+</a>

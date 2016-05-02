@@ -28,7 +28,7 @@ export class StreamsFormatsService {
     public observe    :Observable<any>;
 
     constructor () {
-        this.observe = new Observable(observer => {
+        this.observe = Observable.create(observer => {
             this.observer = observer;
             this.observer.next(this.format);
         }).do();

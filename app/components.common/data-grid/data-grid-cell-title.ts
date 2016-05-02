@@ -1,4 +1,4 @@
-import { Component, EventEmitter, DynamicComponentLoader, ElementRef, Injector } from 'angular2/core'
+import { Component, DynamicComponentLoader } from 'angular2/core'
 import DataGridCell from './data-grid-cell'
 
 @Component({
@@ -11,8 +11,8 @@ import DataGridCell from './data-grid-cell'
 export class DataGridCellTitle extends DataGridCell {
     _isTitleCell :boolean = true;
 
-    constructor(dcl :DynamicComponentLoader, elementRef :ElementRef, injector :Injector) {
-        super(dcl, elementRef, injector);
+    constructor(dcl :DynamicComponentLoader) {
+        super(dcl);
     }
 }
 

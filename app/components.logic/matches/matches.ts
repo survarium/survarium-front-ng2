@@ -8,13 +8,7 @@ import I18NPipe from '../../pipes/i18n'
     directives: [RouterOutlet, ROUTER_DIRECTIVES],
     pipes: [I18NPipe],
     styles: [require('../../components.common/sub-nav/sub-nav.styl')],
-    template: `<nav>
-      <a [routerLink]="['./MatchesSearch']" class="nav-link">{{'matches.search.title' | i18n}}</a>
-      <a [routerLink]="['./MatchesList']" class="nav-link">{{'matches.list' | i18n}}</a>
-      <a [routerLink]="['./MatchesCWList']" class="nav-link">{{'matches.cw.title' | i18n}}</a>
-      <a *ngFor="#match of matches" [routerLink]="['./MatchesDetail', { match: match }]" class="nav-link">{{match}}</a>
-    </nav>
-    <router-outlet></router-outlet>`,
+    template: require('./matches.html')
 })
 
 @RouteConfig([

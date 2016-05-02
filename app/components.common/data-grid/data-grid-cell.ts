@@ -1,16 +1,14 @@
 import {
     Component,
-    EventEmitter,
     Input,
-    Output,
-    HostListener,
     HostBinding,
     Optional,
     DynamicComponentLoader,
-    ElementRef,
-    Injector,
+    ViewChild,
+    ViewContainerRef,
     ComponentRef,
-    OnInit
+    OnInit,
+    AfterViewInit
 } from 'angular2/core'
 
 @Component({
@@ -19,7 +17,7 @@ import {
     styles: [require('./data-grid-cell.styl')]
 })
 
-export class DataGridCell implements OnInit {
+export class DataGridCell implements OnInit, AfterViewInit {
     _isTitleCell :boolean = false;
 
     @Input() column :any;
@@ -66,7 +64,7 @@ export class DataGridCell implements OnInit {
 
     private content;
 
-    constructor (private dcl :DynamicComponentLoader, private elementRef :ElementRef, private injector :Injector) {}
+    constructor (private dcl :DynamicComponentLoader) {}
 
     private getCell (path :string) {
         if (!path) {
@@ -93,20 +91,32 @@ export class DataGridCell implements OnInit {
         }
 
         if (column.component) {
-            return this.dcl.loadIntoLocation(column.component, this.elementRef, `componentAnchor`)
-                .then((res :ComponentRef) => {
-                    if (column.inputs) {
-                        Object.keys(column.inputs).forEach((input) => {
-                            let __input = column.inputs[input];
-                            res.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
-                        });
-                    }
-                });
+            return;
         }
 
         this.content = this.column.render ?
             this.column.render(column.field ? this.getCell(column.field) : null, this.row) :
             this.getCell(column.field);
+    }
+
+    @ViewChild('componentAnchor', { read: ViewContainerRef }) private target :ViewContainerRef;
+
+    ngAfterViewInit () {
+        let column = this.column;
+
+        if (!column || !column.component || !this.target) {
+            return;
+        }
+
+        this.dcl.loadNextToLocation(column.component, this.target)
+            .then((res :ComponentRef) => {
+                if (column.inputs) {
+                    Object.keys(column.inputs).forEach((input) => {
+                        let __input = column.inputs[input];
+                        res.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
+                    });
+                }
+            });
     }
 }
 

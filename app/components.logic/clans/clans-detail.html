@@ -10,4 +10,5 @@
     <clans-detail-matches *ngIf="isPublic" [clan]="data"></clans-detail-matches>
     <clans-detail-clanwars *ngIf="!isPublic" [clan]="data"></clans-detail-clanwars>
     <clans-detail-players [clan]="data"></clans-detail-players>
+    <div [innerHTML]="jsonLD"></div>
 </div>

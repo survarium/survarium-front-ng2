@@ -4,5 +4,5 @@
 </form>
 
 <ul>
-    <li *ngFor="#item of items | async"><nickname [nickname]="item.nickname" [clan]="item.clan"></nickname></li>
+    <li *ngFor="let item of items | async"><nickname [nickname]="item.nickname" [clan]="item.clan"></nickname></li>
 </ul>

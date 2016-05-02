@@ -12,16 +12,5 @@ import Clan from '../clan/clan'
 })
 
 export class Nickname {
-    private _nickname :string;
-    private _rawNickname :string;
-
-    @Input('nickname') set nickname (value :string) {
-        this._nickname = encodeURIComponent(value);
-        this._rawNickname = value;
-    }
-
-    get nickname () {
-        return this._nickname;
-    }
 }
 export default Nickname

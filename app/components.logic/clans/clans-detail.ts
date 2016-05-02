@@ -1,9 +1,8 @@
-import { Component, Inject } from 'angular2/core'
+import { Component } from 'angular2/core'
 import { RouteParams } from 'angular2/router'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
-import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import Counts from './clans-detail-counts'
 import Players from './clans-detail-players'
@@ -46,6 +45,32 @@ export class ClansDetail {
         this.isPublic = false;
     }
 
+    private jsonLD :string;
+
+    private setJsonLD(data :any) {
+        return this.jsonLD = `<script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@id": "https://survarium.pro/clans",
+                  "name": "Clans"
+                }
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@id": "https://survarium.pro/clans/${data.abbr}",
+                  "name": ${data.abbr}
+                }
+              }]
+            }
+            </script>`;
+    }
+
     constructor(private _routeParams:RouteParams,
                 private _clansService:ClansService,
                 private _title:TitleService,
@@ -57,6 +82,7 @@ export class ClansDetail {
             .fetch(this.name)
             .subscribe(data => {
                 this.data = data;
+                this.setJsonLD(this.data);
                 this.show = true;
                 this._title.setTitle(this.data.abbr);
                 this._store.clans.add(this.data.abbr);

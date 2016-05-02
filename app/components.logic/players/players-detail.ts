@@ -1,4 +1,4 @@
-import { Component, Inject } from 'angular2/core'
+import { Component } from 'angular2/core'
 import { NgIf } from 'angular2/common'
 import { RouteParams } from 'angular2/router'
 import { PlayersService } from '../../services/api'
@@ -24,6 +24,31 @@ export class PlayersDetail {
     private error :any;
 
     private show :boolean = false;
+    private jsonLD :string;
+
+    private setJsonLD(data :any) {
+        return this.jsonLD = `<script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@id": "https://survarium.pro/players",
+                  "name": "Players"
+                }
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@id": "https://survarium.pro/players/${data.nickname}",
+                  "name": "${(data.clan ? '[' + data.clan.abbr + '] ' : '') + data.nickname}"
+                }
+              }]
+            }
+            </script>`;
+    }
 
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,
@@ -41,6 +66,7 @@ export class PlayersDetail {
                     this.data.clan = this.data.clan_meta;
                 }
 
+                this.setJsonLD(this.data);
                 this.show = true;
 
                 this._title.setTitle(this.data.nickname);

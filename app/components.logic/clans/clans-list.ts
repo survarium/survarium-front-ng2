@@ -1,12 +1,8 @@
-import { Component, Inject, ViewQuery, QueryList, ElementRef } from 'angular2/core'
-import { Router } from 'angular2/router'
-import { Observable } from 'rxjs/Observable'
+import { Component, ViewQuery, QueryList } from 'angular2/core'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'
 import Percent from '../../components.common/percent/percent'
-import KD from '../../components.common/kd/kd'
-import WinRate from '../../components.common/winrate/winrate'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
@@ -68,7 +64,7 @@ export class ClansList {
             {
                 title: i18n.get('clans.one'),
                 component: Clan,
-                inputs: { abbr: 'abbr', name: 'name' },
+                inputs: { abbr: 'abbr', name: 'name', nowrap: { useValue: true} },
                 width: 110,
                 sort: { 'abbr': { default: 1 } },
                 classes: 'blockLink'

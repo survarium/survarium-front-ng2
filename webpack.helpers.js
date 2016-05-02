@@ -1,6 +1,8 @@
 var path = require('path');
 var zlib = require('zlib');
-var validateWebpackConfig = require('webpack-validator');
+var validateWebpackConfig = function (config) {
+	return config;
+}; //require('webpack-validator');
 var pkg = require('./package.json');
 
 // Helper functions

@@ -1,0 +1,20 @@
+.row
+  display flex
+
+.cell
+  flex 1 1
+  align-self flex-end
+
+.cell:last-of-type
+  text-align right
+
+.meta
+  font-size .6em
+  padding .5em .2em
+
+@media (max-width: 530px)
+  .row
+    display block
+
+  .cell:last-of-type
+    text-align left

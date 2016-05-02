@@ -60,8 +60,8 @@ module.exports = {
 			},
 			{
 				test   : /\.html$/,
-				loader : 'raw-loader',
-				exclude: [root('app/index.html')]
+				loader : 'raw-loader!html-minify-loader',
+				exclude: [helpers.root('app/index.html')]
 			},
 			{
 				test: /\.styl$/,
@@ -128,24 +128,11 @@ module.exports = {
 		use: [
 			poststylus([ 'autoprefixer', 'rucksack-css' ])
 		]
+	},
+	'html-minify-loader': {
+		quotes: true,
+		dom: {
+			lowerCaseAttributeNames: false
+		}
 	}
 };
-
-// Helper functions
-
-function root(args) {
-	args = Array.prototype.slice.call(arguments, 0);
-	return path.join.apply(path, [__dirname].concat(args));
-}
-
-function prepend(extensions, args) {
-	args = args || [];
-	if (!Array.isArray(args)) {
-		args = [args]
-	}
-	return extensions.reduce(function (memo, val) {
-		return memo.concat(val, args.map(function (prefix) {
-			return prefix + val
-		}));
-	}, ['']);
-}

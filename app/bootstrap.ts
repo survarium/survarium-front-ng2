@@ -1,8 +1,8 @@
 import { enableProdMode, provide, APP_ID, ComponentRef } from 'angular2/core';
 import { bootstrap, Title as TitleProvider, enableDebugTools } from 'angular2/platform/browser'
 import { HTTP_PROVIDERS } from 'angular2/http'
-import { APP_BASE_HREF, ROUTER_PROVIDERS } from 'angular2/router'
-
+import { ROUTER_PROVIDERS } from 'angular2/router'
+import { APP_BASE_HREF } from 'angular2/platform/common'
 
 import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'

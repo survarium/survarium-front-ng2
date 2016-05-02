@@ -2,9 +2,9 @@
 
 <div class="group">
     <p>Спасибо игрокам за поддержку и помощь в разработке сайта</p>
-    <div *ngFor="#thank of data" class="elem">
+    <div *ngFor="let thank of data" class="elem">
         <h4 class="thanks">{{thank.message}}</h4>
-        <span *ngFor="#player of thank.players" class="thankful">
+        <span *ngFor="let player of thank.players" class="thankful">
             <nickname [nickname]="player.nickname" [clan]="player.clan_meta"></nickname>
         </span>
     </div>

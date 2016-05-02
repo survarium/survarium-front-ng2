@@ -2,14 +2,14 @@
     <h3 class="title">{{'dataGrid.filters.title' | i18n}}</h3>
     <div *ngIf="unused?.length">
         <select [(ngModel)]="filterToAdd" #ffa>
-            <option *ngFor="#filter of unused" [ngValue]="filter.field">{{filter.title}}</option>
+            <option *ngFor="let filter of unused" [ngValue]="filter.field">{{filter.title}}</option>
         </select>
         <button (click)="addFilter(ffa.value)">{{'dataGrid.filter.add' | i18n}}</button>
     </div>
     <button (click)="trigger()" class="find">{{'dataGrid.filters.apply' | i18n}}</button>
     <div *ngIf="used?.length">
         <div class="filters">
-            <div *ngFor="#filter of used" class="filter">
+            <div *ngFor="let filter of used" class="filter">
                 <data-grid-filters-number *ngIf="filter.type === 'number'" [filter]="filter" (keyup.enter)="trigger()"></data-grid-filters-number>
             </div>
         </div>

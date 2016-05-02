@@ -36,6 +36,7 @@ module.exports = helpers.validate({
 	metadata: metadata,
 	devtool : 'source-map',
 	debug   : false,
+	cache   : false,
 
 	entry: {
 		'vendor': './app/vendor.ts',
@@ -89,7 +90,7 @@ module.exports = helpers.validate({
 			},
 			{
 				test   : /\.html$/,
-				loader : 'raw-loader',
+				loader : 'raw-loader!html-minify-loader',
 				exclude: [helpers.root('app/index.html')]
 			},
 			{
@@ -150,19 +151,32 @@ module.exports = helpers.validate({
 			beautify: false,
 			mangle  : false,//{ screw_ie8 : true },
 			compress: { screw_ie8: true },
-			comments: false
-
+			comments: false,
+			sourceMap: false
 		}), // include uglify in production
-		new CompressionPlugin({
+		/*new CompressionPlugin({
 			algorithm: helpers.gzipMaxLevel,
 			regExp: /\.css$|\.html$|\.js$|\.map$|\.styl$/,
 			threshold: 2 * 1024
-		})
+		})*/
 	], // Other module loader config
 	stylus: {
 		use: [
 			poststylus([ 'autoprefixer', 'rucksack-css' ])
 		]
+	},
+	'html-minify-loader': {
+		quotes: true,
+		dom: {
+			lowerCaseAttributeNames: false
+		}
+	},
+	htmlLoader: {
+		minimize: true,
+		removeAttributeQuotes: false,
+		caseSensitive: true,
+		customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+		customAttrAssign: [ /\)?\]?=/ ]
 	},
 	// we need this due to problems with es6-shim
 	node: {
@@ -172,12 +186,5 @@ module.exports = helpers.validate({
 		module        : false,
 		clearImmediate: false,
 		setImmediate  : false
-	},
-	htmlLoader: {
-		minimize: true,
-		removeAttributeQuotes: false,
-		caseSensitive: true,
-		customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
-		customAttrAssign: [ /\)?\]?=/ ]
 	}
 });
