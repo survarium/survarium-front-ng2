@@ -58,6 +58,11 @@ footer
     max-width $maxWidth
     margin 0 auto
 
+    &::after
+      content ''
+      display table
+      clear both
+
   &__body
     position relative
     display block
@@ -91,6 +96,9 @@ footer
     text-transform uppercase
 
     color hsla(0, 0%, 96%, .5)
+
+    &:last-of-type
+      float right
 
     &_link
       display block
@@ -134,5 +142,8 @@ footer
   padding 0 $padLeft
   max-width 1500px
   margin 0 auto
+
+.vk_sv_pro
+  background url(/assets/vk.svg) no-repeat 50% 50%/cover
 
 @import "../../components.common/def-list/def-list.styl"
