@@ -120,9 +120,14 @@ export class PlayersService {
      * Получить топ игроков за последний час
      * @returns {Observable<R>}
      */
-    top() :Observable<any> {
+    top(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+        params.set('period', query.period === 'day' ? 'day' : 'hour');
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/top`, headers: headers, method: 'get' });
+        let options = new Request({ url: `${this._handleV2}/top`, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())

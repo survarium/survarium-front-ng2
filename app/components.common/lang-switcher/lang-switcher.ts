@@ -16,7 +16,8 @@ export class LangSwitcher  {
 
     }
 
-    switch (language :Language) {
+    switch ($event, language :Language) {
+        $event.preventDefault();
         this.i18n.switch(language);
     }
 }

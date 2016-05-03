@@ -67,7 +67,9 @@ let dict = {
             title: 'Player search'
         },
         top: {
-            title: 'Top players of last hour'
+            title: 'Top players of',
+            hour: 'last hour',
+            day: 'last day'
         },
         unique: {
             title: 'Unique players of latest 24h'

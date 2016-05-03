@@ -1,1 +1,1 @@
-<a *ngFor="let lang of languages" class="lang" [class.current]="lang.lang===currentLang.lang" (click)="switch(lang)">{{lang.originName}}</a>
+<a *ngFor="let lang of languages" class="lang" href="?lang={{lang.lang}}" [class.current]="lang.lang===currentLang.lang" (click)="switch($event, lang)">{{lang.originName}}</a>

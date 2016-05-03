@@ -1,4 +1,5 @@
 import { Component } from 'angular2/core'
+import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { I18NPipe } from '../../pipes/i18n'
 import { NumberPipe } from '../../pipes/number'
@@ -28,14 +29,35 @@ export class PlayersTop {
         this.data = val;
     };
 
+    private stream;
+    private streamTrigger :(options ?:any) => void;
+    private period = 'hour';
+
     constructor (private playersService :PlayersService) {
-        playersService
-            .top()
+        this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
+        this.stream
+            .debounceTime(100)
+            .distinctUntilChanged()
+            .switchMap((options :any) => { return playersService.top(options) })
             .subscribe(data => {
                 this.top = data;
-            }, err => {
+            }, (err) => {});
 
-            });
+        this.load();
     }
 
+    public load () {
+        if (!this.streamTrigger) {
+            return;
+        }
+
+        this.streamTrigger({
+            period: this.period
+        });
+    }
+
+    private switch () {
+        this.period = this.period === 'hour' ? 'day' : 'hour';
+        this.load();
+    }
 }

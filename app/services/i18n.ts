@@ -7,7 +7,14 @@ import Storage from '../utils/storage'
 let LANGUAGES = CONFIG.i18n.languages;
 
 function detectLang () {
-    let language = Storage.getItem('language');
+    let language;
+    let search = window.location.search;
+
+    if (search && search.match(/lang=(\w{2})/)) {
+        language = RegExp.$1;
+    } else {
+        language = Storage.getItem('language');
+    }
 
     if (!language) {
         // FIXME: CLIENT-SIDE ONLY
