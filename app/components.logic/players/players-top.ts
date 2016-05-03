@@ -5,6 +5,7 @@ import { I18NPipe } from '../../pipes/i18n'
 import { NumberPipe } from '../../pipes/number'
 import { Nickname } from '../../components.common/nickname/nickname'
 import { Match } from '../../components.common/match/match'
+import { TrackService } from '../../services/track'
 
 @Component({
     selector: 'players-top',
@@ -33,7 +34,7 @@ export class PlayersTop {
     private streamTrigger :(options ?:any) => void;
     private period = 'hour';
 
-    constructor (private playersService :PlayersService) {
+    constructor (private playersService :PlayersService, private trackService :TrackService) {
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
         this.stream
             .debounceTime(100)
@@ -58,6 +59,10 @@ export class PlayersTop {
 
     private switch () {
         this.period = this.period === 'hour' ? 'day' : 'hour';
+        this.trackService.track({
+            ya: { goal:'players.top.switch', options: { period: this.period } },
+            ga: { category: 'Players top', action: 'switch period', label : `period:${this.period}`,}
+        });
         this.load();
     }
 }

@@ -31,11 +31,24 @@ export class TrackService {
                     title: title
                 });
             } catch (e) {
-                console.log('track error', e);
+                console.log('visit error', e);
             }
         }, 0);
     }
 
+    track (params :{ ya ?:{ goal :string, options :any }, ga ?:{ category :string, action :string, label :string }}) {
+        try {
+            typeof metrika !== 'undefined' && params.ya && metrika.reachGoal(params.ya.goal, params.ya.options);
+            typeof ga !== 'undefined' && params.ga && ga('send', {
+                hitType: 'event',
+                eventCategory: params.ga.category,
+                eventAction: params.ga.action,
+                eventLabel: params.ga.label
+            });
+        } catch (e) {
+            console.log('track error', e);
+        }
+    }
 }
 
 export default TrackService
