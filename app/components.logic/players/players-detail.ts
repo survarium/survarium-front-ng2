@@ -9,6 +9,7 @@ import Matches from './players-detail-matches'
 import Nickname from '../../components.common/nickname/nickname'
 import Badges from '../../components.common/badges/badges'
 import { I18NPipe } from '../../pipes/i18n'
+import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail',
@@ -70,6 +71,7 @@ export class PlayersDetail {
                 this.show = true;
 
                 this._title.setTitle(this.data.nickname);
+                this._title.setDescription(i18n.get('players.docDescriptionOne', { nickname: this.data.nickname }));
                 this._store.players.add(this.data.nickname);
             }, err => {
                 this.error = JSON.stringify(err, null, 4);

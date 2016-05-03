@@ -41,6 +41,7 @@ export class MatchesList {
                 private _title :TitleService) {
 
         this._title.setTitle(i18n.get('matches.list'));
+        this._title.setDescription(i18n.get('matches.docDescription'));
 
         this.stream = this.stream.bind(this);
     }

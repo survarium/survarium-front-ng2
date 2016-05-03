@@ -25,6 +25,7 @@ export class About {
                 @Inject('CONFIG') private config
     ) {
         this._title.setTitle(i18n.get('about.docTitle'));
+        this._title.setDescription(i18n.get('about.docDescription'));
         playersService
             .fetch('Vaseker')
             .subscribe((developer) => {

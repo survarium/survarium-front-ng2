@@ -136,6 +136,7 @@ export class MatchesDetail {
                 this.data = data;
 
                 this._title.setTitle(i18n.get('matches.match.docTitle', { id: this.data.id }));
+                this._title.setDescription(i18n.get('matches.match.docDescription', { id: this.data.id }));
                 this._store.matches.add(this.data.id);
             }, err => {
                 this.error = JSON.stringify(err, null, 4);

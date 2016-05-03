@@ -167,6 +167,7 @@ module.exports = helpers.validate({
 	},
 	'html-minify-loader': {
 		quotes: true,
+		loose: true,
 		dom: {
 			lowerCaseAttributeNames: false
 		}

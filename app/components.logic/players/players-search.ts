@@ -28,6 +28,7 @@ export class PlayersSearch {
                 private i18n :I18N
     ) {
         _title.setTitle(i18n.get('players.search.docTitle'));
+        _title.setDescription(i18n.get('players.search.docDescription'));
     }
 
     private onSubmit(form) {

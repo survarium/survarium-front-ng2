@@ -32,6 +32,7 @@ export class Twitch extends StreamsComponent{
         super(view, service);
 
         title.setTitle(i18n.get('streams.docTitle', { service: 'Twitch' }));
+        title.setDescription(i18n.get('streams.docDescription', { service: 'Twitch' }));
 
         twitch.list({}).subscribe((data) => {
             this.data.live = data.streams;

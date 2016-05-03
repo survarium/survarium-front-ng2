@@ -24,6 +24,7 @@ export class MatchesSearch {
                 private i18n :I18N
     ) {
         _title.setTitle(i18n.get('matches.search.docTitle'));
+        _title.setDescription(i18n.get('matches.search.docDescription'));
     }
 
     private onSubmit(form) {

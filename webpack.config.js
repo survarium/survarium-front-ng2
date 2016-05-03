@@ -131,6 +131,7 @@ module.exports = {
 	},
 	'html-minify-loader': {
 		quotes: true,
+		loose: true,
 		dom: {
 			lowerCaseAttributeNames: false
 		}

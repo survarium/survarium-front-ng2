@@ -3,6 +3,7 @@ import { TitleService } from '../../services/title'
 import { Timeline } from './timeline'
 import { PlayersTop } from '../players/players-top'
 import { PlayersUnique } from '../players/players-unique'
+import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'home',
@@ -14,5 +15,6 @@ import { PlayersUnique } from '../players/players-unique'
 export class Home {
     constructor (private title :TitleService) {
         title.setTitle();
+        title.setDescription(i18n.get('home.docDescription'));
     }
 }

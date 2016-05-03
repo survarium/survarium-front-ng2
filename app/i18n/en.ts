@@ -60,11 +60,14 @@ let dict = {
     elo: 'ELO',
     players: {
         docTitle: 'Players',
+        docDescription: 'Survarium player list. Filters, progress, details, matches, results, clan information.',
+        docDescriptionOne: 'Survarium player {{nickname}} statistics. Progress, details, matches, results, clan information.',
         title: 'Players',
         list: 'Players list',
         search: {
             docTitle: 'Player search',
-            title: 'Player search'
+            title: 'Player search',
+            docDescription: 'Survarium players search. Progress, details, matches, results, clan information.',
         },
         top: {
             title: 'Top players of',
@@ -79,18 +82,22 @@ let dict = {
     teamgroup: `Team {{tag}}`,
     matches: {
         list: 'Matches',
+        docDescription: 'Survarium matches list. Map, mode, level.',
         cw: {
             title: 'Clanwars',
+            docDescription: 'Survarium clanwars list. Winner highlighting, map, mode, level.',
             clan1: { title: 'Clan 1', score: 'Score 1' },
             clan2: { title: 'Clan 2', score: 'Score 2' },
             winner: 'Winner'
         },
         search: {
             title: 'Search',
-            docTitle: 'Match search'
+            docTitle: 'Match search',
+            docDescription: 'Survarium match statistics search.'
         },
         match: {
-            docTitle: 'Match | {{id}}'
+            docTitle: 'Match | {{id}}',
+            docDescription: 'Survarium match {{id}} statistics. Results, map, mode, player list and them results, download replay.'
         },
         timeline: {
             title: 'Matches count of latest 24h',
@@ -100,6 +107,8 @@ let dict = {
     clans: {
         title: 'Clans',
         docTitle: 'Clans',
+        docDescription: 'Survarium clans list. Results by frags, score and winrate.',
+        docDescriptionOne: 'Survarium clan {{abbr}} details. Clan members, statistics, clanwars.',
         one: 'Clan',
         list: 'Clans list',
         listCWDescription: 'Showing top of clans based on <strong>clawnar statistics</strong>',
@@ -111,7 +120,8 @@ let dict = {
         abbr: 'Clan abbrevation',
         search: {
             title: 'Search',
-            docTitle: 'Clan search'
+            docTitle: 'Clan search',
+            docDescription: 'Survarium clan search.'
         },
         detail: 'Survarium clan statistic'
     },
@@ -153,6 +163,7 @@ let dict = {
     streams: {
         title: 'Streams',
         docTitle: 'Streams | {{service}}',
+        docDescription: 'Survarium streams on {{service}}. Live streams and records.',
         live: 'LIVE',
         archive: 'Finished streams',
         viewers: 'Viewers: {{count}}',
@@ -167,14 +178,17 @@ let dict = {
         title: 'Info',
         messages: {
             title: 'Developer messages',
-            telegram: 'Also you can receive developer messages to your pocket device via '
+            telegram: 'Also you can receive developer messages to your pocket device via ',
+            docDescription: 'Survarium developers messages on official forum: Dima, Yava, Dargalon, Phantom, joewillburn and others.',
         }
     },
     home: {
-        title: 'pro'
+        title: 'pro',
+        docDescription: 'Survarium top players for past day, unique players amount, match levels distribution.'
     },
     about: {
         docTitle: 'About',
+        docDescription: 'Survarium.pro developer information, survarium community gratitude, feedback.',
         title: 'About',
         telegram: 'Project channel',
         vk: 'Feedback',

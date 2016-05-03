@@ -40,6 +40,7 @@ export class PlayersList {
                 private i18n :I18N) {
 
         this._title.setTitle(i18n.get('players.docTitle'));
+        this._title.setDescription(i18n.get('players.docDescription'));
 
         this.stream = this.stream.bind(this);
 

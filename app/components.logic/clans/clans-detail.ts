@@ -3,6 +3,7 @@ import { RouteParams } from 'angular2/router'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
+import { i18n } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import Counts from './clans-detail-counts'
 import Players from './clans-detail-players'
@@ -85,6 +86,7 @@ export class ClansDetail {
                 this.setJsonLD(this.data);
                 this.show = true;
                 this._title.setTitle(this.data.abbr);
+                this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
                 this._store.clans.add(this.data.abbr);
             }, err => {
                 this.error = JSON.stringify(err, null, 4);

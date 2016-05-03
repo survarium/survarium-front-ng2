@@ -24,6 +24,7 @@ export class ClansSearch {
                 private i18n :I18N
     ) {
         _title.setTitle(i18n.get('clans.search.docTitle'));
+        _title.setDescription(i18n.get('clans.search.docDescription'));
     }
 
     private onSubmit(form) {

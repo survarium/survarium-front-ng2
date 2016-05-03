@@ -58,6 +58,7 @@ export class DevMessages {
     ) {
 
         this._title.setTitle(i18n.get('info.messages.title'));
+        this._title.setDescription(i18n.get('info.messages.docDescription'));
 
         let start = Observable.forkJoin(
             this._vgService.devs(),

@@ -54,6 +54,7 @@ export class ClansList {
         elList.changes.subscribe(() => this.grid = elList.first);
 
         this._title.setTitle(i18n.get('clans.docTitle'));
+        this._title.setDescription(i18n.get('clans.docDescription'));
 
         this.columns = [
             {

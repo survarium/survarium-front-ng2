@@ -60,11 +60,14 @@ let dict = {
     total: 'Усього',
     players: {
         docTitle: 'Гравці',
+        docDescription: 'Список гравців survarium. Фільтри, прогрес, деталі, матчі, результати, інформація про клан.',
+        docDescriptionOne: 'Статистика гравця {{nickname}} гри survarium. Прогрес, деталі, матчі, результати, інформація про клан.',
         title: 'Гравці',
         list: 'Перелік гравців',
         search: {
             docTitle: 'Пошук гравця',
-            title: 'Пошук гравця'
+            title: 'Пошук гравця',
+            docDescription: 'Пошук гравця survarium. Прогрес, деталі, матчі, результати, інформація про клан.',
         },
         top: {
             title: 'Топ гравців за',
@@ -79,18 +82,22 @@ let dict = {
     teamgroup: `Команда {{tag}}`,
     matches: {
         list: 'Матчі',
+        docDescription: 'Список матчів гри survarium. Карта, режим, рівень.',
         cw: {
             title: 'Кланові бої',
+            docDescription: 'Список кланових боїв гри survarium. Підсвічування клану–переможця, карта, режим, результати.',
             clan1: {title: 'Клан 1', score: 'Рахунок 1'},
             clan2: {title: 'Клан 2', score: 'Рахунок 2'},
             winner: 'Переможець'
         },
         search: {
             title: 'Пошук',
-            docTitle: 'Пошук матчу'
+            docTitle: 'Пошук матчу',
+            docDescription: 'Пошук статистики матчу в грі survarium.'
         },
         match: {
-            docTitle: 'Матч | {{id}}'
+            docTitle: 'Матч | {{id}}',
+            docDescription: 'Статистика матчу {{id}} гри survarium. Результати, карта, режим, список гравців і їх показники, скачати реплей.'
         },
         timeline: {
             title: 'Кількість матчів за останню добу',
@@ -100,6 +107,8 @@ let dict = {
     clans: {
         title: 'Клани',
         docTitle: 'Клани',
+        docDescription: 'Список кланів гри survarium. Результати за фрагам, очками, винрейту.',
+        docDescriptionOne: 'Статистика клану {{abbr}} гри survarium. Склад клану, матчі, кланвары.',
         one: 'Клан',
         list: 'Перелік кланів',
         listCWDescription: 'Показано топ кланів, <strong>які приймають участь у кланових війнах</strong>',
@@ -111,7 +120,8 @@ let dict = {
         abbr: 'Абревіатура клану',
         search: {
             title: 'Пошук',
-            docTitle: 'Пошук клану'
+            docTitle: 'Пошук клану',
+            docDescription: 'Пошук клану в грі survarium.'
         },
         detail: 'Статистика клану survarium'
     },
@@ -169,6 +179,7 @@ let dict = {
     streams: {
         title: 'Стріми',
         docTitle: 'Стріми | {{service}}',
+        docDescription: 'Стріми з гри survarium на сервісі {{service}}. Live стріми і запису.',
         live: 'LIVE',
         archive: 'Нещодавні стріми',
         viewers: 'Дивляться: {{count}}',
@@ -183,14 +194,17 @@ let dict = {
         title: 'Інфо',
         messages: {
             title: 'Повідомлення розробників',
-            telegram: 'Також ви можете отримувати повідомлення про відповіді розробників на свій мобільний пристрій за допомогою:'
+            telegram: 'Також ви можете отримувати повідомлення про відповіді розробників на свій мобільний пристрій за допомогою:',
+            docDescription: 'Повідомлення розробників з форуму гри survarium: Dima, Yava, Dargalon, Phantom, joewillburn та інших.'
         }
     },
     home: {
-        title: 'pro'
+        title: 'pro',
+        docDescription: 'Топ гравців survarium за останні добу, кількість унікальних гравців, розподіл рівнів матчів.'
     },
     about: {
         docTitle: 'Про сайт',
+        docDescription: 'Інформація про розробника сайту survarium, подяки спільноти survarium, зворотній зв\'язок.',
         title: 'Про сайт',
         telegram: 'Канал проекту',
         vk: 'Зворотній зв’язок',

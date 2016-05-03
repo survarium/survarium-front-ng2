@@ -38,6 +38,8 @@ export class Youtube extends StreamsComponent {
         super(view, service);
 
         title.setTitle(i18n.get('streams.docTitle', { service: 'Youtube' }));
+        title.setDescription(i18n.get('streams.docDescription', { service: 'Youtube' }));
+
 
         youtube.list({}).subscribe((data) => {
             this.data.archive = data.items;
