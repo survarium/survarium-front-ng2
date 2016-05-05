@@ -200,6 +200,9 @@ let dict = {
     },
     badges: {
         'svpro-developer': 'survarium.pro developer'
+    },
+    discord: {
+        description: 'Discord service provides skype/teamspeak/raidcall/slack functionality. It includes text and voice channels for FREE!'
     }
 };
 
