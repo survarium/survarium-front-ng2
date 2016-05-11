@@ -130,7 +130,8 @@ let dict = {
         'Team Deathmatch': 'TDM',
         'Last Stand': 'DM',
         'Research': 'Research',
-        'Battery retrieval': 'Batteries'
+        'Battery retrieval': 'Batteries',
+        'Artifact Hunt': 'Artifact'
     },
     maps: {
         'Chemical Plant': 'Chemical Plant',
@@ -142,7 +143,6 @@ let dict = {
         'School': 'School',
         'London': 'London',
         'Mamayev Kurgan': 'Kurgan'
-
     },
     dataGrid: {
         counter: 'Showing {{from}} to {{to}} of {{total}} entries',
