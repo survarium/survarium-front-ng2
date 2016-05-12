@@ -10,6 +10,5 @@ import Clan from '../clan/clan'
     styles: [require('./nickname.styl')]
 })
 
-export class Nickname {
-}
+export class Nickname { }
 export default Nickname

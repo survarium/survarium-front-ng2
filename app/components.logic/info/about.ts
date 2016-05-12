@@ -8,12 +8,11 @@ import { TelegramChannel } from '../../components.common/telegram-channel/telegr
 import { VkGroup } from '../../components.common/vk-group/vk-group'
 import { Nickname } from '../../components.common/nickname/nickname'
 import { Thanks } from './thanks'
-import { Discord } from '../../components.common/discord/discord'
 
 @Component({
     selector: 'about',
     pipes: [I18NPipe, DateTimePipe],
-    directives: [TelegramChannel, Nickname, VkGroup, Thanks, Discord],
+    directives: [TelegramChannel, Nickname, VkGroup, Thanks],
     template: require('./about.html'),
     styles: [require('./about.styl')]
 })

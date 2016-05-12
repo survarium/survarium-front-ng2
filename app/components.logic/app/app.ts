@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Inject } from '@angular/core'
+import { Component, ViewEncapsulation, Inject, ViewContainerRef } from '@angular/core'
 import { RouteConfig, ROUTER_DIRECTIVES, AsyncRoute, RouterLink } from '@angular/router-deprecated'
 import { Footer } from '../../components.common/footer/footer'
 import { Home } from '../home/home'
@@ -34,5 +34,5 @@ import I18NPipe from '../../pipes/i18n'
 ])
 
 export class App {
-    constructor (@Inject('CONFIG') private config) {}
+    constructor (@Inject('CONFIG') private config, public viewRef: ViewContainerRef) {}
 }

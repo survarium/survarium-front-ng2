@@ -10,6 +10,7 @@ import { API_PROVIDERS } from './services/api'
 import { StoreService } from './services/store'
 import { TrackService } from './services/track'
 import { TitleService } from './services/title'
+import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
 
 import CONFIG from './config'
@@ -17,6 +18,8 @@ import CONFIG from './config'
 if (CONFIG.production) {
     enableProdMode();
 }
+
+export var app: ComponentRef<App>;
 
 bootstrap(App,
     [
@@ -29,18 +32,21 @@ bootstrap(App,
         ...API_PROVIDERS,
         TrackService,
         TitleService,
+        VkFeedService,
         provide(I18N, { useValue: i18n }),
         provide(APP_BASE_HREF, { useValue: '/' }),
         provide('CONFIG', { useValue: CONFIG })
     ])
     .then((appRef :ComponentRef<any>) => {
+        app = appRef;
+
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }
 
         var adsbygoogle = window['adsbygoogle'] || [];
         adsbygoogle.push({
-            google_ad_client: "ca-pub-8677968039358823",
+            google_ad_client: 'ca-pub-8677968039358823',
             enable_page_level_ads: CONFIG.isMobile
         });
     })

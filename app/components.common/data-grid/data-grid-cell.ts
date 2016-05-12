@@ -3,12 +3,13 @@ import {
     Input,
     HostBinding,
     Optional,
-    DynamicComponentLoader,
     ViewChild,
     ViewContainerRef,
     ComponentRef,
     OnInit,
-    AfterViewInit
+    AfterViewInit,
+    ComponentResolver,
+    ComponentFactory
 } from '@angular/core'
 
 @Component({
@@ -64,7 +65,7 @@ export class DataGridCell implements OnInit, AfterViewInit {
 
     private content;
 
-    constructor (private dcl :DynamicComponentLoader) {}
+    constructor (private componentResolver :ComponentResolver) {}
 
     private getCell (path :string) {
         if (!path) {
@@ -108,12 +109,13 @@ export class DataGridCell implements OnInit, AfterViewInit {
             return;
         }
 
-        this.dcl.loadNextToLocation(column.component, this.target)
-            .then((res :ComponentRef<any>) => {
+        this.componentResolver.resolveComponent(column.component)
+            .then((factory :ComponentFactory<any>) => this.target.createComponent(factory))
+            .then((componentRef :ComponentRef<any>) => {
                 if (column.inputs) {
                     Object.keys(column.inputs).forEach((input) => {
                         let __input = column.inputs[input];
-                        res.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
+                        componentRef.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
                     });
                 }
             });
