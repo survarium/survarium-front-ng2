@@ -1,4 +1,4 @@
-import { app } from '../bootstrap'
+import { appProvider } from './app'
 import { Injectable, Component, ComponentResolver, ComponentFactory, ComponentRef } from '@angular/core'
 
 @Component({
@@ -22,7 +22,7 @@ export class VkFeedService {
         return this
             .componentResolver
             .resolveComponent(VkFeedWidget)
-            .then((factory :ComponentFactory<any>) => app.instance.viewRef.createComponent(factory))
+            .then((factory :ComponentFactory<any>) => appProvider.app.instance.viewRef.createComponent(factory))
             .then((componentRef :ComponentRef<VkFeedWidget>) => {
                 componentRef.instance['ID'] = params.id;
                 return componentRef;

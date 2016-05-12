@@ -12,6 +12,7 @@ import { TrackService } from './services/track'
 import { TitleService } from './services/title'
 import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
+import { appProvider } from './services/app'
 
 import CONFIG from './config'
 
@@ -38,7 +39,7 @@ bootstrap(App,
         provide('CONFIG', { useValue: CONFIG })
     ])
     .then((appRef :ComponentRef<any>) => {
-        app = appRef;
+        appProvider.app = appRef;
 
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
