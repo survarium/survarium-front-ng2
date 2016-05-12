@@ -1,5 +1,5 @@
-import { Injectable, Inject } from 'angular2/core'
-import { Location } from 'angular2/platform/common'
+import { Injectable, Inject } from '@angular/core'
+import { Location } from '@angular/common'
 
 declare var ga :any;
 declare var metrika :any;

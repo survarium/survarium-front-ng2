@@ -1,6 +1,5 @@
-import { Component } from 'angular2/core'
-import { NgIf } from 'angular2/common'
-import { RouteParams } from 'angular2/router'
+import { Component } from '@angular/core'
+import { RouteParams } from '@angular/router-deprecated'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
@@ -13,7 +12,7 @@ import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail',
-    directives: [NgIf, Counts, Nickname, Matches, Badges],
+    directives: [Counts, Nickname, Matches, Badges],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]

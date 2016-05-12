@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, OnDestroy, EventEmitter, NgZone } from 'angular2/core'
+import { Component, Input, ElementRef, OnInit, OnDestroy, EventEmitter, NgZone } from '@angular/core'
 
 declare var Chart :any;
 

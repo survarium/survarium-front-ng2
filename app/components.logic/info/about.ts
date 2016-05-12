@@ -1,4 +1,4 @@
-import { Component, Inject } from 'angular2/core'
+import { Component, Inject } from '@angular/core'
 import { PlayersService } from '../../services/api'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'

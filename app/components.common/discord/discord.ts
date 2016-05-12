@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core'
+import { Component } from '@angular/core'
 /*import { DiscordService } from '../../services/discord'*/
 import { I18NPipe } from '../../pipes/i18n'
 

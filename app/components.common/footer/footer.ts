@@ -1,4 +1,4 @@
-import { Component, Input, Inject } from 'angular2/core'
+import { Component, Inject } from '@angular/core'
 import { LangSwitcher } from '../../components.common/lang-switcher/lang-switcher'
 
 @Component({

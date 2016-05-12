@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core'
+import { Component } from '@angular/core'
 import { TitleService } from '../../services/title'
 import { Timeline } from './timeline'
 import { PlayersTop } from '../players/players-top'

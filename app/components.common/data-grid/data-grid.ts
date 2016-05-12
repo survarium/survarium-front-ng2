@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from 'angular2/core'
+import { Component, Input, OnInit } from '@angular/core'
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'

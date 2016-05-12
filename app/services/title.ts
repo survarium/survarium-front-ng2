@@ -1,5 +1,5 @@
-import { Injectable, Inject } from 'angular2/core'
-import { Title as TitleProvider } from 'angular2/platform/browser' // FIXME: CLIENT-SIDE ONLY
+import { Injectable, Inject } from '@angular/core'
+import { Title as TitleProvider } from '@angular/platform-browser' // FIXME: CLIENT-SIDE ONLY
 import { TrackService } from './track'
 
 @Injectable()

@@ -1,5 +1,5 @@
 import { StreamsComponent } from './streams.component'
-import { Component, ViewContainerRef } from 'angular2/core'
+import { Component, ViewContainerRef } from '@angular/core'
 import { TwitchService } from '../../services/twitch'
 import { TitleService } from '../../services/title'
 import I18NPipe from '../../pipes/i18n'

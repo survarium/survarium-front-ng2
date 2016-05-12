@@ -1,4 +1,4 @@
-import { Component, ViewQuery, QueryList } from 'angular2/core'
+import { Component, ViewQuery, QueryList } from '@angular/core'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'

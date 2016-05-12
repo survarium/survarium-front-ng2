@@ -1,8 +1,9 @@
-import { enableProdMode, provide, APP_ID, ComponentRef } from 'angular2/core';
-import { bootstrap, Title as TitleProvider, enableDebugTools } from 'angular2/platform/browser'
-import { HTTP_PROVIDERS } from 'angular2/http'
-import { ROUTER_PROVIDERS } from 'angular2/router'
-import { APP_BASE_HREF } from 'angular2/platform/common'
+import { enableProdMode, provide, APP_ID, ComponentRef } from '@angular/core';
+import { Title as TitleProvider, enableDebugTools } from '@angular/platform-browser'
+import { bootstrap } from '@angular/platform-browser-dynamic'
+import { HTTP_PROVIDERS } from '@angular/http'
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated'
+import { APP_BASE_HREF } from '@angular/common'
 
 import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'
@@ -32,7 +33,7 @@ bootstrap(App,
         provide(APP_BASE_HREF, { useValue: '/' }),
         provide('CONFIG', { useValue: CONFIG })
     ])
-    .then((appRef :ComponentRef) => {
+    .then((appRef :ComponentRef<any>) => {
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }

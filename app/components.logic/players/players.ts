@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core'
-import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from 'angular2/router'
+import { Component } from '@angular/core'
+import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from '@angular/router-deprecated'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
 

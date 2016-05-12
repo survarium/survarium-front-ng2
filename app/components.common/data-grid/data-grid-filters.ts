@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from 'angular2/core'
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core'
 import { DataGridFiltersNumber } from './data-grid-filters-number';
 import { I18NPipe } from '../../pipes/i18n'
 import { Storage } from '../../utils/storage'

@@ -1,4 +1,4 @@
-import { Component, DynamicComponentLoader } from 'angular2/core'
+import { Component, DynamicComponentLoader } from '@angular/core'
 import DataGridCell from './data-grid-cell'
 
 @Component({

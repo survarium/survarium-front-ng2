@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core'
+import { Component } from '@angular/core'
 import PercentPipe from '../../pipes/percent'
 
 @Component({

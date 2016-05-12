@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core'
+import { Component } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { PercentPipe } from '../../pipes/percent'
 import { DateTimePipe } from '../../pipes/datetime'

@@ -1,4 +1,4 @@
-import { Component, Input, Optional } from 'angular2/core'
+import { Component, Input } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import DateTime from '../../components.common/datetime/datetime'

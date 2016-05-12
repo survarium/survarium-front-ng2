@@ -9,7 +9,7 @@ import {
     ComponentRef,
     OnInit,
     AfterViewInit
-} from 'angular2/core'
+} from '@angular/core'
 
 @Component({
     selector: 'data-grid-cell',
@@ -109,7 +109,7 @@ export class DataGridCell implements OnInit, AfterViewInit {
         }
 
         this.dcl.loadNextToLocation(column.component, this.target)
-            .then((res :ComponentRef) => {
+            .then((res :ComponentRef<any>) => {
                 if (column.inputs) {
                     Object.keys(column.inputs).forEach((input) => {
                         let __input = column.inputs[input];

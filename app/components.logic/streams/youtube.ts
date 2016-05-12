@@ -1,5 +1,5 @@
 import { StreamsComponent } from './streams.component'
-import { Component, ViewContainerRef } from 'angular2/core'
+import { Component, ViewContainerRef } from '@angular/core'
 import I18NPipe from '../../pipes/i18n'
 import { I18N } from '../../services/i18n'
 import { DateTimePipe } from '../../pipes/datetime'

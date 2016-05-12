@@ -1,4 +1,4 @@
-import { Component, Injectable } from 'angular2/core'
+import { Component, Injectable } from '@angular/core'
 import { I18NPipe }   from '../../pipes/i18n'
 import { Storage }    from '../../utils/storage'
 import { Observable } from 'rxjs/Observable';

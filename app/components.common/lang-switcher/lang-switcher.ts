@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core'
+import { Component, Input } from '@angular/core'
 import { I18N, LANGUAGES, LANGUAGE } from '../../services/i18n'
 import { Language } from '../../typings/language'
 

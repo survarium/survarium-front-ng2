@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core'
+import { Component, Input } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { NumberPipe } from '../../pipes/number'
 

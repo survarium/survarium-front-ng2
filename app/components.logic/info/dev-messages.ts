@@ -1,6 +1,5 @@
-import { Component, Inject } from 'angular2/core'
+import { Component } from '@angular/core'
 import { VgService } from '../../services/api'
-import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'

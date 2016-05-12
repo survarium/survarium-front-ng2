@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core'
-import { RouteParams } from 'angular2/router'
+import { Component } from '@angular/core'
+import { RouteParams } from '@angular/router-deprecated'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'

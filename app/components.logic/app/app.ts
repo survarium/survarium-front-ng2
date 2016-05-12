@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, Inject } from 'angular2/core'
-import { RouteConfig, ROUTER_DIRECTIVES, AsyncRoute, RouterLink } from 'angular2/router'
+import { Component, ViewEncapsulation, Inject } from '@angular/core'
+import { RouteConfig, ROUTER_DIRECTIVES, AsyncRoute, RouterLink } from '@angular/router-deprecated'
 import { Footer } from '../../components.common/footer/footer'
 import { Home } from '../home/home'
 import { Players } from '../players/players'

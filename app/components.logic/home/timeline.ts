@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core'
+import { Component } from '@angular/core'
 import { ChartComponent } from '../../components.common/chart/chart'
 import { MatchesService } from '../../services/api'
 import { i18n } from '../../services/i18n'

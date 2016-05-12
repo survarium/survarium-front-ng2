@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from 'angular2/core'
+import { Injectable } from '@angular/core'
 
 var store = {
     players: [],

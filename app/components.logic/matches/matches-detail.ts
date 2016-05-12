@@ -1,5 +1,5 @@
-import { Component, Inject } from 'angular2/core'
-import { RouteParams } from 'angular2/router'
+import { Component } from '@angular/core'
+import { RouteParams } from '@angular/router-deprecated'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import DataGrid from '../../components.common/data-grid/data-grid'
