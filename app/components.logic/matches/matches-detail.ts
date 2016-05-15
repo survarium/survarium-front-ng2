@@ -28,20 +28,20 @@ export class MatchesDetail {
 
     private apiLang = i18n.apiLang;
 
-    private get replay () {
+    replay :string;
+    private setReplay () {
         // FIXME: CLIENT-SIDE ONLY
-        return `http://${decodeURIComponent(this.data.replay)}`;
+        return this.replay = `http://${decodeURIComponent(this.data.replay)}`;
     }
 
-    private get duration () {
-        return duration(this.data.duration);
+    duration :string;
+    private setDuration () {
+        return this.duration = duration(this.data.duration);
     }
 
-    private set _stats (val) {
-        this.stats = val;
-    }
+    private winner :string;
 
-    private get winner () {
+    setWinnerByData () {
         let data = this.data;
         let winner;
 
@@ -51,16 +51,34 @@ export class MatchesDetail {
                     winner = clandata.clan.abbr;
                 }
             })
-        } else if (this.stats) {
-            let stat = this.stats[0];
-            if (stat.team === 0 && stat.victory) {
-                winner = 'A';
-            } else {
-                winner = 'B';
-            }
         }
 
-        return winner;
+        if (winner) {
+            this.winner = winner;
+        }
+    }
+
+    setWinnerByStats () {
+        if (this.winner) {
+            return;
+        }
+
+        for (let i = 0, stat; i < this.stats.length; i++) {
+            stat = this.stats[i];
+            if (stat.victory) {
+                if (stat.team === 0) {
+                    this.winner = 'A';
+                } else if (stat.team === 1) {
+                    this.winner = 'B';
+                }
+                break;
+            }
+        }
+    }
+
+    private set _stats (val) {
+        this.stats = val;
+        this.setWinnerByStats();
     }
 
     private stream (options ?:any) :Observable<any> {
@@ -74,17 +92,17 @@ export class MatchesDetail {
             });
     }
 
-    private get group () {
-        return {
-            by: 'team',
-            title: (num) => {
-                return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' })
-            }
+    group = {
+        by: 'team',
+        title: (num) => {
+            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' })
         }
-    }
+    };
 
-    private get score () {
-        return this.data.score.join(':');
+
+    score :string;
+    private setScore() {
+        return this.score = this.data.score.join(':');
     }
 
     private columns :any[] = [
@@ -134,6 +152,11 @@ export class MatchesDetail {
                 data.map = data.map.lang[this.apiLang];
 
                 this.data = data;
+
+                this.setWinnerByData();
+                this.setScore();
+                this.setReplay();
+                this.setDuration();
 
                 this._title.setTitle(i18n.get('matches.match.docTitle', { id: this.data.id }));
                 this._title.setDescription(i18n.get('matches.match.docDescription', { id: this.data.id }));

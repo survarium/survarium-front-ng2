@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'
@@ -32,7 +32,7 @@ interface Column {
     }
 })
 
-export class DataGrid implements OnInit {
+export class DataGrid {
     @Input('data') set _data (value :any[]) {
         if (!this.group) {
             this.data = value;
@@ -225,9 +225,6 @@ export class DataGrid implements OnInit {
 
     cellClick (event) {
         //console.log('cellClick', arguments);
-    }
-
-    ngOnInit () {
     }
 }
 
