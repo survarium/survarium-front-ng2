@@ -3,9 +3,9 @@
 <template [ngIf]="data">
     <div *ngFor="let message of data.data" class="message">
         <a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.vg_message.date | datetime}}</a>
+        <a>({{'total' | i18n}}: {{message.players.length}})</a>
         <nav *ngIf="message.crumbs.length" class="crumbs">
             <a *ngFor="let crumb of message.crumbs" [href]="crumb.url" target="_blank" rel="nofollow">{{crumb.name}}</a>
-            <a>({{'total' | i18n}}: {{message.players.length}})</a>
         </nav>
         <div *ngFor="let cheater of message.players; let i=index" class="cheater">
             <span class="small">{{i+1}}.</span> <nickname [nickname]="cheater.player.nickname" [clan]="cheater.clan"></nickname> <span class="small">[{{'lvl' | i18n}} {{cheater.player.progress.level}}]</span>

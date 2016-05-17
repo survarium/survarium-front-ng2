@@ -180,6 +180,7 @@ let dict = {
             title: 'Developer messages',
             telegram: 'Also you can receive developer messages to your pocket device via ',
             docDescription: 'Survarium developers messages on official forum: Dima, Yava, Dargalon, Phantom, joewillburn and others.',
+            banlist: 'Banlist'
         }
     },
     home: {

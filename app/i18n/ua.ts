@@ -196,7 +196,8 @@ let dict = {
         messages: {
             title: 'Повідомлення розробників',
             telegram: 'Також ви можете отримувати повідомлення про відповіді розробників на свій мобільний пристрій за допомогою:',
-            docDescription: 'Повідомлення розробників з форуму гри survarium: Dima, Yava, Dargalon, Phantom, joewillburn та інших.'
+            docDescription: 'Повідомлення розробників з форуму гри survarium: Dima, Yava, Dargalon, Phantom, joewillburn та інших.',
+            banlist: 'Список банов'
         }
     },
     home: {

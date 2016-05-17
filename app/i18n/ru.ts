@@ -179,7 +179,8 @@ let dict = {
         messages: {
             title: 'Сообщения разработчиков',
             telegram: 'Также Вы можете получать уведомления об ответах разработчиков на свое мобильное устройство через ',
-            docDescription: 'Сообщения разработчиков с форума игры survarium: Dima, Yava, Dargalon, Phantom, joewillburn и других.'
+            docDescription: 'Сообщения разработчиков с форума игры survarium: Dima, Yava, Dargalon, Phantom, joewillburn и других.',
+            banlist: 'Список банов'
         }
     },
     home: {
