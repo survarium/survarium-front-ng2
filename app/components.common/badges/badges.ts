@@ -17,6 +17,10 @@ export class Badges {
         if (val.nickname === 'Vaseker') {
             this.badges.push('svpro-developer');
         }
+
+        if (val.banned) {
+            this.badges.push('cheater');
+        }
     }
 }
 

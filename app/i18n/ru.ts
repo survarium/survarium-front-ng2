@@ -199,10 +199,15 @@ let dict = {
         }
     },
     badges: {
-        'svpro-developer': 'Разработчик survarium.pro'
+        'svpro-developer': 'Разработчик survarium.pro',
+        'cheater': 'Читер (бан)'
     },
     discord: {
         description: 'Сервис Discord представляет функционал, аналогичный skype, teamspeak, raidcall, slack. В нем есть тектовые и голосовые каналы, причем – бесплатно!'
+    },
+    bans: {
+        title: 'Баны читеров',
+        docDescription: 'Список читеров survarium, с указанием уровня и клана.'
     }
 };
 

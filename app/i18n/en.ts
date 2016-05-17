@@ -199,10 +199,15 @@ let dict = {
         }
     },
     badges: {
-        'svpro-developer': 'survarium.pro developer'
+        'svpro-developer': 'survarium.pro developer',
+        'cheater': 'Cheater (ban)'
     },
     discord: {
         description: 'Discord service provides skype/teamspeak/raidcall/slack functionality. It includes text and voice channels for FREE!'
+    },
+    bans: {
+        title: 'Ban lists',
+        docDescription: 'Survarium cheaters list with clan tags and levels.'
     }
 };
 

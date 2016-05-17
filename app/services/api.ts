@@ -428,6 +428,7 @@ export class VgService {
                  @Inject('CONFIG') private config) {}
 
     private _handle :string = this.config.api + `/v2/vg`;
+    private _handleBans :string = this.config.api + `/v2`;
 
     /**
      * Сообщения разработчиков на форуме
@@ -475,6 +476,37 @@ export class VgService {
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
+
+    /**
+     * Получить списки банов
+     * @returns {Observable<R>}
+     */
+    bans(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+
+        query.skip !== undefined && params.set('skip', query.skip);
+        if (query.sort) {
+            Object.keys(query.sort).forEach((key) => {
+                params.set(`sort[${key}]`, query.sort[key]);
+            });
+        }
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: this._handleBans + '/bans',
+            headers: headers,
+            search: params,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
     /**
      * Обработчик ошибок
      * @param error

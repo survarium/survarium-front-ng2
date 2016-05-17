@@ -1,0 +1,50 @@
+@import "../../components.common/variables.styl"
+
+a
+  margin-right 1em
+
+.message
+  padding .85em 1em
+  border-bottom 1px solid $bgSoft
+  &:hover
+    background-color $bgLight
+    box-shadow 0 0 .5em $bgLight
+
+.date
+  position relative
+  &::after
+    display none
+    position absolute
+    right -1.25em
+    content '>>'
+
+.crumbs
+  a
+    display inline-block
+    padding-top .3em
+    padding-bottom .3em
+    position relative
+    font-size .9em
+    &:not(:last-of-type)
+      &::after
+        content '>'
+        position absolute
+        right -.75em
+
+.small
+  font-size .8em
+
+:host
+  .cheater
+    font-size 1.2em
+
+  a
+    text-decoration none
+    display inline-block !important
+    padding .3em 0
+
+  clan > a
+    color $highlight
+
+.loading
+  padding 1em 0
