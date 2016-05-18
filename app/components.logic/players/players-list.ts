@@ -53,7 +53,7 @@ export class PlayersList {
             {
                 title: i18n.get('player'),
                 component: Nickname,
-                inputs: { nickname: 'nickname', clan: 'clan' },
+                inputs: { nickname: 'nickname', clan: 'clan', banned: 'banned' },
                 width: 250,
                 sort: { 'nickname': { default: 1 } },
                 classes: 'nowrap'

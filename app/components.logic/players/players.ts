@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from '@angular/router-deprecated'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
+import { PlayersDetail } from './players-detail'
 
 @Component({
     selector: 'players',
@@ -14,7 +15,7 @@ import I18NPipe from '../../pipes/i18n'
 @RouteConfig([
     new AsyncRoute({ path: '/search', loader: () => require('es6-promise!./players-search')('PlayersSearch'), name: 'PlayersSearch', useAsDefault: true }),
     new AsyncRoute({ path: '/', loader: () => require('es6-promise!./players-list')('PlayersList'), name: 'PlayersList' }),
-    new AsyncRoute({ path: '/:nickname', loader: () => require('es6-promise!./players-detail')('PlayersDetail'), name: 'PlayersDetail' })
+    { path: '/:nickname', component: PlayersDetail, name: 'PlayersDetail' }
 ])
 
 export class Players {

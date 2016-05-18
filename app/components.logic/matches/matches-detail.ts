@@ -114,7 +114,7 @@ export class MatchesDetail {
         {
             title: i18n.get('player'),
             component: Nickname,
-            inputs: { nickname: 'player.nickname', clan: 'player.clan_meta' },
+            inputs: { nickname: 'player.nickname', clan: 'player.clan_meta', banned: 'player.banned' },
             width: 250,
             classes: 'nowrap'
         },

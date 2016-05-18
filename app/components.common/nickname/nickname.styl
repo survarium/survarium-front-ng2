@@ -3,8 +3,21 @@
 clan::after
   content ' '
 
+.banned::after
+  content ''
+  position absolute
+  left 0
+  top 0
+  right 0
+  bottom .4em
+  border-bottom 3px solid rgba(255, 0, 0, .75)
+
+.name
+  position relative
+
 :host, .name
   display inline
+  text-decoration none
 
 :host.highlight .name
   text-decoration none

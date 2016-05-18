@@ -5,7 +5,7 @@ import Clan from '../clan/clan'
 @Component({
     selector: 'nickname',
     directives: [Clan, ROUTER_DIRECTIVES],
-    inputs: ['nickname', 'clan'],
+    inputs: ['nickname', 'clan', 'banned'],
     template: require('./nickname.html'),
     styles: [require('./nickname.styl')]
 })

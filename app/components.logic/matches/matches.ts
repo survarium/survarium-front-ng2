@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from '@angular/router-deprecated'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
+import { MatchesDetail } from './matches-detail'
 
 @Component({
     selector: 'matches',
@@ -15,7 +16,7 @@ import I18NPipe from '../../pipes/i18n'
     new AsyncRoute({ path: '/search', name: 'MatchesSearch', loader: () => require('es6-promise!./matches-search')('MatchesSearch'), useAsDefault: true }),
     new AsyncRoute({ path: '/list', name: 'MatchesList', loader: () => require('es6-promise!./matches-list')('MatchesList') }),
     new AsyncRoute({ path: '/clanwars', name: 'MatchesCWList', loader: () => require('es6-promise!./matches-list-cw')('MatchesListCW') }),
-    new AsyncRoute({ path: '/:match', name: 'MatchesDetail', loader: () => require('es6-promise!./matches-detail')('MatchesDetail') })
+    { path: '/:match', name: 'MatchesDetail', component: MatchesDetail }
 ])
 
 export class Matches {

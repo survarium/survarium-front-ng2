@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { RouteConfig, RouterOutlet, ROUTER_DIRECTIVES, AsyncRoute } from '@angular/router-deprecated'
 import Store from '../../services/store'
 import I18NPipe from '../../pipes/i18n'
+import { ClansDetail } from './clans-detail'
 
 @Component({
     selector: 'clans',
@@ -14,7 +15,7 @@ import I18NPipe from '../../pipes/i18n'
 @RouteConfig([
     new AsyncRoute({ path: '/search', loader: () => require('es6-promise!./clans-search')('ClansSearch'), name: 'ClansSearch', useAsDefault: true }),
     new AsyncRoute({ path: '/', loader: () => require('es6-promise!./clans-list')('ClansList'), name: 'ClansList' }),
-    new AsyncRoute({ path: '/:abbr', loader: () => require('es6-promise!./clans-detail')('ClansDetail'), name: 'ClansDetail' })
+    { path: '/:abbr', component: ClansDetail, name: 'ClansDetail' }
 ])
 
 export class Clans {
