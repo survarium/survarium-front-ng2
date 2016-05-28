@@ -1,25 +1,31 @@
-import { Input } from '@angular/core'
-
 export class Widget {
-    defaultWidth = 430;
+    defaultWidth = 400;
     defaultHeight = 600;
 
-    protected width :number = this.defaultWidth;
-    protected height :number = this.defaultHeight;
+    protected _width :number = this.defaultWidth;
+    protected _height :number = this.defaultHeight;
 
-    @Input('width') set _width (val) {
+    get width () {
+        return this._width;
+    }
+
+    get height () {
+        return this._height;
+    }
+
+    set width (val) {
         let value = Number(val);
         if (isNaN(value) || !value) {
             value = this.defaultWidth;
         }
-        this.width = value;
+        this._width = value;
     }
-    @Input('height') set _height (val) {
+    set height (val) {
         let value = Number(val);
         if (isNaN(value) || !value) {
             value = this.defaultHeight;
         }
-        this.height = value;
+        this._height = value;
     }
 }
 

@@ -7,7 +7,7 @@ import { Widget, WidgetStyle } from '../widget/widget'
     selector: 'discord',
     template: require('./discord.html'),
     /*providers: [DiscordService],*/
-    inputs: ['id'],
+    inputs: ['id', 'width', 'height'],
     pipes: [I18NPipe],
     styles: [WidgetStyle]
 })

@@ -7,7 +7,7 @@ declare var twttr :any;
 @Component({
     selector: 'twitter',
     template: require('./twitter.html'),
-    inputs: ['id', 'user'],
+    inputs: ['id', 'user', 'width', 'height'],
     pipes: [I18NPipe],
     styles: [WidgetStyle]
 })
