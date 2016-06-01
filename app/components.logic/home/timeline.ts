@@ -30,8 +30,21 @@ export class Timeline {
 
     private options = {
         multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
-        scaleFontColor: Colors['gray-4'].color,
-        responsive: true
+        responsive: true,
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: Colors['gray-4'].pointBackgroundColor,
+                    color: Colors['gray-4'].backgroundColor
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    zeroLineColor: Colors['gray-4'].pointBackgroundColor,
+                    color: Colors['gray-4'].backgroundColor
+                }
+            }]
+        }
     };
 
     private formatDate (date) {
@@ -85,12 +98,13 @@ export class Timeline {
                 datasets.push({
                     label: label,
                     data: data,
-                    fillColor:  this.styleLevels[dataset.level].fillColor,
-                    strokeColor: this.styleLevels[dataset.level].strokeColor,
-                    pointColor: this.styleLevels[dataset.level].pointColor,
-                    pointStrokeColor: this.styleLevels[dataset.level].pointStrokeColor,
-                    pointHighlightFill: this.styleLevels[dataset.level].pointHighlightFill,
-                    pointHighlightStroke: this.styleLevels[dataset.level].pointHighlightStroke
+                    backgroundColor:  this.styleLevels[dataset.level].backgroundColor,
+                    borderColor: this.styleLevels[dataset.level].borderColor,
+                    borderWidth: 1.5,
+                    pointBackgroundColor: this.styleLevels[dataset.level].pointBackgroundColor,
+                    pointBorderColor: this.styleLevels[dataset.level].pointBorderColor,
+                    pointHoverBackgroundColor: this.styleLevels[dataset.level].pointHoverBackgroundColor,
+                    pointHoverBorderColor: this.styleLevels[dataset.level].pointHoverBorderColor
                 });
 
                 legend.push({ level: dataset.level, label: label, color: this.styleLevels[dataset.level].color, total: dataset.total });

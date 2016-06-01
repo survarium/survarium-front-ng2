@@ -15,7 +15,7 @@ export class ChartComponent implements OnInit, OnDestroy {
     private chartHover :EventEmitter<any> = new EventEmitter();
 
     @Input() private data :any;
-    @Input('type') private chartType :string = 'Line';
+    @Input('type') private chartType :string = 'line';
     @Input('options') private options;
 
     constructor (private element :ElementRef, private zone :NgZone) {}
@@ -40,7 +40,11 @@ export class ChartComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit () {
-        this.chart = new Chart(this.element.nativeElement.children[0].getContext('2d'))[this.chartType](this.data, this.options);
+        this.chart = new Chart(this.element.nativeElement.children[0], {
+            data: this.data,
+            type: this.chartType,
+            options: this.options
+        });
     }
 
     ngOnDestroy () {

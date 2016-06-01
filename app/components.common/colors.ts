@@ -2,14 +2,14 @@ export const Colors = <any> ((COLORS) => {
     return Object.keys(COLORS).reduce((result, color) => {
         let _color = COLORS[color].base;
         result[color] = {
-            fillColor           : `rgba(${_color[0]},${_color[1]},${_color[2]},0.2)`,
-            strokeColor         : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
-            pointColor          : `rgba(${_color[0]},${_color[1]},${_color[2]},0.7)`,
-            pointStrokeColor    : 'rgba(255,255,255,0.5)',
-            pointHighlightFill  : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
-            pointHighlightStroke: `#fff`,
-            color               : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
-            highlight           : `rgba(${_color[0]},${_color[1]},${_color[2]},0.8)`
+            backgroundColor          : `rgba(${_color[0]},${_color[1]},${_color[2]},0.07)`,
+            borderColor              : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
+            pointBackgroundColor     : `rgba(${_color[0]},${_color[1]},${_color[2]},0.7)`,
+            pointBorderColor         : 'rgba(255,255,255,0.5)',
+            pointHoverBackgroundColor: `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
+            pointHoverBorderColor    : `#fff`,
+            color                    : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
+            highlight                : `rgba(${_color[0]},${_color[1]},${_color[2]},0.8)`
         };
         return result;
     }, {});
