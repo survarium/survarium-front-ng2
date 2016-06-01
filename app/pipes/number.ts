@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { NumberTransform} from '../utils/number';
 
 @Pipe({name: 'number'})
 export class NumberPipe implements PipeTransform {
-    transform(value :number, args:string[]) : any {
-        return (value || '0').toString().replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ');
-    }
+    transform = NumberTransform
 }
 
 export default NumberPipe

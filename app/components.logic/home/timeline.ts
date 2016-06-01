@@ -5,6 +5,7 @@ import { i18n } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { NumberPipe } from '../../pipes/number'
 import { Colors } from '../../components.common/colors'
+import { NumberTransform } from '../../utils/number'
 
 @Component({
     selector: 'timeline',
@@ -36,14 +37,27 @@ export class Timeline {
                 gridLines: {
                     zeroLineColor: Colors['gray-4'].pointBackgroundColor,
                     color: Colors['gray-4'].backgroundColor
+                },
+                ticks: {
+                    fontColor: Colors['gray-4'].color
                 }
             }],
             yAxes: [{
                 gridLines: {
                     zeroLineColor: Colors['gray-4'].pointBackgroundColor,
                     color: Colors['gray-4'].backgroundColor
+                },
+                ticks: {
+                    fontColor: Colors['gray-4'].color
                 }
             }]
+        },
+        legend: {
+            labels: {
+                fontColor: Colors['gray-4'].color,
+                fontSize: 14,
+                padding: 15
+            }
         }
     };
 
@@ -54,7 +68,6 @@ export class Timeline {
             (minute < 10 ? '0' : '') + minute;
     }
 
-    private legend :any;
     private data :any;
     private total :number;
     private set timeline (val) {
@@ -67,7 +80,6 @@ export class Timeline {
         var labels  = [];
         var mapping = [];
         var hours   = [];
-        var legend  = [];
         var total   = 0;
 
         for (let i = 0; i < 23; i++) {
@@ -93,7 +105,7 @@ export class Timeline {
                     data[hours.indexOf(date.getHours())] = hour.total;
                 });
 
-                var label = `${i18n.get('lvl')} ${dataset.level}`;
+                var label = `${i18n.get('lvl')} ${dataset.level}: ${NumberTransform(dataset.total)}`;
 
                 datasets.push({
                     label: label,
@@ -107,7 +119,6 @@ export class Timeline {
                     pointHoverBorderColor: this.styleLevels[dataset.level].pointHoverBorderColor
                 });
 
-                legend.push({ level: dataset.level, label: label, color: this.styleLevels[dataset.level].color, total: dataset.total });
                 total += dataset.total;
             });
 
@@ -115,8 +126,6 @@ export class Timeline {
             labels: labels,
             datasets: datasets
         };
-
-        this.legend = legend;
 
         this.total = total;
     };

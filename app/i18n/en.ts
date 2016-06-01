@@ -100,8 +100,7 @@ let dict = {
             docDescription: 'Survarium match {{id}} statistics. Results, map, mode, player list and them results, download replay.'
         },
         timeline: {
-            title: 'Matches count of latest 24h',
-            totals: 'Summary'
+            title: 'Matches count of latest 24h'
         }
     },
     clans: {
