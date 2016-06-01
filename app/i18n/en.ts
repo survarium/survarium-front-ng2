@@ -77,7 +77,21 @@ let dict = {
         unique: {
             title: 'Unique players of latest 24h'
         },
-        detail: 'Survarium player statistic'
+        detail: 'Survarium player statistic',
+        history: {
+            matches: 'Matches',
+            ranges: 'Range',
+            range: {
+                day: 'Day',
+                week: 'Week',
+                month: 'Months'
+            },
+            groups: 'Values',
+            group: {
+                avg: 'Average',
+                sum: 'Total'
+            }
+        }
     },
     teamgroup: `Team {{tag}}`,
     matches: {

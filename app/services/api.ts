@@ -149,6 +149,25 @@ export class PlayersService {
             .catch(this.handleError.bind(this));
     }
 
+    /**
+     * Получить историю игрока
+     * @returns {Observable<R>}
+     */
+    history(nickname: string, query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+        params.set('range', {'day': 'day', 'week': 'week', 'month': 'month'}[query.range] || 'day');
+        params.set('group', {'avg': 'avg', 'sum': 'sum'}[query.group] || 'avg');
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: `${this._handleV2}/${nickname}/history`, headers: headers, search: params, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
 
     /**
      * Обработчик ошибок

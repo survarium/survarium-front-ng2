@@ -1,0 +1,173 @@
+import { Component, Input, OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
+import { PlayersService } from '../../services/api'
+import { Storage } from '../../utils/storage'
+import { I18NPipe } from '../../pipes/i18n'
+import { i18n } from '../../services/i18n'
+import { Colors } from '../../components.common/colors'
+import { ChartComponent } from '../../components.common/chart/chart'
+
+@Component({
+    selector: 'players-detail-history',
+    directives: [ChartComponent],
+    inputs:  ['nickname'],
+    pipes:   [I18NPipe],
+    styles:  [require('./players-detail-history.styl')],
+    template: require('./players-detail-history.html')
+})
+
+export class PlayersDetailHistory implements OnInit {
+    private ranges = ['day', 'week', 'month'];
+    private currentRange = Storage.getItem('player:range') || this.ranges[0];
+    private setRange(range) {
+        if (!range || this.currentRange === range || !~this.ranges.indexOf(range)) {
+            return;
+        }
+
+        Storage.setItem('player:range', range);
+        this.currentRange = range;
+        this.load();
+    }
+
+    private groups  = ['avg', 'sum'];
+    private currentGroup = Storage.getItem('player:group') || this.groups[0];
+    private setGroup(group) {
+        if (!group || this.currentGroup === group || !~this.groups.indexOf(group)) {
+            return;
+        }
+
+        Storage.setItem('player:group', group);
+        this.currentGroup = group;
+        this.load();
+    }
+
+    @Input() nickname :string;
+
+    private options = {
+        responsive: true,
+        legend: {
+            labels: {
+                fontColor: Colors['gray-4'].color
+            },
+            onClick: function (event, legendItem) {
+                var index = legendItem.datasetIndex;
+                var ci = this['chart'];
+                var meta = ci.getDatasetMeta(index);
+                meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+                var key = `player.history.${legendItem.text}.hidden`;
+                meta.hidden ? Storage.setItem(key, meta.hidden) : Storage.removeItem(key);
+                ci.update();
+            }
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: Colors['gray-4'].pointBackgroundColor,
+                    color: Colors['gray-4'].backgroundColor
+                },
+                ticks: {
+                    fontColor: Colors['gray-4'].color,
+                    callback: function(value) {
+                        value = value.split('T');
+                        return value.length > 1 ? value[1].slice(0, 5) : value[0].replace(/-/g, '.');
+                    }
+                }
+            }],
+            yAxes: [{
+                gridLines: {
+                    zeroLineColor: Colors['gray-4'].pointBackgroundColor,
+                    color: Colors['gray-4'].backgroundColor
+                },
+                ticks: {
+                    fontColor: Colors['gray-4'].color
+                }
+            }]
+        },
+    };
+
+    private makeDataSet (i18nKey, colorName) {
+        let color = Colors[colorName];
+        let label = i18n.get(i18nKey);
+
+        return {
+            data: [],
+            label,
+            backgroundColor:  color.backgroundColor,
+            borderColor: color.borderColor,
+            borderWidth: 2,
+            hidden: !!Storage.getItem(`player.history.${label}.hidden`),
+            pointBackgroundColor: color.pointBackgroundColor,
+            pointBorderColor: color.pointBorderColor,
+            pointHoverBackgroundColor: color.pointHoverBackgroundColor,
+            pointHoverBorderColor: color.pointHoverBorderColor
+        }
+    }
+
+    private _data :any;
+    private set data (val)  {
+        let level = this.makeDataSet('level', 'belize-hole');
+        let matches = this.makeDataSet('players.history.matches', 'asbestos');
+        let kills = this.makeDataSet('kills', 'green-tea');
+        let dies = this.makeDataSet('dies', 'pomegranate');
+        let score = this.makeDataSet('score', 'emerald');
+        let victories = this.makeDataSet('wins', 'sun-flower');
+        let headshots = this.makeDataSet('headshots', 'wisteria');
+        let grenadeKills = this.makeDataSet('grenadeKills', 'peter-river');
+        let meleeKills = this.makeDataSet('meleeKills', 'dark-unica-1');
+
+        let datasets = [level, matches, kills, dies, score, victories, headshots, grenadeKills, meleeKills];
+        let labels = [];
+
+        val.forEach(item => {
+            labels.push(item.date);
+            level.data.push(Math.round(item.level));
+            matches.data.push(Math.round(item.matches));
+            kills.data.push(Math.round(item.kills));
+            dies.data.push(Math.round(item.dies));
+            score.data.push(Math.round(item.score));
+            victories.data.push(Math.round(item.victories));
+            headshots.data.push(Math.round(item.headshots));
+            grenadeKills.data.push(Math.round(item.grenadeKills));
+            meleeKills.data.push(Math.round(item.meleeKills));
+        });
+
+        this._data = {
+            datasets,
+            labels
+        };
+    };
+    private get data () {
+        return this._data;
+    }
+
+    private stream;
+    private streamTrigger :(options ?:any) => void;
+
+    constructor (private _playerService :PlayersService) {
+        this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
+        this.stream
+            .debounceTime(100)
+            .distinctUntilChanged()
+            .switchMap((options :any) => { return _playerService.history(this.nickname, options) })
+            .subscribe(data => {
+                return this.data = data;
+            }, (err) => {});
+    }
+
+    public load () {
+        if (!this.streamTrigger) {
+            return;
+        }
+
+        this.streamTrigger({
+            range: this.currentRange,
+            group: this.currentGroup
+        });
+    }
+
+    ngOnInit () {
+        this.load();
+    }
+}
+
+export default PlayersDetailHistory

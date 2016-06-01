@@ -1,0 +1,15 @@
+<div class="params">
+    <div class="ranges">
+        <span>{{'players.history.ranges' | i18n}}:</span>
+        <a *ngFor="let range of ranges" class="param range" [class.current]="range === currentRange" (click)="setRange(range)">{{'players.history.range.' + range | i18n}}</a>
+    </div>
+
+    <div class="groups">
+        <span>{{'players.history.groups' | i18n}}:</span>
+        <a *ngFor="let group of groups" class="param group" [class.current]="group === currentGroup" (click)="setGroup(group)">{{'players.history.group.' + group | i18n}}</a>
+    </div>
+</div>
+
+<template [ngIf]="data">
+    <chart [data]="data" [options]="options"></chart>
+</template>

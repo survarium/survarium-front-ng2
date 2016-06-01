@@ -110,7 +110,7 @@ export class Timeline {
             .forEach((dataset, j) => {
                 var data = mapping.slice();
 
-                dataset.hours.forEach((hour) => {
+                dataset.hours.forEach(hour => {
                     let date = new Date(hour.date);
                     data[hours.indexOf(date.getHours())] = hour.total;
                 });
@@ -145,9 +145,7 @@ export class Timeline {
             .timeline()
             .subscribe(data => {
                 this.timeline = data;
-            }, err => {
-
-            });
+            }, err => {});
     }
 
 }

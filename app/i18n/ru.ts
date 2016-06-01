@@ -77,7 +77,21 @@ let dict = {
         unique: {
             title: 'Уникальных игроков за последние сутки'
         },
-        detail: 'Статистика игрока в survarium'
+        detail: 'Статистика игрока в survarium',
+        history: {
+            matches: 'Матчи',
+            ranges: 'Диапазон',
+            range: {
+                day: 'День',
+                week: 'Неделя',
+                month: 'Месяцы'
+            },
+            groups: 'Значения',
+            group: {
+                avg: 'Средние',
+                sum: 'Суммы'
+            }
+        }
     },
     teamgroup: `Команда {{tag}}`,
     matches: {
