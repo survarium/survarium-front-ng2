@@ -30,7 +30,6 @@ export class Timeline {
     };
 
     private options = {
-        multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>',
         responsive: true,
         scales: {
             xAxes: [{
@@ -57,6 +56,17 @@ export class Timeline {
                 fontColor: Colors['gray-4'].color,
                 fontSize: 14,
                 padding: 15
+            }
+        },
+        tooltips: {
+            custom: tooltip => {
+                if (!tooltip) {
+                    return;
+                }
+
+                if (tooltip.body && tooltip.body.length) {
+                    tooltip.body[0] = tooltip.body[0].replace(/: \d+:/, ':');
+                }
             }
         }
     };
