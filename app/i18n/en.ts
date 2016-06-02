@@ -222,6 +222,10 @@ let dict = {
     bans: {
         title: 'Ban lists',
         docDescription: 'Survarium cheaters list with clan tags and levels.'
+    },
+    'also-known': {
+        title: 'Also known as',
+        until: 'until'
     }
 };
 

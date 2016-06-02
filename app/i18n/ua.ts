@@ -239,6 +239,10 @@ let dict = {
     bans: {
         title: 'Баны читеров',
         docDescription: 'Список читеров survarium, с указанием уровня и клана.'
+    },
+    'also-known': {
+        title: 'Також відомий як',
+        until: 'до'
     }
 };
 
