@@ -8,12 +8,13 @@ import Matches from './players-detail-matches'
 import History from './players-detail-history'
 import Nickname from '../../components.common/nickname/nickname'
 import Badges from '../../components.common/badges/badges'
+import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History],
+    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]

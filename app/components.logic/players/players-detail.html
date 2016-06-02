@@ -3,6 +3,7 @@
 <template [ngIf]="show">
     <h1 class="title"><span>{{'players.detail' | i18n}}</span><nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname></h1>
     <badges [player]="data"></badges>
+    <also-known [nicknames]="data.nicknames"></also-known>
     <players-detail-counts [data]="data"></players-detail-counts>
     <players-detail-matches [nickname]="data.nickname"></players-detail-matches>
     <players-detail-history [nickname]="data.nickname"></players-detail-history>
