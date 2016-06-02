@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
 
@@ -10,6 +10,15 @@ import { DateTimePipe } from '../../pipes/datetime'
     styles: [require('./also-known.styl')]
 })
 
-export class AlsoKnown { }
+export class AlsoKnown {
+    private nicknames :{ nickname :string, until :string };
+    
+    @Input('nicknames') set setNicknames (val) {
+        if (!val) {
+            return;
+        }
+        this.nicknames = val.reverse();
+    }
+}
 
 export default AlsoKnown
