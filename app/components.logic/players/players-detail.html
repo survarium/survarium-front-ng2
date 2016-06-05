@@ -1,7 +1,11 @@
 <div *ngIf="!show">{{'loading' | i18n}}</div>
 <pre *ngIf="error">{{error}}</pre>
 <template [ngIf]="show">
-    <h1 class="title"><span>{{'players.detail' | i18n}}</span><nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname></h1>
+    <h1 class="title">
+        <span>{{'players.detail' | i18n}}</span>
+        <nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname>
+        <players-detail-leveling [level]="data.progress.level" [exp]="data.progress.experience"></players-detail-leveling>
+    </h1>
     <badges [player]="data"></badges>
     <also-known [nicknames]="data.nicknames"></also-known>
     <players-detail-counts [data]="data"></players-detail-counts>

@@ -4,8 +4,8 @@ declare var Chart :any;
 
 @Component({
     selector: 'chart',
-    inputs: ['data', 'type', 'options'],
-    template: `<canvas style="width: 100%; height: 400px;" (click)="click($event)" (mousemove)="hover($event)"></canvas>`,
+    inputs: ['type', 'height', 'data', 'options'],
+    template: `<canvas [style.width]="width" [style.height]="height" (click)="click($event)" (mousemove)="hover($event)"></canvas>`,
     styles: [require('./chart.styl')]
 })
 
@@ -26,6 +26,8 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
     get data () { return this._data }
 
     @Input('type') private chartType :string = 'line';
+    @Input('width')  private width   :string = '100%';
+    @Input('height') private height  :string = '400px';
 
     private _options :any;
     @Input('options') set options (val) {

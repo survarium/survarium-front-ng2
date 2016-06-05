@@ -12,7 +12,9 @@ export const Colors = <any> ((COLORS) => {
             highlight                : `rgba(${_color[0]},${_color[1]},${_color[2]},0.8)`
         };
         return result;
-    }, {});
+    }, {
+        transparent: 'rgba(0,0,0,0)'
+    });
 })({
     'turquoise'    : { base: ['000', '190', '156'] },
     'green-tea'    : { base: ['001', '161', '133'] },
