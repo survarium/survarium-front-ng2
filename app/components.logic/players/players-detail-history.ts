@@ -118,11 +118,12 @@ export class PlayersDetailHistory implements OnInit {
         let kd = this.makeDataSet('kd', 'carrot');
         let score = this.makeDataSet('score', 'emerald');
         let victories = this.makeDataSet('wins', 'sun-flower');
+        let winRate = this.makeDataSet('winrate', 'clouds');
         let headshots = this.makeDataSet('headshots', 'wisteria');
         let grenadeKills = this.makeDataSet('grenadeKills', 'peter-river');
         let meleeKills = this.makeDataSet('meleeKills', 'dark-unica-1');
 
-        let datasets = [level, matches, kills, dies, kd, score, victories, headshots, grenadeKills, meleeKills];
+        let datasets = [level, matches, kills, dies, kd, score, victories, winRate, headshots, grenadeKills, meleeKills];
         let labels = [];
 
         val.forEach(item => {
@@ -131,7 +132,8 @@ export class PlayersDetailHistory implements OnInit {
             matches.data.push(Math.round(item.matches));
             kills.data.push(Math.round(item.kills));
             dies.data.push(Math.round(item.dies));
-            kd.data.push(kdRatio(item.kills, item.dies));
+            kd.data.push(+kdRatio(item.kills, item.dies));
+            winRate.data.push(+kdRatio(item.victories, item.matches) * 100);
             score.data.push(Math.round(item.score));
             victories.data.push(Math.round(item.victories));
             headshots.data.push(Math.round(item.headshots));
