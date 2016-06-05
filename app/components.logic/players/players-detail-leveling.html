@@ -3,5 +3,5 @@
         <div>{{'till.next' | i18n}}: {{experience[level] - exp | number}}</div>
         <div>{{'till.last' | i18n}}: {{experience[experience.length - 1] - exp | number}}</div>
     </div>
-    <chart *ngIf="data" class="cell" [data]="data" [options]="options" [type]="type" [height]="'100px'" [width]="'100%'"></chart>
+    <chart *ngIf="data" class="cell" [data]="data" [options]="options" [type]="type" [height]="'150px'" [width]="'100%'"></chart>
 </template>

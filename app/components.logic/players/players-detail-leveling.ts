@@ -34,6 +34,9 @@ export class PlayersDetailLeveling implements OnInit {
                 gridLines: {
                     display: false,
                     zeroLineWidth: 0
+                },
+                ticks: {
+                    fontColor: Colors['gray-4'].color
                 }
             }],
             yAxes: [{
@@ -47,24 +50,27 @@ export class PlayersDetailLeveling implements OnInit {
         },
         legend: {
             display: false
-        }
+        },
+        onClick: this.toggleMode.bind(this)
     };
 
     private data :any;
+    private fullMode :boolean = false;
 
-    ngOnInit () {
-        if (this.level >= 100) {
-            return;
+    private setData() {
+        let start = 0;
+        let data = experience;
+
+        if (!this.fullMode) {
+            start = this.level - 2;
+            if (start < 0) {
+                start = 0;
+            }
+
+            let width = this.view.element.nativeElement.offsetWidth;
+            let right = width < 400 ? 10 : 20;
+            data = data.slice(start, this.level + right);
         }
-
-        let start = this.level - 2;
-        if (start < 0) {
-            start = 0;
-        }
-
-        let width = this.view.element.nativeElement.offsetWidth;
-        let right = width < 400 ? 10 : 20;
-        let data = experience.slice(start, this.level + right);
 
         let playerPos = [];
         playerPos[this.level - start] = this.exp;
@@ -88,6 +94,19 @@ export class PlayersDetailLeveling implements OnInit {
             ],
             labels: data.map((val, i) => start + i + 1)
         };
+    }
+
+    private toggleMode()  {
+        this.fullMode = !this.fullMode;
+        this.setData();
+    }
+
+    ngOnInit () {
+        if (this.level >= 100) {
+            return;
+        }
+
+        this.setData();
     }
 }
 
