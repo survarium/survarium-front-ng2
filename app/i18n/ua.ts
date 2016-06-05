@@ -59,6 +59,7 @@ let dict = {
     artefactUses: 'Використано артефактів',
     elo: 'ELO',
     total: 'Усього',
+    noData: 'Немає даних',
     players: {
         docTitle: 'Гравці',
         docDescription: 'Список гравців survarium. Фільтри, прогрес, деталі, матчі, результати, інформація про клан.',

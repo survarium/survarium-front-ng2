@@ -58,7 +58,8 @@ let dict = {
     pointCaptures: 'Captured points',
     boxesBringed : 'Brought boxes',
     artefactUses : 'Artifacts usage',
-    elo: 'ELO',
+    elo          : 'ELO',
+    noData       : 'No data',
     players: {
         docTitle: 'Players',
         docDescription: 'Survarium player list. Filters, progress, details, matches, results, clan information.',

@@ -10,7 +10,11 @@
     </div>
 </div>
 
-<template [ngIf]="data">
+<div *ngIf="raw?.length === 0" class="no-data">
+    {{'noData' | i18n}}
+</div>
+
+<template [ngIf]="raw?.length">
     <players-detail-history-counts [data]="raw" [group]="currentGroup"></players-detail-history-counts>
     <chart [data]="data" [options]="options"></chart>
 </template>
