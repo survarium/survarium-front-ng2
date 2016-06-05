@@ -228,6 +228,10 @@ let dict = {
     'also-known': {
         title: 'Also known as',
         until: 'until'
+    },
+    till: {
+        next: 'To the next level',
+        last: 'To level 100'
     }
 };
 
