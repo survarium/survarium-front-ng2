@@ -3,8 +3,8 @@ import PercentUtil from '../utils/percent'
 
 @Pipe({name: 'percent'})
 export class PercentPipe implements PipeTransform {
-    transform(value :number, args:string[]) : any {
-        return PercentUtil(value);
+    transform(value :number, args ?:any) : any {
+        return PercentUtil(value, args);
     }
 }
 

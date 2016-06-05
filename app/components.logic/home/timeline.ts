@@ -66,7 +66,7 @@ export class Timeline {
                 }
 
                 if (tooltip.body && tooltip.body.length) {
-                    tooltip.body[0] = tooltip.body[0].replace(/: \d+:/, ':');
+                    tooltip.body[0] = tooltip.body[0].replace(/: [\d\s]+:/, ':');
                 }
             }
         }

@@ -33,6 +33,7 @@ let dict = {
     avgScore    : 'Avg.Score',
     victories   : 'Victories',
     totalMatches: 'Total matches',
+    matchesCount: 'Matches',
     details     : 'Details',
     actions     : 'Actions',
     progress    : 'Progress',
@@ -147,8 +148,8 @@ let dict = {
         'Artifact Hunt': 'Artifact'
     },
     maps: {
-        'Chemical Plant': 'Chemical Plant',
-        'Vector Laboratory': 'Vector Lab',
+        'Chemical Plant': 'Plant',
+        'Vector Laboratory': 'Vector',
         'Rudnya': 'Rudnya',
         'Tarakanovsky Fort': 'Fort',
         'Vostok Radar Station': 'Radar',

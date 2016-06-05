@@ -33,6 +33,7 @@ let dict = {
     avgScore     : 'Ср.счет',
     victories    : 'Побед',
     totalMatches : 'Всего матчей',
+    matchesCount : 'Матчей',
     actions      : 'Действия',
     details      : 'Детали',
     progress     : 'Прогресс',

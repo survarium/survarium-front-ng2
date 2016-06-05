@@ -2,14 +2,16 @@ import { Component, Input, OnInit } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { Storage } from '../../utils/storage'
+import { kdRatio } from '../../utils/kd'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { Colors } from '../../components.common/colors'
 import { ChartComponent } from '../../components.common/chart/chart'
+import { PlayersDetailHistoryCounts } from './players-detail-history-counts'
 
 @Component({
     selector: 'players-detail-history',
-    directives: [ChartComponent],
+    directives: [ChartComponent, PlayersDetailHistoryCounts],
     inputs:  ['nickname'],
     pipes:   [I18NPipe],
     styles:  [require('./players-detail-history.styl')],
@@ -104,19 +106,23 @@ export class PlayersDetailHistory implements OnInit {
         }
     }
 
+    private raw :any;
     private _data :any;
     private set data (val)  {
+        this.raw = val;
+
         let level = this.makeDataSet('level', 'belize-hole');
         let matches = this.makeDataSet('players.history.matches', 'asbestos');
         let kills = this.makeDataSet('kills', 'green-tea');
         let dies = this.makeDataSet('dies', 'pomegranate');
+        let kd = this.makeDataSet('kd', 'carrot');
         let score = this.makeDataSet('score', 'emerald');
         let victories = this.makeDataSet('wins', 'sun-flower');
         let headshots = this.makeDataSet('headshots', 'wisteria');
         let grenadeKills = this.makeDataSet('grenadeKills', 'peter-river');
         let meleeKills = this.makeDataSet('meleeKills', 'dark-unica-1');
 
-        let datasets = [level, matches, kills, dies, score, victories, headshots, grenadeKills, meleeKills];
+        let datasets = [level, matches, kills, dies, kd, score, victories, headshots, grenadeKills, meleeKills];
         let labels = [];
 
         val.forEach(item => {
@@ -125,6 +131,7 @@ export class PlayersDetailHistory implements OnInit {
             matches.data.push(Math.round(item.matches));
             kills.data.push(Math.round(item.kills));
             dies.data.push(Math.round(item.dies));
+            kd.data.push(kdRatio(item.kills, item.dies));
             score.data.push(Math.round(item.score));
             victories.data.push(Math.round(item.victories));
             headshots.data.push(Math.round(item.headshots));
@@ -149,10 +156,8 @@ export class PlayersDetailHistory implements OnInit {
         this.stream
             .debounceTime(100)
             .distinctUntilChanged()
-            .switchMap((options :any) => { return _playerService.history(this.nickname, options) })
-            .subscribe(data => {
-                return this.data = data;
-            }, (err) => {});
+            .switchMap((options :any) => _playerService.history(this.nickname, options))
+            .subscribe(data => this.data = data, err => {});
     }
 
     public load () {

@@ -11,5 +11,6 @@
 </div>
 
 <template [ngIf]="data">
+    <players-detail-history-counts [data]="raw" [group]="currentGroup"></players-detail-history-counts>
     <chart [data]="data" [options]="options"></chart>
 </template>
