@@ -32,6 +32,7 @@ export class Timeline {
     private options = {
         responsive: true,
         responsiveAnimationDuration: 150,
+        maintainAspectRatio: true,
         scales: {
             xAxes: [{
                 gridLines: {

@@ -48,6 +48,7 @@ export class PlayersDetailHistory implements OnInit {
     private options = {
         responsive: true,
         responsiveAnimationDuration: 150,
+        maintainAspectRatio: true,
         legend: {
             labels: {
                 fontColor: Colors['gray-4'].color

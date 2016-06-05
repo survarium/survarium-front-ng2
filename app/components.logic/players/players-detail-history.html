@@ -16,5 +16,5 @@
 
 <template [ngIf]="raw?.length">
     <players-detail-history-counts [data]="raw" [group]="currentGroup"></players-detail-history-counts>
-    <chart [data]="data" [options]="options"></chart>
+    <chart [data]="data" [options]="options" [height]="'auto'"></chart>
 </template>
