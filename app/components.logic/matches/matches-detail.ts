@@ -119,6 +119,7 @@ export class MatchesDetail {
             classes: 'nowrap'
         },
         { title: i18n.get('lvl'), field: `player.progress.level`, classes: 'center', width: 80 },
+        { title: i18n.get('elo'), field: `player.progress.elo`, classes: 'center', width: 100 },
         { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: { value: -1 } } },
         { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
         { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
