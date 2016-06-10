@@ -8,6 +8,7 @@ import { Clan } from '../../components.common/clan/clan'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
+import { MapsService } from '../../services/maps'
 import { I18NPipe } from '../../pipes/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
 import { duration } from '../../utils/duration'
@@ -105,6 +106,11 @@ export class MatchesDetail {
         return this.score = this.data.score.join(':');
     }
 
+    mapImage :any;
+    private setMap(map) {
+        this.mapImage = this._mapsService.image(map);
+    }
+
     private columns :any[] = [
         {
             title: '№',
@@ -136,7 +142,9 @@ export class MatchesDetail {
     constructor(private _routeParams :RouteParams,
                 private _matchesService :MatchesService,
                 private _title :TitleService,
-                private _store :Store) {
+                private _store :Store,
+                private _mapsService: MapsService
+    ) {
 
         let match = Number(this._routeParams.get('match'));
         if (isNaN(match)) {
@@ -150,6 +158,8 @@ export class MatchesDetail {
         this._matchesService
             .fetch(this.match)
             .subscribe(data => {
+                this.setMap(data.map);
+
                 data.map = data.map.lang[this.apiLang];
 
                 this.data = data;

@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /assets
-Disallow: /icon
 Disallow: /projects
 Disallow: /public
 Disallow: /widgets

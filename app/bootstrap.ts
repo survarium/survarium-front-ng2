@@ -12,6 +12,7 @@ import { TrackService } from './services/track'
 import { TitleService } from './services/title'
 import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
+import { MapsService } from './services/maps'
 import { appProvider } from './services/app'
 
 import CONFIG from './config'
@@ -34,6 +35,7 @@ bootstrap(App,
         TrackService,
         TitleService,
         VkFeedService,
+        MapsService,
         provide(I18N, { useValue: i18n }),
         provide(APP_BASE_HREF, { useValue: '/' }),
         provide('CONFIG', { useValue: CONFIG })
