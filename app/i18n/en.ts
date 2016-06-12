@@ -234,8 +234,8 @@ let dict = {
         last: 'To level 100'
     },
     skills: {
-        hide: 'Show skills',
-        show: 'Hide skills',
+        hide: 'Hide skills',
+        show: 'Show skills',
         branches: {
             shooting: 'Shooting',
             physical: 'Physical',
