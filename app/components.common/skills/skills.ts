@@ -28,6 +28,7 @@ export class Skills implements OnInit {
 
     ngOnInit() {
         let tree = {};
+        
         this.branches.forEach(branch => tree[branch] = []);
 
         this.tree = this.skills.reduce((tree, data) => {
