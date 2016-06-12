@@ -1,12 +1,14 @@
 <template [ngIf]="tree">
     <div *ngFor="let branch of branches">
-        <h2 class="branch">{{'skills.branches.' + branch | i18n}}</h2>
-        <div class="skill" *ngFor="let skill of tree[branch]">
-            <img [src]="skill.icon" class="icon">
-            <div class="info">
-                <h4 class="title">{{skill.name}} {{skill.rank}}</h4>
-                {{skill.description}} {{skill.value}}
+        <template [ngIf]="tree[branch]">
+            <h2 class="branch">{{'skills.branches.' + branch | i18n}}</h2>
+            <div class="skill" *ngFor="let skill of tree[branch]">
+                <img [src]="skill.icon" class="icon">
+                <div class="info">
+                    <h4 class="title">{{skill.name}} {{skill.rank}}</h4>
+                    {{skill.description}} {{skill.value}}
+                </div>
             </div>
-        </div>
+        </template>
     </div>
 </template>
