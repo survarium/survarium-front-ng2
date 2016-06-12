@@ -58,6 +58,21 @@ export class PlayersService {
     }
 
     /**
+     * Получить скиллы по никнейму
+     * @param {String} nickname
+     * @returns {Observable<R>}
+     */
+    skills(nickname :string) :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: this._handleV2 + '/' + nickname + '/skills', headers: headers, method: 'get' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
      * Получить статистику игрока
      * @param {String} nickname
      * @param {Object} [query]

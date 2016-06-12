@@ -232,6 +232,20 @@ let dict = {
     till: {
         next: 'To the next level',
         last: 'To level 100'
+    },
+    skills: {
+        hide: 'Show skills',
+        show: 'Hide skills',
+        branches: {
+            shooting: 'Shooting',
+            physical: 'Physical',
+            anomaly: 'Anomaly'
+        },
+        type: {
+            percent: '%',
+            kg: 'kg',
+            seconds: 's.'
+        }
     }
 };
 

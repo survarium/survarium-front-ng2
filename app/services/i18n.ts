@@ -36,7 +36,7 @@ let LANGUAGE = detectLang();
 class I18N {
     dict  :any;
     cache :any = {};
-    private lang  :Language;
+    public lang  :Language;
 
     constructor (LANG ?:Language) {
         this.lang = LANG || LANGUAGE;
