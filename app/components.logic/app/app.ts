@@ -30,6 +30,7 @@ import I18NPipe from '../../pipes/i18n'
     { path: '/clans/...', name: 'Clans', component: Clans },
     { path: '/streams/...', name: 'Streams', component: Streams },
     { path: '/info/...', name: 'Info', component: Info },
+    new AsyncRoute({ path: '/armory/', loader: () => require('es6-promise!../armory/armory')('Armory'), name: 'Armory'}),
     { path: '/**', name: 'Error-404', component: Error404 }
 ])
 

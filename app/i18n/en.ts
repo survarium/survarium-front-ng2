@@ -43,6 +43,7 @@ let dict = {
     profile     : 'Profile',
     ammunition  : 'Ammunition',
     active      : 'Active',
+    all         : 'All',
     total       : 'Total',
     lastUpdate  : 'Updated',
     roles        : {
@@ -245,6 +246,42 @@ let dict = {
             percent: '%',
             kg: 'kg',
             seconds: 's.'
+        }
+    },
+    armory: {
+        title: 'Armory',
+        docTitle: 'Armory',
+        docDescription: 'Weapons, armor and equipment of Survarium game.',
+        versions: {
+            label: 'Version'
+        },
+        types: {
+            label: 'Type',
+            subtype: 'Branch',
+            weapons: 'Weapon',
+            armor: 'Armor',
+            ammo: 'Ammo',
+            grenade: 'Grenades',
+            trap: 'Traps',
+            drugs: 'Meds',
+            assault: 'Assault',
+            sniper: 'Sniper',
+            shotgun: 'Shotgun',
+            smg: 'SMG',
+            heavy: 'Machinegun',
+            pistol: 'Pistol',
+            helmet: 'Helmet',
+            mask: 'Mask',
+            tors: 'Torso',
+            back: 'Backpack',
+            legs: 'Shirt',
+            hand: 'Gauntlet',
+            boot: 'Boot',
+            heavy_ammo: 'Heavy',
+            dmr: 'DMR',
+            buck: 'Buck.',
+            ap: 'AP',
+            ss: 'SS'
         }
     }
 };

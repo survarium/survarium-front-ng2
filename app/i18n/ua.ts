@@ -43,6 +43,7 @@ let dict = {
     profile: 'Профіль',
     ammunition: 'Амуніція',
     active: 'Активний',
+    all          : 'Все',
     lastUpdate: 'Оновлено',
     roles: {
         commander: 'Командир',
@@ -262,6 +263,42 @@ let dict = {
             percent: '%',
             kg: 'кг',
             seconds: 'сек.'
+        }
+    },
+    armory: {
+        title: 'Оружейная',
+        docTitle: 'Оружейная',
+        docDescription: 'Оружие, броня и экипировка игры survarium.',
+        versions: {
+            label: 'Версия'
+        },
+        types: {
+            label: 'Тип',
+            subtype: 'Раздел',
+            weapons: 'Оружие',
+            armor: 'Броня',
+            ammo: 'Боеприпасы',
+            grenade: 'Гранаты',
+            trap: 'Ловушки',
+            drugs: 'Медикаменты',
+            assault: 'Автоматы',
+            sniper: 'Винтовки',
+            shotgun: 'Дробовики',
+            smg: 'SMG',
+            heavy: 'Пулеметы',
+            pistol: 'Пистолеты',
+            helmet: 'Шлемы',
+            mask: 'Маски',
+            tors: 'Жилеты',
+            back: 'Рюкзаки',
+            legs: 'Штаны',
+            hand: 'Перчатки',
+            boot: 'Ботинки',
+            heavy_ammo: 'Тяж.',
+            dmr: 'Винт.',
+            buck: 'Дробь',
+            ap: 'ББ',
+            ss: 'Спец.'
         }
     }
 };

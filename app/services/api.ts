@@ -552,4 +552,69 @@ export class VgService {
     }
 }
 
-export const API_PROVIDERS = [PlayersService, MatchesService, ClansService, VgService];
+@Injectable()
+export class GameService {
+    constructor (private http :Http,
+                 @Inject('CONFIG') private config) {}
+
+    private _handle :string = this.config.api + `/v2/game`;
+
+    /**
+     * Версии игры
+     * @returns {Observable<R>}
+     */
+    versions() :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: this._handle + '/versions',
+            headers: headers,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    items(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var path = `${this._handle}/items`;
+
+        if (query.items) {
+            path += `/${query.items.join(',')}`;
+        }
+
+        var params = new URLSearchParams();
+
+        query.thin !== undefined && params.set('thin', 'true');
+        query.version !== undefined && params.set('version', query.version);
+        query.language !== undefined && params.set('language', query.language);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: path,
+            headers: headers,
+            search: params,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
+     * Обработчик ошибок
+     * @param error
+     * @returns {ErrorObservable}
+     */
+    private handleError (error :Response) {
+        console.error('vg.service', error);
+        return Observable.throw(error.json() || 'Server error');
+    }
+}
+
+export const API_PROVIDERS = [PlayersService, MatchesService, ClansService, VgService, GameService ];

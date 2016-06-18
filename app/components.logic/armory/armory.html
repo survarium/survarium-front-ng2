@@ -1,0 +1,47 @@
+<h2>{{'armory.title' | i18n}}</h2>
+
+<div class="versions" *ngIf="versions?.length">
+    <h3 class="label">{{'armory.versions.label' | i18n}}: </h3>
+    <ul>
+        <li *ngFor="let Version of versions" (click)="setVersion(Version)" [class.current]="Version === version">{{Version.id}}</li>
+    </ul>
+</div>
+
+<small *ngIf="!data?.length">{{'loading' | i18n}}</small>
+
+<div *ngIf="data?.length" class="filters">
+    <div class="types">
+        <h3 class="label">{{'armory.types.label' | i18n}}: </h3>
+        <ul>
+            <li *ngFor="let type of types" [class.current]="type === armoryType" (click)="setArmoryType(type.name)">{{'armory.types.' + type.name | i18n}}</li>
+        </ul>
+    </div>
+    <div *ngIf="armoryType.types.length > 1" class="subtypes">
+        <h3 class="label">{{'armory.types.subtype' | i18n}}: </h3>
+        <ul>
+            <li [class.current]="armorySubType === '0'" (click)="setArmorySubType('0')">{{'all' | i18n}}</li>
+            <li *ngFor="let ArmorySubType of armoryType.types" [class.current]="ArmorySubType === armorySubType" (click)="setArmorySubType(ArmorySubType.name)">{{'armory.types.' + ArmorySubType.name | i18n}}</li>
+        </ul>
+    </div>
+    <div *ngIf="armoryType.leveling" class="leveling">
+        <h3 class="label">{{'lvl' | i18n}}: </h3>
+        <ul>
+            <li [class.current]="armoryLevel === 'null'" (click)="setArmoryLevel('null')">{{'all' | i18n}}</li>
+            <li *ngFor="let level of levels" [class.current]="armoryLevel == level" (click)="setArmoryLevel(level)">{{level}}</li>
+        </ul>
+    </div>
+</div>
+
+<ul *ngIf="items?.length" class="items">
+    <li *ngFor="let item of items" class="item" [class.premium]="item.premium">
+        <h2 class="name">{{item.name}} <small class="level">{{'lvl' | i18n}}: {{item.level}}</small></h2>
+        <img *ngIf="item.image" [src]="item.image" />
+        <div class="desc" *ngIf="item.desc">{{item.desc}}</div>
+        <dl *ngFor="let prop of item.props">
+            <dt>{{prop.name}}</dt>
+            <dd>{{prop.value}}</dd>
+        </dl>
+    </li>
+</ul>
+
+<template [ngIf]="data?.length && !items?.length">{{'noData' | i18n}}</template>
