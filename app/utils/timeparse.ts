@@ -1,5 +1,7 @@
 import leadZeros from './leadzeros'
-import { LANGUAGE } from '../services/i18n'
+import { LANGUAGE, i18n } from '../services/i18n'
+
+const monthsOrder = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 export default function timeParse (date, options ?:any) :string {
     if (! (date instanceof Date)) {
@@ -24,15 +26,15 @@ export default function timeParse (date, options ?:any) :string {
     }
 
     if (options.slim) {
-        return leadZeros(date.getMonth() + 1) + '.' +
-            leadZeros(date.getDate()) + ' ' +
+        return leadZeros(date.getDate()) + ' ' +
+            i18n.get(`months.${monthsOrder[date.getMonth()]}`) + '. ' +
             leadZeros(date.getHours()) + ':' +
             leadZeros(date.getMinutes());
     }
 
-    return date.getFullYear() + '.' +
+    return leadZeros(date.getDate()) + '.' +
         leadZeros(date.getMonth() + 1) + '.' +
-        leadZeros(date.getDate()) + ' ' +
+        date.getFullYear() + ' ' +
         leadZeros(date.getHours()) + ':' +
         leadZeros(date.getMinutes()) + ':' +
         leadZeros(date.getSeconds());

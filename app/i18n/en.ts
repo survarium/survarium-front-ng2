@@ -289,6 +289,20 @@ let dict = {
     ammunition: {
         show: 'Show inventory',
         hide: 'Hide inventory'
+    },
+    months: {
+        jan: 'jan',
+        feb: 'feb',
+        mar: 'mar',
+        apr: 'apr',
+        may: 'may',
+        jun: 'jun',
+        jul: 'jul',
+        aug: 'aug',
+        sep: 'sep',
+        oct: 'oct',
+        nov: 'nov',
+        dec: 'dec'
     }
 };
 
