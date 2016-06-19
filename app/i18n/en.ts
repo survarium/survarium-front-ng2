@@ -282,6 +282,10 @@ let dict = {
             buck: 'Buck.',
             ap: 'AP',
             ss: 'SS'
+        },
+        rarity: {
+            label: 'Rarity',
+            rare: 'Rare'
         }
     }
 };
