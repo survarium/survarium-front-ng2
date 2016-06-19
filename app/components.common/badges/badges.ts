@@ -21,6 +21,10 @@ export class Badges {
         if (val.banned) {
             this.badges.push('cheater');
         }
+
+        if (val.ammunition && val.ammunition.length > 2) {
+            this.badges.push('premium');
+        }
     }
 }
 

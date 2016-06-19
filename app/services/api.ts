@@ -558,6 +558,7 @@ export class GameService {
                  @Inject('CONFIG') private config) {}
 
     private _handle :string = this.config.api + `/v2/game`;
+    private _handleV1 :string = this.config.api + `/v1`;
 
     /**
      * Версии игры
@@ -590,6 +591,29 @@ export class GameService {
 
         query.thin !== undefined && params.set('thin', 'true');
         query.version !== undefined && params.set('version', query.version);
+        query.language !== undefined && params.set('language', query.language);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: path,
+            headers: headers,
+            search: params,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    slots(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var path = `${this._handleV1}/slots`;
+
+        var params = new URLSearchParams();
+
         query.language !== undefined && params.set('language', query.language);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });

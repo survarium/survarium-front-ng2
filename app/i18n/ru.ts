@@ -217,7 +217,8 @@ let dict = {
     },
     badges: {
         'svpro-developer': 'Разработчик survarium.pro',
-        'cheater': 'Читер (бан)'
+        'cheater': 'Читер (бан)',
+        premium: 'Премиум'
     },
     discord: {
         description: 'Сервис Discord представляет функционал, аналогичный skype, teamspeak, raidcall, slack. В нем есть тектовые и голосовые каналы, причем – бесплатно!'
