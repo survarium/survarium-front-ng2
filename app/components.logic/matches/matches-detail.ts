@@ -41,6 +41,7 @@ export class MatchesDetail {
     }
 
     private winner :string;
+    private totalELO : number[];
 
     setWinnerByData () {
         let data = this.data;
@@ -77,9 +78,16 @@ export class MatchesDetail {
         }
     }
 
+    private setTotalELO () {
+        let elos = [0, 0];
+        this.stats.forEach(stat => elos[stat.team] += stat.player.progress.elo);
+        this.totalELO = elos;
+    }
+
     private set _stats (val) {
         this.stats = val;
         this.setWinnerByStats();
+        this.setTotalELO();
     }
 
     private stream (options ?:any) :Observable<any> {

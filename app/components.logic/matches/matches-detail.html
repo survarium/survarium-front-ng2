@@ -36,6 +36,11 @@
             <dd class="def-list__desc">{{score}}</dd>
         </dl>
 
+        <dl *ngIf="totalELO?.length" class="def-list">
+            <dt class="def-list__term">{{'elo' | i18n }}</dt>
+            <dd class="def-list__desc">{{totalELO[0]}}:{{totalELO[1]}}</dd>
+        </dl>
+
         <dl class="def-list">
             <dt class="def-list__term">{{'replay' | i18n }}</dt>
             <dd class="def-list__desc"><a [href]="replay" target="_blank">{{'download' | i18n }}</a></dd>
