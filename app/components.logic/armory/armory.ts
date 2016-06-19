@@ -20,11 +20,13 @@ export class Armory {
     private armoryType :any;
     private armorySubType :any;
     private armoryLevel :any;
+    private armoryRarity :boolean;
     private levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     private types = [
         {
             name: 'weapons',
             leveling: true,
+            rarity: true,
             image: function (icon) {
                 if (!icon.length) {
                     return;
@@ -43,6 +45,7 @@ export class Armory {
         },
         {
             name: 'armor',
+            rarity: true,
             leveling: true,
             image: function (icon) {
                 if (!icon.length) {
@@ -129,6 +132,8 @@ export class Armory {
             [this.armorySubType.id];
 
         let level = this.armoryLevel !== 'null' ? Number(this.armoryLevel) : undefined;
+        
+        let rarity = this.armoryRarity;
 
         return this
             .data
@@ -137,6 +142,10 @@ export class Armory {
 
                 if (level !== undefined) {
                     result = result && item.level === level;
+                }
+                
+                if (rarity) {
+                    result = result && item.drop_weight === 0;
                 }
 
                 return result;
@@ -179,6 +188,7 @@ export class Armory {
             Storage.setItem('armory:type', this.armoryType.name);
             this.setArmorySubType();
             this.setArmoryLevel();
+            this.setArmoryRarity();
         }
     }
 
@@ -236,6 +246,21 @@ export class Armory {
             this.version = version;
             Storage.setItem('armory:version', this.version.id);
             this.getItems();
+        }
+    }
+    
+    private setArmoryRarity(rarity ?:string) {
+        let rare = false;
+        if (rarity === 'rare') {
+            rare = true;
+        }
+        
+        if (!this.armoryType.rarity) {
+            rare = false;
+        }
+        
+        if (this.armoryRarity !== rare) {
+            this.armoryRarity = rare;
         }
     }
 

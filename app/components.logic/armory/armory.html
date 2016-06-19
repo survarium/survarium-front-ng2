@@ -30,6 +30,13 @@
             <li *ngFor="let level of levels" [class.current]="armoryLevel == level" (click)="setArmoryLevel(level)">{{level}}</li>
         </ul>
     </div>
+    <div *ngIf="armoryType.rarity" class="rarity">
+        <h3 class="label">{{'armory.rarity.label' | i18n}}: </h3>
+        <ul>
+            <li [class.current]="!armoryRarity" (click)="setArmoryRarity()">{{'all' | i18n}}</li>
+            <li [class.current]="armoryRarity" (click)="setArmoryRarity('rare')">{{'armory.rarity.rare' | i18n}}</li>
+        </ul>
+    </div>
 </div>
 
 <ul *ngIf="items?.length" class="items">
