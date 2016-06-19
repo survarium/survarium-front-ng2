@@ -617,4 +617,4 @@ export class GameService {
     }
 }
 
-export const API_PROVIDERS = [PlayersService, MatchesService, ClansService, VgService, GameService ];
+export const API_PROVIDERS = [PlayersService, MatchesService, ClansService, VgService, GameService];

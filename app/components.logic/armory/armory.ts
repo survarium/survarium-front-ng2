@@ -1,13 +1,16 @@
 import { Component } from '@angular/core'
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
+import { TYPES, LEVELS } from '../../services/armory'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { Storage } from '../../utils/storage'
+import { ArmItem } from '../../components.common/arm-item/arm-item'
 
 @Component({
     selector: 'armory',
     providers: [GameService],
+    directives: [ArmItem],
     styles: [require('./armory.styl')],
     template: require('./armory.html'),
     pipes: [I18NPipe]
@@ -21,106 +24,8 @@ export class Armory {
     private armorySubType :any;
     private armoryLevel :any;
     private armoryRarity :boolean;
-    private levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    private types = [
-        {
-            name: 'weapons',
-            leveling: true,
-            rarity: true,
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/weapons/weapon_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 8, name: 'assault' },
-                { id: 13, name: 'sniper' },
-                { id: 14, name: 'shotgun' },
-                { id: 15, name: 'smg' },
-                { id: 16, name: 'heavy' },
-                { id: 17, name: 'pistol' }
-            ]
-        },
-        {
-            name: 'armor',
-            rarity: true,
-            leveling: true,
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/equipment/equipment_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 1, name: 'helmet' },
-                { id: 2, name: 'mask' },
-                { id: 3, name: 'tors' },
-                { id: 4, name: 'back' },
-                { id: 5, name: 'legs' },
-                { id: 6, name: 'hand' },
-                { id: 7, name: 'boot' }
-            ]
-        },
-        {
-            name: 'ammo',
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/ammo/ammo_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 9, name: 'heavy_ammo' },
-                { id: 18, name: 'dmr' },
-                { id: 19, name: 'buck' },
-                { id: 20, name: 'ap' },
-                { id: 21, name: 'ss' }
-            ]
-        },
-        {
-            name: 'grenade',
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/ammo/ammo_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 24, name: 'grenade' }
-            ]
-        },
-        {
-            name: 'trap',
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/ammo/ammo_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 11, name: 'trap' }
-            ]
-        },
-        {
-            name: 'drugs',
-            image: function (icon) {
-                if (!icon.length) {
-                    return;
-                }
-
-                return `/assets/ui_icons/items/ammo/ammo_${icon[1]}_${icon[0]}.png`;
-            },
-            types: [
-                { id: 10, name: 'drugs' }
-            ]
-        }
-    ];
+    private levels = LEVELS;
+    private types = TYPES;
 
     get items () {
         if (!this.armorySubType || !this.data) {
@@ -132,7 +37,7 @@ export class Armory {
             [this.armorySubType.id];
 
         let level = this.armoryLevel !== 'null' ? Number(this.armoryLevel) : undefined;
-        
+
         let rarity = this.armoryRarity;
 
         return this
@@ -143,7 +48,7 @@ export class Armory {
                 if (level !== undefined) {
                     result = result && item.level === level;
                 }
-                
+
                 if (rarity) {
                     result = result && item.drop_weight === 0;
                 }
@@ -248,17 +153,17 @@ export class Armory {
             this.getItems();
         }
     }
-    
+
     private setArmoryRarity(rarity ?:string) {
         let rare = false;
         if (rarity === 'rare') {
             rare = true;
         }
-        
+
         if (!this.armoryType.rarity) {
             rare = false;
         }
-        
+
         if (this.armoryRarity !== rare) {
             this.armoryRarity = rare;
         }

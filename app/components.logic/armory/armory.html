@@ -39,16 +39,8 @@
     </div>
 </div>
 
-<ul *ngIf="items?.length" class="items">
-    <li *ngFor="let item of items" class="item" [class.premium]="item.premium" [class.rare]="item.drop_weight === 0">
-        <h2 class="name">{{item.name}} <small class="level">{{'lvl' | i18n}}: {{item.level}}</small></h2>
-        <img *ngIf="item.image" [src]="item.image" />
-        <div class="desc" *ngIf="item.desc">{{item.desc}}</div>
-        <dl *ngFor="let prop of item.props">
-            <dt>{{prop.name}}</dt>
-            <dd>{{prop.value}}</dd>
-        </dl>
-    </li>
-</ul>
+<div *ngIf="items?.length" class="items">
+    <arm-item *ngFor="let item of items" class="item" [item]="item"></arm-item>
+</div>
 
 <template [ngIf]="data?.length && !items?.length">{{'noData' | i18n}}</template>

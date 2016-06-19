@@ -1,0 +1,26 @@
+@import "../../components.common/variables.styl"
+
+:host.premium .level,
+:host.rare .level
+  color $highlight
+
+.desc
+  font-size .8em
+  padding .5em 0
+
+.name
+  font-size 1.2em
+  .level
+    float right
+    font-size .6em
+    line-height 2.44em
+    font-weight 400
+
+dt
+  display inline-block
+  &::after
+    content ': '
+
+dd
+  margin-left 0
+  display inline-block
