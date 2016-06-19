@@ -12,6 +12,7 @@ import { MapsService } from '../../services/maps'
 import { I18NPipe } from '../../pipes/i18n'
 import { DateTimePipe } from '../../pipes/datetime'
 import { duration } from '../../utils/duration'
+import { NumberTransform } from '../../utils/number'
 
 @Component({
     selector: 'matches-detail',
@@ -104,7 +105,7 @@ export class MatchesDetail {
     group = {
         by: 'team',
         title: (num) => {
-            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' }) + ' (' + i18n.get('elo') + ' ' + this.totalELO[num] + ')';
+            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' }) + ' (' + i18n.get('elo') + ' ' + NumberTransform(this.totalELO[num]) + ')';
         }
     };
 
