@@ -217,7 +217,7 @@ export class Armory {
         }
 
         if (level === undefined) {
-            level = Storage.getItem('armory:level');
+            level = Storage.getItem('armory:level') || 'null';
         }
 
         if (level !== this.armoryLevel) {
