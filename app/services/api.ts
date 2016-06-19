@@ -625,7 +625,10 @@ export class GameService {
         });
 
         return this.http.request(options)
-            .map(res => res.json())
+            .map(res => res.json().reduce((result, slot) => {
+                result[slot.id] = slot.name;
+                return result;
+            }, {}))
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }

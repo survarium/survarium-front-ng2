@@ -1,8 +1,43 @@
 @import "../../components.common/variables.styl"
 
+.level
+  color rgba(245,245,245,0.65)
+
+:host
+  display block
+
 :host.premium .level,
 :host.rare .level
   color $highlight
+
+:host.mods_1 .name
+  color #009900
+
+:host.mods_2 .name
+  color #000099
+
+:host.mods_3 .name
+  color #ff9900
+
+:host.micro
+  .name
+    display none
+  img
+    margin-top 20px
+    max-width 40px !important
+
+:host.thin
+  font-size 14px
+  text-align center
+  .name
+    font-size 1em
+    .level
+      display none
+  dl
+    display none
+
+  img
+    max-width 80px
 
 .desc
   font-size .8em
@@ -10,6 +45,7 @@
 
 .name
   font-size 1.2em
+  margin-top 0
   .level
     float right
     font-size .6em

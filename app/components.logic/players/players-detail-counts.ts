@@ -7,7 +7,8 @@ import { NumberPipe } from '../../pipes/number'
     selector: 'players-detail-counts',
     pipes: [I18NPipe, PercentPipe, NumberPipe],
     inputs: ['data'],
-    template: require('./players-detail-counts.html')
+    template: require('./players-detail-counts.html'),
+    styles: [`.def-list__title:first-of-type { margin-top: 0; }`]
 })
 
 export default class PlayersDetailCounts { }

@@ -8,6 +8,7 @@ import Matches from './players-detail-matches'
 import History from './players-detail-history'
 import Leveling from './players-detail-leveling'
 import Skills from './players-detail-skills'
+import Ammunition from './players-detail-ammunition'
 import Nickname from '../../components.common/nickname/nickname'
 import Badges from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
@@ -16,7 +17,7 @@ import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills],
+    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]

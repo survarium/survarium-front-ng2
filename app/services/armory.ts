@@ -102,6 +102,14 @@ export const TYPES = [
     }
 ];
 
+export const SUBTYPES = TYPES.reduce((result, root) => {
+    root.types.forEach(type => {
+        result[type.id] = root;
+    });
+
+    return result;
+}, {});
+
 @Injectable()
 export class ArmoryService {
     constructor () {}

@@ -40,9 +40,6 @@ let dict = {
     established : 'Established date',
     exp         : 'Experience',
     looses      : 'Looses',
-    profile     : 'Profile',
-    ammunition  : 'Ammunition',
-    active      : 'Active',
     all         : 'All',
     total       : 'Total',
     lastUpdate  : 'Updated',
@@ -288,6 +285,10 @@ let dict = {
             label: 'Rarity',
             rare: 'Rare'
         }
+    },
+    ammunition: {
+        show: 'Show inventory',
+        hide: 'Hide inventory'
     }
 };
 

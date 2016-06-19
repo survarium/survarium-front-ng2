@@ -1,0 +1,12 @@
+<h3 class="ammunition" (click)="toggle()">{{(shown ? 'ammunition.hide' : 'ammunition.show') | i18n}}</h3>
+<template [ngIf]="shown && items">
+    <div *ngIf="profile" class="profile">
+        <div *ngFor="let slot of targetSlots;" [class]="'item item_' + slot.replace(' ', '_')">
+            <arm-item *ngIf="profile.items[slot]" [item]="profile.items[slot].item" [thin]="1" [mods]="profile.items[slot].mods" [micro]="slot.match('ammo')"></arm-item>
+        </div>
+    </div>
+    <div class="profiles">
+        <div *ngFor="let profile of profiles;let i=index" class="toggler" [class.current]="i === currentProfile" (click)="setProfile(i)"><span>{{profile.profile}}</span><small>{{'lvl' | i18n}} {{profile.level}}</small></div>
+    </div>
+</template>
+<template [ngIf]="shown && !items?.length">{{'noData' | i18n}}</template>

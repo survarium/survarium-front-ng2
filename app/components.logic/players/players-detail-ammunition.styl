@@ -1,0 +1,136 @@
+@import "../../components.common/variables.styl"
+
+.ammunition
+  cursor pointer
+  display inline-block
+  margin .5em 1em 1em 0
+  border-bottom 1px dashed rgba(200, 200, 200, .2)
+
+ItemWidth = 155px
+ItemHeight = 160px
+
+ItemPadX = 5px
+ItemPadY = 10px
+
+MicroWidth = ItemWidth / 3 - 3
+MicroHeight = ItemHeight / 3
+
+.profile,
+.profiles
+  position relative
+  width ItemWidth * 3
+  height ItemHeight * 3
+  margin 0 auto
+
+.profiles
+  height auto
+  text-align center
+  margin-bottom 1em
+
+.toggler
+  display inline-block
+  width 50px
+  height 50px
+  margin .5em
+  text-align center
+  cursor pointer
+
+  span
+    font-size 2em
+    display block
+    line-height 1em
+
+  &.current
+    color $highlight
+
+.item
+  position absolute
+  border 1px solid #2F333C
+  box-sizing border-box
+  padding .1em .5em
+  width ItemWidth - ItemPadX
+  height ItemHeight - ItemPadY
+
+centerX()
+  left 50%
+  margin-left: -(ItemWidth / 2)
+
+centerY()
+  top 50%
+  margin-top: -(ItemHeight / 2)
+
+.item_helmet
+  top 0
+  right 0
+
+.item_backpack
+  right 0
+  top ItemHeight * 1
+
+.item_pants
+  top ItemHeight * 2
+  centerX()
+
+.item_mask
+  top 0
+  centerX()
+
+.item_jacket
+  top ItemHeight * 1
+  centerX()
+
+.item_gloves
+  left 0
+  top ItemHeight * 1
+
+.item_boots
+  right 0
+  top ItemHeight * 2
+
+.item_weapon_1
+  left 0
+  top 0
+
+.item_weapon_2
+  left 0
+  top ItemHeight * 2
+
+.item_ammo_1,
+.item_ammo_2,
+.item_ammo_3,
+.item_ammo_4,
+.item_ammo_5,
+.item_ammo_6
+  width MicroWidth
+  height MicroHeight
+  border none
+
+.item_ammo_1
+  top ItemHeight - ItemPadY
+  margin-top -(MicroHeight)
+  left 0
+
+.item_ammo_2
+  top ItemHeight - ItemPadY
+  margin-top -(MicroHeight)
+  left MicroWidth
+
+.item_ammo_3
+  top ItemHeight - ItemPadY
+  margin-top -(MicroHeight)
+  left MicroWidth * 2
+
+.item_ammo_4
+  top ItemHeight * 3 - ItemPadY
+  margin-top -(MicroHeight)
+  left 0
+
+.item_ammo_5
+  top ItemHeight * 3 - ItemPadY
+  margin-top -(MicroHeight)
+  left MicroWidth
+
+.item_ammo_6
+  top ItemHeight * 3 - ItemPadY
+  margin-top -(MicroHeight)
+  left MicroWidth * 2

@@ -40,9 +40,6 @@ let dict = {
     established: 'Дата заснування',
     exp: 'Досвід',
     looses: 'Поразок',
-    profile: 'Профіль',
-    ammunition: 'Амуніція',
-    active: 'Активний',
     all          : 'Все',
     lastUpdate: 'Оновлено',
     roles: {
@@ -305,6 +302,10 @@ let dict = {
             label: 'Рідкісність',
             rare: 'Рідкісні'
         }
+    },
+    ammunition: {
+        show: 'Показати інвентар',
+        hide: 'Приховати інвентар'
     }
 };
 
