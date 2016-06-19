@@ -104,7 +104,7 @@ export class MatchesDetail {
     group = {
         by: 'team',
         title: (num) => {
-            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' })
+            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' }) + ' (' + i18n.get('elo') + ' ' + this.totalELO[num] + ')';
         }
     };
 
