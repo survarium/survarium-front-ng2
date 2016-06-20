@@ -50,7 +50,7 @@ export class Armory {
                 }
 
                 if (rarity) {
-                    result = result && item.drop_weight === 0;
+                    result = result && item.drop_weight <= 1;
                 }
 
                 return result;
