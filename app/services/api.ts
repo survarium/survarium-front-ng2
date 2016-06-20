@@ -29,6 +29,7 @@ export class PlayersService {
 
         let params = new URLSearchParams();
         params.set('nickname', nickname);
+        params.set('limit', '15');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
