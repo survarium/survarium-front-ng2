@@ -15,7 +15,7 @@ import { I18NPipe } from '../../pipes/i18n'
         '[class.mods_4]': 'mods?.length === 4',
         '[class.mods_5]': 'mods?.length === 5',
         '[class.premium]': 'item.premium',
-        '[class.rare]': 'item.drop_weight === 1',
+        '[class.rare]': '!item.premium && item.drop_weight <= 1',
         '[class.thin]': 'thin',
         '[class.micro]': 'micro'
     }
