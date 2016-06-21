@@ -42,6 +42,8 @@ export class PlayersDetailMatches {
         { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } }
     ];
 
+    private limits = [15, 30, 50];
+
     private stream (options ?:any) :Observable<any> {
         return this
             ._playerService

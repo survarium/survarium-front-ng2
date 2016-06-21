@@ -171,6 +171,9 @@ let dict = {
             equal: 'Равно',
             from: 'От',
             to: 'До'
+        },
+        limits: {
+            title: 'Показывать по'
         }
     },
     streams: {

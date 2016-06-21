@@ -171,6 +171,9 @@ let dict = {
             equal: 'Equal',
             from: 'From',
             to: 'To'
+        },
+        limits: {
+            title: 'Items amount'
         }
     },
     streams: {

@@ -17,11 +17,11 @@ export class DataGridPagination {
     };
 
     private get current () {
-        return this.skip / this.limit;
+        return Math.ceil(this.skip / this.limit);
     };
 
     private page (num) {
-        return { num };
+        return { num: Math.ceil(num) };
     }
 
     private breaker () {

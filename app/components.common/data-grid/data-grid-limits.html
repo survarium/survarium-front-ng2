@@ -1,0 +1,1 @@
+<span>{{'dataGrid.limits.title' | i18n}}: </span><a *ngFor="let limit of limits" (click)="switch(limit)" [class.current]="limit === current">{{limit}}</a>

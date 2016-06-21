@@ -5,6 +5,7 @@ import Pagination from './data-grid-pagination'
 import Counters from './data-grid-counters'
 import Loading from './data-grid-loading'
 import Filters from './data-grid-filters'
+import Limits from './data-grid-limits'
 import { Observable } from 'rxjs/Observable'
 
 interface Column {
@@ -23,8 +24,8 @@ interface Column {
 
 @Component({
     selector: 'data-grid',
-    directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters],
-    inputs: ['data', 'columns', 'stream', 'group', 'name'],
+    directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters, Limits],
+    inputs: ['data', 'columns', 'stream', 'group', 'name', 'limits'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')],
     host: {
@@ -177,6 +178,10 @@ export class DataGrid {
         this.load({ skip: skip });
     }
 
+    limitify (limit :number) {
+        this.load({ limit: limit });
+    }
+
     _filter = undefined;
     filter (conditions) {
         if (this._filter === conditions) {
@@ -203,6 +208,7 @@ export class DataGrid {
         this.loading = true;
         this.streamTrigger({
             skip: options.skip !== undefined ? options.skip : this.skip,
+            limit: options.limit !== undefined ? options.limit : this.limit,
             sort: this.sort,
             filter: this._filter
         });

@@ -33,6 +33,8 @@
 </div>
 <div class="pagination">
     <data-grid-counters [skip]="skip" [limit]="limit" [total]="total" [filtered]="filtered"></data-grid-counters>
-    <div pagination [skip]="skip" [limit]="limit" [total]="filtered" (onPaginate)="paginate($event)"></div>
+    <div pagination [skip]="skip" [limit]="limit" [total]="filtered" (onPaginate)="paginate($event)">
+        <div *ngIf="limits?.length" limits [limits]="limits" [name]="name" (onLimit)="limitify($event)"></div>
+    </div>
 </div>
 <data-grid-loading *ngIf="loading"></data-grid-loading>

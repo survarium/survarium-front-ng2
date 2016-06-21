@@ -188,6 +188,9 @@ let dict = {
             equal: 'Одно',
             from: 'Від',
             to: 'До'
+        },
+        limits: {
+            title: 'Показувати по'
         }
     },
     streams: {

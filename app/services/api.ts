@@ -85,6 +85,7 @@ export class PlayersService {
         var params = new URLSearchParams();
         params.set('lang', this.apiLang);
 
+        query.limit !== undefined && params.set('limit', query.limit);
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {
@@ -380,6 +381,7 @@ export class ClansService {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
 
+        query.limit !== undefined && params.set('limit', query.limit);
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {
@@ -405,6 +407,7 @@ export class ClansService {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
 
+        query.limit !== undefined && params.set('limit', query.limit);
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {
@@ -430,6 +433,7 @@ export class ClansService {
         let params = new URLSearchParams();
         params.set('lang', this.apiLang);
 
+        query.limit !== undefined && params.set('limit', query.limit);
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {

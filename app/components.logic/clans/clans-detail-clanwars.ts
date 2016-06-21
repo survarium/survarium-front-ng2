@@ -15,11 +15,13 @@ import DataGrid from '../../components.common/data-grid/data-grid'
     selector: 'clans-detail-clanwars',
     pipes: [I18NPipe],
     inputs: ['clan'],
-    template: `<h3>{{'clans.clanwars' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns"></data-grid>`
+    template: `<h3>{{'clans.clanwars' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailClanwars {
     @Input() clan :any;
     apiLang = i18n.apiLang;
+
+    private limits = [15, 30, 50];
 
     private stream (options ?:any) {
         let abbr = this.clan.abbr;
