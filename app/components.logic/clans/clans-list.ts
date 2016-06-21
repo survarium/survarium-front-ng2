@@ -1,4 +1,5 @@
 import { Component, ViewQuery, QueryList } from '@angular/core'
+import { DomSanitizationService } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'
@@ -20,6 +21,9 @@ export class ClansList {
 
     private columns :any[] = [];
     private showCW  :boolean = false;
+    private get modeText () {
+        return this._sanitizer.bypassSecurityTrustHtml(this.i18n.get(this.showCW ? 'clans.listCWDescription' : 'clans.listDescription'));
+    }
 
     private stream (options ?:any)  {
         options = options || {};
@@ -47,6 +51,7 @@ export class ClansList {
     constructor(private _clansService :ClansService,
                 private _title :TitleService,
                 private i18n :I18N,
+                private _sanitizer :DomSanitizationService,
                 @ViewQuery(DataGrid, { descendants: false }) private elList: QueryList<DataGrid>) {
 
         this.stream = this.stream.bind(this);

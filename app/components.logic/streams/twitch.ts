@@ -1,4 +1,5 @@
 import { StreamsComponent } from './streams.component'
+import { DomSanitizationService } from '@angular/platform-browser'
 import { Component, ViewContainerRef } from '@angular/core'
 import { TwitchService } from '../../services/twitch'
 import { TitleService } from '../../services/title'
@@ -23,9 +24,22 @@ export class Twitch extends StreamsComponent{
         live: null
     };
 
+    private getEmbed (video) {
+        return this._domSanitize.bypassSecurityTrustResourceUrl(`https://player.twitch.tv/?channel=${video.channel.name}&autoplay=false`);
+    }
+
+    private getLink (video) {
+        return this._domSanitize.bypassSecurityTrustUrl(video.channel.url);
+    }
+
+    private getPx (px) {
+        return this._domSanitize.bypassSecurityTrustStyle(`${px}px`);
+    }
+
     constructor(view :ViewContainerRef,
                 private twitch :TwitchService,
                 private title  :TitleService,
+                private _domSanitize :DomSanitizationService,
                 i18n :I18N,
                 service :StreamsFormatsService) {
 

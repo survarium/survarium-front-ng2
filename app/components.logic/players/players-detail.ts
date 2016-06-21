@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { RouteParams } from '@angular/router-deprecated'
+import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
@@ -29,10 +30,10 @@ export class PlayersDetail {
     private error :any;
 
     private show :boolean = false;
-    private jsonLD :string;
+    private jsonLD :SafeHtml;
 
     private setJsonLD(data :any) {
-        return this.jsonLD = `<script type="application/ld+json">
+        return this.jsonLD = this._sanitizer.bypassSecurityTrustHtml(`<script type="application/ld+json">
             {
               "@context": "http://schema.org",
               "@type": "BreadcrumbList",
@@ -52,13 +53,14 @@ export class PlayersDetail {
                 }
               }]
             }
-            </script>`;
+            </script>`);
     }
 
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,
                 private _title :TitleService,
-                private _store :Store) {
+                private _store :Store,
+                private _sanitizer :DomSanitizationService) {
 
         this.name = this._routeParams.get('nickname').trim();
 

@@ -1,4 +1,5 @@
 import { StreamsComponent } from './streams.component'
+import { DomSanitizationService } from '@angular/platform-browser'
 import { Component, ViewContainerRef } from '@angular/core'
 import I18NPipe from '../../pipes/i18n'
 import { I18N } from '../../services/i18n'
@@ -28,10 +29,23 @@ export class Youtube extends StreamsComponent {
         archive: null
     };
 
+    private getEmbed (video) {
+        return this._domSanitize.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${video.id.videoId}`);
+    };
+
+    private getLink (video) {
+        return this._domSanitize.bypassSecurityTrustUrl(`https://www.youtube.com/watch?v=${video.id.videoId}`);
+    };
+
+    private getPx (px) {
+        return this._domSanitize.bypassSecurityTrustStyle(`${px}px`);
+    };
+
     constructor (view :ViewContainerRef,
                  /*private youtube :YoutubePlayer,*/
                  private youtube :YoutubeService,
                  private title   :TitleService,
+                 private _domSanitize :DomSanitizationService,
                  i18n :I18N,
                  service :StreamsFormatsService) {
 

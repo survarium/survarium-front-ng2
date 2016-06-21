@@ -1,2 +1,2 @@
-<p class="clans-list__mode" (click)="changeMode()" innerHTML="{{(showCW ? 'clans.listCWDescription' : 'clans.listDescription') | i18n}}"></p>
+<p class="clans-list__mode" (click)="changeMode()" [innerHTML]="modeText"></p>
 <data-grid [stream]="stream" [columns]="columns"></data-grid>

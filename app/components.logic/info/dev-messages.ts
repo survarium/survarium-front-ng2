@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { DomSanitizationService } from '@angular/platform-browser'
 import { VgService } from '../../services/api'
 import TitleService from '../../services/title'
 import { I18N } from '../../services/i18n'
@@ -32,17 +33,19 @@ export class DevMessages {
     private set data(val :any) {
         val.data = val.data.map((message :any) => {
             let dev = this.devs[message.dev];
-            message.dev = { id: dev.id, name: dev.name, url: `https://forum.survarium.com/${message.lang}/memberlist.php?mode=viewprofile&u=${dev.id}` };
+            message.dev = { id: dev.id, name: dev.name, url: this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/memberlist.php?mode=viewprofile&u=${dev.id}`) };
 
-            message.url = `https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}&p=${message.post}#p${message.post}`;
+            message.url = this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}&p=${message.post}#p${message.post}`);
+
+            message.text = this._domSanitize.bypassSecurityTrustHtml(message.text);
 
             message.crumbs = [
                 message.forum.id && {
-                    url: `https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}`,
+                    url: this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}`),
                     name: this.htmlEntities(message.forum.name)
                 },
                 message.topic.id && {
-                    url: `https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}`,
+                    url: this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}`),
                     name: this.htmlEntities(message.topic.name)
                 }
             ].filter(Boolean);
@@ -53,6 +56,7 @@ export class DevMessages {
 
     constructor(private _vgService :VgService,
                 private _title :TitleService,
+                private _domSanitize :DomSanitizationService,
                 private i18n :I18N
     ) {
 

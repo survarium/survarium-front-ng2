@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { RouteParams } from '@angular/router-deprecated'
+import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
@@ -46,10 +47,10 @@ export class ClansDetail {
         this.isPublic = false;
     }
 
-    private jsonLD :string;
+    private jsonLD :SafeHtml;
 
     private setJsonLD(data :any) {
-        return this.jsonLD = `<script type="application/ld+json">
+        return this.jsonLD = this._sanitizer.bypassSecurityTrustHtml(`<script type="application/ld+json">
             {
               "@context": "http://schema.org",
               "@type": "BreadcrumbList",
@@ -69,13 +70,14 @@ export class ClansDetail {
                 }
               }]
             }
-            </script>`;
+            </script>`);
     }
 
-    constructor(private _routeParams:RouteParams,
-                private _clansService:ClansService,
-                private _title:TitleService,
-                private _store:Store) {
+    constructor(private _routeParams :RouteParams,
+                private _clansService :ClansService,
+                private _title :TitleService,
+                private _store :Store,
+                private _sanitizer :DomSanitizationService) {
 
         this.name = this._routeParams.get('abbr').trim();
 
