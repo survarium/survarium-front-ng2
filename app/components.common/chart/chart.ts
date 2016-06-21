@@ -5,14 +5,14 @@ declare var Chart :any;
 @Component({
     selector: 'chart',
     inputs: ['type', 'height', 'data', 'options'],
-    template: `<canvas [style.width]="width" [style.height]="height" (click)="click($event)" (mousemove)="hover($event)"></canvas>`,
+    template: `<canvas [style.width]="width" [style.height]="height"></canvas>`, // + (click)="click($event)" (mousemove)="hover($event)"
     styles: [require('./chart.styl')]
 })
 
 export class ChartComponent implements OnInit, OnDestroy, OnChanges {
     private chart :any = null;
-    private chartClick :EventEmitter<any> = new EventEmitter();
-    private chartHover :EventEmitter<any> = new EventEmitter();
+    /*private chartClick :EventEmitter<any> = new EventEmitter();
+    private chartHover :EventEmitter<any> = new EventEmitter();*/
 
     private _data :any;
     @Input('data') set data (val) {
@@ -42,8 +42,13 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
 
     constructor (private element :ElementRef) { }
 
-    public click(event) {
-        let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
+    /*public click(event) {
+        let atEvent = this.chart.getElementAtEvent || this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
+
+        if (!atEvent) {
+            return;
+        }
+
         let activePoints = atEvent.call(this.chart, event);
         if (activePoints.length > 0) {
             let activeLabel = activePoints[0].label;
@@ -52,14 +57,19 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     public hover(event) {
-        let atEvent = this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
+        let atEvent = this.chart.getElementAtEvent || this.chart.getPointsAtEvent || this.chart.getBarsAtEvent || this.chart.getSegmentsAtEvent;
+
+        if (!atEvent) {
+            return;
+        }
+
         let activePoints = atEvent.call(this.chart, event);
         if (activePoints.length > 0) {
             let activeLabel = activePoints[0].label;
             let activePoint = activePoints[0].value;
             this.chartHover.emit({ activePoints: activePoints, activePoint: activePoint, activeLabel: activeLabel });
         }
-    }
+    }*/
 
     private updater;
     private chartUpdate () {

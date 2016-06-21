@@ -10,7 +10,8 @@
   "exclude": [
     "node_modules",
     "typings/main.d.ts",
-    "typings/main"
+    "typings/main",
+    "node_modules/chart.js"
   ],
   "filesGlob": [
     "./app/**/*.ts",
