@@ -17,5 +17,5 @@
 
 <div *ngIf="data" class="footer">
     <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total"></data-grid-counters>
-    <div pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="limitify($event)"></div>
+    <div pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="paginate($event)"></div>
 </div>
