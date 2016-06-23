@@ -162,7 +162,7 @@ export class PlayersDetailHistory implements OnInit {
             this.isMobile = true;
 
             this.options.maintainAspectRatio = false;
-            this.height = '600px';
+            this.height = '500px';
         }
 
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
