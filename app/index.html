@@ -164,11 +164,11 @@
     </script>
     <% } %>
 
-    <script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?121" async></script>
 
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </head>
 
 <body>
@@ -183,14 +183,22 @@
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>
     <% } %>
 
-    <script type="text/javascript" src="https://static.yandex.net/browser-updater/v1/script.js" charset="utf-8"></script>
+    <script async type="text/javascript" src="https://static.yandex.net/browser-updater/v1/script.js" charset="utf-8"></script>
     <script>
         var __lang = window.navigator.userLanguage || window.navigator.language;
         var __langDefault = 'en';
         __lang = !__lang ? 'en' :
                 __lang.match(/ru/i) ? 'ru' : 'en';
 
-        var yaBrowserUpdater = new ya.browserUpdater.init({"lang":__lang,"browsers":{"yabrowser":"15.12","chrome":"46","ie":"10","opera":"34","safari":"8","fx":"43","amigo":"Infinity","iron":"35","flock":"Infinity","palemoon":"25","camino":"Infinity","maxthon":"4.5","seamonkey":"2.3"},"theme":"yellow"});
+        var broUpdater = setInterval(function () {
+            if (!window.ya || !window.ya.browserUpdater) {
+                return;
+            }
+
+            new ya.browserUpdater.init({"lang":__lang,"browsers":{"yabrowser":"15.12","chrome":"46","ie":"10","opera":"34","safari":"8","fx":"43","amigo":"Infinity","iron":"35","flock":"Infinity","palemoon":"25","camino":"Infinity","maxthon":"4.5","seamonkey":"2.3"},"theme":"yellow"});
+
+            clearInterval(broUpdater);
+        }, 500);
     </script>
 </body>
 

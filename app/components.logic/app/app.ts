@@ -7,6 +7,7 @@ import { Matches } from '../matches/matches'
 import { Clans } from '../clans/clans'
 import { Streams } from '../streams/streams'
 import { Info } from '../info/info'
+import { Adsense } from '../../components.common/adsense/adsense'
 import { Error404 } from '../errors/404'
 import I18NPipe from '../../pipes/i18n'
 
@@ -15,7 +16,8 @@ import I18NPipe from '../../pipes/i18n'
     directives: [
         ROUTER_DIRECTIVES,
         Footer,
-        RouterLink
+        RouterLink,
+        Adsense
     ],
     pipes: [I18NPipe],
     styles: [require('./app.styl')],

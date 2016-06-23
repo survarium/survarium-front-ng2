@@ -1,4 +1,4 @@
-import { enableProdMode, provide, APP_ID, ComponentRef } from '@angular/core';
+import { enableProdMode, APP_ID, ComponentRef } from '@angular/core';
 import { Title as TitleProvider, enableDebugTools } from '@angular/platform-browser'
 import { bootstrap } from '@angular/platform-browser-dynamic'
 import { HTTP_PROVIDERS } from '@angular/http'
@@ -26,8 +26,8 @@ export var app: ComponentRef<App>;
 
 bootstrap(App,
     [
-        provide(APP_ID, { useValue: 'survarium-pro' }),
-        provide('window', { useValue: window }),
+        { provide: APP_ID, useValue: 'survarium-pro' },
+        { provide: 'window', useValue: window },
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
         TitleProvider,
@@ -38,9 +38,9 @@ bootstrap(App,
         VkFeedService,
         MapsService,
         ArmoryService,
-        provide(I18N, { useValue: i18n }),
-        provide(APP_BASE_HREF, { useValue: '/' }),
-        provide('CONFIG', { useValue: CONFIG })
+        { provide: I18N, useValue: i18n },
+        { provide: APP_BASE_HREF, useValue: '/' },
+        { provide: 'CONFIG', useValue: CONFIG }
     ])
     .then((appRef :ComponentRef<any>) => {
         appProvider.app = appRef;
@@ -48,12 +48,6 @@ bootstrap(App,
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }
-
-        var adsbygoogle = window['adsbygoogle'] || [];
-        adsbygoogle.push({
-            google_ad_client: 'ca-pub-8677968039358823',
-            enable_page_level_ads: CONFIG.isMobile
-        });
     })
     .catch(err => console.error(err));
 

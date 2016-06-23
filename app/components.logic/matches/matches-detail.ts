@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { DomSanitizationService, SafeUrl } from '@angular/platform-browser'
 import { RouteParams } from '@angular/router-deprecated'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
@@ -30,10 +31,9 @@ export class MatchesDetail {
 
     private apiLang = i18n.apiLang;
 
-    replay :string;
+    replay :SafeUrl;
     private setReplay () {
-        // FIXME: CLIENT-SIDE ONLY
-        return this.replay = `http://${decodeURIComponent(this.data.replay)}`;
+        return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${this.data.replay}`);
     }
 
     duration :string;
@@ -152,7 +152,8 @@ export class MatchesDetail {
                 private _matchesService :MatchesService,
                 private _title :TitleService,
                 private _store :Store,
-                private _mapsService: MapsService
+                private _mapsService: MapsService,
+                private _domSanitize :DomSanitizationService
     ) {
 
         let match = Number(this._routeParams.get('match'));

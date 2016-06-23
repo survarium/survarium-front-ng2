@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, Inject } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { Storage } from '../../utils/storage'
@@ -154,7 +154,17 @@ export class PlayersDetailHistory implements OnInit {
     private stream;
     private streamTrigger :(options ?:any) => void;
 
-    constructor (private _playerService :PlayersService) {
+    private isMobile = false;
+    private height = 'auto';
+
+    constructor (private _playerService :PlayersService, @Inject('window') private window, @Inject('CONFIG') private config) {
+        if (config.isMobile || window.outerWidth < 500) {
+            this.isMobile = true;
+
+            this.options.maintainAspectRatio = false;
+            this.height = '600px';
+        }
+
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
         this.stream
             .debounceTime(100)

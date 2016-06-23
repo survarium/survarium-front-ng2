@@ -31,8 +31,8 @@ export class MatchesListCW {
         { title: i18n.get('mode'), component: Mode, width: 90, inputs: { name: `map.lang.${this.apiLang}.mode` } },
         { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } },
         { title: i18n.get('matches.cw.clan1.score'), field: `score.0`, width: 80, classes: 'center' },
-        { title: i18n.get('matches.cw.clan1.title'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.0.clan.abbr`, name: `clans.0.clan.name`, win: `clans.0.win` } },
-        { title: i18n.get('matches.cw.clan2.title'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.1.clan.abbr`, name: `clans.1.clan.name`, win: `clans.1.win` } },
+        { title: i18n.get('matches.cw.clan1.title'), classes: 'center nowrap', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.0.clan.abbr`, name: `clans.0.clan.name`, win: `clans.0.win` } },
+        { title: i18n.get('matches.cw.clan2.title'), classes: 'center nowrap', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.1.clan.abbr`, name: `clans.1.clan.name`, win: `clans.1.win` } },
         { title: i18n.get('matches.cw.clan2.score'), field: `score.1`, width: 80, classes: 'center' }
     ];
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Inject } from '@angular/core'
 import { ChartComponent } from '../../components.common/chart/chart'
 import { MatchesService } from '../../services/api'
 import { i18n } from '../../services/i18n'
@@ -66,7 +66,7 @@ export class Timeline {
                     return;
                 }
 
-                if (tooltip.body && tooltip.body.length) {
+                if (tooltip.body && tooltip.body.length && tooltip.body[0].replace) {
                     tooltip.body[0] = tooltip.body[0].replace(/: [\d\s]+:/, ':');
                 }
             }
@@ -142,12 +142,21 @@ export class Timeline {
         this.total = total;
     };
 
-    constructor (private matchesService :MatchesService) {
+    private isMobile = false;
+    private height = 'auto';
+
+    constructor (private matchesService :MatchesService, @Inject('window') private window, @Inject('CONFIG') private config) {
+        if (config.isMobile || window.outerWidth < 500) {
+            this.isMobile = true;
+
+            this.options.maintainAspectRatio = false;
+            this.height = '600px';
+        }
+
         matchesService
             .timeline()
             .subscribe(data => {
                 this.timeline = data;
             }, err => {});
     }
-
 }
