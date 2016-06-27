@@ -33,7 +33,20 @@ export class MatchesDetail {
 
     replay :SafeUrl;
     private setReplay () {
-        return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${this.data.replay}`);
+        let replay = this.data.replay;
+
+        if (replay) {
+            return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${replay.replace(/%2F/g, '/')}`);
+        }
+
+        this._matchesService.checkReplay(this.data.id)
+            .subscribe(replay => {
+                if (!replay) {
+                    return;
+                }
+
+                return this.replay = this._domSanitize.bypassSecurityTrustUrl(replay);
+            }, () => {});
     }
 
     duration :string;
