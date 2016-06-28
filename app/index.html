@@ -161,6 +161,25 @@
                 } catch(e) { }
             });
 
+            var scripts = d.getElementsByTagName("script")[0],
+                metrikaScript = d.createElement("script"),
+                f = function () {
+                    scripts.parentNode.insertBefore(metrikaScript, scripts);
+                };
+            metrikaScript.type = "text/javascript";
+            metrikaScript.async = true;
+            metrikaScript.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window);
+    </script>
+
+    <% } %>
+
+    <script>
+        (function (d, w) {
             (w['yandex_context_callbacks'] = w['yandex_context_callbacks'] || []).push(function () {
                 try {
                     w['direct'] = Ya.Direct;
@@ -168,15 +187,10 @@
             });
 
             var scripts = d.getElementsByTagName("script")[0],
-                metrikaScript = d.createElement("script"),
                 contextScript = d.createElement("script"),
                 f = function () {
-                    scripts.parentNode.insertBefore(metrikaScript, scripts);
                     scripts.parentNode.insertBefore(contextScript, scripts);
                 };
-            metrikaScript.type = "text/javascript";
-            metrikaScript.async = true;
-            metrikaScript.src = "https://mc.yandex.ru/metrika/watch.js";
 
             contextScript.type = "text/javascript";
             contextScript.async = true;
@@ -187,8 +201,6 @@
             } else { f(); }
         })(document, window);
     </script>
-
-    <% } %>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 

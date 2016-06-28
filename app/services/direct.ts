@@ -10,8 +10,16 @@ export class DirectService {
         return this._direct || (this._direct = this.window['direct']);
     }
 
+    private defaultWidth = 600;
+    private defaultHeight = 100;
+
     constructor(@Inject('window') private window) {}
-    add(id :number, target :string, w :number = 600, h :number = 100) {
+    add(id :number, target :string, width ?:number, height ?:number) {
+        width = width || this.defaultWidth;
+        height = height || this.defaultHeight;
+
+        console.log(width, height);
+
         try {
             return this.direct.insertInto(id, target, {
                 ad_format: 'direct',
@@ -25,8 +33,8 @@ export class DirectService {
                 hover_color: 'FFCE1F',
                 favicon: true,
                 no_sitelinks: true,
-                height: h,
-                width: w
+                height: height,
+                width: width
             });
         } catch (e) { }
     }

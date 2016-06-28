@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { RouteParams } from '@angular/router-deprecated'
 import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
 import { PlayersService } from '../../services/api'
@@ -15,17 +15,17 @@ import Badges from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
-import { DirectService } from '../../services/direct'
+import { Direct } from '../../components.common/direct/direct'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition],
+    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, Direct],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]
 })
 
-export class PlayersDetail implements OnInit {
+export class PlayersDetail {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -57,18 +57,13 @@ export class PlayersDetail implements OnInit {
             </script>`);
     }
 
-    private directId = 172828;
-    private directName = `dir_${Math.random() * 1000 >>> 0}`;
-    private setDirect() {
-        this._directService.add(this.directId, this.directName);
-    }
+    private direct = 172828;
 
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,
                 private _title :TitleService,
                 private _store :Store,
-                private _sanitizer :DomSanitizationService,
-                private _directService :DirectService) {
+                private _sanitizer :DomSanitizationService) {
 
         this.name = this._routeParams.get('nickname').trim();
 
@@ -90,9 +85,5 @@ export class PlayersDetail implements OnInit {
             }, err => {
                 this.error = JSON.stringify(err, null, 4);
             });
-    }
-
-    ngOnInit() {
-        this.setDirect();
     }
 }
