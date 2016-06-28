@@ -18,8 +18,6 @@ export class DirectService {
         width = width || this.defaultWidth;
         height = height || this.defaultHeight;
 
-        console.log(width, height);
-
         try {
             return this.direct.insertInto(id, target, {
                 ad_format: 'direct',
