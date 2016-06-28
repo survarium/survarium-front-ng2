@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewContainerRef } from '@angular/core'
+import { Component, AfterViewInit, ViewChildren, QueryList } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { Widget, WidgetStyle } from '../widget/widget'
 
@@ -13,12 +13,19 @@ declare var twttr :any;
 })
 
 export class Twitter extends Widget implements AfterViewInit {
-    constructor (private componentRef :ViewContainerRef) {
+    private target :any;
+
+    @ViewChildren('target') targets :QueryList<any>;
+
+    constructor () {
         super();
     }
 
     ngAfterViewInit () {
-        window['twttr'] && twttr.widgets.load(this.componentRef.element.nativeElement);
+        if (this.targets.first && window['twttr']) {
+            this.target = this.targets.first.nativeElement;
+            window['twttr'].widgets.load(this.target);
+        }
     }
 }
 export default Twitter

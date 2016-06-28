@@ -9,6 +9,7 @@ import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'
 import { StoreService } from './services/store'
 import { TrackService } from './services/track'
+import { DirectService } from './services/direct'
 import { TitleService } from './services/title'
 import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
@@ -34,6 +35,7 @@ bootstrap(App,
         StoreService,
         ...API_PROVIDERS,
         TrackService,
+        DirectService,
         TitleService,
         VkFeedService,
         MapsService,

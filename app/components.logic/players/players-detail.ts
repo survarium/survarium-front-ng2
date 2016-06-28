@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { RouteParams } from '@angular/router-deprecated'
 import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
 import { PlayersService } from '../../services/api'
@@ -15,6 +15,7 @@ import Badges from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
+import { DirectService } from '../../services/direct'
 
 @Component({
     selector: 'players-detail',
@@ -24,7 +25,7 @@ import { i18n } from '../../services/i18n'
     styles: [require('./players-detail.styl')]
 })
 
-export class PlayersDetail {
+export class PlayersDetail implements OnInit {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -56,11 +57,18 @@ export class PlayersDetail {
             </script>`);
     }
 
+    private directId = 172828;
+    private directName = `dir_${Math.random() * 1000 >>> 0}`;
+    private setDirect() {
+        this._directService.add(this.directId, this.directName);
+    }
+
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,
                 private _title :TitleService,
                 private _store :Store,
-                private _sanitizer :DomSanitizationService) {
+                private _sanitizer :DomSanitizationService,
+                private _directService :DirectService) {
 
         this.name = this._routeParams.get('nickname').trim();
 
@@ -82,5 +90,9 @@ export class PlayersDetail {
             }, err => {
                 this.error = JSON.stringify(err, null, 4);
             });
+    }
+
+    ngOnInit() {
+        this.setDirect();
     }
 }

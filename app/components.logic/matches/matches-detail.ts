@@ -8,6 +8,7 @@ import { Nickname } from '../../components.common/nickname/nickname'
 import { Clan } from '../../components.common/clan/clan'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
+import { TrackService } from '../../services/track'
 import { i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
 import { I18NPipe } from '../../pipes/i18n'
@@ -32,7 +33,7 @@ export class MatchesDetail {
     private apiLang = i18n.apiLang;
 
     replay :SafeUrl;
-    private setReplay () {
+    private setReplay() {
         let replay = this.data.replay;
 
         if (replay) {
@@ -48,9 +49,15 @@ export class MatchesDetail {
                 return this.replay = this._domSanitize.bypassSecurityTrustUrl(replay);
             }, () => {});
     }
+    private trackDownloadReplay() {
+        this._trackService.track({
+            ya: { goal: 'match.replay', options: { match: this.data.id } },
+            ga: { category: 'Match', action: 'download replay', label : `match:${this.data.id}`,}
+        });
+    }
 
     duration :string;
-    private setDuration () {
+    private setDuration() {
         return this.duration = duration(this.data.duration);
     }
 
@@ -166,7 +173,8 @@ export class MatchesDetail {
                 private _title :TitleService,
                 private _store :Store,
                 private _mapsService: MapsService,
-                private _domSanitize :DomSanitizationService
+                private _domSanitize :DomSanitizationService,
+                private _trackService :TrackService
     ) {
 
         let match = Number(this._routeParams.get('match'));

@@ -38,7 +38,7 @@
 
         <dl class="def-list" *ngIf="replay">
             <dt class="def-list__term">{{'replay' | i18n }}</dt>
-            <dd class="def-list__desc"><a [href]="replay" target="_blank">{{'download' | i18n }}</a></dd>
+            <dd class="def-list__desc"><a (click)="trackDownloadReplay()" [href]="replay" target="_blank">{{'download' | i18n }}</a></dd>
         </dl>
     </div>
 
