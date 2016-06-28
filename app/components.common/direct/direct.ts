@@ -4,8 +4,11 @@ import { DirectService } from '../../services/direct'
 @Component({
     selector: 'direct',
     inputs: ['id', 'height', 'width'],
-    template: require('./direct.html'),
-    styles: [require('./direct.styl')]
+    template: ``,
+    styles: [require('./direct.styl')],
+    host: {
+        '[attr.id]': 'name'
+    }
 })
 
 export class Direct {
