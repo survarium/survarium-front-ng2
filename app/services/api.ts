@@ -14,7 +14,6 @@ export class PlayersService {
         this.apiLang = i18n.apiLang;
     }
 
-    private _handle :string = this.config.api + `/v1/players`;
     private _handleV2 :string = this.config.api + `/v2/players`;
 
     /**
@@ -29,14 +28,12 @@ export class PlayersService {
 
         let params = new URLSearchParams();
         params.set('nickname', nickname);
-        params.set('limit', '15');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle, headers: headers, search: params, method: 'get' });
+        let options = new Request({ url: this._handleV2, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -54,7 +51,6 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -69,7 +65,6 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -148,7 +143,6 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -162,7 +156,6 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
@@ -182,7 +175,6 @@ export class PlayersService {
 
         return this.http.request(options)
             .map(res => res.json())
-            //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
 
