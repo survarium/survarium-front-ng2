@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core'
-import { NgForm, FORM_DIRECTIVES } from '@angular/common'
+import { Component, ViewEncapsulation } from '@angular/core'
 import { Router } from '@angular/router-deprecated'
 import { Storage } from '../../utils/storage'
 import { TitleService } from '../../services/title'
@@ -8,7 +7,7 @@ import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     providers  : [],
-    directives : [NgForm, FORM_DIRECTIVES],
+    directives : [],
     pipes: [I18NPipe],
     styles: [require('./clans-search.styl')],
     template: require('./clans-search.html'),
@@ -25,10 +24,6 @@ export class ClansSearch {
     ) {
         _title.setTitle(i18n.get('clans.search.docTitle'));
         _title.setDescription(i18n.get('clans.search.docDescription'));
-    }
-
-    private onSubmit(form) {
-        this.showClan(form.abbr);
     }
 
     showClan(abbr) {

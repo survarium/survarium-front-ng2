@@ -42,6 +42,7 @@ let dict = {
     looses: 'Поразок',
     all          : 'Все',
     lastUpdate: 'Оновлено',
+    wide: 'Глибокий',
     roles: {
         commander: 'Командир',
         warlord: 'Сержант',

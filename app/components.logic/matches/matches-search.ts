@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core'
-import { NgForm, FORM_DIRECTIVES } from '@angular/common'
 import { Router } from '@angular/router-deprecated'
 import { TitleService } from '../../services/title'
 import { Storage } from '../../utils/storage'
@@ -8,7 +7,7 @@ import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     providers  : [],
-    directives : [NgForm, FORM_DIRECTIVES],
+    directives : [],
     pipes: [I18NPipe],
     styles: [require('./matches-search.styl')],
     template: require('./matches-search.html'),
@@ -25,10 +24,6 @@ export class MatchesSearch {
     ) {
         _title.setTitle(i18n.get('matches.search.docTitle'));
         _title.setDescription(i18n.get('matches.search.docDescription'));
-    }
-
-    private onSubmit(form) {
-        this.showMatch(form.id);
     }
 
     showMatch(id) {

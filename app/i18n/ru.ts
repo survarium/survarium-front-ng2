@@ -41,6 +41,7 @@ let dict = {
     exp          : 'Опыт',
     looses       : 'Поражений',
     all          : 'Все',
+    wide         : 'Расширенный',
     roles        : {
         commander: 'Командир',
         warlord  : 'Сержант',

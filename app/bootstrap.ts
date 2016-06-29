@@ -4,6 +4,7 @@ import { bootstrap } from '@angular/platform-browser-dynamic'
 import { HTTP_PROVIDERS } from '@angular/http'
 import { ROUTER_PROVIDERS } from '@angular/router-deprecated'
 import { APP_BASE_HREF } from '@angular/common'
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import { App } from './components.logic/app/app'
 import { API_PROVIDERS } from './services/api'
@@ -31,6 +32,8 @@ bootstrap(App,
         { provide: 'window', useValue: window },
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
+        disableDeprecatedForms(),
+        provideForms(),
         TitleProvider,
         StoreService,
         ...API_PROVIDERS,

@@ -43,6 +43,7 @@ let dict = {
     all         : 'All',
     total       : 'Total',
     lastUpdate  : 'Updated',
+    wide        : 'Wide',
     roles        : {
         commander: 'Commander',
         warlord  : 'Warlord',

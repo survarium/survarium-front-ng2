@@ -18,16 +18,18 @@ export class PlayersService {
 
     /**
      * Поиск игрока по части никнейма
-     * @param {String} nickname
+     * @param {String}  nickname
+     * @param {Boolean} wide        мягкий поиск
      * @returns {Observable<R>}
      */
-    search(nickname :string) :Observable<any> {
+    search(nickname :string, wide :boolean) :Observable<any> {
         if (!nickname || nickname.length < 2) {
             return Observable.empty();
         }
 
         let params = new URLSearchParams();
         params.set('nickname', nickname);
+        wide && params.set('wide', 'true');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({ url: this._handleV2, headers: headers, search: params, method: 'get' });
