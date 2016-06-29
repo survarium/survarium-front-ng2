@@ -23,7 +23,7 @@ export class PlayersService {
      * @returns {Observable<R>}
      */
     search(nickname :string, wide :boolean) :Observable<any> {
-        if (!nickname || nickname.length < 2) {
+        if (!nickname || nickname.length < 3) {
             return Observable.empty();
         }
 
