@@ -1,7 +1,7 @@
 <form (submit)="showPlayer()">
     <input name="nickname" placeholder="{{'nickname' | i18n}}" (keyup)="search()" [(ngModel)]="value" />
     <input type="submit" value="{{'find' | i18n}}" />
-    <div><label><input name="wide" type="checkbox" (change)="search()" [(ngModel)]="wide" /> {{'wide' | i18n}}</label></div>
+    <!--<div><label><input name="wide" type="checkbox" (change)="search()" [(ngModel)]="wide" /> {{'wide' | i18n}}</label></div>-->
 </form>
 
 <ul>
