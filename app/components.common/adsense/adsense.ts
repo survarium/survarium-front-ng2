@@ -13,15 +13,12 @@ export class Adsense {
     @Input() private slot :number;
 
     ngOnInit () {
-        setTimeout(() => {
-            var adsbygoogle = window['adsbygoogle'] || [];
-            try {
-                adsbygoogle.push({
-                    google_ad_client: this.client,
-                    enable_page_level_ads: this.config.isMobile
-                });
-            } catch (e) { console.error(e) }
-        }, 100);
+        try {
+            (window['adsbygoogle'] || (window['adsbygoogle'] = [])).push({
+                google_ad_client: this.client,
+                enable_page_level_ads: this.config.isMobile
+            });
+        } catch (e) { console.error(e) }
     }
 }
 export default Adsense

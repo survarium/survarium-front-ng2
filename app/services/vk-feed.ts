@@ -28,12 +28,30 @@ export class VkFeedService {
                 return componentRef;
             })
             .then((componentRef :ComponentRef<VkFeedWidget>) => {
-                VK.Widgets.Group(`vk_feed_${params.id}`, params.options, params.id);
-                return this.widgets[key] = componentRef;
+                let createWidget = () => {
+                    VK.Widgets.Group(`vk_feed_${params.id}`, params.options, params.id);
+                    return this.widgets[key] = componentRef;
+                };
+
+                return new Promise(resolve => {
+                    let wait, create;
+                    wait = () => {
+                        setTimeout(() => {
+                            create();
+                        }, 500);
+                    };
+                    create = () => {
+                        if (typeof VK === 'undefined') {
+                            return wait();
+                        }
+                        return resolve(createWidget());
+                    };
+                    create();
+                });
             });
     }
 
-    widget (params) {
+    widget(params) {
         let key = JSON.stringify(params.id);
         let widget;
         if (widget = this.widgets[key]) {

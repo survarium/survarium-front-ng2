@@ -19,6 +19,7 @@ import { ArmoryService } from './services/armory'
 import { appProvider } from './services/app'
 
 import CONFIG from './config'
+import { ngOnLoad } from './async'
 
 if (CONFIG.production) {
     enableProdMode();
@@ -53,6 +54,8 @@ bootstrap(App,
         if (!CONFIG.production) {
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }
+
+        ngOnLoad(window, document);
     })
     .catch(err => console.error(err));
 
