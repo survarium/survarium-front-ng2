@@ -22,7 +22,8 @@ export class VkFeed extends Widget implements OnInit {
             .then((widget :ComponentRef<any>) => {
                 this.widget = widget;
                 this.componentRef.element.nativeElement.appendChild(this.widget.location.nativeElement);
-            });
+            })
+            .catch(() => {});
     }
 
     constructor (private feedService: VkFeedService, private componentRef :ViewContainerRef) {

@@ -33,12 +33,17 @@ export class VkFeedService {
                     return this.widgets[key] = componentRef;
                 };
 
-                return new Promise(resolve => {
+                let fails = 10;
+
+                return new Promise((resolve, reject) => {
                     let wait, create;
                     wait = () => {
+                        if (!--fails) {
+                            return reject();
+                        }
                         setTimeout(() => {
                             create();
-                        }, 500);
+                        }, 1000);
                     };
                     create = () => {
                         if (typeof VK === 'undefined') {

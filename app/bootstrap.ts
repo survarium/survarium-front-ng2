@@ -55,7 +55,7 @@ bootstrap(App,
             CONFIG.enableDebugTools && enableDebugTools(appRef);
         }
 
-        ngOnLoad(window, document);
+        setTimeout(() => ngOnLoad(window, document), 1000);
     })
     .catch(err => console.error(err));
 
