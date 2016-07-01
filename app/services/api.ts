@@ -564,10 +564,29 @@ export class VgService {
 @Injectable()
 export class GameService {
     constructor (private http :Http,
+                 private i18n :I18N,
                  @Inject('CONFIG') private config) {}
 
     private _handle :string = this.config.api + `/v2/game`;
     private _handleV1 :string = this.config.api + `/v1`;
+
+    factions() :Observable<any>{
+        var params = new URLSearchParams();
+        params.set('language', this.i18n.lang.apiLang);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: this._handle + '/factions',
+            headers: headers,
+            method: 'get',
+            search: params
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
 
     /**
      * Версии игры
@@ -607,6 +626,22 @@ export class GameService {
             url: path,
             headers: headers,
             search: params,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    usage(id :number) :Observable<any> {
+        var path = `${this._handle}/items/${id}/usage`;
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: path,
+            headers: headers,
             method: 'get'
         });
 

@@ -1,0 +1,166 @@
+<h3>{{'armory.item.params.weapon' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.bullet_damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.bullet_damage * 100) | number:{ fixed: 2 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bullet_pierce' | i18n }}</dt>
+        <dd>{{ (verData.parameters.bullet_pierce * 100) | number:{ fixed: 2 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.rounds_per_minute' | i18n }}</dt>
+        <dd>{{ verData.parameters.rounds_per_minute }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.magazine_capacity' | i18n }}</dt>
+        <dd>{{ verData.parameters.magazine_capacity }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.material_pierce' | i18n }}</dt>
+        <dd>{{ (verData.parameters.material_pierce * 100) | number:{ fixed: 2 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bleeding_damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.bleeding_damage * 100) | number:{ fixed: 2 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bleeding_chance' | i18n }}</dt>
+        <dd>{{ verData.parameters.bleeding_chance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stamina_damage' | i18n }}</dt>
+        <dd>{{ verData.parameters.stamina_damage}}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.max_distance_power' | i18n }}</dt>
+        <dd>{{ verData.parameters.max_distance_power }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.max_damage_distance' | i18n }}</dt>
+        <dd>{{ verData.parameters.max_damage_distance }} {{ 'armory.item.meter' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.min_damage_distance' | i18n }}</dt>
+        <dd>{{ verData.parameters.min_damage_distance }} {{ 'armory.item.meter' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.min_damage_mult' | i18n }}</dt>
+        <dd>{{ verData.parameters.min_damage_mult }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.match_participation_cost' | i18n }}</dt>
+        <dd>{{ verData.parameters.match_participation_cost }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.hip_modifier' | i18n }}</dt>
+        <dd>{{verData.parameters.hip_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.brief_recoil' | i18n }}</dt>
+        <dd>{{ verData.parameters.brief_recoil }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.aim_zoom_factor' | i18n }}</dt>
+        <dd>{{ verData.parameters.aim_zoom_factor }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.base_dispersion' | i18n }}</dt>
+        <dd>{{ verData.parameters.base_dispersion }}</dd>
+    </dl>
+    <dl *ngIf="verData.parameters.dispersion_modifier">
+        <dt>{{ 'armory.item.dispersion_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.dispersion_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.unmasking_radius' | i18n }}</dt>
+        <dd>{{ verData.parameters.unmasking_radius }} {{ 'armory.item.meter' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.reliability' | i18n }}</dt>
+        <dd>{{ verData.parameters.reliability }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.degrade_per_death' | i18n }}</dt>
+        <dd>{{ verData.parameters.degrade_per_death }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.stopping_power' | i18n }}</dt>
+        <dd>{{ verData.parameters.stopping_power }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.aim_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.aim_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl *ngIf="verData.parameters.aim_time_modifier">
+        <dt>{{ 'armory.item.aim_time_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.aim_time_modifier }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.reload_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.reload_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.tactical_reload_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.tactical_reload_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl *ngIf="verData.parameters.aim_time_modifier">
+        <dt>{{ 'armory.item.reload_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.aim_time_modifier }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.show_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.show_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.hide_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.hide_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+<!--</div>-->
+<template [ngIf]="verData.parameters.experience_bonus_modifier || verData.parameters.money_bonus_modifier || verData.parameters.reputation_bonus_modifier">
+    <dl>
+        <dt>{{ 'armory.item.experience_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.experience_bonus_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.money_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.money_bonus_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.reputation_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.reputation_bonus_modifier }}</dd>
+    </dl>
+</template>
+<!--<div class="def">-->
+    <dl *ngIf="verData.parameters.unknown_mods_count">
+        <dt>{{ 'armory.item.unknown_mods_count' | i18n }}</dt>
+        <dd>{{ verData.parameters.unknown_mods_count }}</dd>
+    </dl>
+<!--</div>
+<div class="def">-->
+    <dl>
+        <dt>{{ 'armory.item.details_to_craft' | i18n }}</dt>
+        <dd><span class="def-chunk" *ngFor="let amount of verData.parameters.details_to_craft;">{{ amount }}</span></dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.fire_queue_types.label' | i18n }}</dt>
+        <dd><span class="def-chunk" *ngFor="let type of verData.parameters.fire_queue_types;">{{ 'armory.item.fire_queue_types.' + type | i18n }}</span></dd>
+    </dl>
+</div>
+
+<div recoil [recoil]="verData.recoil" [aim]="verData.aim_recoil"></div>

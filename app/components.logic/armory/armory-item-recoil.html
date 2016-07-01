@@ -1,0 +1,52 @@
+<ul>
+    <li (click)="showRecoil()" [class.current]="recoil === show">{{ 'armory.item.recoil' | i18n }}</li>
+    <li (click)="showAim()" [class.current]="aim === show">{{ 'armory.item.aim_recoil' | i18n }}</li>
+</ul>
+
+<dl class="def-list">
+    <dt class="def-list__term">{{ 'armory.item.left' | i18n }}</dt>
+    <dd class="def-list__desc"><span title="Min">{{show.min_left_recoil}}</span> – <span title="Max">{{show.max_left_recoil}}</span></dd>
+</dl>
+<dl class="def-list">
+    <dt class="def-list__term">{{ 'armory.item.top' | i18n }}</dt>
+    <dd class="def-list__desc"><span title="Min">{{show.min_top_recoil}}</span> – <span title="Max">{{show.max_top_recoil}}</span></dd>
+</dl>
+<dl class="def-list">
+    <dt class="def-list__term">{{ 'armory.item.right' | i18n }}</dt>
+    <dd class="def-list__desc"><span title="Min">{{show.min_right_recoil}}</span> – <span title="Max">{{show.max_right_recoil}}</span></dd>
+</dl>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.first_shoot_recoil_multiplier' | i18n }}</dt>
+        <dd>{{show.first_shoot_recoil_multiplier}}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.shots_to_change_direction' | i18n }}</dt>
+        <dd><span title="Min">{{show.min_shots_to_change_direction}}</span> – <span title="Max">{{show.max_shots_to_change_direction}}</span></dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.recoil_power' | i18n }}</dt>
+        <dd>{{show.recoil_power}}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.shake_time_scale' | i18n }}</dt>
+        <dd>{{show.shake_time_scale}}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.shake_recoil' | i18n }}</dt>
+        <dd><span title="Min">{{show.min_shake_recoil}}</span> – <span title="Max">{{show.max_shake_recoil}}</span></dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.compensation_proportional_gain' | i18n }}</dt>
+        <dd>{{show.compensation_proportional_gain}}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.compensation_integral_gain' | i18n }}</dt>
+        <dd>{{show.compensation_integral_gain}}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.compensation_derivational_gain' | i18n }}</dt>
+        <dd>{{show.compensation_derivational_gain}}</dd>
+    </dl>
+</div>

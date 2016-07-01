@@ -1,0 +1,38 @@
+<template [ngIf]="data">
+    <h2>{{data.name}}</h2>
+    <div class="clearfix">
+        <img *ngIf="verData.image" [src]="verData.image" />
+        <div class="basic">
+            <dl class="def-list">
+                <dt class="def-list__term">{{ 'armory.item.is_premium' | i18n }}</dt>
+                <dd class="def-list__desc">{{verData.is_premium ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n)}}</dd>
+            </dl>
+            <dl class="def-list">
+                <dt class="def-list__term">{{ 'armory.item.drop_weight' | i18n }}</dt>
+                <dd class="def-list__desc">{{verData.parameters.drop_weight}}</dd>
+            </dl>
+            <dl class="def-list" *ngIf="verData.parameters.base_rarity_level">
+                <dt class="def-list__term">{{ 'armory.item.base_rarity_level' | i18n }}</dt>
+                <dd class="def-list__desc">{{verData.parameters.base_rarity_level}}</dd>
+            </dl>
+            <dl class="def-list">
+                <dt class="def-list__term">{{ 'level' | i18n }}</dt>
+                <dd class="def-list__desc"><span title="{{ 'armory.item.item_level' | i18n }}">{{verData.parameters.item_level}}</span> (<span title="{{ 'armory.item.match_making_level' | i18n }}">{{verData.parameters.match_making_level}}</span>)</dd>
+            </dl>
+            <dl class="def-list">
+                <dt class="def-list__term">{{ 'armory.item.weight' | i18n }}</dt>
+                <dd class="def-list__desc">{{verData.parameters.weight}} {{ 'armory.item.kg' | i18n }}</dd>
+            </dl>
+            <dl class="def-list" *ngIf="faction">
+                <dt class="def-list__term">{{ 'armory.item.faction' | i18n }}</dt>
+                <dd class="def-list__desc">{{faction}}<span *ngIf="verData.parameters.faction_data?.faction_id"> ({{verData.parameters.faction_data.faction_reputation_level}})</span></dd>
+            </dl>
+            <dl *ngIf="usage?.used" class="def-list">
+                <dt class="def-list__term">{{ 'armory.item.usage' | i18n }}</dt>
+                <dd class="def-list__desc">{{usage.used}} ({{ (usage.used / usage.total * 100) | percent }})</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div weapon [verData]="verData" *ngIf="type.name === 'weapons'"></div>
+</template>

@@ -1,0 +1,44 @@
+@import "../../components.common/variables.styl"
+
+:host
+  display block
+
+  .def
+    display table
+    vertical-align top
+    border-collapse collapse
+    border 1px solid $bgSoft
+
+    dl
+      display table-row
+      vertical-align top
+    dt, dd
+      display table-cell
+      margin 0
+      padding .3em
+      border 1px solid $bgSoft
+
+  .def-chunk
+    display inline-block
+    vertical-align top
+    &:not(:last-of-type)::after
+      content '|'
+      display inline-block
+      vertical-align top
+      padding 0 .3em
+
+@media (min-width: 640px)
+  .basic
+    margin-left 180px
+  img
+    float left
+
+.basic
+  margin-bottom 1em
+
+img
+  margin 0 2em 1em 0
+  max-width 128px
+
+.clearfix
+  clear fix

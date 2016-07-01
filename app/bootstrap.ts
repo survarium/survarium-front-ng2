@@ -15,6 +15,7 @@ import { TitleService } from './services/title'
 import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
 import { MapsService } from './services/maps'
+import { FactionsService } from './services/factions'
 import { ArmoryService } from './services/armory'
 import { appProvider } from './services/app'
 
@@ -31,6 +32,9 @@ bootstrap(App,
     [
         { provide: APP_ID, useValue: 'survarium-pro' },
         { provide: 'window', useValue: window },
+        { provide: I18N, useValue: i18n },
+        { provide: APP_BASE_HREF, useValue: '/' },
+        { provide: 'CONFIG', useValue: CONFIG },
         ROUTER_PROVIDERS,
         HTTP_PROVIDERS,
         disableDeprecatedForms(),
@@ -43,10 +47,8 @@ bootstrap(App,
         TitleService,
         VkFeedService,
         MapsService,
-        ArmoryService,
-        { provide: I18N, useValue: i18n },
-        { provide: APP_BASE_HREF, useValue: '/' },
-        { provide: 'CONFIG', useValue: CONFIG }
+        FactionsService,
+        ArmoryService
     ])
     .then((appRef :ComponentRef<any>) => {
         appProvider.app = appRef;

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core'
+import { RouterLink } from '@angular/router-deprecated'
 import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'arm-item',
     inputs: ['item', 'thin', 'mods', 'micro'],
+    directives: [RouterLink],
     template: require('./arm-item.html'),
     styles: [require('./arm-item.styl')],
     pipes: [I18NPipe],

@@ -1,0 +1,43 @@
+@import "../../components.common/variables.styl"
+
+:host
+  display block
+
+.current
+  color $highlight
+  text-decoration none !important
+
+.label
+  display inline-block
+  font-size 1em
+  padding 0
+  margin 0
+
+ul
+  list-style-type none
+  padding 0
+  margin 0
+  display inline-block
+
+li
+  display inline-block
+
+.leveling li,
+.versions li,
+.filters li
+  cursor pointer
+  text-decoration underline
+  padding .3em .5em
+
+.items
+  margin .5em auto
+  display flex
+  align-content flex-start
+  flex-flow row wrap
+  justify-content space-between
+
+.item
+  border 1px solid $bgLighter
+  padding .3em .5em
+  flex 1
+  min-width 200px
