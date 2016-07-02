@@ -9,10 +9,11 @@ import { I18NPipe } from '../../pipes/i18n'
 import { PercentPipe } from '../../pipes/percent'
 import { Storage } from '../../utils/storage'
 import { ArmoryItemWeapon } from './armory-item-weapon'
+import { ArmoryItemGrenade } from './armory-item-grenade'
 
 @Component({
     selector: 'armory-item',
-    directives: [ArmoryItemWeapon],
+    directives: [ArmoryItemWeapon, ArmoryItemGrenade],
     styles: [require('./armory-item.styl')],
     template: require('./armory-item.html'),
     pipes: [I18NPipe, PercentPipe]

@@ -301,7 +301,8 @@ let dict = {
                 label: 'Режимы огня'
             },
             params: {
-                weapon: 'Характеристики оружия'
+                weapon: 'Характеристики оружия',
+                grenade: 'Характеристики гранаты'
             },
             is_premium: 'Премиум',
             yes: 'Да',
@@ -361,7 +362,10 @@ let dict = {
             recoil_power: 'Сила отдачи',
             compensation_proportional_gain: 'compensation_proportional_gain',
             compensation_integral_gain: 'compensation_integral_gain',
-            compensation_derivational_gain: 'compensation_derivational_gain'
+            compensation_derivational_gain: 'compensation_derivational_gain',
+            splash_min_damage: 'Мин урон',
+            splash_max_damage: 'Макс урон',
+            splash_radius: 'Радиус урона'
         }
     },
     ammunition: {

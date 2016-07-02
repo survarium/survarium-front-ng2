@@ -19,7 +19,7 @@
                 <dt class="def-list__term">{{ 'level' | i18n }}</dt>
                 <dd class="def-list__desc"><span title="{{ 'armory.item.item_level' | i18n }}">{{verData.parameters.item_level}}</span> (<span title="{{ 'armory.item.match_making_level' | i18n }}">{{verData.parameters.match_making_level}}</span>)</dd>
             </dl>
-            <dl class="def-list">
+            <dl class="def-list" *ngIf="verData.parameters.weight">
                 <dt class="def-list__term">{{ 'armory.item.weight' | i18n }}</dt>
                 <dd class="def-list__desc">{{verData.parameters.weight}} {{ 'armory.item.kg' | i18n }}</dd>
             </dl>
@@ -35,4 +35,5 @@
     </div>
 
     <div weapon [verData]="verData" *ngIf="type.name === 'weapons'"></div>
+    <div grenade [verData]="verData" *ngIf="type.name === 'grenade'"></div>
 </template>

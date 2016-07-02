@@ -301,7 +301,8 @@ let dict = {
                 label: 'Fire modes'
             },
             params: {
-                weapon: 'Weapon params'
+                weapon: 'Weapon params',
+                grenade: 'Grenade params'
             },
             is_premium: 'Premium',
             yes: 'Yes',
@@ -361,7 +362,10 @@ let dict = {
             recoil_power: 'Recoil power',
             compensation_proportional_gain: 'Compensation proportional gain',
             compensation_integral_gain: 'Compensation integral gain',
-            compensation_derivational_gain: 'Compensation derivational gain'
+            compensation_derivational_gain: 'Compensation derivational gain',
+            splash_min_damage: 'Min damage',
+            splash_max_damage: 'Max damage',
+            splash_radius: 'Splash radius'
         }
     },
     ammunition: {

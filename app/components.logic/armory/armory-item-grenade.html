@@ -1,0 +1,24 @@
+<h3>{{'armory.item.params.grenade' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.splash_min_damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.splash_min_damage * 100) | number:{ fixed: 0 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.splash_max_damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.splash_max_damage * 100) | number:{ fixed: 0 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.splash_radius' | i18n }}</dt>
+        <dd>{{ verData.parameters.splash_radius }} {{ 'armory.item.meter' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stamina_damage' | i18n }}</dt>
+        <dd>{{ verData.parameters.stamina_damage }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stopping_power' | i18n }}</dt>
+        <dd>{{ verData.parameters.stopping_power }}</dd>
+    </dl>
+</div>
