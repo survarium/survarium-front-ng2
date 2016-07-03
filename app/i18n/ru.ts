@@ -302,7 +302,8 @@ let dict = {
             },
             params: {
                 weapon: 'Характеристики оружия',
-                grenade: 'Характеристики гранаты'
+                grenade: 'Характеристики гранаты',
+                drugs: 'Характеристики медикамента'
             },
             is_premium: 'Премиум',
             yes: 'Да',
@@ -365,7 +366,29 @@ let dict = {
             compensation_derivational_gain: 'compensation_derivational_gain',
             splash_min_damage: 'Мин урон',
             splash_max_damage: 'Макс урон',
-            splash_radius: 'Радиус урона'
+            splash_radius: 'Радиус урона',
+            activation_time: 'Задержка применения',
+            damage_protection: {
+                title: 'Защита',
+                ranged: 'Пули',
+                radiation: 'Радиация'
+            },
+            activity_time_sec: 'Время лечения',
+            heal_amount: 'Лечение',
+            damage_protection_health: 'Защита от урона здоровью',
+            damage_protection_infection: 'Защита от инфекции',
+            activity_time_skill_influence: 'Activity time skill influence',
+            removes_bleeding: 'Заживляет кровотечение',
+            influences: {
+                title: 'Влияние',
+                left_hand: 'Левая рука',
+                right_hand: 'Правая рука',
+                left_leg: 'Левая нога',
+                right_leg: 'Правая нога',
+                head: 'Голова',
+                body: 'Туловище',
+                health: 'Здоровье'
+            }
         }
     },
     ammunition: {

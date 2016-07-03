@@ -1,0 +1,46 @@
+<h3>{{'armory.item.params.drugs' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.activation_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.activation_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.activity_time_sec' | i18n }}</dt>
+        <dd>{{ verData.parameters.activity_time_sec }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.heal_amount' | i18n }}</dt>
+        <dd>{{ (verData.parameters.heal_amount * 100) | number:{ fixed: 0 } }}%</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.damage_protection_health' | i18n }}</dt>
+        <dd>{{ (verData.parameters.damage_protection_health * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.damage_protection_infection' | i18n }}</dt>
+        <dd>{{ (verData.parameters.damage_protection_infection * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.activity_time_skill_influence' | i18n }}</dt>
+        <dd>{{ verData.parameters.activity_time_skill_influence }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.removes_bleeding' | i18n }}</dt>
+        <dd>{{ verData.data.removes_bleeding ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+    </dl>
+    <dl *ngIf="verData.data.damage_protection?.length">
+        <dt>{{ 'armory.item.damage_protection.title' | i18n }}</dt>
+        <dd><span class="def-chunk" *ngFor="let dmg of verData.data.damage_protection;">{{ 'armory.item.damage_protection.' + dmg.hit_type | i18n }}: {{ dmg.modifier * 100 | percent }}</span></dd>
+    </dl>
+</div>
+
+<template [ngIf]="verData.data.influences?.length">
+    <h3>{{ 'armory.item.influences.title' | i18n }}</h3>
+    <div class="def">
+        <dl *ngFor="let inf of verData.data.influences">
+            <dt>{{ 'armory.item.influences.' + inf.body_part | i18n }}</dt>
+            <dd>{{ (inf.amount * 100) | percent }}</dd>
+        </dl>
+    </div>
+</template>

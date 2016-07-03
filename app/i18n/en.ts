@@ -302,7 +302,8 @@ let dict = {
             },
             params: {
                 weapon: 'Weapon params',
-                grenade: 'Grenade params'
+                grenade: 'Grenade params',
+                drugs: 'Drugs params'
             },
             is_premium: 'Premium',
             yes: 'Yes',
@@ -365,7 +366,29 @@ let dict = {
             compensation_derivational_gain: 'Compensation derivational gain',
             splash_min_damage: 'Min damage',
             splash_max_damage: 'Max damage',
-            splash_radius: 'Splash radius'
+            splash_radius: 'Splash radius',
+            activation_time: 'Activation time',
+            damage_protection: {
+                title: 'Damage protection',
+                ranged: 'Ranged',
+                radiation: 'Radiation'
+            },
+            activity_time_sec: 'Activity time',
+            heal_amount: 'Heal',
+            damage_protection_health: 'Health damage protection',
+            damage_protection_infection: 'Infection damage protection',
+            activity_time_skill_influence: 'Activity time skill influence',
+            removes_bleeding: 'Removes bleeding',
+            influences: {
+                title: 'Influences',
+                left_hand: 'Left hand',
+                right_hand: 'Right hand',
+                left_leg: 'Left leg',
+                right_leg: 'Right leg',
+                head: 'Head',
+                body: 'Body',
+                health: 'Health'
+            }
         }
     },
     ammunition: {
