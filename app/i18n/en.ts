@@ -303,7 +303,8 @@ let dict = {
             params: {
                 weapon: 'Weapon params',
                 grenade: 'Grenade params',
-                drugs: 'Drugs params'
+                drugs: 'Drugs params',
+                ammo: 'Ammo params'
             },
             is_premium: 'Premium',
             yes: 'Yes',
@@ -388,7 +389,33 @@ let dict = {
                 head: 'Head',
                 body: 'Body',
                 health: 'Health'
-            }
+            },
+            damage: 'Damage',
+            arp: 'ARP',
+            required_bags: 'Required bags',
+            clip_size: 'Clip size',
+            clip_weight: 'Clip weight',
+            pierce_dispersion_angle: 'Pierce dispersion angle',
+            dispersion: 'Dispersion',
+            ricochet_chance: 'Ricochet chance',
+            ricochet_angle: 'Ricochet angle',
+            ricochet_dispersion_angle: 'Ricochet dispersion angle',
+            muzzle_speed: 'Muzzle speed',
+            buck_shot: 'Buck shot',
+            buck_dispersion: 'Buck dispersion',
+            air_resistance: 'Air resistance',
+            mass: 'Mass',
+            k_power: 'Mult. power',
+            k_max_distance_power: 'Mult. max distance power',
+            distance: 'Distance',
+            k_material_pierce: 'Mult. material pierce',
+            k_min_damage_distance: 'Mult. min damage distance',
+            k_max_damage_distance: 'Mult. max damage distance',
+            k_min_damage_mult: 'Mult. min damage mult',
+            k_stamina_damage: 'Mult. stamina damage',
+            bleeding_chance_modifier: 'Bleeding chance modifier',
+            tracer: 'Tracer',
+            gramm: 'g.'
         }
     },
     ammunition: {

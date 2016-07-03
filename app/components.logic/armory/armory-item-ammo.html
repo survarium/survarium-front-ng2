@@ -1,0 +1,104 @@
+<h3>{{'armory.item.params.ammo' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.damage * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.arp' | i18n }}</dt>
+        <dd>{{ (verData.parameters.arp * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.required_bags' | i18n }}</dt>
+        <dd>{{ verData.parameters.required_bags }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.mass' | i18n }}</dt>
+        <dd>{{ verData.data.mass * 100 | number:{fixed: 0} }}{{ 'armory.item.gramm' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.distance' | i18n }}</dt>
+        <dd>{{ verData.data.distance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.clip_size' | i18n }}</dt>
+        <dd>{{ verData.parameters.clip_size }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.clip_weight' | i18n }}</dt>
+        <dd>{{ verData.parameters.clip_weight }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pierce_dispersion_angle' | i18n }}</dt>
+        <dd>{{ verData.data.pierce_dispersion_angle }}°</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.dispersion' | i18n }}</dt>
+        <dd>{{ verData.data.dispersion }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.ricochet_chance' | i18n }}</dt>
+        <dd>{{ verData.data.ricochet_chance * 100 | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.ricochet_angle' | i18n }}</dt>
+        <dd>{{ verData.data.ricochet_angle }}°</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.ricochet_dispersion_angle' | i18n }}</dt>
+        <dd>{{ verData.data.ricochet_dispersion_angle }}°</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.muzzle_speed' | i18n }}</dt>
+        <dd>{{ verData.data.muzzle_speed }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.tracer' | i18n }}</dt>
+        <dd>{{ verData.data.tracer ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.buck_shot' | i18n }}</dt>
+        <dd>{{ verData.data.buck_shot }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.buck_dispersion' | i18n }}</dt>
+        <dd>{{ verData.data.buck_dispersion }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.air_resistance' | i18n }}</dt>
+        <dd>{{ verData.data.air_resistance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bleeding_chance_modifier' | i18n }}</dt>
+        <dd>{{ verData.data.bleeding_chance_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_power' | i18n }}</dt>
+        <dd>{{ verData.data.k_power }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_max_distance_power' | i18n }}</dt>
+        <dd>{{ verData.data.k_max_distance_power }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_material_pierce' | i18n }}</dt>
+        <dd>{{ verData.data.k_material_pierce }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_min_damage_distance' | i18n }}</dt>
+        <dd>{{ verData.data.k_min_damage_distance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_max_damage_distance' | i18n }}</dt>
+        <dd>{{ verData.data.k_max_damage_distance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_min_damage_mult' | i18n }}</dt>
+        <dd>{{ verData.data.k_min_damage_mult }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.k_stamina_damage' | i18n }}</dt>
+        <dd>{{ verData.data.k_stamina_damage }}</dd>
+    </dl>
+</div>

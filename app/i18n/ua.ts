@@ -320,7 +320,8 @@ let dict = {
             params: {
                 weapon: 'Характеристики оружия',
                 grenade: 'Характеристики гранаты',
-                drugs: 'Характеристики медикамента'
+                drugs: 'Характеристики медикамента',
+                ammo: 'Характеристики патрона'
             },
             is_premium: 'Премиум',
             yes: 'Да',
@@ -405,7 +406,33 @@ let dict = {
                 head: 'Голова',
                 body: 'Туловище',
                 health: 'Здоровье'
-            }
+            },
+            damage: 'Урон',
+            arp: 'ББ',
+            required_bags: 'Требуется карманов',
+            clip_size: 'Размер магазина',
+            clip_weight: 'Вес магазина',
+            pierce_dispersion_angle: 'Угол разброса пробития',
+            dispersion: 'Разброс',
+            ricochet_chance: 'Вероятность рикошета',
+            ricochet_angle: 'Угол рикошета',
+            ricochet_dispersion_angle: 'Угол рикошета пробития',
+            muzzle_speed: 'Muzzle speed',
+            buck_shot: 'Картечь',
+            buck_dispersion: 'Разброс картечи',
+            air_resistance: 'Сопротивление воздуха',
+            mass: 'Масса',
+            distance: 'Дистанция',
+            bleeding_chance_modifier: 'Мод. шанса кровотечения',
+            tracer: 'Трассирующая',
+            gramm: 'г.',
+            k_power: 'Множ. мощности',
+            k_max_distance_power: 'Множ. урона на макс. дистанции',
+            k_material_pierce: 'Множ. пробития',
+            k_min_damage_distance: 'Множ. дистанции мин. урона',
+            k_max_damage_distance: 'Множ. дистанции макс. урона',
+            k_min_damage_mult: 'Множ. мин. урона',
+            k_stamina_damage: 'Множ. урона выносливости'
         }
     },
     ammunition: {

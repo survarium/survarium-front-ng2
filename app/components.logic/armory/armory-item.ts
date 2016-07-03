@@ -11,10 +11,11 @@ import { Storage } from '../../utils/storage'
 import { ArmoryItemWeapon } from './armory-item-weapon'
 import { ArmoryItemGrenade } from './armory-item-grenade'
 import { ArmoryItemDrugs } from './armory-item-drugs'
+import { ArmoryItemAmmo } from './armory-item-ammo'
 
 @Component({
     selector: 'armory-item',
-    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs],
+    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo],
     styles: [require('./armory-item.styl')],
     template: require('./armory-item.html'),
     pipes: [I18NPipe, PercentPipe]
