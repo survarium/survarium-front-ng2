@@ -304,7 +304,8 @@ let dict = {
                 weapon: 'Weapon params',
                 grenade: 'Grenade params',
                 drugs: 'Drugs params',
-                ammo: 'Ammo params'
+                ammo: 'Ammo params',
+                armor: 'Armor params'
             },
             is_premium: 'Premium',
             yes: 'Yes',
@@ -372,7 +373,13 @@ let dict = {
             damage_protection: {
                 title: 'Damage protection',
                 ranged: 'Ranged',
-                radiation: 'Radiation'
+                radiation: 'Radiation',
+                blunt: 'Blunt',
+                explosive: 'Explosive',
+                stamina: 'Stamina',
+                slash: 'Slash',
+                speed: 'Speed',
+                bleeding: 'Bleeding'
             },
             activity_time_sec: 'Activity time',
             heal_amount: 'Heal',
@@ -415,7 +422,59 @@ let dict = {
             k_stamina_damage: 'Mult. stamina damage',
             bleeding_chance_modifier: 'Bleeding chance modifier',
             tracer: 'Tracer',
-            gramm: 'g.'
+            gramm: 'g.',
+            armor: 'Armor',
+            bleeding_protection: 'Bleeding protection',
+            hit_params: {
+                brain: 'Brain',
+                face: 'Face',
+                front: 'Front',
+                left_forearm: 'Left forearm',
+                back: 'Back',
+                right_forearm: 'Right forearm',
+                left_hip: 'Left hip',
+                right_hip: 'Right hip',
+                left_arm: 'Left arm',
+                right_arm: 'Right arm',
+                left_foot: 'Left foot',
+                right_foot: 'Right foot',
+                title: 'Hit target'
+
+            },
+            ano_armor: 'Anomalies protection',
+            explosion_armor: 'Explosion protection',
+            speed_armor: 'Speed armor',
+            repair_cost_ratio: 'Repair cost ratio',
+            bleeding_resistance: 'Bleeding resistance',
+            stamina_armor: 'Stamina armor',
+            camo_available: 'Camo available',
+            decal_available: 'Decal available'
+            /*
+            health_regeneration_speed_modifier: 'health_regeneration_speed_modifier',
+            pocket_slots_grenade_modifier: 'pocket_slots_grenade_modifier',
+            new_player_damage_modifier: 'new_player_damage_modifier',
+            pocket_slots_drug_modifier: 'pocket_slots_drug_modifier',
+            melee_damage_modifier: 'melee_damage_modifier',
+            respawn_time_modifier: 'respawn_time_modifier',
+            stamina_regeneration_speed_modifier: 'stamina_regeneration_speed_modifier',
+            max_carried_weight_modifier: 'max_carried_weight_modifier',
+            ammo_bags_modifier: 'ammo_bags_modifier',
+            pocket_slots_trap_modifier: 'pocket_slots_trap_modifier',
+            artefact_slots_modifier: 'artefact_slots_modifier',
+            pocket_slots_generic_modifier: 'pocket_slots_generic_modifier',
+            pocket_slots_generic_depth_modifier: 'pocket_slots_generic_depth_modifier',
+            pocket_slots_grenade_depth_modifier: 'pocket_slots_grenade_depth_modifier',
+            pocket_slots_trap_depth_modifier: 'pocket_slots_trap_depth_modifier',
+            health_modifier: 'health_modifier',
+            artefact_search_time_modifier: 'artefact_search_time_modifier',
+            pocket_slot_size_modifier: 'pocket_slot_size_modifier',
+            breath_vibration_modifier: 'breath_vibration_modifier',
+            pocket_slots_drug_depth_modifier: 'pocket_slots_drug_depth_modifier',
+            recoil_modifier: 'recoil_modifier',
+            movement_speed_modifier: 'movement_speed_modifier',
+            radar_immunity_modifier: 'radar_immunity_modifier',
+            stamina_spending_speed_modifier: 'stamina_spending_speed_modifier'
+            */
         }
     },
     ammunition: {

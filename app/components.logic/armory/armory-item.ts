@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { RouteParams } from '@angular/router-deprecated'
+import { RouteParams, RouterLink } from '@angular/router-deprecated'
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
 import { FactionsService } from '../../services/factions'
@@ -12,10 +12,11 @@ import { ArmoryItemWeapon } from './armory-item-weapon'
 import { ArmoryItemGrenade } from './armory-item-grenade'
 import { ArmoryItemDrugs } from './armory-item-drugs'
 import { ArmoryItemAmmo } from './armory-item-ammo'
+import { ArmoryItemArmor } from './armory-item-armor'
 
 @Component({
     selector: 'armory-item',
-    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo],
+    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo, ArmoryItemArmor, RouterLink],
     styles: [require('./armory-item.styl')],
     template: require('./armory-item.html'),
     pipes: [I18NPipe, PercentPipe]

@@ -1,3 +1,4 @@
+<a class="back" [routerLink]="['ArmoryList']">{{'armory.title' | i18n}}</a>
 <template [ngIf]="data">
     <h2>{{data.name}}</h2>
     <div class="clearfix">
@@ -38,4 +39,5 @@
     <div grenade [verData]="verData" *ngIf="type.name === 'grenade'"></div>
     <div drugs [verData]="verData" *ngIf="type.name === 'drugs'"></div>
     <div ammo [verData]="verData" *ngIf="type.name === 'ammo'"></div>
+    <div armor [verData]="verData" *ngIf="type.name === 'armor'"></div>
 </template>

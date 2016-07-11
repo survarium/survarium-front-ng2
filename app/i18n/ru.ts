@@ -304,7 +304,8 @@ let dict = {
                 weapon: 'Характеристики оружия',
                 grenade: 'Характеристики гранаты',
                 drugs: 'Характеристики медикамента',
-                ammo: 'Характеристики патрона'
+                ammo: 'Характеристики патрона',
+                armor: 'Характеристики брони'
             },
             is_premium: 'Премиум',
             yes: 'Да',
@@ -372,7 +373,13 @@ let dict = {
             damage_protection: {
                 title: 'Защита',
                 ranged: 'Пули',
-                radiation: 'Радиация'
+                radiation: 'Радиация',
+                blunt: 'Удар',
+                explosive: 'Взрыв',
+                stamina: 'Выносливость',
+                slash: 'Порез',
+                speed: 'Скорость',
+                bleeding: 'Кровотечение'
             },
             activity_time_sec: 'Время лечения',
             heal_amount: 'Лечение',
@@ -415,7 +422,33 @@ let dict = {
             k_min_damage_distance: 'Множ. дистанции мин. урона',
             k_max_damage_distance: 'Множ. дистанции макс. урона',
             k_min_damage_mult: 'Множ. мин. урона',
-            k_stamina_damage: 'Множ. урона выносливости'
+            k_stamina_damage: 'Множ. урона выносливости',
+            armor: 'Защита',
+            bleeding_protection: 'Защита от кровотечения',
+            hit_params: {
+                brain: 'Мозг',
+                face: 'Лицо',
+                front: 'Грудь',
+                left_forearm: 'Левое предплечье',
+                back: 'Спина',
+                right_forearm: 'Правое предплечье',
+                left_hip: 'Левое бедро',
+                right_hip: 'Правое бедро',
+                left_arm: 'Левая рука',
+                right_arm: 'Правая рука',
+                left_foot: 'Левая нога',
+                right_foot: 'Правая нога',
+                title: 'Зоны поражения'
+
+            },
+            ano_armor: 'Защита от аномалий',
+            explosion_armor: 'Защита от взрыва',
+            speed_armor: 'speed_armor',
+            repair_cost_ratio: 'Коэффициент стоимости ремонта',
+            bleeding_resistance: 'Сопротивление кровотечению',
+            stamina_armor: 'stamina_armor',
+            camo_available: 'Доступны комуфляжи',
+            decal_available: 'Доступны декали'
         }
     },
     ammunition: {

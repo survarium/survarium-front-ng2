@@ -35,13 +35,13 @@ export const TYPES = [
             return `/assets/ui_icons/items/equipment/equipment_${icon[1]}_${icon[0]}.png`;
         },
         types: [
-            { id: 1, name: 'helmet' },
-            { id: 2, name: 'mask' },
-            { id: 3, name: 'tors' },
+            { id: 1, name: 'helmet', hitParams: ['brain'] },
+            { id: 2, name: 'mask'  , hitParams: ['face'] },
+            { id: 3, name: 'tors'  , hitParams: ['front', 'left_forearm', 'back', 'right_forearm'] },
             { id: 4, name: 'back' },
-            { id: 5, name: 'legs' },
-            { id: 6, name: 'hand' },
-            { id: 7, name: 'boot' }
+            { id: 5, name: 'legs'  , hitParams: ['left_hip', 'right_hip'] },
+            { id: 6, name: 'hand'  , hitParams: ['left_arm', 'right_arm'] },
+            { id: 7, name: 'boot'  , hitParams: ['left_foot', 'right_foot'] }
         ]
     },
     {

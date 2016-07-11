@@ -1,0 +1,212 @@
+<h3>{{'armory.item.params.armor' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.armor' | i18n }}</dt>
+        <dd>{{ (verData.parameters.armor * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.ano_armor' | i18n }}</dt>
+        <dd>{{ (verData.parameters.ano_armor * 100) | percent }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.explosion_armor' | i18n }}</dt>
+        <dd>{{ (verData.parameters.explosion_armor * 100) | percent }}</dd>
+    </dl><!--
+    <dl>
+        <dt>{{ 'armory.item.speed_armor' | i18n }}</dt>
+        <dd>{{ (verData.parameters.speed_armor * 100) | percent }}</dd>
+    </dl>-->
+    <dl>
+        <dt>{{ 'armory.item.reliability' | i18n }}</dt>
+        <dd>{{ verData.parameters.reliability }}</dd>
+    </dl>
+    <!--<dl>
+        <dt>{{ 'armory.item.mass' | i18n }}</dt>
+        <dd>{{ verData.data.mass * 100 | number:{fixed: 0} }}{{ 'armory.item.gramm' | i18n }}</dd>
+    </dl>-->
+    <dl>
+        <dt>{{ 'armory.item.match_participation_cost' | i18n }}</dt>
+        <dd>{{ verData.parameters.match_participation_cost }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.repair_cost_ratio' | i18n }}</dt>
+        <dd>{{ verData.parameters.repair_cost_ratio }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.details_to_craft' | i18n }}</dt>
+        <dd><span class="def-chunk" *ngFor="let amount of verData.parameters.details_to_craft;">{{ amount }}</span></dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.camo_available' | i18n }}</dt>
+        <dd>{{ verData.parameters.camo_available ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.decal_available' | i18n }}</dt>
+        <dd>{{ verData.parameters.decal_available ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+    </dl>
+    <!--<dl>
+        <dt>{{ 'armory.item.pocket_slots_drug_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_drug_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.reload_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.reload_speed_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.melee_damage_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.melee_damage_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.experience_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.experience_bonus_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bleeding_resistance' | i18n }}</dt>
+        <dd>{{ verData.parameters.bleeding_resistance }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.health_regeneration_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.health_regeneration_speed_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_grenade_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_grenade_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.new_player_damage_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.new_player_damage_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.respawn_time_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.respawn_time_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.explosion_armor' | i18n }}</dt>
+        <dd>{{ verData.parameters.explosion_armor }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.speed_armor' | i18n }}</dt>
+        <dd>{{ verData.parameters.speed_armor }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stamina_regeneration_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.stamina_regeneration_speed_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.max_carried_weight_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.max_carried_weight_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.ammo_bags_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.ammo_bags_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_trap_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_trap_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.artefact_slots_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.artefact_slots_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.money_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.money_bonus_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_generic_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_generic_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_generic_depth_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_generic_depth_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_grenade_depth_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_grenade_depth_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_trap_depth_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_trap_depth_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.health_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.health_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.artefact_search_time_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.artefact_search_time_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.reputation_bonus_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.reputation_bonus_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slot_size_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slot_size_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.breath_vibration_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.breath_vibration_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.pocket_slots_drug_depth_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.pocket_slots_drug_depth_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.recoil_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.recoil_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.aim_time_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.aim_time_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.movement_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.movement_speed_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.radar_immunity_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.radar_immunity_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.dispersion_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.dispersion_modifier }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.bleeding_protection' | i18n }}</dt>
+        <dd>{{ verData.parameters.bleeding_protection }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stamina_armor' | i18n }}</dt>
+        <dd>{{ verData.parameters.stamina_armor }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.stamina_spending_speed_modifier' | i18n }}</dt>
+        <dd>{{ verData.parameters.stamina_spending_speed_modifier }}</dd>
+    </dl>-->
+</div>
+
+<template [ngIf]="verData.data.damage_protection?.length">
+    <h3>{{ 'armory.item.damage_protection.title' | i18n }}</h3>
+    <div class="def">
+        <dl *ngFor="let dp of verData.data.damage_protection">
+            <dt>{{ 'armory.item.damage_protection.' + dp.hit_type | i18n }}</dt>
+            <dd>{{ (dp.modifier * 100) | percent }}</dd>
+        </dl>
+    </div>
+</template>
+
+<template [ngIf]="hitTypes.length">
+    <h3>{{ 'armory.item.hit_params.title' | i18n }}</h3>
+    <table *ngFor="let param of hitTypes" class="def inline">
+        <tr *ngFor="let type of param">
+            <td [attr.colspan]="type.colspan > 1 ? type.colspan : false">
+                <h4 *ngIf="type.target">{{ 'armory.item.hit_params.' + type.target | i18n }}</h4>
+                <h5 *ngIf="type.type">{{ 'armory.item.damage_protection.' + type.type | i18n }}</h5>
+                <template [ngIf]="type.name">{{ 'armory.item.' + type.name | i18n }}</template>
+            </td>
+            <td *ngIf="type.showValue">{{ (type.value * 100) | percent }}</td>
+        </tr>
+    </table>
+</template>
