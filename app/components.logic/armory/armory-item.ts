@@ -8,6 +8,7 @@ import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
 import { PercentPipe } from '../../pipes/percent'
 import { Storage } from '../../utils/storage'
+import { Visual } from '../../components.common/visual/visual'
 import { ArmoryItemWeapon } from './armory-item-weapon'
 import { ArmoryItemGrenade } from './armory-item-grenade'
 import { ArmoryItemDrugs } from './armory-item-drugs'
@@ -16,7 +17,7 @@ import { ArmoryItemArmor } from './armory-item-armor'
 
 @Component({
     selector: 'armory-item',
-    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo, ArmoryItemArmor, RouterLink],
+    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo, ArmoryItemArmor, RouterLink, Visual],
     styles: [require('./armory-item.styl')],
     template: require('./armory-item.html'),
     pipes: [I18NPipe, PercentPipe]

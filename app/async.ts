@@ -15,7 +15,8 @@ export function ngOnLoad(window, document) {
             { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
             { src: 'https://vk.com/js/api/openapi.js?121' },
             { src: 'https://platform.twitter.com/widgets.js', id: 'twitter-wjs' },
-            { src: 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' }
+            { src: 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' },
+            { src: 'https://viewer.marmoset.co/main/marmoset.js' }
         ];
 
     for (var i = 0, script; i < targets.length; i++) {
