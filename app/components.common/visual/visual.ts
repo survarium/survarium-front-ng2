@@ -33,10 +33,15 @@ export class Visual {
 
     get path() :string {
         let model = this.model;
-        return `http://survarium.dev/models/${model}/${model}`;
+        return `/models/${model}/${model}`;
     }
 
     viewer :any;
+    loaded = false;
+
+    onLoad () {
+        this.loaded = true;
+    }
 
     load() {
         let element = this.element;
@@ -46,12 +51,13 @@ export class Visual {
         }
 
         this.viewer = new marmoset.WebViewer(this.width, this.height, `${this.path}.mview`);
+        this.viewer.onLoad = this.onLoad;
         element.appendChild(this.viewer.domRoot);
         // this.viewer.loadScene(); // Autoplay
     }
 
     resize() {
-        this.viewer && this.viewer.resize(this.width, this.height);
+        this.loaded && this.viewer && this.viewer.resize(this.width, this.height);
     }
 
     checks = 5;
