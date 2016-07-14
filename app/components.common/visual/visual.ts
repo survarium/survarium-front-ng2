@@ -33,7 +33,7 @@ export class Visual {
 
     get path() :string {
         let model = this.model;
-        return `/models/${model}/${model}`;
+        return `models/${model}/${model}`;
     }
 
     viewer :any;
