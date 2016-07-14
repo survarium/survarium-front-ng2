@@ -1,4 +1,4 @@
-import { Component, Input, ViewContainerRef } from '@angular/core'
+import { Component, Input, Inject, ViewContainerRef } from '@angular/core'
 
 declare var marmoset :any;
 // FIXME: CLIENT-SIDE ONLY
@@ -14,7 +14,9 @@ declare var marmoset :any;
 })
 
 export class Visual {
-    constructor (private view :ViewContainerRef) {}
+    constructor (private view :ViewContainerRef,
+                 @Inject('CONFIG') private config,
+                 @Inject('window') private window) {}
 
     @Input('model') model :string;
 
@@ -33,7 +35,7 @@ export class Visual {
 
     get path() :string {
         let model = this.model;
-        return `models/${model}/${model}`;
+        return (this.config.production ? '' : `//${window.location.hostname}/`) + `models/${model}/${model}`;
     }
 
     viewer :any;
@@ -51,7 +53,7 @@ export class Visual {
         }
 
         this.viewer = new marmoset.WebViewer(this.width, this.height, `${this.path}.mview`);
-        this.viewer.onLoad = this.onLoad;
+        this.viewer.onLoad = this.onLoad.bind(this);
         element.appendChild(this.viewer.domRoot);
         // this.viewer.loadScene(); // Autoplay
     }
