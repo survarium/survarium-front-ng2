@@ -4,3 +4,4 @@ typings
 !app/typings
 dist
 .DS*
+models

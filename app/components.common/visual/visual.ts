@@ -35,7 +35,7 @@ export class Visual {
 
     get path() :string {
         let model = this.model;
-        return (this.config.production ? '' : `//${window.location.hostname}/`) + `models/${model}/${model}`;
+        return (this.config.production ? '' : `//${window.location.hostname}/`) + `models/${model}`;
     }
 
     viewer :any;
