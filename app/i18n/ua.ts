@@ -59,6 +59,7 @@ let dict = {
     elo: 'ELO',
     total: 'Усього',
     noData: 'Немає даних',
+    banned: 'Банів',
     players: {
         docTitle: 'Гравці',
         docDescription: 'Список гравців survarium. Фільтри, прогрес, деталі, матчі, результати, інформація про клан.',

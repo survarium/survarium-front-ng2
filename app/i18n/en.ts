@@ -59,6 +59,7 @@ let dict = {
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
     noData       : 'No data',
+    banned       : 'Bans',
     players: {
         docTitle: 'Players',
         docDescription: 'Survarium player list. Filters, progress, details, matches, results, clan information.',
