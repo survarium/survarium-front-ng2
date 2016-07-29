@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core'
+import { DomSanitizationService } from '@angular/platform-browser'
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
 import Pagination from './data-grid-pagination'
@@ -34,6 +35,8 @@ interface Column {
 })
 
 export class DataGrid {
+    constructor (private _domSanitize :DomSanitizationService) {}
+
     @Input('data') set _data (value :any[]) {
         if (!this.group) {
             this.data = value;
@@ -47,7 +50,7 @@ export class DataGrid {
             });
 
             this.data = Object.keys(grouped).reduce((result, group) => {
-                result.push({ __group: group, content: groupTitle(group) });
+                result.push({ __group: group, content: this._domSanitize.bypassSecurityTrustHtml(groupTitle(group)) });
                 grouped[group] = grouped[group].map((elem :any, index) => {
                     elem.__index = index;
                     return elem;

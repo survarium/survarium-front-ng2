@@ -62,7 +62,7 @@ export class MatchesDetail {
     }
 
     private winner :string;
-    private totalELO : number[];
+    // private totalELO : number[]; // disabled ELO
 
     setWinnerByData () {
         let data = this.data;
@@ -98,17 +98,17 @@ export class MatchesDetail {
             }
         }
     }
-
+    /* // disabled ELO
     private setTotalELO () {
         let elos = [0, 0];
         this.stats.forEach(stat => elos[stat.team] += stat.player.progress.elo);
         this.totalELO = elos;
-    }
+    }*/
 
     private set _stats (val) {
         this.stats = val;
         this.setWinnerByStats();
-        this.setTotalELO();
+        // this.setTotalELO(); // disabled ELO
     }
 
     private stream (options ?:any) :Observable<any> {
@@ -125,7 +125,7 @@ export class MatchesDetail {
     group = {
         by: 'team',
         title: (num) => {
-            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' }) + ' (' + i18n.get('elo') + ' ' + NumberTransform(this.totalELO[num]) + ')';
+            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' });// + ' (' + i18n.get('elo') + ' ' + NumberTransform(this.totalELO[num]) + ')'; // disabled ELO
         }
     };
 
@@ -154,7 +154,7 @@ export class MatchesDetail {
             classes: 'nowrap'
         },
         { title: i18n.get('lvl'), field: `player.progress.level`, classes: 'center', width: 80 },
-        { title: i18n.get('elo'), field: `player.progress.elo`, classes: 'center', width: 100 },
+        //{ title: i18n.get('elo'), field: `player.progress.elo`, classes: 'center', width: 100 }, // disabled ELO
         { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: { value: -1 } } },
         { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
         { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
