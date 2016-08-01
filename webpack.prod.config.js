@@ -102,7 +102,7 @@ module.exports = helpers.validate({
 
 	plugins: [
 		//new WebpackMd5Hash(), // destroys app after angular2.rc-1
-		new DedupePlugin(),
+		//new DedupePlugin(),
 		new OccurenceOrderPlugin(true),
 		new webpack.ProvidePlugin({
 			'Chart': 'chart.js'
