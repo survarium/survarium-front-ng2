@@ -85,7 +85,7 @@ got('https://an.yandex.ru/system/context.js')
     })
     .then(context_static => CONTEXT_STATIC = context_static
         .replace(/(http(s)?:\/\/)?an\.yandex\.ru/g, `${config.metadata.API_PATH}/v2/an`)
-        .replace(/(jserrlog:)"http.*\/an([^"]*)"/, '$1"https://an.yandex.ru$2"')
+        .replace(/(jserrlog:)"https:\/\/an([^"]*)"/, '$1"https://an.yandex.ru$2"')
     )
     .then(write)
     .catch(err => {
