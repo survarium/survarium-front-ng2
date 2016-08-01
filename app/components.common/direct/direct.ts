@@ -20,10 +20,8 @@ export class Direct implements AfterViewInit {
     private name = `dir_${Math.random() * 1000 >>> 0}`;
 
     ngAfterViewInit () {
-        setTimeout(() => {
-            let element = this.view.element.nativeElement;
-            this._directService.add(this.id, this.name, this.width || element.clientWidth, this.height || element.clientHeight);
-        }, 300);
+        let element = this.view.element.nativeElement;
+        this._directService.add(this.id, this.name, this.width || element.clientWidth, this.height || element.clientHeight);
     }
 }
 export default Direct

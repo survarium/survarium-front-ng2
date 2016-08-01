@@ -152,7 +152,11 @@ module.exports = helpers.validate({
 			mangle  : false,//{ screw_ie8 : true },
 			compress: { screw_ie8: true },
 			comments: false,
-			sourceMap: false
+			sourceMap: false,
+            exclude: [
+                /\.js($|\?)/i,
+                /^node_modules.*/
+            ]
 		}), // include uglify in production
 		/*new CompressionPlugin({
 			algorithm: helpers.gzipMaxLevel,
