@@ -89,5 +89,5 @@ got('https://an.yandex.ru/system/context.js')
     
         return copyFile(fallback, target);
     })
-    .then(target => console.log(`Direct bundled to ${target}`));
+    .then(target => console.log(`Direct bundled to ${target}\n`));
         
