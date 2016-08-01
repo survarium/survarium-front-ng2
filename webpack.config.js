@@ -26,7 +26,7 @@ module.exports = {
 	devtool : 'eval',
 	debug   : true, // cache: false,
 	entry: {
-		'vendor': './app/vendor.ts',
+		'vendor': ['./app/vendor.ts', './app/services/direct.js'],
 		'main'  : './app/bootstrap.ts'
 	},
 
