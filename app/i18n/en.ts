@@ -77,7 +77,10 @@ let dict = {
             day: 'last day'
         },
         unique: {
-            title: 'Unique players of latest 24h'
+            title: 'Unique players of ',
+            hour: 'last hour',
+            day: 'last day',
+            half: '30 minutes'
         },
         detail: 'Survarium player statistic',
         history: {

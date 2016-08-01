@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core'
 import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
+import {queue} from "rxjs/scheduler/queue";
 
 @Injectable()
 export class PlayersService {
@@ -152,9 +153,17 @@ export class PlayersService {
      * Получить число игроков за последние сутки
      * @returns {Observable<R>}
      */
-    unique() :Observable<any> {
+    unique(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var params = new URLSearchParams();
+
+        if (query.period) {
+            params.set('period', query.period);
+        }
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/unique`, headers: headers, method: 'get' });
+        let options = new Request({ url: `${this._handleV2}/unique`, headers: headers, search: params, method: 'get' });
 
         return this.http.request(options)
             .map(res => res.json())
