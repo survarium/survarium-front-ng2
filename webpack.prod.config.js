@@ -137,7 +137,7 @@ module.exports = helpers.validate({
 			'__extends' : 'ts-helper/extends',
 			'__param'   : 'ts-helper/param'
 		}),
-		new UglifyJsPlugin({
+		/*new UglifyJsPlugin({
 			// to debug prod builds uncomment //debug lines and comment //prod lines
 
 			// beautify: true,//debug
@@ -155,9 +155,9 @@ module.exports = helpers.validate({
 			sourceMap: false,
             exclude: [
                 /\.js($|\?)/i,
-                /^node_modules.*/
+                /^node_modules.*!/
             ]
-		}), // include uglify in production
+		}),*/ // include uglify in production
 		/*new CompressionPlugin({
 			algorithm: helpers.gzipMaxLevel,
 			regExp: /\.css$|\.html$|\.js$|\.map$|\.styl$/,
