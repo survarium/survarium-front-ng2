@@ -78,7 +78,7 @@ got('https://an.yandex.ru/system/context.js')
         
         versions = versions
             .map(ver => +ver.match(/\d+/))
-            .sort((a, b) => b - a);
+            .sort((a, b) => a - b);
         
         anVersion = versions[0];
         

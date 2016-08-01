@@ -5,11 +5,6 @@ export class DirectService {
 
     // FIXME: CLIENT-SIDE ONLY
 
-    private _direct :any;
-    get direct() {
-        return this.window['Ya']['Direct'];
-    }
-
     private defaultWidth = 600;
     private defaultHeight = 100;
 
@@ -19,7 +14,7 @@ export class DirectService {
         height = height || this.defaultHeight;
 
         try {
-            return this.direct.insertInto(id, target, {
+            return this.window['Ya']['Direct'].insertInto(id, target, {
                 ad_format: 'direct',
                 type: 'adaptive',
                 limit: 4,
