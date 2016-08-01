@@ -41,7 +41,7 @@ export class DirectService {
             return;
         }
 
-        this.window['yandex_context_callbacks'].push(load);
+        (this.window['yandex_context_callbacks'] || (this.window['yandex_context_callbacks'] = [])).push(load);
     }
 }
 
