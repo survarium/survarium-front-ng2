@@ -7,7 +7,7 @@ export class DirectService {
 
     private _direct :any;
     get direct() {
-        return this._direct || (this._direct = this.window['Ya']['Direct']);
+        return this.window['Ya']['Direct'];
     }
 
     private defaultWidth = 600;
@@ -34,7 +34,7 @@ export class DirectService {
                 height: height,
                 width: width
             });
-        } catch (e) { }
+        } catch (e) { console.error('Direct', e); }
     }
 }
 
