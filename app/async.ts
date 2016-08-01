@@ -5,6 +5,7 @@ export function ngOnLoad(window, document) {
 
     var scripts = document.getElementsByTagName('script')[0],
         targets = [
+            { src: '/assets/direct.js' },
             { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
             { src: 'https://vk.com/js/api/openapi.js?121' },
             { src: 'https://platform.twitter.com/widgets.js', id: 'twitter-wjs' },

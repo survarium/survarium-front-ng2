@@ -39,7 +39,7 @@ module.exports = helpers.validate({
 	cache   : false,
 
 	entry: {
-		'vendor': ['./app/vendor.ts', './app/services/direct.js'],
+		'vendor': './app/vendor.ts',
 		'main'  : './app/bootstrap.ts' // our angular app
 	},
 
@@ -102,7 +102,7 @@ module.exports = helpers.validate({
 
 	plugins: [
 		//new WebpackMd5Hash(), // destroys app after angular2.rc-1
-		//new DedupePlugin(),
+		new DedupePlugin(),
 		new OccurenceOrderPlugin(true),
 		new webpack.ProvidePlugin({
 			'Chart': 'chart.js'
@@ -137,7 +137,7 @@ module.exports = helpers.validate({
 			'__extends' : 'ts-helper/extends',
 			'__param'   : 'ts-helper/param'
 		}),
-		/*new UglifyJsPlugin({
+		new UglifyJsPlugin({
 			// to debug prod builds uncomment //debug lines and comment //prod lines
 
 			// beautify: true,//debug
@@ -155,9 +155,9 @@ module.exports = helpers.validate({
 			sourceMap: false,
             exclude: [
                 /\.js($|\?)/i,
-                /^node_modules.*!/
+                /^node_modules.*/
             ]
-		}),*/ // include uglify in production
+		}), // include uglify in production
 		/*new CompressionPlugin({
 			algorithm: helpers.gzipMaxLevel,
 			regExp: /\.css$|\.html$|\.js$|\.map$|\.styl$/,

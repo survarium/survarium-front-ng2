@@ -13,23 +13,35 @@ export class DirectService {
         width = width || this.defaultWidth;
         height = height || this.defaultHeight;
 
-        try {
-            return this.window['Ya']['Direct'].insertInto(id, target, {
-                ad_format: 'direct',
-                type: 'adaptive',
-                limit: 4,
-                links_underline: true,
-                site_bg_color: '192028',
-                title_color: 'FFCE1F',
-                url_color: 'CCCCCC',
-                text_color: 'CCCCCC',
-                hover_color: 'FFCE1F',
-                favicon: true,
-                no_sitelinks: true,
-                height: height,
-                width: width
-            });
-        } catch (e) { console.error('Direct', e); }
+        let params = {
+            ad_format: 'direct',
+            type: 'adaptive',
+            limit: 4,
+            links_underline: true,
+            site_bg_color: '192028',
+            title_color: 'FFCE1F',
+            url_color: 'CCCCCC',
+            text_color: 'CCCCCC',
+            hover_color: 'FFCE1F',
+            favicon: true,
+            no_sitelinks: true,
+            height: height,
+            width: width
+        };
+
+        let load = () => {
+            try {
+                this.window['Ya']['Direct'].insertInto(id, target, params);
+            } catch (e) { console.error('Direct', e); }
+        };
+
+        if (this.window['Ya'] && this.window['Ya']['Direct']) {
+            load();
+
+            return;
+        }
+
+        this.window['yandex_context_callbacks'].push(load);
     }
 }
 

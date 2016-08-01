@@ -12,7 +12,7 @@ let anVersion;
 let CONTEXT;
 let CONTEXT_STATIC;
 
-let target = path.join(__dirname, '..', 'app', 'services', 'direct.js');
+let target = path.join(__dirname, '..', 'app', 'assets', 'direct.js');
 let fallback = path.join(__dirname, '..', 'app', 'services', 'direct_fallback.js');
 
 function write() {
@@ -61,7 +61,6 @@ console.log('Bundling Yandex direct');
 got('https://an.yandex.ru/system/context.js')
     .then(context => {
             context = context
-                .replace('(this,this.document)', '(window,window.document)')
                 .replace(/var .{1,2}="(an\.yandex\.ru.*)";if\(.{1,2}.getElementById\(.{1,2}\)&&/, 'if(');
         
             anPath = `https://${RegExp.$1}`;
