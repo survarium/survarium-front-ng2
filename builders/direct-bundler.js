@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const got = require('./lib/got');
 
+const config = require('../webpack.config');
+
 let anPath;
 let anVersion;
 
@@ -82,7 +84,9 @@ got('https://an.yandex.ru/system/context.js')
         
         return got(anPath = anPath.replace(/".+"/, anVersion));
     })
-    .then(context_static => CONTEXT_STATIC = context_static)
+    .then(context_static => CONTEXT_STATIC = context_static
+        .replace(/(http(s)?:\/\/)?an\.yandex\.ru/g, `${config.metadata.API_PATH}/v2/an`)
+    )
     .then(write)
     .catch(err => {
         console.error(err);
