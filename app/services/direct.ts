@@ -16,7 +16,7 @@ export class DirectService {
         let params = {
             ad_format: 'direct',
             type: 'adaptive',
-            limit: 4,
+            limit: 9,
             links_underline: true,
             site_bg_color: '192028',
             title_color: 'FFCE1F',
