@@ -56,7 +56,7 @@ function copyFile(source, target) {
     });
 }
 
-console.log('Bundling Yandex direct');
+console.log('Bundling Yandex direct **UNUSED**');
 
 got('https://an.yandex.ru/system/context.js')
     .then(context => {
