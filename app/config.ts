@@ -13,6 +13,9 @@ export const CONFIG = {
         updated: process.env.UPDATED,
         description: process.env.APP_DESCRIPTION
     },
+    adsense: {
+        client: 'ca-pub-8677968039358823'
+    },
     i18n: {
         languages: [
             {
