@@ -8,8 +8,8 @@ import {
     ComponentRef,
     OnInit,
     AfterViewInit,
-    ComponentResolver,
-    ComponentFactory
+    ComponentFactory,
+    Compiler
 } from '@angular/core'
 
 @Component({
@@ -65,7 +65,7 @@ export class DataGridCell implements OnInit, AfterViewInit {
 
     private content;
 
-    constructor (private componentResolver :ComponentResolver) {}
+    constructor (private compiler :Compiler) {}
 
     private getCell (path :string) {
         if (!path) {
@@ -109,7 +109,7 @@ export class DataGridCell implements OnInit, AfterViewInit {
             return;
         }
 
-        this.componentResolver.resolveComponent(column.component)
+        this.compiler.compileComponentAsync(column.component)
             .then((factory :ComponentFactory<any>) => this.target.createComponent(factory))
             .then((componentRef :ComponentRef<any>) => {
                 if (column.inputs) {

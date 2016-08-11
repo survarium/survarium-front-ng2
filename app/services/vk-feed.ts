@@ -1,5 +1,5 @@
 import { appProvider } from './app'
-import { Injectable, Component, ComponentResolver, ComponentFactory, ComponentRef } from '@angular/core'
+import { Injectable, Component, ComponentFactory, ComponentRef, Compiler } from '@angular/core'
 
 @Component({
     selector: 'vk-feed-widget',
@@ -16,12 +16,15 @@ declare var VK :any;
 export class VkFeedService {
     private widgets = {};
 
-    constructor(private componentResolver :ComponentResolver) { }
+    private sharedComponent :any;
+
+    constructor (compiler :Compiler) {
+        this.sharedComponent = compiler.compileComponentAsync(VkFeedWidget);
+    }
 
     private makeWidget (params :{ id :number, options ?:any}, key: string) {
         return this
-            .componentResolver
-            .resolveComponent(VkFeedWidget)
+            .sharedComponent
             .then((factory :ComponentFactory<any>) => appProvider.app.instance.viewRef.createComponent(factory))
             .then((componentRef :ComponentRef<VkFeedWidget>) => {
                 componentRef.instance['ID'] = params.id;
