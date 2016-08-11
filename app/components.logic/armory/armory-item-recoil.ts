@@ -3,7 +3,6 @@ import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: '[recoil]',
-    inputs: ['recoil', 'aim'],
     template: require('./armory-item-recoil.html'),
     styles: [require('./armory-item-recoil.styl')],
     pipes: [I18NPipe]

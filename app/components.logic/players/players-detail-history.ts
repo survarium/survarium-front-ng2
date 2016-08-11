@@ -12,7 +12,6 @@ import { PlayersDetailHistoryCounts } from './players-detail-history-counts'
 @Component({
     selector: 'players-detail-history',
     directives: [ChartComponent, PlayersDetailHistoryCounts],
-    inputs:  ['nickname'],
     pipes:   [I18NPipe],
     styles:  [require('./players-detail-history.styl')],
     template: require('./players-detail-history.html')

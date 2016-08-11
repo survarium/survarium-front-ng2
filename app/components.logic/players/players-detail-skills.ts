@@ -7,7 +7,6 @@ import { Skills } from '../../components.common/skills/skills'
     selector: 'players-detail-skills',
     directives: [Skills],
     pipes: [I18NPipe],
-    inputs: ['nickname'],
     template: require('./players-detail-skills.html'),
     styles: [require('./players-detail-skills.styl')]
 })

@@ -13,7 +13,6 @@ import DataGrid from '../../components.common/data-grid/data-grid'
     directives: [DataGrid],
     selector: 'clans-detail-matches',
     pipes: [I18NPipe],
-    inputs: ['clan'],
     template: `<h3>{{'clans.publicMatches' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailMatches {

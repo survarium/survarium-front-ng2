@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'data-grid-filters-number',
-    pipes: [I18NPipe],
     template: require('./data-grid-filters-number.html'),
     styles: [require('./data-grid-filters-number.styl')]
 })

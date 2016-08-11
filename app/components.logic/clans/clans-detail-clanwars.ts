@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { ClansService } from '../../services/api'
-import { Nickname } from '../../components.common/nickname/nickname'
 import { Map } from '../../components.common/map/map'
 import { Mode } from '../../components.common/mode/mode'
 import { Match } from '../../components.common/match/match'
@@ -14,7 +13,6 @@ import DataGrid from '../../components.common/data-grid/data-grid'
     directives: [DataGrid],
     selector: 'clans-detail-clanwars',
     pipes: [I18NPipe],
-    inputs: ['clan'],
     template: `<h3>{{'clans.clanwars' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailClanwars {

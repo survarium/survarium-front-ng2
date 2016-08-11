@@ -5,7 +5,6 @@ declare var marmoset :any;
 
 @Component({
     selector: 'visual',
-    inputs: ['model'],
     template: require('./visual.html'),
     styles: [require('./visual.styl')],
     host: {

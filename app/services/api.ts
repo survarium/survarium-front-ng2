@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@angular/core'
 import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
-import {queue} from "rxjs/scheduler/queue";
 
 @Injectable()
 export class PlayersService {

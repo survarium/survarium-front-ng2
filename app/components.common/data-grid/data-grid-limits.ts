@@ -1,11 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Storage } from '../../utils/storage'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: '[limits]',
-    inputs: ['limits', 'name'],
-    pipes: [I18NPipe],
     template: require('./data-grid-limits.html'),
     styles: [require('./data-grid-limits.styl')]
 })

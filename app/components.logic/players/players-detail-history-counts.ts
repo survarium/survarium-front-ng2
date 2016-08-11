@@ -6,7 +6,6 @@ import { kdRatio } from '../../utils/kd'
 @Component({
     selector: 'players-detail-history-counts',
     pipes: [I18NPipe, PercentPipe],
-    inputs: ['group', 'data'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: require('./players-detail-history-counts.html'),
     styles: [`:host { display: block; margin-bottom: 1em; }`]

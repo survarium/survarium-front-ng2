@@ -5,7 +5,6 @@ import { PercentPipe } from '../../pipes/percent'
 
 @Component({
     selector: '[armor]',
-    inputs: ['verData'],
     directives: [],
     template: require('./armory-item-armor.html'),
     styles: [require('./armory-item-armor.styl')],

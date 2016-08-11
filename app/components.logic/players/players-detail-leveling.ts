@@ -9,7 +9,6 @@ const experience :any[] = require('./players-detail-leveling.json');
 @Component({
     selector: 'players-detail-leveling',
     directives: [ChartComponent],
-    inputs:  ['level', 'exp'],
     pipes:   [I18NPipe, NumberPipe],
     template: require('./players-detail-leveling.html'),
     styles: [require('./players-detail-leveling.styl')]

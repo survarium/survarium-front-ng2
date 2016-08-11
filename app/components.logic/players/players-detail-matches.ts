@@ -11,7 +11,6 @@ import { i18n } from '../../services/i18n'
 @Component({
     selector: 'players-detail-matches',
     directives: [DataGrid],
-    inputs: ['nickname'],
     template: require('./players-detail-matches.html')
 })
 

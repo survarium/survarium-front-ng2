@@ -7,7 +7,7 @@ import { Widget, WidgetStyle } from '../widget/widget'
 @Component({
     selector: 'vk-feed',
     template: ``,
-    inputs: ['id', 'width', 'height'],
+    inputs: ['width', 'height'],
     styles: [WidgetStyle]
 })
 

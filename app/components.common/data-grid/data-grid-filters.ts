@@ -1,12 +1,10 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core'
 import { DataGridFiltersNumber } from './data-grid-filters-number';
-import { I18NPipe } from '../../pipes/i18n'
 import { Storage } from '../../utils/storage'
 
 @Component({
     selector: '[filters]',
     directives: [DataGridFiltersNumber],
-    pipes: [I18NPipe],
     template: require('./data-grid-filters.html'),
     styles: [require('./data-grid-filters.styl')]
 })

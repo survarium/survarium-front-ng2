@@ -26,7 +26,7 @@ interface Column {
 @Component({
     selector: 'data-grid',
     directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters, Limits],
-    inputs: ['data', 'columns', 'stream', 'group', 'name', 'limits'],
+    inputs: ['limits'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')],
     host: {

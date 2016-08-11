@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 
 @Component({
     selector: '[pagination]',
-    inputs: ['skip', 'limit', 'total'],
     template: require('./data-grid-pagination.html'),
     styles: [require('./data-grid-pagination.styl')]
 })

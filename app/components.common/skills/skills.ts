@@ -10,7 +10,6 @@ interface SKILLTYPE { id :number, points :number }
 
 @Component({
     selector: 'skills',
-    inputs: ['skills'],
     pipes: [I18NPipe],
     template: require('./skills.html'),
     styles: [require('./skills.styl')]
@@ -28,7 +27,7 @@ export class Skills implements OnInit {
 
     ngOnInit() {
         let tree = {};
-        
+
         this.branches.forEach(branch => tree[branch] = []);
 
         this.tree = this.skills.reduce((tree, data) => {

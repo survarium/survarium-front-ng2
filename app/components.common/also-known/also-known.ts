@@ -4,7 +4,6 @@ import { DateTimePipe } from '../../pipes/datetime'
 
 @Component({
     selector: 'also-known',
-    inputs: ['nicknames'],
     pipes: [I18NPipe, DateTimePipe],
     template: require('./also-known.html'),
     styles: [require('./also-known.styl')]
@@ -12,7 +11,7 @@ import { DateTimePipe } from '../../pipes/datetime'
 
 export class AlsoKnown {
     private nicknames :{ nickname :string, until :string };
-    
+
     @Input('nicknames') set setNicknames (val) {
         if (!val) {
             return;

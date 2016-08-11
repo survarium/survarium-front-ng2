@@ -4,7 +4,6 @@ declare var Chart :any;
 
 @Component({
     selector: 'chart',
-    inputs: ['type', 'height', 'data', 'options'],
     template: `<canvas [style.width]="width" [style.height]="height"></canvas>`, // + (click)="click($event)" (mousemove)="hover($event)"
     styles: [require('./chart.styl')]
 })

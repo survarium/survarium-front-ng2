@@ -10,7 +10,6 @@ import {I18N, i18n} from '../../services/i18n'
     selector: 'players-detail-ammunition',
     directives: [ArmItem],
     pipes: [I18NPipe],
-    inputs: ['ammunition'],
     template: require('./players-detail-ammunition.html'),
     styles: [require('./players-detail-ammunition.styl')]
 })
