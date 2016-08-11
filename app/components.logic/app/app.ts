@@ -42,7 +42,5 @@ import I18NPipe from '../../pipes/i18n'
 ])
 
 export class App {
-    constructor (@Inject('CONFIG') private config, public viewRef: ViewContainerRef) {
-        (window['googletag'] || (window['googletag'] = { cmd: [] })).cmd.push(function() { window['googletag'].display('div-gpt-ad-1470824232002-0'); });
-    }
+    constructor (@Inject('CONFIG') private config, public viewRef :ViewContainerRef) {}
 }

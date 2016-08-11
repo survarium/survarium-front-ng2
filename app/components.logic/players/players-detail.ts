@@ -15,11 +15,11 @@ import Badges from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
-import { Direct } from '../../components.common/direct/direct'
+import { Adsense } from '../../components.common/adsense/adsense'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, Direct],
+    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, Adsense],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]
@@ -56,8 +56,6 @@ export class PlayersDetail {
             }
             </script>`);
     }
-
-    private direct = 172828;
 
     constructor(private _routeParams :RouteParams,
                 private _playerService :PlayersService,

@@ -489,6 +489,11 @@ let dict = {
         oct: 'жовт',
         nov: 'лист',
         dec: 'груд'
+    },
+    advert: {
+        title: 'Реклама',
+        preloader: 'Завантаження реклами...',
+        adblock: 'Вимкніть, будь ласка, AdBlock'
     }
 };
 

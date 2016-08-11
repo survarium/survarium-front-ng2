@@ -498,6 +498,11 @@ let dict = {
         oct: 'oct',
         nov: 'nov',
         dec: 'dec'
+    },
+    advert: {
+        title: 'Advertising',
+        preloader: 'Loading ads...',
+        adblock: 'Please disable AdBlock'
     }
 };
 
