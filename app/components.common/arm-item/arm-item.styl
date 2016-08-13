@@ -39,8 +39,12 @@
     font-size 1em
     .level
       display none
-  dl
+  a > dl
     display none
+
+  .mods
+    opacity 0
+    z-index 1
 
   img
     max-width 80px
@@ -66,3 +70,19 @@ dt
 dd
   margin-left 0
   display inline-block
+
+.mods
+  position absolute
+  bottom 0
+  left 0
+  right 0
+  transition opacity .3s ease-in-out
+  opacity 1
+  padding .2em 0
+
+  background-color rgba(200, 200, 200, .5)
+
+  font-size .75em
+
+  dl
+    margin 0 auto

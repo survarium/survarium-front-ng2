@@ -21,6 +21,7 @@ export default class PlayersDetailAmmunition {
     constructor (private gameService :GameService, private i18n :I18N) {}
 
     private items :any[];
+    private mods :any[];
     private slots :any;
     private currentProfile = 0;
     private profile :any;
@@ -59,10 +60,12 @@ export default class PlayersDetailAmmunition {
 
     private fetch () {
         let itemsToFetch = [];
+        let modsToFetch = [];
 
         this.ammunition.forEach(profile => {
             profile.items.forEach(item => {
                 itemsToFetch.indexOf(item.item) === -1 && (itemsToFetch.push(item.item));
+                item.mods.forEach(mod => modsToFetch.indexOf(mod) === -1 && (modsToFetch.push(mod)))
             });
         });
 
@@ -76,6 +79,11 @@ export default class PlayersDetailAmmunition {
                 thin: true,
                 language: i18n.lang.gameLang
             }),
+            this.gameService.modifications({
+                mods: modsToFetch,
+                thin: true,
+                language: i18n.lang.gameLang
+            }),
             this.gameService.slots({
                 language: 'english'
             })
@@ -86,7 +94,11 @@ export default class PlayersDetailAmmunition {
                 result[item.id] = item;
                 return result;
             }, {});
-            this.slots = x[1];
+            this.mods = x[1].reduce((result, mod) => {
+                result[mod.id] = mod;
+                return result;
+            }, {});
+            this.slots = x[2];
 
             this.makeProfiles();
             this.setProfile();
@@ -113,6 +125,7 @@ export default class PlayersDetailAmmunition {
         this.profiles = this.ammunition.map(Profile => {
             let slots = this.slots;
             let Items = this.items;
+            let Mods  = this.mods;
             let level = 0;
             let profile = Profile.items.reduce((result, info) => {
                 let item = Items[info.item];
@@ -125,7 +138,7 @@ export default class PlayersDetailAmmunition {
 
                 result[slots[info.slot]] = {
                     amount: info.amount,
-                    mods: info.mods,
+                    mods: info.mods.map(mod => Mods[mod]),
                     item: item
                 };
                 return result;

@@ -685,6 +685,34 @@ export class GameService {
             .catch(this.handleError.bind(this));
     }
 
+    modifications(query ?:any) :Observable<any> {
+        query = query || {};
+
+        var path = `${this._handle}/modifications`;
+
+        if (query.mods) {
+            path += `/${query.mods.join(',')}`;
+        }
+
+        var params = new URLSearchParams();
+
+        query.thin !== undefined && params.set('thin', 'true');
+        query.language !== undefined && params.set('language', query.language);
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({
+            url: path,
+            headers: headers,
+            search: params,
+            method: 'get'
+        });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
     /**
      * Обработчик ошибок
      * @param error
