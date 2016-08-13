@@ -39,6 +39,7 @@
                 <dt class="def-list__term">{{ 'armory.item.usage' | i18n }}</dt>
                 <dd class="def-list__desc">{{usage?.used || data.used}}<span *ngIf="usage?.total"> ({{ (usage.used / usage.total * 100) | percent }})</span></dd>
             </dl>
+            <p class="owners-desc">{{ 'armory.item.owners-desc' | i18n }}</p>
         </div>
     </div>
 

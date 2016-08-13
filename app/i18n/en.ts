@@ -297,7 +297,8 @@ let dict = {
             docTitle: 'Armory | {{item}}',
             title: 'Armory | {{item}}',
             usage: 'Usage (active in battle profiles)',
-            owners: 'Owners (has in inventory)',
+            owners: 'Owners (have in inventory)',
+            'owners-desc': 'The amount of owners accumulates with matches import. Usage data calculates every 30 minutes based on players profiles data.',
             fire_queue_types: {
                 '-1': 'Auto',
                 '1': 'Single',
