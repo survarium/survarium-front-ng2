@@ -1,0 +1,33 @@
+@import "../../components.common/variables.styl"
+
+:host
+  display block
+
+.streams__item
+  display inline-block
+  vertical-align top
+  &:hover
+    background-color hsla(0, 0%, 100%, .04)
+
+.streams__info
+  display block
+  padding .5em 10px 2em
+  text-decoration none
+  max-width 100%
+  overflow hidden
+  text-overflow ellipsis
+
+.streams__title
+  margin .2em auto
+  text-overflow ellipsis
+
+.streams__heading
+  font-size 1.3em
+  color $highlight
+
+.steams__group:first-of-type
+  .streams__heading
+    margin-top 0
+
+.streams__viewers
+  float right

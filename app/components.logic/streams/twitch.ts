@@ -1,6 +1,6 @@
 import { StreamsComponent } from './streams.component'
 import { DomSanitizationService } from '@angular/platform-browser'
-import { Component, ViewContainerRef } from '@angular/core'
+import { Component, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core'
 import { TwitchService } from '../../services/twitch'
 import { TitleService } from '../../services/title'
 import I18NPipe from '../../pipes/i18n'
@@ -15,8 +15,9 @@ import { StreamsFormatsService } from './streams__formats'
     host: {
         '(window:resize)': 'resize($event)'
     },
-    styles: [require('./streams.styl')],
-    template: require('./twitch.html')
+    styles: [require('./streams.component.styl')],
+    template: require('./twitch.html'),
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class Twitch extends StreamsComponent{
@@ -41,15 +42,21 @@ export class Twitch extends StreamsComponent{
                 private title  :TitleService,
                 private _domSanitize :DomSanitizationService,
                 i18n :I18N,
-                service :StreamsFormatsService) {
+                service :StreamsFormatsService,
+                changeDetector: ChangeDetectorRef) {
 
-        super(view, service);
+        super(view, service, changeDetector);
 
         title.setTitle(i18n.get('streams.docTitle', { service: 'Twitch' }));
         title.setDescription(i18n.get('streams.docDescription', { service: 'Twitch' }));
 
+        changeDetector.detach();
+
         twitch.list({}).subscribe((data) => {
             this.data.live = data.streams;
+
+            changeDetector.markForCheck();
+            changeDetector.detectChanges();
         });
     }
 }
