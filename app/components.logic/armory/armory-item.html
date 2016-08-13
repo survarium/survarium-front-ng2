@@ -29,9 +29,15 @@
                 <dt class="def-list__term">{{ 'armory.item.faction' | i18n }}</dt>
                 <dd class="def-list__desc">{{faction}}<span *ngIf="verData.parameters.faction_data?.faction_id"> ({{verData.parameters.faction_data.faction_reputation_level}})</span></dd>
             </dl>
-            <dl *ngIf="usage?.used" class="def-list">
+        </div>
+        <div class="basic">
+            <dl class="def-list">
+                <dt class="def-list__term">{{ 'armory.item.owners' | i18n }}</dt>
+                <dd class="def-list__desc">{{data.owners}}<span *ngIf="usage?.total"> ({{ (data.owners / usage.total * 100) | percent }})</span></dd>
+            </dl>
+            <dl *ngIf="usage?.used || data.used" class="def-list">
                 <dt class="def-list__term">{{ 'armory.item.usage' | i18n }}</dt>
-                <dd class="def-list__desc">{{usage.used}} ({{ (usage.used / usage.total * 100) | percent }})</dd>
+                <dd class="def-list__desc">{{usage?.used || data.used}}<span *ngIf="usage?.total"> ({{ (usage.used / usage.total * 100) | percent }})</span></dd>
             </dl>
         </div>
     </div>

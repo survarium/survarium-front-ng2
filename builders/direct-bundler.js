@@ -56,42 +56,45 @@ function copyFile(source, target) {
     });
 }
 
+function bundle() {
+    return got('https://an.yandex.ru/system/context.js')
+        .then(context => {
+                context = context
+                    .replace(/var .{1,2}="(an\.yandex\.ru.*)";if\(.{1,2}.getElementById\(.{1,2}\)&&/, 'if(');
+                
+                anPath = `https://${RegExp.$1}`;
+                
+                return CONTEXT = context.replace(/;var .{1,2}="https:\/\/.*\<\/script\>'\)/, '');
+            }
+        )
+        .then(context => {
+            let versions = context.match(/codeVer=\d+/g);
+            
+            if (!versions || !versions.length) {
+                return console.error('Fail to determine an.yandex.ru version');
+            }
+            
+            versions = versions
+                .map(ver => +ver.match(/\d+/))
+                .sort((a, b) => b - a);
+            
+            anVersion = versions[0];
+            
+            return got(anPath = anPath.replace(/".+"/, anVersion));
+        })
+        .then(context_static => CONTEXT_STATIC = context_static
+            .replace(/(http(s)?:\/\/)?an\.yandex\.ru/g, `${config.metadata.API_PATH}/v2/an`)
+            .replace(/(jserrlog:)"https:\/\/an([^"]*)"/, '$1"https://an.yandex.ru$2"')
+        )
+        .then(write)
+        .catch(err => {
+            console.error(err);
+            
+            return copyFile(fallback, target);
+        })
+        .then(target => console.log(`Direct bundled to ${target}\n`));
+}
+
 console.log('Bundling Yandex direct **UNUSED**');
 
-got('https://an.yandex.ru/system/context.js')
-    .then(context => {
-            context = context
-                .replace(/var .{1,2}="(an\.yandex\.ru.*)";if\(.{1,2}.getElementById\(.{1,2}\)&&/, 'if(');
-        
-            anPath = `https://${RegExp.$1}`;
-        
-            return CONTEXT = context.replace(/;var .{1,2}="https:\/\/.*\<\/script\>'\)/, '');
-        }
-    )
-    .then(context => {
-        let versions = context.match(/codeVer=\d+/g);
-        
-        if (!versions || !versions.length) {
-            return console.error('Fail to determine an.yandex.ru version');
-        }
-        
-        versions = versions
-            .map(ver => +ver.match(/\d+/))
-            .sort((a, b) => b - a);
-        
-        anVersion = versions[0];
-        
-        return got(anPath = anPath.replace(/".+"/, anVersion));
-    })
-    .then(context_static => CONTEXT_STATIC = context_static
-        .replace(/(http(s)?:\/\/)?an\.yandex\.ru/g, `${config.metadata.API_PATH}/v2/an`)
-        .replace(/(jserrlog:)"https:\/\/an([^"]*)"/, '$1"https://an.yandex.ru$2"')
-    )
-    .then(write)
-    .catch(err => {
-        console.error(err);
-    
-        return copyFile(fallback, target);
-    })
-    .then(target => console.log(`Direct bundled to ${target}\n`));
-        
+//bundle();

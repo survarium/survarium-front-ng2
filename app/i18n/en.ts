@@ -296,7 +296,8 @@ let dict = {
         item: {
             docTitle: 'Armory | {{item}}',
             title: 'Armory | {{item}}',
-            usage: 'Usage',
+            usage: 'Usage (active in battle profiles)',
+            owners: 'Owners (has in inventory)',
             fire_queue_types: {
                 '-1': 'Auto',
                 '1': 'Single',
