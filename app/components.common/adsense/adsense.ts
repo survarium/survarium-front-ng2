@@ -7,7 +7,10 @@ import { I18NPipe } from '../../pipes/i18n'
     inputs: ['width', 'height'],
     template: require('./adsense.html'),
     styles: [require('./adsense.styl')],
-    pipes: [I18NPipe]
+    pipes: [I18NPipe],
+    host: {
+        '[class.shown]': '!config.isMobile'
+    }
 })
 
 export class Adsense implements AfterViewInit, OnDestroy {

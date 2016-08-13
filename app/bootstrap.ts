@@ -14,7 +14,7 @@ import { API_PROVIDERS } from './services/api'
 import { StoreService } from './services/store'
 import { TrackService } from './services/track'
 import { AdsenseService } from './services/adsense'
-import { DirectService } from './services/direct'
+import { DFPService } from './services/dfp'
 import { TitleService } from './services/title'
 import { VkFeedService } from './services/vk-feed'
 import { I18N, i18n } from './services/i18n'
@@ -54,7 +54,7 @@ if (CONFIG.production) {
         ...API_PROVIDERS,
         TrackService,
         AdsenseService,
-        DirectService,
+        DFPService,
         TitleService,
         VkFeedService,
         MapsService,

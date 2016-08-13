@@ -15,11 +15,11 @@ import Badges from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
-import { Adsense } from '../../components.common/adsense/adsense'
+import { DFP } from '../../components.common/dfp/dfp'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, Adsense],
+    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, DFP],
     pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]
