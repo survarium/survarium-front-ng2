@@ -23,6 +23,23 @@ import { I18NPipe } from '../../pipes/i18n'
     }
 })
 
-export class ArmItem  {}
+export class ArmItem  {
+    private _mods :any[];
+    private item :any;
+
+    set mods (val :any[]) {
+        this._mods = val.map(mod => {
+            if (mod.modifier instanceof Array) {
+                mod.value = mod.modifier[this.item.level];
+            }
+
+            return mod;
+        });
+    }
+
+    get mods () {
+        return this._mods;
+    }
+}
 
 export default ArmItem

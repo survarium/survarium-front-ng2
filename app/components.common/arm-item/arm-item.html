@@ -7,7 +7,7 @@
         <dd>{{prop.value}}</dd>
     </dl>
     <div *ngIf="mods?.length" class="mods">
-        <dl *ngFor="let mod of mods" class="mod">
+        <dl *ngFor="let mod of mods" class="mod" [id]="'mod_' + mod.id">
             <dt>{{mod.name}}</dt>
             <dd [ngSwitch]="mod.postfix">
                 <template [ngSwitchCase]="'st_item_props_percent'">{{mod.value > 0 ? '+' : ''}}{{mod.value * 100 | percent}}</template>
