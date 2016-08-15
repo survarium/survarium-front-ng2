@@ -12,7 +12,8 @@
                 <span class="small">{{i+1}}.</span> <nickname [nickname]="cheater.player.nickname" [clan]="cheater.clan"></nickname> <span class="small">[{{'lvl' | i18n}} {{cheater.player.progress.level}}]</span>
             </div>
         </div>
-        <adsense *ngIf="!i" [slot]="3384977769" [width]="'100%'" [height]="'100px'"></adsense>
+        <!--<adsense *ngIf="!i" [slot]="3384977769" [width]="'100%'" [height]="'100px'"></adsense>-->
+        <dfp [id]="'bans'"></dfp>
     </div>
 </template>
 

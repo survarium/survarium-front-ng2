@@ -35,6 +35,16 @@ export class DFPService {
                     .addService(googletag.pubads())
                     .defineSizeMapping(mapping);
 
+            this.slots.bans =
+                googletag
+                    .defineSlot(
+                        '/126806937/sv.pro_bans',
+                        [234, 60],
+                        'bans'
+                    )
+                    .addService(googletag.pubads())
+                    .defineSizeMapping(mapping);
+
             googletag.pubads().setCentering(true);
 
             googletag.pubads().addEventListener('slotRenderEnded', function(event) {

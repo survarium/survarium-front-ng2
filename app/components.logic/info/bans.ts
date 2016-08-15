@@ -7,12 +7,12 @@ import { DateTimePipe } from '../../pipes/datetime'
 import { DataGridCounters } from '../../components.common/data-grid/data-grid-counters'
 import { DataGridPagination } from '../../components.common/data-grid/data-grid-pagination'
 import { Nickname } from '../../components.common/nickname/nickname'
-import { Adsense } from '../../components.common/adsense/adsense'
+import { DFP } from '../../components.common/dfp/dfp'
 
 @Component({
     selector: 'bans',
     pipes: [I18NPipe, DateTimePipe],
-    directives: [DataGridCounters, DataGridPagination, Nickname, Adsense],
+    directives: [DataGridCounters, DataGridPagination, Nickname, DFP],
     template: require('./bans.html'),
     styles: [require('./bans.styl')]
 })
