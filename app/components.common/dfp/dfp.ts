@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, OnDestroy, ViewContainerRef } from '@angular/core'
+import { Component, Input, AfterViewInit, OnDestroy, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core'
 import { DFPService } from '../../services/dfp'
 import { I18NPipe } from '../../pipes/i18n'
 
@@ -6,13 +6,19 @@ import { I18NPipe } from '../../pipes/i18n'
     selector: 'dfp',
     template: require('./dfp.html'),
     styles: [require('./dfp.styl')],
-    pipes: [I18NPipe]
+    pipes: [I18NPipe],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        '[class.empty]': 'empty'
+    }
 })
 
 export class DFP implements AfterViewInit, OnDestroy {
     @Input() private id :string;
 
-    constructor (private dfp :DFPService, private view :ViewContainerRef) {}
+    constructor (private dfp :DFPService, private view :ViewContainerRef, private changeDetector :ChangeDetectorRef) {
+        changeDetector.detach();
+    }
 
     private get blocked () {
         return this.dfp.blocked;
@@ -25,21 +31,26 @@ export class DFP implements AfterViewInit, OnDestroy {
 
     private onload (slot :any) {
         this.slot = slot;
+        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
     }
 
     private listener (event :any) {
         let isEmpty = event.isEmpty;
 
         if (this.empty !== event.isEmpty) {
+            this.changeDetector.markForCheck();
+            this.changeDetector.detectChanges();
             this.empty = event.isEmpty;
         }
 
         if (isEmpty) {
-            this.view.element.nativeElement.classList.add('empty');
             return this.checker = setTimeout(() => this.dfp.refresh(this.slot), 1000);
         }
 
         this.loaded = true;
+        this.changeDetector.markForCheck();
+        this.changeDetector.detectChanges();
     }
 
     ngAfterViewInit () {
