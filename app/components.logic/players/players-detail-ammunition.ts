@@ -1,27 +1,28 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
 import { I18NPipe } from '../../pipes/i18n'
 import { GameService } from '../../services/api'
 import { SUBTYPES } from '../../services/armory'
 import { ArmItem } from '../../components.common/arm-item/arm-item'
 import { Observable } from 'rxjs'
-import {I18N, i18n} from '../../services/i18n'
+import { I18N, i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail-ammunition',
     directives: [ArmItem],
     pipes: [I18NPipe],
     template: require('./players-detail-ammunition.html'),
-    styles: [require('./players-detail-ammunition.styl')]
+    styles: [require('./players-detail-ammunition.styl')],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export default class PlayersDetailAmmunition {
     private shown = false;
     @Input() private ammunition :any[];
 
-    constructor (private gameService :GameService, private i18n :I18N) {}
+    constructor (private gameService :GameService, private i18n :I18N, private changeDetector :ChangeDetectorRef) {}
 
     private items :any[];
-    private mods :any[];
+    private mods :any;
     private slots :any;
     private currentProfile = 0;
     private profile :any;
@@ -89,24 +90,60 @@ export default class PlayersDetailAmmunition {
             })
         );
 
-        fetcher.subscribe((x) => {
+        let mods = {};
+
+        let assignMods = (data) => data.reduce((result, mod) => {
+            result[mod.id] = mod;
+            return result;
+        }, mods);
+
+        let subscriber = fetcher.subscribe((x) => {
+            let defaultMods = [];
+
             this.items = x[0].reduce((result, item) => {
                 result[item.id] = item;
+
+                if (item.default_modifications) {
+                    defaultMods = [...defaultMods, ...item.default_modifications];
+                } else item.default_modifications = [];
+
                 return result;
             }, {});
-            this.mods = x[1].reduce((result, mod) => {
-                result[mod.id] = mod;
-                return result;
-            }, {});
+            mods = assignMods(x[1]);
             this.slots = x[2];
 
-            this.makeProfiles();
-            this.setProfile();
+            subscriber.unsubscribe();
+
+            let next = () => {
+                this.mods = mods;
+
+                this.makeProfiles();
+                this.setProfile();
+            };
+
+            if (defaultMods.length) {
+                let additionalSubscriber = this
+                    .gameService
+                    .modifications({
+                        mods: defaultMods,
+                        thin: true,
+                        language: i18n.lang.gameLang
+                    })
+                    .subscribe(data => {
+                        mods = assignMods(data);
+                        additionalSubscriber.unsubscribe();
+                        next();
+                    });
+                return;
+            }
+
+            next();
         }, () => {});
     }
 
     private setProfile (index ?:number) {
         if (!this.ammunition || !this.ammunition.length) {
+            this.changeDetector.markForCheck();
             return;
         }
 
@@ -119,13 +156,15 @@ export default class PlayersDetailAmmunition {
         }
 
         this.profile = this.profiles[this.currentProfile];
+        this.changeDetector.markForCheck();
     }
 
     private makeProfiles () {
+        let slots = this.slots;
+        let Items = this.items;
+        let Mods  = this.mods;
+
         this.profiles = this.ammunition.map(Profile => {
-            let slots = this.slots;
-            let Items = this.items;
-            let Mods  = this.mods;
             let level = 0;
             let profile = Profile.items.reduce((result, info) => {
                 let item = Items[info.item];
@@ -139,6 +178,7 @@ export default class PlayersDetailAmmunition {
                 result[slots[info.slot]] = {
                     amount: info.amount,
                     mods: info.mods.map(mod => Mods[mod]),
+                    defMods: item.default_modifications.map(mod => Mods[mod]),
                     item: item
                 };
                 return result;
@@ -150,5 +190,7 @@ export default class PlayersDetailAmmunition {
                 items: profile
             };
         });
+
+        this.changeDetector.markForCheck();
     }
 }

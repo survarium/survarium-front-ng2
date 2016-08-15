@@ -4,7 +4,7 @@ import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'arm-item',
-    inputs: ['item', 'thin', 'mods', 'micro'],
+    inputs: ['item', 'thin', 'mods', 'defaultMods', 'micro'],
     directives: [RouterLink],
     template: require('./arm-item.html'),
     styles: [require('./arm-item.styl')],
@@ -25,10 +25,11 @@ import { I18NPipe } from '../../pipes/i18n'
 
 export class ArmItem  {
     private _mods :any[];
+    private _defMods :any[];
     private item :any;
 
     set mods (val :any[]) {
-        this._mods = val.map(mod => {
+        this._mods = val.filter(Boolean).map(mod => {
             if (mod.modifier instanceof Array) {
                 mod.value = mod.modifier[this.item.level];
             }
@@ -39,6 +40,20 @@ export class ArmItem  {
 
     get mods () {
         return this._mods;
+    }
+
+    set defaultMods (val :any[]) {
+        this._defMods = val.filter(Boolean).map(mod => {
+            if (mod.modifier instanceof Array) {
+                mod.value = mod.modifier[this.item.level];
+            }
+
+            return mod;
+        });
+    }
+
+    get defaultMods () {
+        return this._defMods;
     }
 }
 

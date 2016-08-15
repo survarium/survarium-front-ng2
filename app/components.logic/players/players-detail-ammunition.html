@@ -2,7 +2,7 @@
 <template [ngIf]="shown && profiles">
     <div *ngIf="profile" class="profile">
         <div *ngFor="let slot of targetSlots;" [class]="'item item_' + slot.replace(' ', '_')">
-            <arm-item *ngIf="profile.items[slot]" [item]="profile.items[slot].item" [thin]="1" [mods]="profile.items[slot].mods" [micro]="slot.match('ammo')"></arm-item>
+            <arm-item *ngIf="profile.items[slot]" [item]="profile.items[slot].item" [thin]="1" [defaultMods]="profile.items[slot].defMods" [mods]="profile.items[slot].mods" [micro]="slot.match('ammo')"></arm-item>
         </div>
     </div>
     <div class="profiles">
