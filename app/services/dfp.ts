@@ -16,18 +16,24 @@ export class DFPService {
         window['googletag'].cmd.push(() => {
             let googletag = window['googletag'];
 
+            var mapping = googletag
+                .sizeMapping()
+                .addSize([250, 100], [234, 60])
+                .addSize([340, 100], [320, 50])
+                .addSize([500, 100], [468, 60])
+                .addSize([750, 100], [728, 90])
+                .addSize([1050, 100], [970, 90])
+                .build();
+
             this.slots.playerSplit =
-                googletag.defineSlot(
-                    '/126806937/sv.pro_player-split',
-                    [
-                        [970, 90],
-                        [728, 90],
-                        [468, 60],
-                        [320, 50],
-                        [234, 60]
-                    ],
-                    'playerSplit'
-                ).addService(googletag.pubads());
+                googletag
+                    .defineSlot(
+                        '/126806937/sv.pro_player-split',
+                        [234, 60],
+                        'playerSplit'
+                    )
+                    .addService(googletag.pubads())
+                    .defineSizeMapping(mapping);
 
             googletag.pubads().setCentering(true);
 
