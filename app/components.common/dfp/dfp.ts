@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, OnDestroy, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core'
+import { Component, Input, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core'
 import { DFPService } from '../../services/dfp'
 import { I18NPipe } from '../../pipes/i18n'
 
@@ -7,7 +7,6 @@ import { I18NPipe } from '../../pipes/i18n'
     template: require('./dfp.html'),
     styles: [require('./dfp.styl')],
     pipes: [I18NPipe],
-    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         '[class.empty]': 'empty'
     }
@@ -16,8 +15,7 @@ import { I18NPipe } from '../../pipes/i18n'
 export class DFP implements AfterViewInit, OnDestroy {
     @Input() private id :string;
 
-    constructor (private dfp :DFPService, private view :ViewContainerRef, private changeDetector :ChangeDetectorRef) {
-        changeDetector.detach();
+    constructor (private dfp :DFPService, private changeDetector :ChangeDetectorRef) {
     }
 
     private get blocked () {

@@ -11,10 +11,12 @@ export function ngOnLoad(window, document) {
             //{ src: 'https://an.yandex.ru/system/context.js' },
             { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
                 CONFIG.adblock = true;
+                appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
             } },
             { src: 'https://www.googletagservices.com/tag/js/gpt.js', onerror: () => {
                 CONFIG.adblock = true;
+                appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
             } },
             { src: 'https://vk.com/js/api/openapi.js?121' },
