@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /projects
 Disallow: /public
 Disallow: /widgets
+Crawl-delay: 0.5
 Sitemap: https://survarium.pro/sv.pro-sitemap-index.xml
 Host: https://survarium.pro
