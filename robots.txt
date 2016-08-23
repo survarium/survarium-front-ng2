@@ -2,5 +2,5 @@ User-agent: *
 Disallow: /projects
 Disallow: /public
 Disallow: /widgets
-Sitemap: https://survarium.pro/sv-pro-sitemap-index.xml
+Sitemap: https://survarium.pro/sv.pro-sitemap-index.xml
 Host: https://survarium.pro
