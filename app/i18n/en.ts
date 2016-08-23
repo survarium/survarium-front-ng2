@@ -59,6 +59,7 @@ let dict = {
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
     wastedTime   : 'Battle time',
+    time         : 'Time',
     noData       : 'No data',
     banned       : 'Bans',
     players: {

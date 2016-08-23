@@ -8,9 +8,15 @@ const YEAR = 365 * DAY;
 
 @Pipe({name: 'elapsed'})
 export class ElapsedPipe implements PipeTransform {
-    transform(value ?:number, args ?:string) : any {
+    transform(value ?:number, args ?:any) : any {
+        args = args || {};
+
+        let allowZero :boolean = args.allowZero;
+
         if (!value) {
-            return;
+            if (allowZero) {
+                value = 0;
+            } else return;
         }
 
         let years;

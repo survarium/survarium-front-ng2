@@ -57,6 +57,7 @@ let dict = {
     artefactUses : 'Использовано артефактов',
     elo          : 'ELO',
     wastedTime   : 'Времени в матчах',
+    time         : 'Время',
     total        : 'Всего',
     lastUpdate   : 'Обновлено',
     noData       : 'Нет данных',

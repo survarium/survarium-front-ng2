@@ -4,6 +4,7 @@ import { PlayersService } from '../../services/api'
 import TitleService from '../../services/title'
 import Nickname from '../../components.common/nickname/nickname'
 import Percent from '../../components.common/percent/percent'
+import { Elapsed } from '../../components.common/elapsed/elapsed'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
 import { I18NPipe } from '../../pipes/i18n'
@@ -121,6 +122,11 @@ export class PlayersList {
                 sort: { 'total.winRate': { } },
                 classes: 'center',
                 filter: { field: 'total.winRate', type: 'number', max: 100 }
+            }, {
+                title: i18n.get('time'),
+                component: Elapsed,
+                inputs: { value: 'wasted' },
+                sort: { 'wasted': { } },
             }, {
                 title: i18n.get('headshots'),
                 field: 'total.headshots',
