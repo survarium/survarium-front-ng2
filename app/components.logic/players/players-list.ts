@@ -127,6 +127,7 @@ export class PlayersList {
                 component: Elapsed,
                 inputs: { value: 'wasted' },
                 sort: { 'wasted': { } },
+                classes: 'nowrap'
             }, {
                 title: i18n.get('headshots'),
                 field: 'total.headshots',
