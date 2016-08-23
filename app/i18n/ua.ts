@@ -57,6 +57,7 @@ let dict = {
     boxesBringed: 'Принесено батарей',
     artefactUses: 'Використано артефактів',
     elo: 'ELO',
+    wastedTime   : 'Времени в матчах',
     total: 'Усього',
     noData: 'Немає даних',
     banned: 'Банів',
@@ -491,6 +492,13 @@ let dict = {
         oct: 'жовт',
         nov: 'лист',
         dec: 'груд'
+    },
+    dates: {
+        y: 'г.',
+        m: 'мес.',
+        d: 'д.',
+        h: 'ч.',
+        mm: 'м.'
     },
     advert: {
         title: 'Реклама',

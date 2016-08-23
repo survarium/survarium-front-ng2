@@ -56,6 +56,11 @@
         <dt class="def-list__term">{{'avgScore' | i18n}}</dt>
         <dd class="def-list__desc">{{data.total.scoreAvg | number}}</dd>
     </dl>
+
+    <dl class="def-list" *ngIf="data.wasted">
+        <dt class="def-list__term">{{'wastedTime' | i18n}}</dt>
+        <dd class="def-list__desc">{{data.wasted | elapsed}}</dd>
+    </dl>
 </div>
 
 <h4 class="def-list__title">{{'details' | i18n}}</h4>

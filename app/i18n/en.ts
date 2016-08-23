@@ -58,6 +58,7 @@ let dict = {
     boxesBringed : 'Brought boxes',
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
+    wastedTime   : 'Battle time',
     noData       : 'No data',
     banned       : 'Bans',
     players: {
@@ -500,6 +501,13 @@ let dict = {
         oct: 'oct',
         nov: 'nov',
         dec: 'dec'
+    },
+    dates: {
+        y: 'y.',
+        m: 'mon.',
+        d: 'd.',
+        h: 'h.',
+        mm: 'm.'
     },
     advert: {
         title: 'Advertising',
