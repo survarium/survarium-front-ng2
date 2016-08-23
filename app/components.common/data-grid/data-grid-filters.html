@@ -11,6 +11,7 @@
         <div class="filters">
             <div *ngFor="let filter of used" class="filter">
                 <data-grid-filters-number *ngIf="filter.type === 'number'" [filter]="filter" (keyup.enter)="trigger()"></data-grid-filters-number>
+                <data-grid-filters-date *ngIf="filter.type === 'date'" [filter]="filter" (keyup.enter)="trigger()"></data-grid-filters-date>
             </div>
         </div>
     </div>

@@ -1,12 +1,14 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
 
 @Component({
     selector: 'data-grid-filters-number',
     template: require('./data-grid-filters-number.html'),
-    styles: [require('./data-grid-filters-number.styl')]
+    styles: [require('./data-grid-filters-number.styl')],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DataGridFiltersNumber {
+    constructor (private changeDetector :ChangeDetectorRef) {}
     filter :any;
     type = 'from-to';
     typeChange = function (val) {
@@ -14,6 +16,8 @@ export class DataGridFiltersNumber {
         setTimeout(() => { // avoid dehydration on focused input[(ngModel)]
             this.type = target.value === 'from-to' && target.checked ? 'from-to' : 'equal';
             this.filter.value = this.condition;
+            this.changeDetector.markForCheck();
+            this.changeDetector.detectChanges();
         }, 0);
     };
 

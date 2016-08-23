@@ -13,7 +13,7 @@ import { I18NPipe } from '../../pipes/i18n'
 @Component({
     directives: [DataGrid],
     pipes: [I18NPipe],
-    template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
+    template: `<data-grid [stream]="stream" [columns]="columns" [name]="matches-list-global"></data-grid>`,
     selector: 'matches-list',
     styles: []
 })
@@ -24,11 +24,20 @@ export class MatchesList {
     private apiLang = i18n.apiLang;
 
     private columns = [
-        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'id': {  } } },
-        { title: i18n.get('match'), component: Match, width: 90, inputs: { id: `id` }, sort: { 'id': { value: -1 } }, classes: 'blockLink' },
+        {
+            title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'id': {  } },
+            filter: { field: 'date', type: 'date' }
+        },
+        {
+            title: i18n.get('match'), component: Match, width: 90, inputs: { id: `id` }, sort: { 'id': { value: -1 } }, classes: 'blockLink',
+            filter: { field: 'id', type: 'number' }
+        },
         { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
         { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
-        { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } }/*, filter: { field: 'level', type: 'number', min: 0, max: 10, value: { eq: 2 } }*/ }
+        {
+            title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
+            filter: { field: 'level', type: 'number', min: 0, max: 100 }
+        }
     ];
 
     private stream (options ?:any) :Observable<any> {

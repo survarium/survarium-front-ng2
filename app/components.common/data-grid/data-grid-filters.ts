@@ -1,12 +1,14 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, Output, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { DataGridFiltersNumber } from './data-grid-filters-number';
+import { DataGridFiltersDate } from './data-grid-filters-date';
 import { Storage } from '../../utils/storage'
 
 @Component({
     selector: '[filters]',
-    directives: [DataGridFiltersNumber],
+    directives: [DataGridFiltersNumber, DataGridFiltersDate],
     template: require('./data-grid-filters.html'),
-    styles: [require('./data-grid-filters.styl')]
+    styles: [require('./data-grid-filters.styl')],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class DataGridFilters implements OnInit {
