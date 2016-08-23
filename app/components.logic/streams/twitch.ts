@@ -13,7 +13,7 @@ import { StreamsFormatsService } from './streams__formats'
     pipes: [I18NPipe, DateTimePipe],
     providers: [TwitchService],
     host: {
-        '(window:resize)': 'resize($event)'
+        //'(window:resize)': 'resize($event)'
     },
     styles: [require('./streams.component.styl')],
     template: require('./twitch.html'),

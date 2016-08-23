@@ -12,7 +12,7 @@ import { StreamsFormatsService } from './streams__formats'
     selector: 'streams',
     directives: [],
     host: {
-        '(window:resize)': 'resize($event)'
+        //'(window:resize)': 'resize($event)'
     },
     providers: [YoutubeService],
     pipes: [I18NPipe, DateTimePipe],
