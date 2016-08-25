@@ -6,6 +6,7 @@ import { Nickname } from '../../components.common/nickname/nickname'
 import { Percent } from '../../components.common/percent/percent'
 import { Role } from '../../components.common/role/role'
 import { DateTime } from '../../components.common/datetime/datetime'
+import { Elapsed } from '../../components.common/elapsed/elapsed'
 import DataGrid from '../../components.common/data-grid/data-grid'
 
 @Component({
@@ -103,6 +104,12 @@ export class ClansDetailPlayers {
             inputs: { number: 'total.winRate' },
             sort: { 'total.winRate': { } },
             classes: 'center'
+        }, {
+            title: i18n.get('time'),
+            component: Elapsed,
+            inputs: { value: 'wasted' },
+            sort: { 'wasted': { } },
+            classes: 'nowrap'
         }, {
             title: i18n.get('headshots'),
             field: 'total.headshots',
