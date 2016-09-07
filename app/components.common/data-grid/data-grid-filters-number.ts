@@ -9,13 +9,13 @@ import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@a
 
 export class DataGridFiltersNumber {
     constructor (private changeDetector :ChangeDetectorRef) {}
-    filter :any;
+    _filter :any;
     type = 'from-to';
     typeChange = function (val) {
         let target = val.target;
         setTimeout(() => { // avoid dehydration on focused input[(ngModel)]
             this.type = target.value === 'from-to' && target.checked ? 'from-to' : 'equal';
-            this.filter.value = this.condition;
+            this._filter.value = this.condition;
             this.changeDetector.markForCheck();
             this.changeDetector.detectChanges();
         }, 0);
@@ -32,7 +32,7 @@ export class DataGridFiltersNumber {
         } else {
             this._from = _val;
         }
-        this.filter.value = this.condition;
+        this._filter.value = this.condition;
     };
 
     _to :number;
@@ -46,7 +46,7 @@ export class DataGridFiltersNumber {
         } else {
             this._to = _val;
         }
-        this.filter.value = this.condition;
+        this._filter.value = this.condition;
     };
 
     _eq: number;
@@ -60,11 +60,11 @@ export class DataGridFiltersNumber {
         } else {
             this._eq = _val;
         }
-        this.filter.value = this.condition;
+        this._filter.value = this.condition;
     };
 
-    @Input('filter') set inputFilter (val) {
-        this.filter = val;
+    @Input('filter') set filter (val) {
+        this._filter = val;
         let initial = val.value;
         if (initial) {
             if (initial.$eq !== undefined) {
@@ -78,16 +78,20 @@ export class DataGridFiltersNumber {
     };
 
     del (filter) {
-        this.filter.value = false;
+        this._filter.value = false;
     }
 
     get min () {
-        return this.filter && this.filter.min || 0;
+        return this._filter && this._filter.min || 0;
     }
 
+    set min (val) {}
+
     get max () {
-        return this.filter && this.filter.max || 1e6;
+        return this._filter && this._filter.max || 1e6;
     }
+
+    set max (val) {}
 
     get condition () {
         let result :any = {};
@@ -103,6 +107,8 @@ export class DataGridFiltersNumber {
         }
         return result;
     }
+
+    set condition (val) {}
 }
 
 export default DataGridFiltersNumber

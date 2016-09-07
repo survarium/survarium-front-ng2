@@ -1,25 +1,29 @@
-import { Component } from '@angular/core'
-import { RouteParams } from '@angular/router-deprecated'
-import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
+import { NgModule, Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 import Counts from './clans-detail-counts'
 import Players from './clans-detail-players'
 import Matches from './clans-detail-matches'
 import Clanwars from './clans-detail-clanwars'
 
+@NgModule({
+    declarations: [Counts, Players, Matches, Clanwars, ClansDetail],
+    bootstrap: [ClansDetail]
+})
+
+export class ClansDetailModule {}
+
 @Component({
     selector: 'clans-detail',
-    pipes: [I18NPipe],
-    directives: [Counts, Players, Matches, Clanwars],
     template: require('./clans-detail.html'),
     styles: [require('./clans-detail.styl')]
 })
 
-export class ClansDetail {
+export class ClansDetail implements OnInit {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -73,25 +77,30 @@ export class ClansDetail {
             </script>`);
     }
 
-    constructor(private _routeParams :RouteParams,
+    constructor(private route :ActivatedRoute,
                 private _clansService :ClansService,
                 private _title :TitleService,
                 private _store :Store,
-                private _sanitizer :DomSanitizationService) {
+                private _sanitizer :DomSanitizer) {
+    }
 
-        this.name = this._routeParams.get('abbr').trim();
+    ngOnInit () {
+        this.route.queryParams.map(params => params['abbr'].trim())
+            .subscribe(abbr => {
+                this.name = abbr;
 
-        this._clansService
-            .fetch(this.name)
-            .subscribe(data => {
-                this.data = data;
-                this.setJsonLD(this.data);
-                this.show = true;
-                this._title.setTitle(this.data.abbr);
-                this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
-                this._store.clans.add(this.data.abbr);
-            }, err => {
-                this.error = JSON.stringify(err, null, 4);
+                this._clansService
+                    .fetch(this.name)
+                    .subscribe(data => {
+                        this.data = data;
+                        this.setJsonLD(this.data);
+                        this.show = true;
+                        this._title.setTitle(this.data.abbr);
+                        this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
+                        this._store.clans.add(this.data.abbr);
+                    }, err => {
+                        this.error = JSON.stringify(err, null, 4);
+                    });
             });
     }
 }

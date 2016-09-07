@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
-import DataGrid from '../../components.common/data-grid/data-grid'
 import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
@@ -10,7 +9,6 @@ import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail-matches',
-    directives: [DataGrid],
     template: require('./players-detail-matches.html')
 })
 

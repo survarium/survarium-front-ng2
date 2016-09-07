@@ -1,15 +1,10 @@
 import { Component, Input, OnInit, ViewContainerRef } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { Colors } from '../../components.common/colors'
-import { NumberPipe } from '../../pipes/number'
-import { ChartComponent } from '../../components.common/chart/chart'
 
 const experience :any[] = require('./players-detail-leveling.json');
 
 @Component({
     selector: 'players-detail-leveling',
-    directives: [ChartComponent],
-    pipes:   [I18NPipe, NumberPipe],
     template: require('./players-detail-leveling.html'),
     styles: [require('./players-detail-leveling.styl')]
 })

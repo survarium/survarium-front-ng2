@@ -1,16 +1,20 @@
-import { Component, ViewQuery, QueryList } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { NgModule, Component, ViewChildren, QueryList } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'
 import Percent from '../../components.common/percent/percent'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
+
+@NgModule({
+    declarations: [ClansList],
+    bootstrap: [ClansList]
+})
+
+export class ClansListModule {}
 
 @Component({
-    directives: [DataGrid],
-    pipes: [I18NPipe],
     template: require('./clans-list.html'),
     selector: 'clans-list',
     styles: [require('./clans-list.styl')]
@@ -51,8 +55,8 @@ export class ClansList {
     constructor(private _clansService :ClansService,
                 private _title :TitleService,
                 private i18n :I18N,
-                private _sanitizer :DomSanitizationService,
-                @ViewQuery(DataGrid, { descendants: false }) private elList: QueryList<DataGrid>) {
+                private _sanitizer :DomSanitizer,
+                @ViewChildren(DataGrid) private elList: QueryList<DataGrid>) {
 
         this.stream = this.stream.bind(this);
 

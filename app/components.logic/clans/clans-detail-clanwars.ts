@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { ClansService } from '../../services/api'
 import { Map } from '../../components.common/map/map'
@@ -7,12 +6,9 @@ import { Mode } from '../../components.common/mode/mode'
 import { Match } from '../../components.common/match/match'
 import { DateTime } from '../../components.common/datetime/datetime'
 import Clan from '../../components.common/clan/clan'
-import DataGrid from '../../components.common/data-grid/data-grid'
 
 @Component({
-    directives: [DataGrid],
     selector: 'clans-detail-clanwars',
-    pipes: [I18NPipe],
     template: `<h3>{{'clans.clanwars' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailClanwars {

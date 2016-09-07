@@ -1,17 +1,13 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { PlayersService } from '../../services/api'
-import { Skills } from '../../components.common/skills/skills'
 
 @Component({
     selector: 'players-detail-skills',
-    directives: [Skills],
-    pipes: [I18NPipe],
     template: require('./players-detail-skills.html'),
     styles: [require('./players-detail-skills.styl')]
 })
 
-export default class PlayersDetailSkills {
+export class PlayersDetailSkills {
     private shown = false;
     @Input() private nickname :string;
 

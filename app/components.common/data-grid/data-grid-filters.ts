@@ -1,11 +1,8 @@
 import { Component, EventEmitter, Input, Output, OnInit, ChangeDetectionStrategy } from '@angular/core'
-import { DataGridFiltersNumber } from './data-grid-filters-number';
-import { DataGridFiltersDate } from './data-grid-filters-date';
 import { Storage } from '../../utils/storage'
 
 @Component({
     selector: '[filters]',
-    directives: [DataGridFiltersNumber, DataGridFiltersDate],
     template: require('./data-grid-filters.html'),
     styles: [require('./data-grid-filters.styl')],
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -47,11 +44,15 @@ export class DataGridFilters implements OnInit {
         });
     }
 
+    private set unused (val) {}
+
     private get used () {
         return this.filters.filter(filter => {
             return filter.value;
         });
     }
+
+    private set used (val) {}
 
     private trigger() {
         let storeFilters = {};

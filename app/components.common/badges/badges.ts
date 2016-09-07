@@ -1,9 +1,14 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
+
+@Component({
+    selector: 'badge',
+    template: ''
+})
+
+export class Badge {}
 
 @Component({
     selector: 'badges',
-    pipes: [I18NPipe],
     template: require('./badges.html'),
     styles: [require('./badges.styl')]
 })

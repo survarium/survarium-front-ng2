@@ -1,14 +1,10 @@
 import { Component } from '@angular/core'
-import { RouterLink } from '@angular/router-deprecated'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'arm-item',
     inputs: ['item', 'thin', 'mods', 'defaultMods', 'micro'],
-    directives: [RouterLink],
     template: require('./arm-item.html'),
     styles: [require('./arm-item.styl')],
-    pipes: [I18NPipe],
     host: {
         '[class.mods_0]': '!mods?.length',
         '[class.mods_1]': 'mods?.length === 1',

@@ -1,6 +1,6 @@
 <nav>
-    <a [routerLink]="['./StreamsYoutube']" class="nav-link">Youtube</a>
-    <a [routerLink]="['./StreamsTwitch']"  class="nav-link">Twitch</a>
+    <a routerLink="/streams/youtube" routerLinkActive="router-link-active" class="nav-link">Youtube</a>
+    <a routerLink="/streams/twitch" routerLinkActive="router-link-active" class="nav-link">Twitch</a>
 </nav>
 <streams__formats></streams__formats>
 <router-outlet></router-outlet>

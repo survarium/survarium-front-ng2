@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, ViewChildren, QueryList } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { Widget, WidgetStyle } from '../widget/widget'
 
 declare var twttr :any;
@@ -8,7 +7,6 @@ declare var twttr :any;
     selector: 'twitter',
     template: require('./twitter.html'),
     inputs: ['id', 'user', 'width', 'height'],
-    pipes: [I18NPipe],
     styles: [WidgetStyle]
 })
 

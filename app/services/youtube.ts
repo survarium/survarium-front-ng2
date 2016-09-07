@@ -63,7 +63,8 @@ export class YoutubeService {
             url: `${this._handle}/search`,
             headers: headers,
             search: params,
-            method: 'get'
+            method: 'get',
+            body: ''
         });
 
         return this.http.request(options)

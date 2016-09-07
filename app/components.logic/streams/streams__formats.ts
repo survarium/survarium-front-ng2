@@ -1,5 +1,4 @@
 import { Component, Injectable } from '@angular/core'
-import { I18NPipe }   from '../../pipes/i18n'
 import { Storage }    from '../../utils/storage'
 import { Observable } from 'rxjs/Observable';
 import { Observer }   from 'rxjs/Observer';
@@ -39,8 +38,7 @@ export class StreamsFormatsService {
 @Component({
     selector: 'streams__formats',
     template: require('./streams__formats.html'),
-    styles: [require('./streams__formats.styl')],
-    pipes: [I18NPipe]
+    styles: [require('./streams__formats.styl')]
 })
 
 export class StreamsFormats {

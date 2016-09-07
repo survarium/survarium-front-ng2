@@ -18,7 +18,7 @@ function detectLang () {
 
     if (!language) {
         // FIXME: CLIENT-SIDE ONLY
-        language = window.navigator.userLanguage || window.navigator.language;
+        language = window.navigator['userLanguage'] || window.navigator['language'];
     }
 
     if (!language) {

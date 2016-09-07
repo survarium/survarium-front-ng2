@@ -1,16 +1,12 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
-import { I18NPipe } from '../../pipes/i18n'
-import { NumberPipe } from '../../pipes/number'
 import { TrackService } from '../../services/track'
 
 const PERIODS = ['day', 'hour', 'half'];
 
 @Component({
     selector: 'players-unique',
-    pipes: [I18NPipe, NumberPipe],
-    directives: [],
     template: require('./players-unique.html'),
     styles: [require('./players-unique.styl')]
 })

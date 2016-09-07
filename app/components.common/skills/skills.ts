@@ -4,13 +4,11 @@ SKILLS[232].sign = -1;
 
 import { Component, Input, OnInit } from '@angular/core'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 
 interface SKILLTYPE { id :number, points :number }
 
 @Component({
     selector: 'skills',
-    pipes: [I18NPipe],
     template: require('./skills.html'),
     styles: [require('./skills.styl')]
 })

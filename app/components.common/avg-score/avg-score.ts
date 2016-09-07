@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core'
 
 @Component({
     selector: 'avg-score',
-    inputs: ['score', 'matches'],
     template: `{{avg}}`
 })
 

@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'role',
-    pipes: [I18NPipe],
     template: `{{i18nKey | i18n: { allowOriginal: original } }}`
 })
 

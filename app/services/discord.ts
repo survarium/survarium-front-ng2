@@ -14,7 +14,8 @@ export class DiscordService {
         let options = new Request({
             url: `${this._handle}/${this._id}/widget.json`,
             headers: headers,
-            method: 'get'
+            method: 'get',
+            body: ''
         });
 
         return this.http.request(options)

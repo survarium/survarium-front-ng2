@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { ClansService } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
@@ -7,12 +6,9 @@ import { Percent } from '../../components.common/percent/percent'
 import { Role } from '../../components.common/role/role'
 import { DateTime } from '../../components.common/datetime/datetime'
 import { Elapsed } from '../../components.common/elapsed/elapsed'
-import DataGrid from '../../components.common/data-grid/data-grid'
 
 @Component({
-    directives: [DataGrid],
     selector: 'clans-detail-players',
-    pipes: [I18NPipe],
     template: `<h3>{{'members' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-players'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailPlayers {

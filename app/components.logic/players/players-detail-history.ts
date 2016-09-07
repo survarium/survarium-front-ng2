@@ -3,16 +3,11 @@ import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { Storage } from '../../utils/storage'
 import { kdRatio } from '../../utils/kd'
-import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { Colors } from '../../components.common/colors'
-import { ChartComponent } from '../../components.common/chart/chart'
-import { PlayersDetailHistoryCounts } from './players-detail-history-counts'
 
 @Component({
     selector: 'players-detail-history',
-    directives: [ChartComponent, PlayersDetailHistoryCounts],
-    pipes:   [I18NPipe],
     styles:  [require('./players-detail-history.styl')],
     template: require('./players-detail-history.html')
 })

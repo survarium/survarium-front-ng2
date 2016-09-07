@@ -1,17 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core'
-import { Router } from '@angular/router-deprecated'
+import { Router } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { TitleService } from '../../services/title'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 import { Storage } from '../../utils/storage'
-import Nickname from '../../components.common/nickname/nickname'
 
 @Component({
-    providers  : [],
-    directives : [Nickname],
-    pipes: [I18NPipe],
     styles: [require('./players-search.styl')],
     template: require('./players-search.html'),
     selector: 'players-search',
@@ -40,7 +35,7 @@ export class PlayersSearch {
 
         nickname = nickname.trim();
         Storage.setItem('player:find', nickname);
-        this._router.navigate(['PlayersDetail', { nickname: nickname }]);
+        this._router.navigate(['/players', nickname]);
     }
 
     search:() => void;

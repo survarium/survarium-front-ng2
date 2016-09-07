@@ -102,7 +102,7 @@ export const TYPES = [
     }
 ];
 
-export const SUBTYPES = TYPES.reduce((result, root) => {
+export const SUBTYPES = TYPES.reduce((result, root :any) => {
     root.types.forEach(type => {
         result[type.id] = root;
         result[type.id].subType = type;

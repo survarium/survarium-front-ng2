@@ -1,12 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
-import Cell from './data-grid-cell'
-import CellTitle from './data-grid-cell-title'
-import Pagination from './data-grid-pagination'
-import Counters from './data-grid-counters'
-import Loading from './data-grid-loading'
-import Filters from './data-grid-filters'
-import Limits from './data-grid-limits'
+import { DomSanitizer } from '@angular/platform-browser'
 import { Observable } from 'rxjs/Observable'
 
 interface Column {
@@ -25,7 +18,6 @@ interface Column {
 
 @Component({
     selector: 'data-grid',
-    directives: [Cell, CellTitle, Pagination, Loading, Counters, Filters, Limits],
     inputs: ['limits'],
     template: require('./data-grid.html'),
     styles: [require('./data-grid.styl')],
@@ -35,7 +27,7 @@ interface Column {
 })
 
 export class DataGrid {
-    constructor (private _domSanitize :DomSanitizationService) {}
+    constructor (private _domSanitize :DomSanitizer) {}
 
     @Input('data') set _data (value :any[]) {
         if (!this.group) {

@@ -1,20 +1,12 @@
 import { StreamsComponent } from './streams.component'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser'
 import { Component, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core'
-import { TwitchService } from '../../services/twitch'
 import { TitleService } from '../../services/title'
-import I18NPipe from '../../pipes/i18n'
 import { I18N } from '../../services/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
 import { StreamsFormatsService } from './streams__formats'
+import { TwitchService } from '../../services/twitch'
 
 @Component({
-    selector: 'twitch',
-    pipes: [I18NPipe, DateTimePipe],
-    providers: [TwitchService],
-    host: {
-        //'(window:resize)': 'resize($event)'
-    },
     styles: [require('./streams.component.styl')],
     template: require('./twitch.html'),
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -40,7 +32,7 @@ export class Twitch extends StreamsComponent{
     constructor(view :ViewContainerRef,
                 private twitch :TwitchService,
                 private title  :TitleService,
-                private _domSanitize :DomSanitizationService,
+                private _domSanitize :DomSanitizer,
                 i18n :I18N,
                 service :StreamsFormatsService,
                 changeDetector: ChangeDetectorRef) {

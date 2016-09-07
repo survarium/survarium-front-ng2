@@ -1,29 +1,29 @@
-import { Component } from '@angular/core'
-import { RouteParams, RouterLink } from '@angular/router-deprecated'
+import { NgModule, Component, OnInit } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { ActivatedRoute } from '@angular/router'
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
 import { FactionsService } from '../../services/factions'
-import { TYPES, SUBTYPES, LEVELS } from '../../services/armory'
+import { SUBTYPES } from '../../services/armory'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import { PercentPipe } from '../../pipes/percent'
 import { Storage } from '../../utils/storage'
 import { Visual } from '../../components.common/visual/visual'
 import { ArmoryItemWeapon } from './armory-item-weapon'
+import { ArmoryItemRecoil } from './armory-item-recoil'
 import { ArmoryItemGrenade } from './armory-item-grenade'
 import { ArmoryItemDrugs } from './armory-item-drugs'
 import { ArmoryItemAmmo } from './armory-item-ammo'
 import { ArmoryItemArmor } from './armory-item-armor'
+import { SharedModule } from '../../shared'
+import { routing } from './armory.routing'
 
 @Component({
     selector: 'armory-item',
-    directives: [ArmoryItemWeapon, ArmoryItemGrenade, ArmoryItemDrugs, ArmoryItemAmmo, ArmoryItemArmor, RouterLink, Visual],
     styles: [require('./armory-item.styl')],
-    template: require('./armory-item.html'),
-    pipes: [I18NPipe, PercentPipe]
+    template: require('./armory-item.html')
 })
 
-export class ArmoryItem {
+export class ArmoryItem implements OnInit {
     private key :string;
     private version :any;
     private versions :any;
@@ -89,19 +89,44 @@ export class ArmoryItem {
             }, () => {});
     }
 
-    constructor (private _routeParams :RouteParams,
+    constructor (private route :ActivatedRoute,
                  private gameService :GameService,
                  private factionsService :FactionsService,
                  private title :TitleService,
                  private i18n :I18N) {
 
-        this.key = this._routeParams.get('item').trim();
 
-        gameService
-            .versions()
-            .subscribe(versions => {
-                this.versions = versions;
-                this.setVersion();
-            }, () => {});
+    }
+
+    ngOnInit () {
+        this.route
+            .queryParams
+            .map(params => params['item'])
+            .subscribe(item => {
+                this.key = item;
+
+                this.gameService
+                    .versions()
+                    .subscribe(versions => {
+                        this.versions = versions;
+                        this.setVersion();
+                    }, () => {});
+            });
     }
 }
+
+@NgModule({
+    imports: [CommonModule, routing, SharedModule],
+    declarations: [
+        ArmoryItem,
+        ArmoryItemWeapon,
+        ArmoryItemRecoil,
+        ArmoryItemGrenade,
+        ArmoryItemDrugs,
+        ArmoryItemAmmo,
+        ArmoryItemArmor,
+        Visual
+    ]
+})
+
+export class ArmoryItemModule {}

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser'
 /*import { DiscordService } from '../../services/discord'*/
-import { I18NPipe } from '../../pipes/i18n'
 import { Widget, WidgetStyle } from '../widget/widget'
 
 @Component({
@@ -9,7 +8,6 @@ import { Widget, WidgetStyle } from '../widget/widget'
     template: require('./discord.html'),
     /*providers: [DiscordService],*/
     inputs: ['width', 'height'],
-    pipes: [I18NPipe],
     styles: [WidgetStyle]
 })
 
@@ -17,7 +15,7 @@ export class Discord extends Widget implements OnInit {
     @Input('id') private id;
     private iframeSrc;
 
-    constructor (private _domSanitize :DomSanitizationService) {
+    constructor (private _domSanitize :DomSanitizer) {
         super();
     }
 

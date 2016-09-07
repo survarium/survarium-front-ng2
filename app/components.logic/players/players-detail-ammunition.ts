@@ -1,15 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { GameService } from '../../services/api'
 import { SUBTYPES } from '../../services/armory'
-import { ArmItem } from '../../components.common/arm-item/arm-item'
 import { Observable } from 'rxjs'
 import { I18N, i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail-ammunition',
-    directives: [ArmItem],
-    pipes: [I18NPipe],
     template: require('./players-detail-ammunition.html'),
     styles: [require('./players-detail-ammunition.styl')],
     changeDetection: ChangeDetectionStrategy.OnPush

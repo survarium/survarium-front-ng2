@@ -7,9 +7,9 @@ import {
     ViewContainerRef,
     ComponentRef,
     OnInit,
-    AfterViewInit,
+    AfterContentInit,
     ComponentFactory,
-    Compiler
+    ComponentFactoryResolver,
 } from '@angular/core'
 
 @Component({
@@ -18,7 +18,7 @@ import {
     styles: [require('./data-grid-cell.styl')]
 })
 
-export class DataGridCell implements OnInit, AfterViewInit {
+export class DataGridCell implements OnInit, AfterContentInit {
     _isTitleCell :boolean = false;
 
     @Input() column :any;
@@ -65,7 +65,7 @@ export class DataGridCell implements OnInit, AfterViewInit {
 
     private content;
 
-    constructor (private compiler :Compiler) {}
+    constructor (private componentResolver: ComponentFactoryResolver) {}
 
     private getCell (path :string) {
         if (!path) {
@@ -102,23 +102,22 @@ export class DataGridCell implements OnInit, AfterViewInit {
 
     @ViewChild('componentAnchor', { read: ViewContainerRef }) private target :ViewContainerRef;
 
-    ngAfterViewInit () {
+    ngAfterContentInit () {
         let column = this.column;
 
         if (!column || !column.component || !this.target) {
             return;
         }
 
-        this.compiler.compileComponentAsync(column.component)
-            .then((factory :ComponentFactory<any>) => this.target.createComponent(factory))
-            .then((componentRef :ComponentRef<any>) => {
-                if (column.inputs) {
-                    Object.keys(column.inputs).forEach((input) => {
-                        let __input = column.inputs[input];
-                        componentRef.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
-                    });
-                }
+        let componentFactory :ComponentFactory<any> = this.componentResolver.resolveComponentFactory(column.component);
+        let componentRef :ComponentRef<any> = this.target.createComponent(componentFactory);
+
+        if (column.inputs) {
+            Object.keys(column.inputs).forEach((input) => {
+                let __input = column.inputs[input];
+                componentRef.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
             });
+        }
     }
 }
 

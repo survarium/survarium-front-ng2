@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser'
 
 const BASE_LANG = 'english';
 
@@ -141,7 +141,7 @@ export class MapsService {
         return this._domSanitize.bypassSecurityTrustStyle(`url(/assets/ui_loading/${image.join('_')}.jpg)`);
     }
 
-    constructor (private _domSanitize :DomSanitizationService) {}
+    constructor (private _domSanitize :DomSanitizer) {}
 }
 
 export default MapsService
