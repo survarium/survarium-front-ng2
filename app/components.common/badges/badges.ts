@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 
 @Component({
     selector: 'badge',
-    template: ''
+    template: '<ng-content></ng-content>'
 })
 
 export class Badge {}

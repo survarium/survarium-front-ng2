@@ -9,6 +9,11 @@ import { PlayersDetail } from './players-detail'
 export const routes :Routes = [
     {
         path: '',
+        pathMatch: 'full',
+        redirectTo: 'search'
+    },
+    {
+        path: '',
         component: Players,
         children: [
             {
@@ -16,12 +21,12 @@ export const routes :Routes = [
                 component: PlayersSearch
             },
             {
-                path: ':nickname',
-                component: PlayersDetail
+                path: 'list',
+                component: PlayersList
             },
             {
-                path: '',
-                component: PlayersList
+                path: ':nickname',
+                component: PlayersDetail
             }
         ]
     }

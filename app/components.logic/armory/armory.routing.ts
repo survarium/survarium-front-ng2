@@ -8,23 +8,18 @@ import { ArmoryItem } from './armory-item'
 export const routes :Routes = [
     {
         path: '',
-        pathMatch: 'full',
         component: Armory,
         children: [
             {
-                path: '',
-                component: ArmoryList
-            },
-            {
                 path: ':item',
                 component: ArmoryItem
+            },
+            {
+                path: '',
+                component: ArmoryList
             }
         ]
     }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
-
-export const routingProviders: any[] = [
-    routing
-];

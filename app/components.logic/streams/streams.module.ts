@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
 
 import { SharedModule } from '../../shared'
 import { routing } from './streams.routes'
@@ -11,7 +10,7 @@ import { TwitchService } from '../../services/twitch'
 import { YoutubeService } from '../../services/youtube'
 
 @NgModule({
-    imports: [CommonModule, SharedModule, routing],
+    imports: [SharedModule, routing],
     declarations: [
         Streams,
         StreamsFormats,

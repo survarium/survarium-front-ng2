@@ -1,5 +1,4 @@
 import { NgModule, Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
 
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
@@ -182,7 +181,7 @@ export class ArmoryList {
 }
 
 @NgModule({
-    imports: [CommonModule, SharedModule],
+    imports: [SharedModule],
     declarations: [ArmoryList]
 })
 

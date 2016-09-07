@@ -544,6 +544,7 @@ export class VgService {
 
         var params = new URLSearchParams();
 
+        params.set('limit', '5');
         query.skip !== undefined && params.set('skip', query.skip);
         if (query.sort) {
             Object.keys(query.sort).forEach((key) => {

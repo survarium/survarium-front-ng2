@@ -1,5 +1,4 @@
-import { NgModule, Component, OnInit } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { NgModule, Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
@@ -15,7 +14,6 @@ import { ArmoryItemDrugs } from './armory-item-drugs'
 import { ArmoryItemAmmo } from './armory-item-ammo'
 import { ArmoryItemArmor } from './armory-item-armor'
 import { SharedModule } from '../../shared'
-import { routing } from './armory.routing'
 
 @Component({
     selector: 'armory-item',
@@ -23,7 +21,7 @@ import { routing } from './armory.routing'
     template: require('./armory-item.html')
 })
 
-export class ArmoryItem implements OnInit {
+export class ArmoryItem implements OnInit, OnDestroy {
     private key :string;
     private version :any;
     private versions :any;
@@ -93,30 +91,35 @@ export class ArmoryItem implements OnInit {
                  private gameService :GameService,
                  private factionsService :FactionsService,
                  private title :TitleService,
-                 private i18n :I18N) {
+                 private i18n :I18N) {}
 
+    private loadItem (item) {
+        this.key = item;
 
+        this.gameService
+            .versions()
+            .subscribe(versions => {
+                this.versions = versions;
+                this.setVersion();
+            }, () => {});
     }
 
-    ngOnInit () {
-        this.route
-            .queryParams
-            .map(params => params['item'])
-            .subscribe(item => {
-                this.key = item;
+    private routerSubscriber :any;
 
-                this.gameService
-                    .versions()
-                    .subscribe(versions => {
-                        this.versions = versions;
-                        this.setVersion();
-                    }, () => {});
-            });
+    ngOnInit () {
+        this.routerSubscriber = this.route
+            .params
+            .map(params => params['item'])
+            .subscribe(item => this.loadItem(item));
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
     }
 }
 
 @NgModule({
-    imports: [CommonModule, routing, SharedModule],
+    imports: [SharedModule],
     declarations: [
         ArmoryItem,
         ArmoryItemWeapon,

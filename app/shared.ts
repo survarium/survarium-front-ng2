@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
 
 import { I18NPipe } from './pipes/i18n'
 import { DateTimePipe } from './pipes/datetime'
@@ -10,7 +11,7 @@ import { PercentPipe } from './pipes/percent'
 import { DIRECTIVES } from './directives'
 
 @NgModule({
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     declarations: [
         I18NPipe,
         DateTimePipe,
@@ -20,6 +21,8 @@ import { DIRECTIVES } from './directives'
         ...DIRECTIVES
     ],
     exports: [
+        CommonModule,
+        RouterModule,
         I18NPipe,
         DateTimePipe,
         ElapsedPipe,

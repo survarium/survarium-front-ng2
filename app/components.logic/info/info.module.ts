@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
 
 import { SharedModule } from '../../shared'
 import { Info } from './info'
@@ -10,7 +9,7 @@ import { Thanks } from './thanks'
 import { routing  } from './info.routing'
 
 @NgModule({
-    imports: [CommonModule, SharedModule, routing],
+    imports: [SharedModule, routing],
     declarations: [Info, DevMessages, About, Bans, Thanks]
 })
 

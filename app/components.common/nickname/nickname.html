@@ -1,4 +1,4 @@
 <template [ngIf]="nickname">
     <clan *ngIf="clan" [abbr]="clan.abbr" [name]="clan.name"></clan>
-    <a routerLink="['/players', {nickname: nickname}]" class="name" [class.banned]="banned">{{nickname}}</a>
+    <a routerLink="/players/{{nickname}}" class="name" [class.banned]="banned">{{nickname}}</a>
 </template>
