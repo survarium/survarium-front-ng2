@@ -1,21 +1,10 @@
-import { NgModule, Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
-import Counts from './clans-detail-counts'
-import Players from './clans-detail-players'
-import Matches from './clans-detail-matches'
-import Clanwars from './clans-detail-clanwars'
-
-@NgModule({
-    declarations: [Counts, Players, Matches, Clanwars, ClansDetail],
-    bootstrap: [ClansDetail]
-})
-
-export class ClansDetailModule {}
 
 @Component({
     selector: 'clans-detail',
@@ -23,7 +12,7 @@ export class ClansDetailModule {}
     styles: [require('./clans-detail.styl')]
 })
 
-export class ClansDetail implements OnInit {
+export class ClansDetail implements OnInit, OnDestroy {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -84,23 +73,31 @@ export class ClansDetail implements OnInit {
                 private _sanitizer :DomSanitizer) {
     }
 
-    ngOnInit () {
-        this.route.queryParams.map(params => params['abbr'].trim())
-            .subscribe(abbr => {
-                this.name = abbr;
+    private getClan (abbr :string) {
+        this.name = abbr;
 
-                this._clansService
-                    .fetch(this.name)
-                    .subscribe(data => {
-                        this.data = data;
-                        this.setJsonLD(this.data);
-                        this.show = true;
-                        this._title.setTitle(this.data.abbr);
-                        this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
-                        this._store.clans.add(this.data.abbr);
-                    }, err => {
-                        this.error = JSON.stringify(err, null, 4);
-                    });
+        this._clansService
+            .fetch(this.name)
+            .subscribe(data => {
+                this.data = data;
+                this.setJsonLD(this.data);
+                this.show = true;
+                this._title.setTitle(this.data.abbr);
+                this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
+                this._store.clans.add(this.data.abbr);
+            }, err => {
+                this.error = JSON.stringify(err, null, 4);
             });
+    }
+
+    private routerSubscriber :any;
+
+    ngOnInit () {
+        this.routerSubscriber = this.route.params.map(params => params['abbr'].trim())
+            .subscribe(this.getClan.bind(this));
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
     }
 }

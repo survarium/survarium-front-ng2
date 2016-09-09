@@ -1,28 +1,32 @@
-import { Routes } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule }   from '@angular/router';
 
-import { ClansModule } from './clans'
-import { ClansSearchModule } from './clans-search'
-import { ClansListModule } from './clans-list'
-import { ClansDetailModule } from './clans-detail'
+import { Clans } from './clans'
 
-export const ClansRoutes :Routes = [
+export const routes :Routes = [
     {
-        path: 'clans',
+        path: '',
         pathMatch: 'full',
-        component: ClansModule,
+        redirectTo: 'search'
+    },
+    {
+        path: '',
+        component: Clans,
         children: [
             {
-                path: '',
-                component: ClansListModule
-            },
-            {
-                path: ':abbr',
-                component: ClansDetailModule
+                path: 'list',
+                loadChildren: () => require('es6-promise!./clans-list.module')('ClansListModule')
             },
             {
                 path: 'search',
-                component: ClansSearchModule
+                loadChildren: () => require('es6-promise!./clans-search.module')('ClansSearchModule')
+            },
+            {
+                path: ':abbr',
+                loadChildren: () => require('es6-promise!./clans-detail.module')('ClansDetailModule')
             }
         ]
     }
 ];
+
+export const routing: ModuleWithProviders = RouterModule.forChild(routes);

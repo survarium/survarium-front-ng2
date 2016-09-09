@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { DataGrid } from './data-grid';
 import Cell from './data-grid-cell'
 import CellTitle from './data-grid-cell-title'
@@ -12,7 +10,7 @@ import { DataGridFiltersDate } from './data-grid-filters-date';
 import { SharedModule } from '../../shared'
 
 @NgModule({
-    imports: [CommonModule, FormsModule, SharedModule],
+    imports: [SharedModule],
     declarations: [
         DataGrid,
         DataGridFiltersNumber,

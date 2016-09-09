@@ -1,15 +1,8 @@
-import { NgModule, Component, ViewEncapsulation } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import { Router } from '@angular/router'
 import { Storage } from '../../utils/storage'
 import { TitleService } from '../../services/title'
 import { I18N } from '../../services/i18n'
-
-@NgModule({
-    declarations: [ClansSearch],
-    bootstrap: [ClansSearch]
-})
-
-export class ClansSearchModule {}
 
 @Component({
     styles: [require('./clans-search.styl')],
@@ -35,7 +28,7 @@ export class ClansSearch {
         }
         abbr = abbr.trim();
         Storage.setItem('clan:find', abbr);
-        this._router.navigate(['/clans', { abbr: abbr }]);
+        this._router.navigate(['/clans', abbr]);
     }
 }
 

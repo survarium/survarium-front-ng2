@@ -53,32 +53,34 @@ export class PlayersDetail implements OnInit, OnDestroy {
                 private _sanitizer :DomSanitizer) {
     }
 
+    private getPlayer (nickname :string) {
+        this.name = nickname;
+
+        this._playerService
+            .fetch(this.name)
+            .subscribe(data => {
+                this.data = data;
+
+                if (this.data.clan_meta) {
+                    this.data.clan = this.data.clan_meta;
+                }
+
+                this.setJsonLD(this.data);
+                this.show = true;
+
+                this._title.setTitle(this.data.nickname);
+                this._title.setDescription(i18n.get('players.docDescriptionOne', { nickname: this.data.nickname }));
+                this._store.players.add(this.data.nickname);
+            }, err => {
+                this.error = JSON.stringify(err, null, 4);
+            });
+    }
+
     private routerSubscriber :any;
 
     ngOnInit () {
         this.routerSubscriber = this.route.params.map(params => params['nickname'].trim())
-            .subscribe(nickname => {
-                this.name = nickname;
-
-                this._playerService
-                    .fetch(this.name)
-                    .subscribe(data => {
-                        this.data = data;
-
-                        if (this.data.clan_meta) {
-                            this.data.clan = this.data.clan_meta;
-                        }
-
-                        this.setJsonLD(this.data);
-                        this.show = true;
-
-                        this._title.setTitle(this.data.nickname);
-                        this._title.setDescription(i18n.get('players.docDescriptionOne', { nickname: this.data.nickname }));
-                        this._store.players.add(this.data.nickname);
-                    }, err => {
-                        this.error = JSON.stringify(err, null, 4);
-                    });
-            });
+            .subscribe(this.getPlayer.bind(this));
     }
 
     ngOnDestroy () {

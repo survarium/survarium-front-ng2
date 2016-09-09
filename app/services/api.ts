@@ -363,7 +363,8 @@ export class ClansService {
             url: this._handle + (query.publicStats ? '' : '/cw'),
             headers: headers,
             search: params,
-            method: 'get'
+            method: 'get',
+            body: ''
         });
 
         return this.http.request(options)

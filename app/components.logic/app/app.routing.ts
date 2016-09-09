@@ -1,10 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 
-/*
-import { MatchesRoutes } from '../matches/matches.routes'
-import { PlayersRoutes } from '../players/players.routes'
-import { StreamsRoutes } from '../streams/streams.routes'*/
 import { Error404 } from '../errors/404'
 
 export const routes: Routes = [
@@ -16,10 +12,11 @@ export const routes: Routes = [
         path: 'info',
         loadChildren: () => require('es6-promise!../info/info.module')('InfoModule')
     },
-    //...ClansRoutes,
     //...MatchesRoutes,
-    //...PlayersRoutes,
-    //...StreamsRoutes,
+    {
+        path: 'clans',
+        loadChildren: () => require('es6-promise!../clans/clans.module')('ClansModule')
+    },
     {
         path: 'players',
         loadChildren: () => require('es6-promise!../players/players.module')('PlayersModule')

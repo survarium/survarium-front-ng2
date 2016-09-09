@@ -1,4 +1,4 @@
-import { NgModule, APP_ID } from '@angular/core';
+import { NgModule, APP_ID, QueryList } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'
 import { APP_BASE_HREF } from '@angular/common'
@@ -33,10 +33,7 @@ import { Error404 } from '../errors/404'
         HttpModule,
         FormsModule,
         routing,
-        SharedModule,
-        //HomeModule,
-        //ArmoryModule
-        //InfoModule
+        SharedModule
     ],
     entryComponents: [
     ],
@@ -47,6 +44,7 @@ import { Error404 } from '../errors/404'
         { provide: I18N, useValue: i18n },
         { provide: APP_BASE_HREF, useValue: '/' },
         { provide: 'CONFIG', useValue: CONFIG },
+        QueryList,
         TitleProvider,
         StoreService,
         ...API_PROVIDERS,
