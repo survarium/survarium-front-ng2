@@ -2,7 +2,7 @@ import { NgModule, Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
-import { FactionsService } from '../../services/factions'
+//import { FactionsService } from '../../services/factions'
 import { SUBTYPES } from '../../services/armory'
 import { I18N } from '../../services/i18n'
 import { Storage } from '../../utils/storage'
@@ -56,7 +56,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
             .subscribe(data => this.usage = data, () => {});
     }
 
-    private getFaction() {
+    /*private getFaction() {
         if (this.faction) {
             return;
         }
@@ -64,7 +64,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
         this.factionsService
             .getName(this.verData.parameters.faction)
             .subscribe(data => { this.faction = data }, () => {});
-    }
+    }*/
 
     private getItem() {
         this.gameService
@@ -83,13 +83,13 @@ export class ArmoryItem implements OnInit, OnDestroy {
                 this.title.setDescription(this.i18n.get('armory.docDescription'));
 
                 this.getUsage();
-                this.getFaction();
+                // this.getFaction();
             }, () => {});
     }
 
     constructor (private route :ActivatedRoute,
                  private gameService :GameService,
-                 private factionsService :FactionsService,
+                 //private factionsService :FactionsService,
                  private title :TitleService,
                  private i18n :I18N) {}
 

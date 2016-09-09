@@ -16,8 +16,8 @@ import { DFPService } from '../../services/dfp'
 import { TitleService } from '../../services/title'
 import { I18N, i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
-import { FactionsService } from '../../services/factions'
 import { ArmoryService } from '../../services/armory'
+//import { FactionsService } from '../../services/factions'
 
 import { SharedModule } from '../../shared'
 
@@ -53,7 +53,7 @@ import { Error404 } from '../errors/404'
         DFPService,
         TitleService,
         MapsService,
-        FactionsService,
+        //FactionsService,
         ArmoryService
     ],
     declarations: [
