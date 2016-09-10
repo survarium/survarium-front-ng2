@@ -3,11 +3,10 @@ import { kdRatio } from '../../utils/kd'
 
 @Component({
     selector: 'kd',
-    inputs: ['kills', 'dies'],
     template: `{{kd || 0}}`
 })
 
-export class AvgScore  {
+export class KD  {
     @Input() private kills :number;
     @Input() private dies :number;
 
@@ -16,4 +15,4 @@ export class AvgScore  {
     }
 
 }
-export default AvgScore
+export default KD

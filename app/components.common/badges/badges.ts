@@ -1,18 +1,25 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
+
+@Component({
+    selector: 'badge',
+    template: '<ng-content></ng-content>'
+})
+
+export class Badge {}
 
 @Component({
     selector: 'badges',
-    pipes: [I18NPipe],
     template: require('./badges.html'),
     styles: [require('./badges.styl')]
 })
 
 export class Badges {
-    private badges :any[] = [];
+    private badges :any[];
     private player :any;
 
     @Input('player') set setPlayer (val) {
+        this.badges = [];
+
         if (val.nickname === 'Vaseker') {
             this.badges.push('svpro-developer');
         }

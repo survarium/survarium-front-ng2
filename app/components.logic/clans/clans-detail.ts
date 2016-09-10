@@ -1,25 +1,18 @@
-import { Component } from '@angular/core'
-import { RouteParams } from '@angular/router-deprecated'
-import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import Counts from './clans-detail-counts'
-import Players from './clans-detail-players'
-import Matches from './clans-detail-matches'
-import Clanwars from './clans-detail-clanwars'
 
 @Component({
     selector: 'clans-detail',
-    pipes: [I18NPipe],
-    directives: [Counts, Players, Matches, Clanwars],
     template: require('./clans-detail.html'),
     styles: [require('./clans-detail.styl')]
 })
 
-export class ClansDetail {
+export class ClansDetail implements OnInit, OnDestroy {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -73,15 +66,21 @@ export class ClansDetail {
             </script>`);
     }
 
-    constructor(private _routeParams :RouteParams,
+    constructor(private route :ActivatedRoute,
                 private _clansService :ClansService,
                 private _title :TitleService,
                 private _store :Store,
-                private _sanitizer :DomSanitizationService) {
+                private _sanitizer :DomSanitizer) {
+    }
 
-        this.name = this._routeParams.get('abbr').trim();
+    private dataSubscriber :any;
 
-        this._clansService
+    private getClan (abbr :string) {
+        this.cleanup();
+
+        this.name = abbr;
+
+        this.dataSubscriber = this._clansService
             .fetch(this.name)
             .subscribe(data => {
                 this.data = data;
@@ -93,5 +92,26 @@ export class ClansDetail {
             }, err => {
                 this.error = JSON.stringify(err, null, 4);
             });
+    }
+
+    private cleanup () {
+        this.error = null;
+        this.isPublic = true;
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
+    private routerSubscriber :any;
+
+    ngOnInit () {
+        this.routerSubscriber = this.route.params.map(params => params['abbr'].trim())
+            .subscribe(this.getClan.bind(this));
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
+        this.cleanup();
     }
 }

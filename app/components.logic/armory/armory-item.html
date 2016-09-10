@@ -1,4 +1,4 @@
-<a class="back" [routerLink]="['ArmoryList']">{{'armory.title' | i18n}}</a>
+<a class="back" routerLink="/armory">{{'armory.title' | i18n}}</a>
 <template [ngIf]="data">
     <h2>{{data.name}}</h2>
     <visual *ngIf="data.visual" [model]="data.key"></visual>

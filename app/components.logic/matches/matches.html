@@ -1,7 +1,7 @@
 <nav>
-    <a [routerLink]="['./MatchesSearch']" class="nav-link">{{'matches.search.title' | i18n}}</a>
-    <a [routerLink]="['./MatchesList']" class="nav-link">{{'matches.list' | i18n}}</a>
-    <a [routerLink]="['./MatchesCWList']" class="nav-link">{{'matches.cw.title' | i18n}}</a>
-    <a *ngFor="let match of matches" [routerLink]="['./MatchesDetail', { match: match }]" class="nav-link">{{match}}</a>
+    <a routerLink="search" routerLinkActive="router-link-active" class="nav-link">{{'matches.search.title' | i18n}}</a>
+    <a routerLink="list" routerLinkActive="router-link-active" class="nav-link">{{'matches.list' | i18n}}</a>
+    <a routerLink="clanwars" routerLinkActive="router-link-active" class="nav-link">{{'matches.cw.title' | i18n}}</a>
+    <a *ngFor="let match of matches" [routerLink]="match" routerLinkActive="router-link-active" class="nav-link">{{match}}</a>
 </nav>
 <router-outlet></router-outlet>

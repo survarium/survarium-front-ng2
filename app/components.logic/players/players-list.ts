@@ -5,14 +5,10 @@ import TitleService from '../../services/title'
 import Nickname from '../../components.common/nickname/nickname'
 import Percent from '../../components.common/percent/percent'
 import { Elapsed } from '../../components.common/elapsed/elapsed'
-import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 import { PlayersList as PlayersListTyping } from '../../typings/players-list'
 
 @Component({
-    directives: [DataGrid],
-    pipes: [I18NPipe],
     template: `<data-grid [stream]="stream" [columns]="columns" [name]="'players-list-global'"></data-grid>`,
     selector: 'players-list',
     styles: []

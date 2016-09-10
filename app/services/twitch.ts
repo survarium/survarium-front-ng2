@@ -38,7 +38,8 @@ export class TwitchService {
             url: `${this._handle}/streams`,
             headers: headers,
             search: params,
-            method: 'get'
+            method: 'get',
+            body: ''
         });
 
         return this.http.request(options)

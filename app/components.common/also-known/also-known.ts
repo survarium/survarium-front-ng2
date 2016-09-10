@@ -1,10 +1,7 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
 
 @Component({
     selector: 'also-known',
-    pipes: [I18NPipe, DateTimePipe],
     template: require('./also-known.html'),
     styles: [require('./also-known.styl')]
 })
@@ -14,6 +11,7 @@ export class AlsoKnown {
 
     @Input('nicknames') set setNicknames (val) {
         if (!val) {
+            this.nicknames = null;
             return;
         }
         this.nicknames = val.reverse();

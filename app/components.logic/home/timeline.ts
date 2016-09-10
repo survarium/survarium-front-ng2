@@ -1,16 +1,11 @@
 import { Component, Inject } from '@angular/core'
-import { ChartComponent } from '../../components.common/chart/chart'
 import { MatchesService } from '../../services/api'
 import { i18n } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import { NumberPipe } from '../../pipes/number'
 import { Colors } from '../../components.common/colors'
 import { NumberTransform } from '../../utils/number'
 
 @Component({
     selector: 'timeline',
-    directives: [ChartComponent],
-    pipes: [I18NPipe, NumberPipe],
     template: require('./timeline.html'),
     styles: [require('./timeline.styl')]
 })

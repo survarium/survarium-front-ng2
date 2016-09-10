@@ -1,19 +1,12 @@
 import { Component } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { DomSanitizer } from '@angular/platform-browser'
 import { VgService } from '../../services/api'
 import TitleService from '../../services/title'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
-import { DataGridCounters } from '../../components.common/data-grid/data-grid-counters'
-import { DataGridPagination } from '../../components.common/data-grid/data-grid-pagination'
-import { TelegramChannel } from '../../components.common/telegram-channel/telegram-channel'
 import { Observable } from 'rxjs'
 
 @Component({
     selector: 'dev-messages',
-    pipes: [I18NPipe, DateTimePipe],
-    directives: [DataGridCounters, DataGridPagination, TelegramChannel],
     template: require('./dev-messages.html'),
     styles: [require('./dev-messages.styl')]
 })
@@ -56,7 +49,7 @@ export class DevMessages {
 
     constructor(private _vgService :VgService,
                 private _title :TitleService,
-                private _domSanitize :DomSanitizationService,
+                private _domSanitize :DomSanitizer,
                 private i18n :I18N
     ) {
 

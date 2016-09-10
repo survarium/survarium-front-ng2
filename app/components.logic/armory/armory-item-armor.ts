@@ -1,14 +1,9 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
-import { NumberPipe } from '../../pipes/number'
-import { PercentPipe } from '../../pipes/percent'
 
 @Component({
     selector: '[armor]',
-    directives: [],
     template: require('./armory-item-armor.html'),
-    styles: [require('./armory-item-armor.styl')],
-    pipes: [I18NPipe, NumberPipe, PercentPipe]
+    styles: [require('./armory-item-armor.styl')]
 })
 
 export class ArmoryItemArmor {

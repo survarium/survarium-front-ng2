@@ -135,6 +135,8 @@ export class DataGridFiltersDate {
         }
         return result;
     }
+
+    set condition (val) {}
 }
 
 export default DataGridFiltersDate

@@ -1,30 +1,23 @@
-import { Component } from '@angular/core'
-import { DomSanitizationService, SafeUrl } from '@angular/platform-browser'
-import { RouteParams } from '@angular/router-deprecated'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
+import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
-import DataGrid from '../../components.common/data-grid/data-grid'
 import { Nickname } from '../../components.common/nickname/nickname'
-import { Clan } from '../../components.common/clan/clan'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { TrackService } from '../../services/track'
 import { i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
 import { duration } from '../../utils/duration'
-import { NumberTransform } from '../../utils/number'
 
 @Component({
     selector: 'matches-detail',
-    directives: [DataGrid, Clan],
-    pipes: [I18NPipe, DateTimePipe],
     template: require('./matches-detail.html'),
     styles: [require('./matches-detail.styl')]
 })
 
-export class MatchesDetail {
+export class MatchesDetail implements OnInit, OnDestroy {
     private match :number;
     private data  :any;
     private error :any;
@@ -33,6 +26,7 @@ export class MatchesDetail {
     private apiLang = i18n.apiLang;
 
     replay :SafeUrl;
+    private replaySubscriber :any;
     private setReplay() {
         let replay = this.data.replay;
 
@@ -40,7 +34,7 @@ export class MatchesDetail {
             return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${replay.replace(/%2F/g, '/')}`);
         }
 
-        this._matchesService.checkReplay(this.data.id)
+        this.replaySubscriber = this._matchesService.checkReplay(this.data.id)
             .subscribe(replay => {
                 if (!replay) {
                     return;
@@ -168,25 +162,28 @@ export class MatchesDetail {
         { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } }
     ];
 
-    constructor(private _routeParams :RouteParams,
+    constructor(private route :ActivatedRoute,
                 private _matchesService :MatchesService,
                 private _title :TitleService,
                 private _store :Store,
                 private _mapsService: MapsService,
-                private _domSanitize :DomSanitizationService,
+                private _domSanitize :DomSanitizer,
                 private _trackService :TrackService
-    ) {
+    ) {}
 
-        let match = Number(this._routeParams.get('match'));
+    private dataSubscriber :any;
+
+    private getMatch(match) {
+        this.cleanup();
+
         if (isNaN(match)) {
             return;
         }
 
+        this.match = match;
         this.stream = this.stream.bind(this);
 
-        this.match = match;
-
-        this._matchesService
+        this.dataSubscriber = this._matchesService
             .fetch(this.match)
             .subscribe(data => {
                 this.setMap(data.map);
@@ -206,5 +203,30 @@ export class MatchesDetail {
             }, err => {
                 this.error = JSON.stringify(err, null, 4);
             });
+    }
+
+    private cleanup () {
+        this.error = null;
+
+        if (this.replaySubscriber) {
+            this.replaySubscriber.unsubscribe();
+        }
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
+    private routerSubscriber :any;
+
+    ngOnInit () {
+        this.routerSubscriber = this.route.params.map(params => Number(params['match'])).subscribe(match => {
+            this.getMatch(match);
+        });
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
+        this.cleanup();
     }
 }

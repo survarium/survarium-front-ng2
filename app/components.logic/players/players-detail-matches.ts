@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
-import DataGrid from '../../components.common/data-grid/data-grid'
 import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
@@ -10,12 +9,20 @@ import { i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail-matches',
-    directives: [DataGrid],
     template: require('./players-detail-matches.html')
 })
 
 export class PlayersDetailMatches {
-    @Input() nickname :string;
+    private _nickname :string;
+
+    @Input('nickname') set nickname (val :string) {
+        this._nickname = val;
+        this.stream = this.stream.bind(this);
+    };
+
+    get nickname () {
+        return this._nickname;
+    }
 
     private apiLang = i18n.apiLang;
 
@@ -49,9 +56,7 @@ export class PlayersDetailMatches {
             .stats(this.nickname, options);
     };
 
-    constructor (private _playerService :PlayersService) {
-        this.stream = this.stream.bind(this);
-    }
+    constructor (private _playerService :PlayersService) {}
 }
 
 export default PlayersDetailMatches

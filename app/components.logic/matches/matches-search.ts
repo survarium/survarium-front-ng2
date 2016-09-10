@@ -1,14 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core'
-import { Router } from '@angular/router-deprecated'
+import { Router } from '@angular/router'
 import { TitleService } from '../../services/title'
 import { Storage } from '../../utils/storage'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
-    providers  : [],
-    directives : [],
-    pipes: [I18NPipe],
     styles: [require('./matches-search.styl')],
     template: require('./matches-search.html'),
     selector: 'matches-search',
@@ -32,7 +28,7 @@ export class MatchesSearch {
         }
         id = id.trim();
         Storage.setItem('match:find', id);
-        this._router.navigate(['MatchesDetail', { match: id }]);
+        this._router.navigate(['matches', id]);
     }
 }
 

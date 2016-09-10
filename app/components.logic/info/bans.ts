@@ -2,17 +2,9 @@ import { Component } from '@angular/core'
 import { VgService } from '../../services/api'
 import TitleService from '../../services/title'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
-import { DataGridCounters } from '../../components.common/data-grid/data-grid-counters'
-import { DataGridPagination } from '../../components.common/data-grid/data-grid-pagination'
-import { Nickname } from '../../components.common/nickname/nickname'
-import { DFP } from '../../components.common/dfp/dfp'
 
 @Component({
     selector: 'bans',
-    pipes: [I18NPipe, DateTimePipe],
-    directives: [DataGridCounters, DataGridPagination, Nickname, DFP],
     template: require('./bans.html'),
     styles: [require('./bans.styl')]
 })

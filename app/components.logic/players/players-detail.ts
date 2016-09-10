@@ -1,32 +1,20 @@
-import { Component } from '@angular/core'
-import { RouteParams } from '@angular/router-deprecated'
-import { DomSanitizationService, SafeHtml } from '@angular/platform-browser'
+import { Component, OnInit, OnDestroy } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 import { PlayersService } from '../../services/api'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
-import Counts from './players-detail-counts'
-import Matches from './players-detail-matches'
-import History from './players-detail-history'
-import Leveling from './players-detail-leveling'
-import Skills from './players-detail-skills'
-import Ammunition from './players-detail-ammunition'
-import Nickname from '../../components.common/nickname/nickname'
-import Badges from '../../components.common/badges/badges'
-import { AlsoKnown } from '../../components.common/also-known/also-known'
-import { I18NPipe } from '../../pipes/i18n'
+
 import { i18n } from '../../services/i18n'
 //import { Adsense } from '../../components.common/adsense/adsense'
-import { DFP } from '../../components.common/dfp/dfp'
 
 @Component({
     selector: 'players-detail',
-    directives: [Counts, Nickname, Matches, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, DFP],
-    pipes: [I18NPipe],
     template: require('./players-detail.html'),
     styles: [require('./players-detail.styl')]
 })
 
-export class PlayersDetail {
+export class PlayersDetail implements OnInit, OnDestroy {
     private name  :string;
     private data  :any = {};
     private error :any;
@@ -58,15 +46,21 @@ export class PlayersDetail {
             </script>`);
     }
 
-    constructor(private _routeParams :RouteParams,
+    constructor(private route :ActivatedRoute,
                 private _playerService :PlayersService,
                 private _title :TitleService,
                 private _store :Store,
-                private _sanitizer :DomSanitizationService) {
+                private _sanitizer :DomSanitizer) {
+    }
 
-        this.name = this._routeParams.get('nickname').trim();
+    private dataSubscriber :any;
 
-        this._playerService
+    private getPlayer (nickname :string) {
+        this.cleanup();
+
+        this.name = nickname;
+
+        this.dataSubscriber = this._playerService
             .fetch(this.name)
             .subscribe(data => {
                 this.data = data;
@@ -84,5 +78,25 @@ export class PlayersDetail {
             }, err => {
                 this.error = JSON.stringify(err, null, 4);
             });
+    }
+
+    private cleanup () {
+        this.error = null;
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
+    private routerSubscriber :any;
+
+    ngOnInit () {
+        this.routerSubscriber = this.route.params.map(params => params['nickname'].trim())
+            .subscribe(this.getPlayer.bind(this));
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
+        this.cleanup();
     }
 }

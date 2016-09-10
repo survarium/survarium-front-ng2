@@ -1,16 +1,10 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
-import { I18NPipe } from '../../pipes/i18n'
-import { NumberPipe } from '../../pipes/number'
-import { Nickname } from '../../components.common/nickname/nickname'
-import { Match } from '../../components.common/match/match'
 import { TrackService } from '../../services/track'
 
 @Component({
     selector: 'players-top',
-    pipes: [I18NPipe, NumberPipe],
-    directives: [Nickname, Match],
     template: require('./players-top.html'),
     styles: [require('./players-top.styl')]
 })

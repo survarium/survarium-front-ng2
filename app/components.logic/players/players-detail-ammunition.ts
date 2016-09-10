@@ -1,15 +1,11 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { GameService } from '../../services/api'
 import { SUBTYPES } from '../../services/armory'
-import { ArmItem } from '../../components.common/arm-item/arm-item'
 import { Observable } from 'rxjs'
 import { I18N, i18n } from '../../services/i18n'
 
 @Component({
     selector: 'players-detail-ammunition',
-    directives: [ArmItem],
-    pipes: [I18NPipe],
     template: require('./players-detail-ammunition.html'),
     styles: [require('./players-detail-ammunition.styl')],
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -17,7 +13,16 @@ import { I18N, i18n } from '../../services/i18n'
 
 export default class PlayersDetailAmmunition {
     private shown = false;
-    @Input() private ammunition :any[];
+    private _ammunition;
+    @Input() set ammunition (val :any[]) {
+        this.shown = false;
+        this.items = null;
+        this._ammunition = val;
+    };
+
+    get ammunition () {
+        return this._ammunition;
+    }
 
     constructor (private gameService :GameService, private i18n :I18N, private changeDetector :ChangeDetectorRef) {}
 

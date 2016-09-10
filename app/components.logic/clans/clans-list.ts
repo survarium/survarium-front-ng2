@@ -1,22 +1,19 @@
-import { Component, ViewQuery, QueryList } from '@angular/core'
-import { DomSanitizationService } from '@angular/platform-browser'
+import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 import { ClansService } from '../../services/api'
 import TitleService from '../../services/title'
 import Clan from '../../components.common/clan/clan'
 import Percent from '../../components.common/percent/percent'
 import DataGrid from '../../components.common/data-grid/data-grid'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
-    directives: [DataGrid],
-    pipes: [I18NPipe],
-    template: require('./clans-list.html'),
     selector: 'clans-list',
+    template: require('./clans-list.html'),
     styles: [require('./clans-list.styl')]
 })
 
-export class ClansList {
+export class ClansList implements AfterViewInit {
     data :any[];
 
     private columns :any[] = [];
@@ -48,15 +45,14 @@ export class ClansList {
         this.grid && this.grid.load({ skip: 0 });
     }
 
+    @ViewChildren(DataGrid) private elList :QueryList<DataGrid>;
+
     constructor(private _clansService :ClansService,
                 private _title :TitleService,
                 private i18n :I18N,
-                private _sanitizer :DomSanitizationService,
-                @ViewQuery(DataGrid, { descendants: false }) private elList: QueryList<DataGrid>) {
+                private _sanitizer :DomSanitizer) {
 
         this.stream = this.stream.bind(this);
-
-        elList.changes.subscribe(() => this.grid = elList.first);
 
         this._title.setTitle(i18n.get('clans.docTitle'));
         this._title.setDescription(i18n.get('clans.docDescription'));
@@ -168,5 +164,9 @@ export class ClansList {
                 classes: 'center'
             }
         ];
+    }
+
+    ngAfterViewInit() {
+        this.grid = this.elList.first;
     }
 }

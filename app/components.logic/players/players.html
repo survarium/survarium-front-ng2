@@ -1,6 +1,6 @@
 <nav>
-    <a [routerLink]="['./PlayersSearch']" class="nav-link">{{'players.search.title' | i18n}}</a>
-    <a [routerLink]="['./PlayersList']" class="nav-link">{{'players.list' | i18n}}</a>
-    <a *ngFor="let player of players" [routerLink]="['./PlayersDetail', { nickname: player }]" class="nav-link">{{player}}</a>
+    <a routerLink="search" class="nav-link" routerLinkActive="router-link-active">{{'players.search.title' | i18n}}</a>
+    <a routerLink="list" class="nav-link" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">{{'players.list' | i18n}}</a>
+    <a *ngFor="let player of players" [routerLink]="player" class="nav-link" routerLinkActive="router-link-active">{{player}}</a>
 </nav>
 <router-outlet></router-outlet>

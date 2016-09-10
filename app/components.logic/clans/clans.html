@@ -1,6 +1,6 @@
 <nav>
-    <a [routerLink]="['./ClansSearch']" class="nav-link">{{'clans.search.title' | i18n}}</a>
-    <a [routerLink]="['./ClansList']" class="nav-link">{{'clans.list' | i18n}}</a>
-    <a *ngFor="let clan of clans" [routerLink]="['./ClansDetail', { abbr: clan }]" class="nav-link">{{clan}}</a>
+    <a routerLink="search" routerLinkActive="router-link-active" class="nav-link">{{'clans.search.title' | i18n}}</a>
+    <a routerLink="list" routerLinkActive="router-link-active" class="nav-link">{{'clans.list' | i18n}}</a>
+    <a *ngFor="let clan of clans" [routerLink]="clan" routerLinkActive="router-link-active" class="nav-link">{{clan}}</a>
 </nav>
 <router-outlet></router-outlet>

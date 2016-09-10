@@ -1,10 +1,8 @@
 import { Component, Input } from '@angular/core'
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated'
 import { I18N } from '../../services/i18n'
 
 @Component({
     selector: 'clan',
-    directives: [ROUTER_DIRECTIVES],
     inputs: ['abbr', 'name'],
     template: require('./clan.html'),
     styles: [require('./clan.styl')]

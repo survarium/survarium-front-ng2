@@ -1,22 +1,44 @@
-import { Component, Input, OnInit, ViewContainerRef } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
+import { Component, Input, ViewContainerRef } from '@angular/core'
 import { Colors } from '../../components.common/colors'
-import { NumberPipe } from '../../pipes/number'
-import { ChartComponent } from '../../components.common/chart/chart'
 
 const experience :any[] = require('./players-detail-leveling.json');
 
 @Component({
     selector: 'players-detail-leveling',
-    directives: [ChartComponent],
-    pipes:   [I18NPipe, NumberPipe],
     template: require('./players-detail-leveling.html'),
     styles: [require('./players-detail-leveling.styl')]
 })
 
-export class PlayersDetailLeveling implements OnInit {
-    @Input() exp :number;
-    @Input() level :number;
+export class PlayersDetailLeveling {
+    private _exp :number;
+    @Input() set exp (val :number) {
+        this._exp = val;
+        this.init();
+    };
+    get exp () { return this._exp; }
+
+    private _level :number;
+    @Input() set level (val :number) {
+        this._level = val;
+        this.init();
+    };
+    get level () { return this._level; }
+
+    private initer :any;
+
+    private _init () {
+        if (this.level >= 100) {
+            this.data = null;
+            return;
+        }
+
+        this.setData();
+    }
+
+    private init () {
+        clearTimeout(this.initer);
+        this.initer = setTimeout(this._init.bind(this), 10);
+    }
 
     constructor (private view :ViewContainerRef) { }
 
@@ -97,14 +119,6 @@ export class PlayersDetailLeveling implements OnInit {
 
     private toggleMode()  {
         this.fullMode = !this.fullMode;
-        this.setData();
-    }
-
-    ngOnInit () {
-        if (this.level >= 100) {
-            return;
-        }
-
         this.setData();
     }
 }

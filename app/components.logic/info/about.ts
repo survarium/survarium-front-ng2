@@ -2,17 +2,9 @@ import { Component, Inject } from '@angular/core'
 import { PlayersService } from '../../services/api'
 import TitleService from '../../services/title'
 import { i18n } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
-import { TelegramChannel } from '../../components.common/telegram-channel/telegram-channel'
-import { VkGroup } from '../../components.common/vk-group/vk-group'
-import { Nickname } from '../../components.common/nickname/nickname'
-import { Thanks } from './thanks'
 
 @Component({
     selector: 'about',
-    pipes: [I18NPipe, DateTimePipe],
-    directives: [TelegramChannel, Nickname, VkGroup, Thanks],
     template: require('./about.html'),
     styles: [require('./about.styl')]
 })

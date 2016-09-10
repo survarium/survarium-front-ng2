@@ -1,13 +1,8 @@
 import { Component } from '@angular/core'
 import { PlayersService } from '../../services/api'
-import { I18NPipe } from '../../pipes/i18n'
-import { DateTimePipe } from '../../pipes/datetime'
-import { Nickname } from '../../components.common/nickname/nickname'
 
 @Component({
     selector: 'thanks',
-    pipes: [I18NPipe, DateTimePipe],
-    directives: [Nickname],
     template: require('./thanks.html'),
     styles: [require('./thanks.styl')]
 })

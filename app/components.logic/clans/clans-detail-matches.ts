@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core'
-import { I18NPipe } from '../../pipes/i18n'
 import { i18n } from '../../services/i18n'
 import { ClansService } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
@@ -7,16 +6,18 @@ import { Map } from '../../components.common/map/map'
 import { Mode } from '../../components.common/mode/mode'
 import { Match } from '../../components.common/match/match'
 import { DateTime } from '../../components.common/datetime/datetime'
-import DataGrid from '../../components.common/data-grid/data-grid'
 
 @Component({
-    directives: [DataGrid],
     selector: 'clans-detail-matches',
-    pipes: [I18NPipe],
     template: `<h3>{{'clans.publicMatches' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailMatches {
-    @Input() clan :any;
+    private _clan :any;
+    @Input() set clan (val :any) {
+        this._clan = val;
+        this.stream = this.stream.bind(this);
+    };
+    get clan () { return this._clan; }
     apiLang = i18n.apiLang;
 
     private limits = [15, 30, 50];
@@ -106,9 +107,7 @@ export class ClansDetailMatches {
         }
     ];
 
-    constructor (private _clansService :ClansService) {
-        this.stream = this.stream.bind(this);
-    }
+    constructor (private _clansService :ClansService) {}
 }
 
 export default ClansDetailMatches

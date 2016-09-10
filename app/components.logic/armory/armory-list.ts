@@ -1,18 +1,16 @@
-import { Component } from '@angular/core'
+import { NgModule, Component } from '@angular/core'
+
 import { TitleService } from '../../services/title'
 import { GameService } from '../../services/api'
 import { TYPES, LEVELS } from '../../services/armory'
 import { I18N } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 import { Storage } from '../../utils/storage'
-import { ArmItem } from '../../components.common/arm-item/arm-item'
+import { SharedModule } from '../../shared'
 
 @Component({
     selector: 'armory-list',
-    directives: [ArmItem],
     styles: [require('./armory-list.styl')],
     template: require('./armory-list.html'),
-    pipes: [I18NPipe]
 })
 
 export class ArmoryList {
@@ -181,3 +179,10 @@ export class ArmoryList {
             }).sort((a, b) => b.level - a.level));
     }
 }
+
+@NgModule({
+    imports: [SharedModule],
+    declarations: [ArmoryList]
+})
+
+export class ArmoryListModule {}

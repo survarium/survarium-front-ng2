@@ -1,12 +1,10 @@
 import { Component, Input, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core'
 import { DFPService } from '../../services/dfp'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
     selector: 'dfp',
     template: require('./dfp.html'),
     styles: [require('./dfp.styl')],
-    pipes: [I18NPipe],
     host: {
         '[class.empty]': 'empty'
     }

@@ -1,30 +1,30 @@
 <div class="panes__wrap">
     <nav class="panes__tabs">
-        <a class="panes__tab" [routerLink]="['Home']">
+        <a class="panes__tab" routerLink="/" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">
             <span class="panes__tab_link">{{'home.title' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Players']">
+        <a class="panes__tab" routerLink="/players" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'players.title' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Matches']">
+        <a class="panes__tab" routerLink="/matches" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'matches.list' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Clans']">
+        <a class="panes__tab" routerLink="/clans" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'clans.title' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Streams']">
+        <a class="panes__tab" routerLink="/streams" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'streams.title' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Info']">
+        <a class="panes__tab" routerLink="/info" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'info.title' | i18n}}</span>
         </a>
 
-        <a class="panes__tab" [routerLink]="['Armory']">
+        <a class="panes__tab" routerLink="/armory" routerLinkActive="router-link-active">
             <span class="panes__tab_link">{{'armory.title' | i18n}}</span>
         </a>
 

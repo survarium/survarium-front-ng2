@@ -2,18 +2,14 @@ import { Component } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import TitleService from '../../services/title'
-import DataGrid from '../../components.common/data-grid/data-grid'
 import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
 import Clan from '../../components.common/clan/clan'
 import { i18n } from '../../services/i18n'
-import { I18NPipe } from '../../pipes/i18n'
 
 @Component({
-    directives: [DataGrid],
-    pipes: [I18NPipe],
     template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
     selector: 'matches-list-cw',
     styles: []

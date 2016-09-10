@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef, ComponentRef, Input, OnInit } from '@angular/core'
+import { Component, ViewContainerRef, ComponentRef, Input, AfterContentInit } from '@angular/core'
 import { VkFeedService } from '../../services/vk-feed'
 import { Widget, WidgetStyle } from '../widget/widget'
 
@@ -11,7 +11,7 @@ import { Widget, WidgetStyle } from '../widget/widget'
     styles: [WidgetStyle]
 })
 
-export class VkFeed extends Widget implements OnInit {
+export class VkFeed extends Widget implements AfterContentInit {
     @Input('id') private id :string;
     private widget :ComponentRef<any>;
 
@@ -30,7 +30,7 @@ export class VkFeed extends Widget implements OnInit {
         super();
     }
 
-    ngOnInit () {
+    ngAfterContentInit () {
         this.init();
     }
 

@@ -1,14 +1,6 @@
 import { appProvider } from './app'
-import { Injectable, Component, ComponentFactory, ComponentRef, Compiler } from '@angular/core'
-
-@Component({
-    selector: 'vk-feed-widget',
-    template: `<div id="vk_feed_{{ID}}"></div>`
-})
-
-class VkFeedWidget {
-    public ID :number;
-}
+import { Injectable, ComponentFactoryResolver, ComponentRef } from '@angular/core'
+import { VkFeedWidget } from '../components.common/vk-feed/vk-feed-widget'
 
 declare var VK :any;
 
@@ -16,47 +8,38 @@ declare var VK :any;
 export class VkFeedService {
     private widgets = {};
 
-    private sharedComponent :any;
-
-    constructor (compiler :Compiler) {
-        this.sharedComponent = compiler.compileComponentAsync(VkFeedWidget);
-    }
+    constructor(private componentResolver :ComponentFactoryResolver) {}
 
     private makeWidget (params :{ id :number, options ?:any}, key: string) {
-        return this
-            .sharedComponent
-            .then((factory :ComponentFactory<any>) => appProvider.app.instance.viewRef.createComponent(factory))
-            .then((componentRef :ComponentRef<VkFeedWidget>) => {
-                componentRef.instance['ID'] = params.id;
-                return componentRef;
-            })
-            .then((componentRef :ComponentRef<VkFeedWidget>) => {
-                let createWidget = () => {
-                    VK.Widgets.Group(`vk_feed_${params.id}`, params.options, params.id);
-                    return this.widgets[key] = componentRef;
-                };
+        let vkFeedWidgetFactory = this.componentResolver.resolveComponentFactory(VkFeedWidget);
+        let componentRef :ComponentRef<VkFeedWidget> = appProvider.app.instance.viewRef.createComponent(vkFeedWidgetFactory);
+        componentRef.instance['ID'] = params.id;
 
-                let fails = 10;
+        let createWidget = () => {
+            VK.Widgets.Group(`vk_feed_${params.id}`, params.options, params.id);
+            return this.widgets[key] = componentRef;
+        };
 
-                return new Promise((resolve, reject) => {
-                    let wait, create;
-                    wait = () => {
-                        if (!--fails) {
-                            return reject();
-                        }
-                        setTimeout(() => {
-                            create();
-                        }, 1000);
-                    };
-                    create = () => {
-                        if (typeof VK === 'undefined') {
-                            return wait();
-                        }
-                        return resolve(createWidget());
-                    };
+        let fails = 10;
+
+        return new Promise((resolve, reject) => {
+            let wait, create;
+            wait = () => {
+                if (!--fails) {
+                    return reject();
+                }
+                setTimeout(() => {
                     create();
-                });
-            });
+                }, 1000);
+            };
+            create = () => {
+                if (typeof VK === 'undefined') {
+                    return wait();
+                }
+                return resolve(createWidget());
+            };
+            create();
+        });
     }
 
     widget(params) {
