@@ -12,7 +12,10 @@ export const routes: Routes = [
         path: 'info',
         loadChildren: () => require('es6-promise!../info/info.module')('InfoModule')
     },
-    //...MatchesRoutes,
+    {
+        path: 'matches',
+        loadChildren: () => require('es6-promise!../matches/matches.module')('MatchesModule')
+    },
     {
         path: 'clans',
         loadChildren: () => require('es6-promise!../clans/clans.module')('ClansModule')

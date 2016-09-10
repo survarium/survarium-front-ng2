@@ -11,6 +11,7 @@ export class AlsoKnown {
 
     @Input('nicknames') set setNicknames (val) {
         if (!val) {
+            this.nicknames = null;
             return;
         }
         this.nicknames = val.reverse();

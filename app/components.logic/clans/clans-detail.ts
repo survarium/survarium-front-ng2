@@ -95,7 +95,6 @@ export class ClansDetail implements OnInit, OnDestroy {
     }
 
     private cleanup () {
-        this.show = false;
         this.error = null;
         this.isPublic = true;
 

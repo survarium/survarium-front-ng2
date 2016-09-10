@@ -81,7 +81,6 @@ export class PlayersDetail implements OnInit, OnDestroy {
     }
 
     private cleanup () {
-        this.show = false;
         this.error = null;
 
         if (this.dataSubscriber) {

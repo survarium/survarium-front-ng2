@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
@@ -17,7 +17,7 @@ import { duration } from '../../utils/duration'
     styles: [require('./matches-detail.styl')]
 })
 
-export class MatchesDetail implements OnInit {
+export class MatchesDetail implements OnInit, OnDestroy {
     private match :number;
     private data  :any;
     private error :any;
@@ -26,6 +26,7 @@ export class MatchesDetail implements OnInit {
     private apiLang = i18n.apiLang;
 
     replay :SafeUrl;
+    private replaySubscriber :any;
     private setReplay() {
         let replay = this.data.replay;
 
@@ -33,7 +34,7 @@ export class MatchesDetail implements OnInit {
             return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${replay.replace(/%2F/g, '/')}`);
         }
 
-        this._matchesService.checkReplay(this.data.id)
+        this.replaySubscriber = this._matchesService.checkReplay(this.data.id)
             .subscribe(replay => {
                 if (!replay) {
                     return;
@@ -168,39 +169,64 @@ export class MatchesDetail implements OnInit {
                 private _mapsService: MapsService,
                 private _domSanitize :DomSanitizer,
                 private _trackService :TrackService
-    ) {
+    ) {}
+
+    private dataSubscriber :any;
+
+    private getMatch(match) {
+        this.cleanup();
+
+        if (isNaN(match)) {
+            return;
+        }
+
+        this.match = match;
+        this.stream = this.stream.bind(this);
+
+        this.dataSubscriber = this._matchesService
+            .fetch(this.match)
+            .subscribe(data => {
+                this.setMap(data.map);
+
+                data.map = data.map.lang[this.apiLang];
+
+                this.data = data;
+
+                this.setWinnerByData();
+                this.setScore();
+                this.setReplay();
+                this.setDuration();
+
+                this._title.setTitle(i18n.get('matches.match.docTitle', { id: this.data.id }));
+                this._title.setDescription(i18n.get('matches.match.docDescription', { id: this.data.id }));
+                this._store.matches.add(this.data.id);
+            }, err => {
+                this.error = JSON.stringify(err, null, 4);
+            });
     }
 
+    private cleanup () {
+        this.error = null;
+
+        if (this.replaySubscriber) {
+            this.replaySubscriber.unsubscribe();
+        }
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
+    private routerSubscriber :any;
+
     ngOnInit () {
-        this.route.params.map(params => Number(params['match'])).subscribe(match => {
-            if (isNaN(match)) {
-                return;
-            }
-
-            this.stream = this.stream.bind(this);
-
-            this.match = match;
-
-            this._matchesService
-                .fetch(this.match)
-                .subscribe(data => {
-                    this.setMap(data.map);
-
-                    data.map = data.map.lang[this.apiLang];
-
-                    this.data = data;
-
-                    this.setWinnerByData();
-                    this.setScore();
-                    this.setReplay();
-                    this.setDuration();
-
-                    this._title.setTitle(i18n.get('matches.match.docTitle', { id: this.data.id }));
-                    this._title.setDescription(i18n.get('matches.match.docDescription', { id: this.data.id }));
-                    this._store.matches.add(this.data.id);
-                }, err => {
-                    this.error = JSON.stringify(err, null, 4);
-                });
+        this.routerSubscriber = this.route.params.map(params => Number(params['match'])).subscribe(match => {
+            this.getMatch(match);
         });
+    }
+
+    ngOnDestroy () {
+        this.routerSubscriber.unsubscribe();
+        this.cleanup();
     }
 }

@@ -126,6 +126,8 @@ export class DataGrid implements OnDestroy {
         if (this.streamSubscriber) {
             this.streamSubscriber.unsubscribe();
         }
+
+        this.skip = 0;
     }
 
     ngOnDestroy () {

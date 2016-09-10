@@ -9,17 +9,41 @@ import { PlayersService } from '../../services/api'
 
 export class PlayersDetailSkills {
     private shown = false;
-    @Input() private nickname :string;
+    private _nickname :string;
+
+    @Input('nickname') set nickname (val :string) {
+        this.cleanup();
+        this._nickname = val;
+    };
+
+    get nickname () {
+        return this._nickname;
+    }
 
     constructor (private playersService :PlayersService) {}
 
     private skills :any[];
 
+    private dataSubscriber :any;
+
     private toggle () {
         this.shown = !this.shown;
 
         if (this.shown && !this.skills) {
-            this.playersService.skills(this.nickname).subscribe(skills => this.skills = skills, err => console.error(err));
+            this.dataSubscriber = this.playersService.skills(this.nickname).subscribe(skills => this.skills = skills, err => console.error(err));
         }
+    }
+
+    private cleanup () {
+        this.shown = false;
+        this.skills = null;
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
+    ngOnDestroy () {
+        this.cleanup();
     }
 }

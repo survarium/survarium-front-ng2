@@ -28,7 +28,7 @@ export class MatchesSearch {
         }
         id = id.trim();
         Storage.setItem('match:find', id);
-        this._router.navigate(['/matches', { match: id }]);
+        this._router.navigate(['matches', id]);
     }
 }
 

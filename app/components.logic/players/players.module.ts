@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core'
-import { FormsModule } from '@angular/forms'
 
 import { routing } from './players.routes'
 import { Players } from './players'
@@ -21,7 +20,7 @@ import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { Skills } from '../../components.common/skills/skills'
 
 @NgModule({
-    imports: [FormsModule, routing, SharedModule, DataGridModule],
+    imports: [routing, SharedModule, DataGridModule],
     declarations: [
         Players, PlayersSearch, PlayersList, PlayersDetail, PlayersDetailHistoryCounts, PlayersDetailSkills,
         Counts, Matches, Badge, Badges, History, AlsoKnown, Leveling, Skills, Ammunition

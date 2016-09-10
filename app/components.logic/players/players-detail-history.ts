@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Inject } from '@angular/core'
+import { Component, Input, Inject } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { Storage } from '../../utils/storage'
@@ -12,7 +12,7 @@ import { Colors } from '../../components.common/colors'
     template: require('./players-detail-history.html')
 })
 
-export class PlayersDetailHistory implements OnInit {
+export class PlayersDetailHistory {
     private ranges = ['day', 'week', 'month'];
     private currentRange = Storage.getItem('player:range') || this.ranges[0];
     private setRange(range) {
@@ -37,7 +37,16 @@ export class PlayersDetailHistory implements OnInit {
         this.load();
     }
 
-    @Input() nickname :string;
+    private _nickname :string;
+    @Input() set nickname (val :string) {
+        this._data = null;
+        this._nickname = val;
+        this.load();
+    };
+
+    get nickname () {
+        return this._nickname;
+    }
 
     private options = {
         responsive: true,
@@ -151,6 +160,8 @@ export class PlayersDetailHistory implements OnInit {
     private isMobile = false;
     private height = 'auto';
 
+    private dataSubscriber :any;
+
     constructor (private _playerService :PlayersService, @Inject('window') private window, @Inject('CONFIG') private config) {
         if (config.isMobile || window.outerWidth < 500) {
             this.isMobile = true;
@@ -160,11 +171,15 @@ export class PlayersDetailHistory implements OnInit {
         }
 
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
-        this.stream
+        this.dataSubscriber = this.stream
             .debounceTime(100)
             .distinctUntilChanged()
             .switchMap((options :any) => _playerService.history(this.nickname, options))
             .subscribe(data => this.data = data, err => {});
+    }
+
+    ngOnDestroy () {
+        this.dataSubscriber && this.dataSubscriber.unsubscribe();
     }
 
     public load () {
@@ -176,10 +191,6 @@ export class PlayersDetailHistory implements OnInit {
             range: this.currentRange,
             group: this.currentGroup
         });
-    }
-
-    ngOnInit () {
-        this.load();
     }
 }
 

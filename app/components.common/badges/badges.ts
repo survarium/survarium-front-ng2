@@ -14,10 +14,12 @@ export class Badge {}
 })
 
 export class Badges {
-    private badges :any[] = [];
+    private badges :any[];
     private player :any;
 
     @Input('player') set setPlayer (val) {
+        this.badges = [];
+
         if (val.nickname === 'Vaseker') {
             this.badges.push('svpro-developer');
         }

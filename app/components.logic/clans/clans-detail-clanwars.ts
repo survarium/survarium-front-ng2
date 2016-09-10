@@ -12,7 +12,13 @@ import Clan from '../../components.common/clan/clan'
     template: `<h3>{{'clans.clanwars' | i18n}}</h3><data-grid [stream]="stream" [columns]="columns" [name]="'clan-matches'" [limits]="limits"></data-grid>`
 })
 export class ClansDetailClanwars {
-    @Input() clan :any;
+    private _clan :any;
+    @Input() set clan (val :any) {
+        this._clan = val;
+        this.stream = this.stream.bind(this);
+    };
+    get clan () { return this._clan; }
+
     apiLang = i18n.apiLang;
 
     private limits = [15, 30, 50];
@@ -49,9 +55,7 @@ export class ClansDetailClanwars {
         { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } }
     ];
 
-    constructor (private _clansService :ClansService) {
-        this.stream = this.stream.bind(this);
-    }
+    constructor (private _clansService :ClansService) {}
 }
 
 export default ClansDetailClanwars

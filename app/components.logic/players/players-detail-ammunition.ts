@@ -13,7 +13,16 @@ import { I18N, i18n } from '../../services/i18n'
 
 export default class PlayersDetailAmmunition {
     private shown = false;
-    @Input() private ammunition :any[];
+    private _ammunition;
+    @Input() set ammunition (val :any[]) {
+        this.shown = false;
+        this.items = null;
+        this._ammunition = val;
+    };
+
+    get ammunition () {
+        return this._ammunition;
+    }
 
     constructor (private gameService :GameService, private i18n :I18N, private changeDetector :ChangeDetectorRef) {}
 

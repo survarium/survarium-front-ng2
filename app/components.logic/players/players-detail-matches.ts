@@ -13,7 +13,16 @@ import { i18n } from '../../services/i18n'
 })
 
 export class PlayersDetailMatches {
-    @Input() nickname :string;
+    private _nickname :string;
+
+    @Input('nickname') set nickname (val :string) {
+        this._nickname = val;
+        this.stream = this.stream.bind(this);
+    };
+
+    get nickname () {
+        return this._nickname;
+    }
 
     private apiLang = i18n.apiLang;
 
@@ -47,9 +56,7 @@ export class PlayersDetailMatches {
             .stats(this.nickname, options);
     };
 
-    constructor (private _playerService :PlayersService) {
-        this.stream = this.stream.bind(this);
-    }
+    constructor (private _playerService :PlayersService) {}
 }
 
 export default PlayersDetailMatches
