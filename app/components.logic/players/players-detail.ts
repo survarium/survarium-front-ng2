@@ -53,10 +53,14 @@ export class PlayersDetail implements OnInit, OnDestroy {
                 private _sanitizer :DomSanitizer) {
     }
 
+    private dataSubscriber :any;
+
     private getPlayer (nickname :string) {
+        this.cleanup();
+
         this.name = nickname;
 
-        this._playerService
+        this.dataSubscriber = this._playerService
             .fetch(this.name)
             .subscribe(data => {
                 this.data = data;
@@ -76,6 +80,15 @@ export class PlayersDetail implements OnInit, OnDestroy {
             });
     }
 
+    private cleanup () {
+        this.show = false;
+        this.error = null;
+
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
+
     private routerSubscriber :any;
 
     ngOnInit () {
@@ -85,5 +98,6 @@ export class PlayersDetail implements OnInit, OnDestroy {
 
     ngOnDestroy () {
         this.routerSubscriber.unsubscribe();
+        this.cleanup();
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnDestroy } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { Observable } from 'rxjs/Observable'
 
@@ -26,7 +26,7 @@ interface Column {
     }
 })
 
-export class DataGrid {
+export class DataGrid implements OnDestroy {
     constructor (private _domSanitize :DomSanitizer) {}
 
     @Input('data') set _data (value :any[]) {
@@ -95,12 +95,16 @@ export class DataGrid {
     private total :number;
     private filtered :number;
     private limit :number;
-    private skip  :number;
     private loading :boolean;
+    @Input('skip') private skip :number;
+
+    private streamSubscriber :any;
 
     @Input('stream') set _stream (handler :any) {
+        this.cleanup();
+
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
-        this.stream
+        this.streamSubscriber = this.stream
             .debounceTime(100)
             .distinctUntilChanged()
             .switchMap((options :any) => { return handler(options) })
@@ -116,6 +120,16 @@ export class DataGrid {
             }, (err) => {});
 
         this.load();
+    }
+
+    private cleanup () {
+        if (this.streamSubscriber) {
+            this.streamSubscriber.unsubscribe();
+        }
+    }
+
+    ngOnDestroy () {
+        this.cleanup();
     }
 
     get width () :number {

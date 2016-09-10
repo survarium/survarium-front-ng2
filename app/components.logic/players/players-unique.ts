@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { TrackService } from '../../services/track'
@@ -11,8 +11,8 @@ const PERIODS = ['day', 'hour', 'half'];
     styles: [require('./players-unique.styl')]
 })
 
-export class PlayersUnique {
-    private data :any;
+export class PlayersUnique implements OnDestroy {
+    private data :any = null;
     private set unique (val) {
         this.data = val.count;
     };
@@ -26,9 +26,11 @@ export class PlayersUnique {
     private stream;
     private streamTrigger :(options ?:any) => void;
 
+    private dataSubscriber :any;
+
     constructor (private playersService :PlayersService, private trackService :TrackService) {
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
-        this.stream
+        this.dataSubscriber = this.stream
             .debounceTime(100)
             .distinctUntilChanged()
             .switchMap((options :any) => { return playersService.unique(options) })
@@ -59,4 +61,9 @@ export class PlayersUnique {
         this.load();
     }
 
+    ngOnDestroy () {
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+    }
 }
