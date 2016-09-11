@@ -1,6 +1,6 @@
 <template [ngIf]="!config.isMobile">
     <h4>{{'advert.title' | i18n}}</h4>
-    <ins class="adsbygoogle" [attr.data-ad-client]="client" [attr.data-ad-slot]="slot" data-ad-format="auto" [style.width]="width" [style.height]="height">
+    <ins class="adsbygoogle" [attr.data-ad-client]="client" [attr.data-ad-slot]="slot" [attr.data-ad-format]="format" [style.width]="width" [style.height]="height">
         <span class="preloader"><span>{{(blocked ? 'advert.adblock' : 'advert.preloader') | i18n}}</span></span>
     </ins>
 </template>

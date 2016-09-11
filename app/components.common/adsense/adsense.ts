@@ -13,6 +13,7 @@ import { AdsenseService } from '../../services/adsense'
 
 export class Adsense implements AfterViewInit, OnDestroy {
     @Input() private slot :number;
+    @Input() private format :string = 'auto';
     private client = this.config.adsense.client;
 
     constructor (@Inject('CONFIG') private config,
