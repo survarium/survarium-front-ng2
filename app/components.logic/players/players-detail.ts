@@ -6,7 +6,6 @@ import Store from '../../services/store'
 import TitleService from '../../services/title'
 
 import { i18n } from '../../services/i18n'
-//import { Adsense } from '../../components.common/adsense/adsense'
 
 @Component({
     selector: 'players-detail',

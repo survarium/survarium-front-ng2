@@ -14,11 +14,11 @@ export function ngOnLoad(window, document) {
                 appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
             } },
-            { src: 'https://www.googletagservices.com/tag/js/gpt.js', onerror: () => {
+            /*{ src: 'https://www.googletagservices.com/tag/js/gpt.js', onerror: () => {
                 CONFIG.adblock = true;
                 appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
-            } },
+            } },*/
             { src: 'https://vk.com/js/api/openapi.js?121' },
             { src: 'https://platform.twitter.com/widgets.js', id: 'twitter-wjs' },
             { src: 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' },

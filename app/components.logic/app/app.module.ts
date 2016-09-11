@@ -12,7 +12,7 @@ import { API_PROVIDERS } from '../../services/api'
 import { StoreService } from '../../services/store'
 import { TrackService } from '../../services/track'
 import { AdsenseService } from '../../services/adsense'
-import { DFPService } from '../../services/dfp'
+//import { DFPService } from '../../services/dfp'
 import { TitleService } from '../../services/title'
 import { I18N, i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
@@ -50,7 +50,7 @@ import { Error404 } from '../errors/404'
         ...API_PROVIDERS,
         TrackService,
         AdsenseService,
-        DFPService,
+        //DFPService,
         TitleService,
         MapsService,
         //FactionsService,

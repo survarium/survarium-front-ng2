@@ -4,7 +4,7 @@ import { AvgScore } from './components.common/avg-score/avg-score'
 import { ChartComponent } from './components.common/chart/chart'
 import { Clan } from './components.common/clan/clan'
 import { DateTime } from './components.common/datetime/datetime'
-import { DFP } from './components.common/dfp/dfp'
+//import { DFP } from './components.common/dfp/dfp'
 import { Elapsed } from './components.common/elapsed/elapsed'
 import { Footer } from './components.common/footer/footer'
 import { KD } from './components.common/kd/kd'
@@ -30,7 +30,7 @@ export const DIRECTIVES = [
     DateTime,
     DataGridCounters,
     DataGridPagination,
-    DFP,
+    //DFP,
     Elapsed,
     Footer,
     KD,
