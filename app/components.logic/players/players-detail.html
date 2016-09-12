@@ -13,8 +13,10 @@
     <players-detail-counts [data]="data"></players-detail-counts>
     <players-detail-matches [nickname]="data.nickname"></players-detail-matches>
     <!--<dfp [id]="'playerSplit'"></dfp>-->
-    <adsense [slot]="5659702564" [format]="'auto'" [width]="'100%'" [height]="'100px'"></adsense>
-    <!--<adsense [slot]="2047845364" [width]="'100%'" [height]="'100px'"></adsense>-->
+    <div [ngSwitch]="advType">
+        <adsense *ngSwitchCase="0" [slot]="5659702564" width="100%" height="150px"></adsense>
+        <adsense *ngSwitchDefault [slot]="2047845364" width="100%" height="100px"></adsense>
+    </div>
     <players-detail-history [nickname]="data.nickname"></players-detail-history>
     <div [innerHTML]="jsonLD"></div>
 </template>

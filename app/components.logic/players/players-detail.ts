@@ -53,9 +53,11 @@ export class PlayersDetail implements OnInit, OnDestroy {
     }
 
     private dataSubscriber :any;
+    private advType :number = 1;
 
     private getPlayer (nickname :string) {
         this.cleanup();
+        this.advType = Math.round(Math.random() + .3);
 
         this.name = nickname;
 
