@@ -183,7 +183,7 @@ export default class PlayersDetailAmmunition {
                 result[slots[info.slot]] = {
                     amount: info.amount,
                     mods: info.mods.map(mod => Mods[mod]),
-                    defMods: item.default_modifications.map(mod => Mods[mod]),
+                    defMods: item.default_modifications && item.default_modifications.map(mod => Mods[mod]),
                     item: item
                 };
                 return result;
