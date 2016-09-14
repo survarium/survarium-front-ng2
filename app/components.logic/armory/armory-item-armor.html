@@ -197,7 +197,7 @@
     </div>
 </template>
 
-<template [ngIf]="hitTypes.length">
+<template [ngIf]="hitTypes?.length">
     <h3>{{ 'armory.item.hit_params.title' | i18n }}</h3>
     <table *ngFor="let param of hitTypes" class="def inline">
         <tr *ngFor="let type of param">

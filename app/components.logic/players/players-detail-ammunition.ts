@@ -64,6 +64,10 @@ export default class PlayersDetailAmmunition {
         }
     }
 
+    private convertDefaultMods (defaultMods) {
+        return Object.keys(defaultMods).map(key => defaultMods[key]);
+    }
+
     private fetch () {
         let itemsToFetch = [];
         let modsToFetch = [];
@@ -109,6 +113,10 @@ export default class PlayersDetailAmmunition {
                 result[item.id] = item;
 
                 if (item.default_modifications) {
+                    if (!(item.default_modifications instanceof Array)) {
+                        item.default_modifications = this.convertDefaultMods(item.default_modifications);
+                    }
+
                     defaultMods = [...defaultMods, ...item.default_modifications];
                 } else item.default_modifications = [];
 
