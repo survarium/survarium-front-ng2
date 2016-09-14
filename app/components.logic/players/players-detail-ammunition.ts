@@ -68,6 +68,8 @@ export default class PlayersDetailAmmunition {
         return Object.keys(defaultMods).map(key => defaultMods[key]);
     }
 
+    private emptyObservable = Observable.create(observer => { observer.next(null); observer.complete(); });
+
     private fetch () {
         let itemsToFetch = [];
         let modsToFetch = [];
@@ -89,11 +91,11 @@ export default class PlayersDetailAmmunition {
                 thin: true,
                 language: i18n.lang.gameLang
             }),
-            this.gameService.modifications({
+            (modsToFetch && modsToFetch.length) ? this.gameService.modifications({
                 mods: modsToFetch,
                 thin: true,
                 language: i18n.lang.gameLang
-            }),
+            }) : this.emptyObservable,
             this.gameService.slots({
                 language: 'english'
             })
@@ -101,10 +103,10 @@ export default class PlayersDetailAmmunition {
 
         let mods = {};
 
-        let assignMods = (data) => data.reduce((result, mod) => {
+        let assignMods = (data) => data ? data.reduce((result, mod) => {
             result[mod.id] = mod;
             return result;
-        }, mods);
+        }, mods) : mods;
 
         let subscriber = fetcher.subscribe((x) => {
             let defaultMods = [];
