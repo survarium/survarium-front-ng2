@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { Timeline } from './timeline'
 import { PlayersTop } from '../players/players-top'
 import { PlayersUnique } from '../players/players-unique'
+import { PlayersOnlineSteam } from '../players/players-online-steam'
 import { VkFeed } from '../../components.common/vk-feed/vk-feed'
 import { VkFeedWidget } from '../../components.common/vk-feed/vk-feed-widget'
 import { Twitter } from  '../../components.common/twitter/twitter'
@@ -13,7 +14,7 @@ import { routing } from './home.routing'
 
 @NgModule({
     imports: [SharedModule, routing],
-    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord],
+    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord, PlayersOnlineSteam],
     providers: [VkFeedService],
     entryComponents: [VkFeedWidget]
 })
