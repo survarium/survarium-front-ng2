@@ -3,7 +3,8 @@ import { SteamService } from '../../services/steam'
 
 @Component({
     selector: 'players-online-steam',
-    template: require('./players-online-steam.html')
+    template: require('./players-online-steam.html'),
+    styles: [require('./players-online-steam.styl')]
 })
 
 export class PlayersOnlineSteam implements OnDestroy {
