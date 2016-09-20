@@ -49,7 +49,7 @@ export class PlayersService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2 + '/' + nickname, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: this._handleV2 + '/' + encodeURIComponent(nickname), headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -63,7 +63,7 @@ export class PlayersService {
      */
     skills(nickname :string) :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2 + '/' + nickname + '/skills', headers: headers, method: 'get' , body: '' });
+        let options = new Request({ url: this._handleV2 + '/' + encodeURIComponent(nickname) + '/skills', headers: headers, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -91,7 +91,7 @@ export class PlayersService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/${nickname}/stats`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/stats`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -181,7 +181,7 @@ export class PlayersService {
         params.set('group', {'avg': 'avg', 'sum': 'sum'}[query.group] || 'avg');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/${nickname}/history`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/history`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -383,7 +383,7 @@ export class ClansService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${abbr}`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -409,7 +409,7 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${abbr}/players`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/players`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -435,7 +435,7 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${abbr}/matches`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/matches`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
@@ -461,7 +461,7 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${abbr}/clanwars`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/clanwars`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())
