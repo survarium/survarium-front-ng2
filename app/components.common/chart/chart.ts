@@ -91,6 +91,8 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
             data: this.data,
             options: this.options
         });
+
+        this.chart.resize();
     }
 
     ngOnDestroy () {

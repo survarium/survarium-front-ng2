@@ -1,6 +1,6 @@
 {
   "name": "survarium.pro-frontend-ng2",
-  "version": "2.10.2",
+  "version": "2.10.3",
   "description": "Angular 2 – based version survarium.pro frontend",
   "main": "index.js",
   "scripts": {
