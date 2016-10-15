@@ -28,7 +28,7 @@ export class ClansDetailClanwars {
         return this
             ._clansService
             .clanwars(abbr, options)
-            .do(data => {
+            .do((data :any) => {
                 data.data.forEach((elem :any) => {
                     elem.clans.forEach((clan) => {
                         if (clan.clan.abbr === abbr) {
