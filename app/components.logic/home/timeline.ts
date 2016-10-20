@@ -101,6 +101,7 @@ export class Timeline {
         hours.push(end.getHours());
 
         val
+            .filter(dataset => dataset.level > 0)
             .sort((a, b) => {
                 return a.level - b.level;
             })

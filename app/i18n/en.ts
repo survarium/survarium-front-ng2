@@ -401,6 +401,8 @@ let dict = {
                 right_hand: 'Right hand',
                 left_leg: 'Left leg',
                 right_leg: 'Right leg',
+                hands: 'Hands',
+                legs: 'Legs',
                 head: 'Head',
                 body: 'Body',
                 health: 'Health'

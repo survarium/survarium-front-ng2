@@ -418,6 +418,8 @@ let dict = {
                 right_hand: 'Правая рука',
                 left_leg: 'Левая нога',
                 right_leg: 'Правая нога',
+                hands: 'Руки',
+                legs: 'Ноги',
                 head: 'Голова',
                 body: 'Туловище',
                 health: 'Здоровье'
@@ -472,7 +474,7 @@ let dict = {
             repair_cost_ratio: 'Коэффициент стоимости ремонта',
             bleeding_resistance: 'Сопротивление кровотечению',
             stamina_armor: 'stamina_armor',
-            camo_available: 'Доступны комуфляжи',
+            camo_available: 'Доступны камуфляжи',
             decal_available: 'Доступны декали'
         }
     },
