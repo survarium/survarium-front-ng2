@@ -21,6 +21,7 @@ export const CONFIG = {
         languages: [
             {
                 lang: 'ru',
+                alternate: 'ru',
                 gameLang: 'russian',
                 apiLang: 'russian',
                 originName: 'Русский',
@@ -28,6 +29,7 @@ export const CONFIG = {
             },
             {
                 lang: 'ua',
+                alternate: 'uk',
                 apiLang: 'russian',
                 gameLang: 'ukrainian',
                 originName: 'Українська',
@@ -35,6 +37,7 @@ export const CONFIG = {
             },
             {
                 lang: 'en',
+                alternate: 'en',
                 apiLang: 'english',
                 gameLang: 'english',
                 originName: 'English',
