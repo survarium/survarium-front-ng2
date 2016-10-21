@@ -3,5 +3,5 @@ Disallow: /projects
 Disallow: /public
 Disallow: /widgets
 Crawl-delay: 0.5
-Sitemap: https://survarium.pro/sv.pro-sitemap-index.xml
+Sitemap: https://survarium.pro/sv.pro-alt-sitemap-index.xml
 Host: https://survarium.pro
