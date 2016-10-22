@@ -10,9 +10,17 @@ import { i18n } from '../../services/i18n'
 })
 
 export class Home {
+    twitter  :string;
+
     constructor (private title :TitleService, private _sanitizer: DomSanitizer) {
         title.setTitle();
         title.setDescription(i18n.get('home.docDescription'));
+
+        if (i18n.lang.lang === 'en') {
+            this.twitter = 'SurvariumVG';
+        } else {
+            this.twitter = 'SurvariumVostok';
+        }
     }
 
     jsonLD = this._sanitizer.bypassSecurityTrustHtml(`<script type="application/ld+json">
