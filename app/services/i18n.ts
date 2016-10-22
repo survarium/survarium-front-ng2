@@ -40,7 +40,6 @@ class I18N {
 
     constructor (LANG ?:Language) {
         this.lang = LANG || LANGUAGE;
-        this.dict = this.lang.dict;
     }
 
     private _applyVariables (translation, variables) {
@@ -111,9 +110,17 @@ class I18N {
         // FIXME: CLIENT-SIDE ONLY
         window.location.reload();
     }
+
+    public setDict(dict) {
+        this.dict = dict;
+    }
 }
 
 let i18n = new I18N(LANGUAGE);
 
-export { LANGUAGE, detectLang, i18n, I18N, LANGUAGES }
+let i18nLoader = require('es6-promise!../i18n/' + LANGUAGE.lang)().then(dict => {
+    i18n.setDict(dict);
+});
+
+export { i18nLoader, LANGUAGE, detectLang, i18n, I18N, LANGUAGES }
 export default I18N

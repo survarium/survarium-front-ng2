@@ -1,7 +1,3 @@
-import dictRU from './i18n/ru'
-import dictEN from './i18n/en'
-import dictUA from './i18n/ua'
-
 export const CONFIG = {
     production: process.env.ENV === 'production',
     enableDebugTools: false,
@@ -24,24 +20,21 @@ export const CONFIG = {
                 alternate: 'ru',
                 gameLang: 'russian',
                 apiLang: 'russian',
-                originName: 'Русский',
-                dict: dictRU
+                originName: 'Русский'
             },
             {
                 lang: 'ua',
                 alternate: 'uk',
                 apiLang: 'russian',
                 gameLang: 'ukrainian',
-                originName: 'Українська',
-                dict: dictUA
+                originName: 'Українська'
             },
             {
                 lang: 'en',
                 alternate: 'en',
                 apiLang: 'english',
                 gameLang: 'english',
-                originName: 'English',
-                dict: dictEN
+                originName: 'English'
             }
         ]
     }

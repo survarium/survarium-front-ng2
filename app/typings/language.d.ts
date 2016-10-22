@@ -3,6 +3,5 @@ export interface Language {
     alternate :string,
     apiLang :string,
     gameLang :string,
-    originName :string,
-    dict: any
+    originName :string
 }
