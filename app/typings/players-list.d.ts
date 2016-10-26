@@ -11,6 +11,8 @@ export interface PlayersList {
         id :string,
         progress :{
             elo :number,
+            rating_match_elo :number,
+            random_match_elo :number,
             level :number,
             experience :number
         },

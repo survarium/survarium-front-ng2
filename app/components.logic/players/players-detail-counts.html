@@ -5,9 +5,14 @@
         <dd class="def-list__desc">{{data.progress.level}}</dd>
     </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'rating' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.progress.elo | number}}</dd>
+    <dl class="def-list" *ngIf="data.progress.rating_match_elo" [title]="'rating_match_elo_title' | i18n">
+        <dt class="def-list__term">{{'rating_match_elo' | i18n}}</dt>
+        <dd class="def-list__desc">{{data.progress.rating_match_elo | number}}</dd>
+    </dl>
+
+    <dl class="def-list" *ngIf="data.progress.random_match_elo" [title]="'random_match_elo_title' | i18n">
+        <dt class="def-list__term">{{'random_match_elo' | i18n}}</dt>
+        <dd class="def-list__desc">{{data.progress.random_match_elo | number}}</dd>
     </dl>
 
     <dl class="def-list">

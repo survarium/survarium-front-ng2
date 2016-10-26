@@ -50,11 +50,19 @@ export class ClansDetailPlayers {
             sort: { 'progress.experience': { } },
             classes: 'center'
         }, {
-            title: i18n.get('elo'),
-            field: 'progress.elo',
+            title: i18n.get('random_match_elo'),
+            field: 'progress.random_match_elo',
             width: 70,
-            sort: { 'progress.elo': { } },
-            classes: 'center'
+            sort: { 'progress.random_match_elo': { } },
+            classes: 'center',
+            filter: { type: 'number' }
+        }, {
+            title: i18n.get('rating_match_elo'),
+            field: 'progress.rating_match_elo',
+            width: 70,
+            sort: { 'progress.rating_match_elo': { } },
+            classes: 'center',
+            filter: { type: 'number' }
         }, {
             title: i18n.get('avgScore'),
             field: 'total.scoreAvg',
