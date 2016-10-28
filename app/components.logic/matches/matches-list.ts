@@ -29,12 +29,6 @@ export class MatchesList {
             title: i18n.get('match'), component: Match, width: 90, inputs: { id: `id` }, sort: { 'id': { value: -1 } }, classes: 'blockLink',
             filter: { field: 'id', type: 'number' }
         },
-        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
-        { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
-        {
-            title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
-            filter: { field: 'level', type: 'number', min: 0, max: 100 }
-        },
         {
             title: i18n.get('type'),
             field: 'rating_match',
@@ -43,6 +37,12 @@ export class MatchesList {
             width: 80,
             classes: 'center',
             sort: { 'rating_match': { } }
+        },
+        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
+        { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
+        {
+            title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
+            filter: { field: 'level', type: 'number', min: 0, max: 100 }
         }
     ];
 
