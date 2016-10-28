@@ -294,9 +294,12 @@ export class MatchesService {
      * Получить таймлайн матчей за последние сутки
      * @returns {Observable<R>}
      */
-    timeline() :Observable<any> {
+    timeline(opts :{ type :string }) :Observable<any> {
+        let params = new URLSearchParams();
+        params.set('type', opts.type);
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/timeline`, headers: headers, method: 'get' , body: '' });
+        let options = new Request({ url: `${this._handle}/timeline`, headers: headers, search: params, method: 'get' , body: '' });
 
         return this.http.request(options)
             .map(res => res.json())

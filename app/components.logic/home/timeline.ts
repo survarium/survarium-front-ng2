@@ -1,8 +1,10 @@
 import { Component, Inject } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import { i18n } from '../../services/i18n'
 import { Colors } from '../../components.common/colors'
 import { NumberTransform } from '../../utils/number'
+import { TrackService } from '../../services/track'
 
 @Component({
     selector: 'timeline',
@@ -141,7 +143,30 @@ export class Timeline {
     private isMobile = false;
     private height = 'auto';
 
-    constructor (private matchesService :MatchesService, @Inject('window') private window, @Inject('CONFIG') private config) {
+    private types = ['all', 'rating', 'random'];
+    private typesI18N = [i18n.get('all'), i18n.get('matches.rating'), i18n.get('matches.random')];
+    private type = 0;
+
+    private switch () {
+        this.type = this.types.length <= this.type + 1 ? 0 : this.type + 1;
+
+        let type = this.types[this.type];
+
+        this.trackService.track({
+            ya: { goal:'timeline.switch', options: { type } },
+            ga: { category: 'Timeline', action: 'switch type', label : type }
+        });
+
+        this.load();
+    }
+
+    private stream;
+    private streamTrigger :(options ?:any) => void;
+
+    constructor (private matchesService :MatchesService,
+                 @Inject('window') private window,
+                 @Inject('CONFIG') private config,
+                 private trackService :TrackService) {
         if (config.isMobile || window.outerWidth < 500) {
             this.isMobile = true;
 
@@ -149,10 +174,25 @@ export class Timeline {
             this.height = '600px';
         }
 
-        matchesService
-            .timeline()
+        this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
+        this.stream
+            .debounceTime(100)
+            .distinctUntilChanged()
+            .switchMap((options :any) => { return matchesService.timeline(options) })
             .subscribe(data => {
                 this.timeline = data;
-            }, err => {});
+            }, (err) => {});
+
+        this.load();
+    }
+
+    public load () {
+        if (!this.streamTrigger) {
+            return;
+        }
+
+        this.streamTrigger({
+            type: this.types[this.type]
+        });
     }
 }
