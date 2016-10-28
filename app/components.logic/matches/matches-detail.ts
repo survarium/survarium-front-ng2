@@ -4,12 +4,14 @@ import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
+import { MatchType } from '../../components.common/match-type/match-type'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { TrackService } from '../../services/track'
 import { i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
 import { duration } from '../../utils/duration'
+import { NumberTransform } from '../../utils/number'
 
 @Component({
     selector: 'matches-detail',
@@ -56,7 +58,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
     }
 
     private winner :string;
-    // private totalELO : number[]; // disabled ELO
+    private totalELO :number[];
 
     setWinnerByData () {
         let data = this.data;
@@ -92,17 +94,19 @@ export class MatchesDetail implements OnInit, OnDestroy {
             }
         }
     }
-    /* // disabled ELO
+
     private setTotalELO () {
         let elos = [0, 0];
-        this.stats.forEach(stat => elos[stat.team] += stat.player.progress.elo);
+        let field = this.match['rating_match'] ? 'rating_match_elo' : 'random_match_elo';
+
+        this.stats.forEach(stat => elos[stat.team] += stat.player.progress[field]);
         this.totalELO = elos;
-    }*/
+    }
 
     private set _stats (val) {
         this.stats = val;
         this.setWinnerByStats();
-        // this.setTotalELO(); // disabled ELO
+        this.setTotalELO();
     }
 
     private stream (options ?:any) :Observable<any> {
@@ -119,7 +123,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
     group = {
         by: 'team',
         title: (num) => {
-            return i18n.get('teamgroup', { tag: num === '0' ? 'A' : 'B' });// + ' (' + i18n.get('elo') + ' ' + NumberTransform(this.totalELO[num]) + ')'; // disabled ELO
+            return i18n.get('teamgroup', { tag: (num === '0' ? 'A' : 'B') + ' (' + i18n.get('elo') + ' ' + NumberTransform(this.totalELO[num]) + ')' });
         }
     };
 
@@ -134,33 +138,41 @@ export class MatchesDetail implements OnInit, OnDestroy {
         this.mapImage = this._mapsService.image(map);
     }
 
-    private columns :any[] = [
-        {
-            title: '№',
-            number: true,
-            width: 80
-        },
-        {
-            title: i18n.get('player'),
-            component: Nickname,
-            inputs: { nickname: 'player.nickname', clan: 'player.clan_meta', banned: 'player.banned' },
-            width: 250,
-            classes: 'nowrap'
-        },
-        { title: i18n.get('lvl'), field: `player.progress.level`, classes: 'center', width: 80 },
-        //{ title: i18n.get('elo'), field: `player.progress.elo`, classes: 'center', width: 100 }, // disabled ELO
-        { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: { value: -1 } } },
-        { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
-        { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
-        { title: i18n.get('kd'), field: `kd`, classes: 'center nowrap', width: 80, sort: { kd: {} } },
-        { title: i18n.get('headshots'), field: `headshots`, classes: 'center', sort: { headshots: {} } },
-        { title: i18n.get('grenadeKills'), field: `grenadeKills`, classes: 'center', sort: { grenadeKills: {} } },
-        { title: i18n.get('meleeKills'), field: `meleeKills`, classes: 'center', sort: { meleeKills: {} } },
-        { title: i18n.get('artefactKills'), field: `artefactKills`, classes: 'center', width: 120, sort: { artefactKills: {} } },
-        { title: i18n.get('artefactUses'), field: `artefactUses`, classes: 'center', width: 120, sort: { artefactUses: {} } },
-        { title: i18n.get('pointCaptures'), field: `pointCaptures`, classes: 'center', sort: { pointCaptures: {} } },
-        { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } }
-    ];
+    private _columns :any[];
+    private get columns() :any[] {
+        return this._columns || (this._columns = [
+            {
+                title: '№',
+                number: true,
+                width: 80
+            },
+            {
+                title: i18n.get('player'),
+                component: Nickname,
+                inputs: { nickname: 'player.nickname', clan: 'player.clan_meta', banned: 'player.banned' },
+                width: 250,
+                classes: 'nowrap'
+            },
+            { title: i18n.get('lvl'), field: `player.progress.level`, classes: 'center', width: 80 },
+            {
+                title: i18n.get('elo'),
+                field: `player.progress.${this.data.rating_match ? 'rating_match_elo' : 'random_match_elo'}`,
+                classes: 'center',
+                width: 100
+            },
+            { title: i18n.get('score'), field: `score`, classes: 'center', width: 80, sort: { score: { value: -1 } } },
+            { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
+            { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
+            { title: i18n.get('kd'), field: `kd`, classes: 'center nowrap', width: 80, sort: { kd: {} } },
+            { title: i18n.get('headshots'), field: `headshots`, classes: 'center', sort: { headshots: {} } },
+            { title: i18n.get('grenadeKills'), field: `grenadeKills`, classes: 'center', sort: { grenadeKills: {} } },
+            { title: i18n.get('meleeKills'), field: `meleeKills`, classes: 'center', sort: { meleeKills: {} } },
+            { title: i18n.get('artefactKills'), field: `artefactKills`, classes: 'center', width: 120, sort: { artefactKills: {} } },
+            { title: i18n.get('artefactUses'), field: `artefactUses`, classes: 'center', width: 120, sort: { artefactUses: {} } },
+            { title: i18n.get('pointCaptures'), field: `pointCaptures`, classes: 'center', sort: { pointCaptures: {} } },
+            { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } }
+        ]);
+    }
 
     constructor(private route :ActivatedRoute,
                 private _matchesService :MatchesService,

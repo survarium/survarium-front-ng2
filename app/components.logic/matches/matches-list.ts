@@ -6,6 +6,7 @@ import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
+import { MatchType } from '../../components.common/match-type/match-type'
 import { i18n } from '../../services/i18n'
 
 @Component({
@@ -33,6 +34,15 @@ export class MatchesList {
         {
             title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
             filter: { field: 'level', type: 'number', min: 0, max: 100 }
+        },
+        {
+            title: i18n.get('type'),
+            field: 'rating_match',
+            component: MatchType,
+            inputs: { type: `rating_match` },
+            width: 80,
+            classes: 'center',
+            sort: { 'rating_match': { } }
         }
     ];
 

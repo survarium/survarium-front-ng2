@@ -4,6 +4,7 @@ import DateTime from '../../components.common/datetime/datetime'
 import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
+import { MatchType } from '../../components.common/match-type/match-type'
 import { PlayersService } from '../../services/api'
 import { i18n } from '../../services/i18n'
 
@@ -29,6 +30,15 @@ export class PlayersDetailMatches {
     private columns :any[] = [
         { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { date: { } }, classes: 'nowrap' },
         { title: i18n.get('match'), component: Match, inputs: { id: `match.id` }, sort: { date: { value: -1 } } },
+        {
+            title: i18n.get('type'),
+            field: 'rating_match',
+            component: MatchType,
+            inputs: { type: `rating_match` },
+            width: 80,
+            classes: 'center',
+            sort: { 'rating_match': { } }
+        },
         { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` }, width: 100 },
         { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` }, width: 100 },
         { title: i18n.get('level'), field: `level`, classes: 'center', width: 80, sort: { level: {} } },

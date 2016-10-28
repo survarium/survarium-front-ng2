@@ -29,7 +29,7 @@ let dict = {
     opponent     : 'Противник',
     role         : 'Роль',
     rating       : 'Рейтинг',
-    random_match_elo: 'ELO (рандом)',
+    random_match_elo: 'ELO (PVP)',
     rating_match_elo: 'ELO (рейтинг)',
     random_match_elo_title: 'Рейтинг игрока при участии в рандомных боях',
     rating_match_elo_title: 'Рейтинг игрока при участии в рейтинговых боях (лигах)',
@@ -105,6 +105,7 @@ let dict = {
         }
     },
     teamgroup: `Команда {{tag}}`,
+    type: 'Тип',
     matches: {
         list: 'Матчи',
         docDescription: 'Список матчей игры survarium. Карта, режим, уровень.',
@@ -126,7 +127,9 @@ let dict = {
         },
         timeline: {
             title: 'Количество матчей за последние сутки'
-        }
+        },
+        rating: 'Рейтинговый',
+        random: 'PVP'
     },
     clans: {
         title: 'Кланы',

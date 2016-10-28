@@ -20,6 +20,7 @@ import { VkGroup } from './components.common/vk-group/vk-group'
 import { WinRate } from './components.common/winrate/winrate'
 import { DataGridCounters } from './components.common/data-grid/data-grid-counters'
 import { DataGridPagination } from './components.common/data-grid/data-grid-pagination'
+import { MatchType } from './components.common/match-type/match-type'
 
 export const DIRECTIVES = [
     Adsense,
@@ -37,6 +38,7 @@ export const DIRECTIVES = [
     LangSwitcher,
     Map,
     Match,
+    MatchType,
     Mode,
     Nickname,
     Percent,

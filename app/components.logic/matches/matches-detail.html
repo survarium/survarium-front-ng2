@@ -36,11 +36,16 @@
             <dd class="def-list__desc">{{score}}</dd>
         </dl>
 
+        <dl *ngIf="score" class="def-list">
+            <dt class="def-list__term">{{'type' | i18n }}</dt>
+            <dd class="def-list__desc"><match-type [type]="data.rating_match"></match-type></dd>
+        </dl>
+
         <dl class="def-list" *ngIf="replay">
             <dt class="def-list__term">{{'replay' | i18n }}</dt>
             <dd class="def-list__desc"><a (click)="trackDownloadReplay()" [href]="replay" target="_blank">{{'download' | i18n }}</a></dd>
         </dl>
     </div>
 
-    <data-grid [stream]="stream" [columns]="columns" [group]="group"></data-grid>
+    <data-grid *ngIf="data" [stream]="stream" [columns]="columns" [group]="group"></data-grid>
 </template>

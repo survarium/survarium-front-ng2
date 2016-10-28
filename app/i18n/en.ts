@@ -58,7 +58,7 @@ let dict = {
     boxesBringed : 'Brought boxes',
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
-    random_match_elo: 'ELO (random)',
+    random_match_elo: 'ELO (PVP)',
     rating_match_elo: 'ELO (rating)',
     random_match_elo_title: 'Player rating for random matches',
     rating_match_elo_title: 'Player rating for rating matches (leagues)',
@@ -105,6 +105,7 @@ let dict = {
         }
     },
     teamgroup: `Team {{tag}}`,
+    type: 'Type',
     matches: {
         list: 'Matches',
         docDescription: 'Survarium matches list. Map, mode, level.',
@@ -126,7 +127,9 @@ let dict = {
         },
         timeline: {
             title: 'Matches count of latest 24h'
-        }
+        },
+        rating: 'Rating',
+        random: 'PVP'
     },
     clans: {
         title: 'Clans',
