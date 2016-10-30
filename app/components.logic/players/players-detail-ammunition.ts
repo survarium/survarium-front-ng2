@@ -183,7 +183,14 @@ export default class PlayersDetailAmmunition {
             let level = 0;
             let profile = Profile.items.reduce((result, info) => {
                 let item = Items[info.item];
+
+                if (!item) {
+                    console.info(`no data for item ${info.item} received`);
+                    return result;
+                }
+
                 let type = SUBTYPES[item.category];
+
                 if (type && type.image && item.icon) {
                     item.image = type.image(item.icon);
                 }
