@@ -54,15 +54,13 @@ export class ClansDetailPlayers {
             field: 'progress.random_match_elo',
             width: 70,
             sort: { 'progress.random_match_elo': { } },
-            classes: 'center',
-            filter: { type: 'number' }
+            classes: 'center'
         }, {
             title: i18n.get('rating_match_elo'),
             field: 'progress.rating_match_elo',
             width: 70,
             sort: { 'progress.rating_match_elo': { } },
-            classes: 'center',
-            filter: { type: 'number' }
+            classes: 'center'
         }, {
             title: i18n.get('avgScore'),
             field: 'total.scoreAvg',
