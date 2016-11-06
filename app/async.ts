@@ -6,10 +6,12 @@ export function ngOnLoad(window, document) {
         google: { families: [ 'Exo+2:400,700:latin,cyrillic' ] }
     };
 
+    const isWebBrowser = CONFIG.isWebBrowser;
+
     var scripts = document.getElementsByTagName('script')[0],
         targets = [
             //{ src: 'https://an.yandex.ru/system/context.js' },
-            { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
+            isWebBrowser && { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
                 CONFIG.adblock = true;
                 appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
@@ -19,11 +21,11 @@ export function ngOnLoad(window, document) {
                 appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
             } },*/
-            { src: 'https://vk.com/js/api/openapi.js?121' },
-            { src: 'https://platform.twitter.com/widgets.js', id: 'twitter-wjs' },
-            { src: 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' },
-            { src: 'https://viewer.marmoset.co/main/marmoset.js' }
-        ];
+            isWebBrowser && { src: 'https://vk.com/js/api/openapi.js?121' },
+            isWebBrowser && { src: 'https://platform.twitter.com/widgets.js', id: 'twitter-wjs' },
+            isWebBrowser && { src: 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' },
+            isWebBrowser && { src: 'https://viewer.marmoset.co/main/marmoset.js' }
+        ].filter(Boolean);
 
     for (var i = 0, script; i < targets.length; i++) {
         script = targets[i];

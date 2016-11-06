@@ -3,6 +3,8 @@ import { Router } from '@angular/router'
 import { Title as TitleProvider } from '@angular/platform-browser' // FIXME: CLIENT-SIDE ONLY
 import { TrackService } from './track'
 
+declare var window :any;
+
 @Injectable()
 export class TitleService {
     _appName :string;
@@ -57,10 +59,15 @@ export class TitleService {
         this.track.visit({ title: nextTitle });
 
         this.updateAlternates();
+        this.setRendered();
     }
 
     setDescription(description :string) {
         this.description && (this.description.content = description);
+    }
+
+    setRendered() {
+        window.prerenderReady = true;
     }
 }
 

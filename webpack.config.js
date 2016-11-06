@@ -10,7 +10,7 @@ var ENV               = process.env.ENV || 'development';
 var metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
-	baseUrl    : '/',
+	baseUrl    : 'http://survarium.dev:3000/',
 	host       : 'localhost',
 	port       : 3000,
 	ENV        : ENV,

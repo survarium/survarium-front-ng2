@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 8080;
 var metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
-	baseUrl    : '/',
+	baseUrl    : 'https://survarium.pro/',
 	host       : HOST,
 	port       : PORT,
 	ENV        : ENV,
