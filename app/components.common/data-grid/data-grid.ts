@@ -100,6 +100,7 @@ export class DataGrid implements OnDestroy {
 
     private streamSubscriber :any;
 
+    @Input('streamOnSuccess') private streamOnSuccess ?:Function;
     @Input('stream') set _stream (handler :any) {
         this.cleanup();
 
@@ -117,6 +118,7 @@ export class DataGrid implements OnDestroy {
             })
             .subscribe(() => {
                 this.loading = false;
+                this.streamOnSuccess && this.streamOnSuccess();
             }, (err) => {});
 
         this.load();

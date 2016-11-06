@@ -9,7 +9,7 @@ import { I18N } from '../../services/i18n'
 import { PlayersList as PlayersListTyping } from '../../typings/players-list'
 
 @Component({
-    template: `<data-grid [stream]="stream" [columns]="columns" [name]="'players-list-global'"></data-grid>`,
+    template: `<data-grid [stream]="stream" [streamOnSuccess]="streamOnSuccess" [columns]="columns" [name]="'players-list-global'"></data-grid>`,
     selector: 'players-list',
     styles: []
 })
@@ -32,6 +32,10 @@ export class PlayersList {
             }, (error) => {});
     };
 
+    private streamOnSuccess () {
+        this._title.setRendered();
+    }
+
     constructor(private _playerService :PlayersService,
                 private _title :TitleService,
                 private i18n :I18N) {
@@ -40,6 +44,7 @@ export class PlayersList {
         this._title.setDescription(i18n.get('players.docDescription'));
 
         this.stream = this.stream.bind(this);
+        this.streamOnSuccess = this.streamOnSuccess.bind(this);
 
         this.columns = [
             {

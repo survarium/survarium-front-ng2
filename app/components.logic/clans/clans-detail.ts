@@ -88,6 +88,7 @@ export class ClansDetail implements OnInit, OnDestroy {
                 this.show = true;
                 this._title.setTitle(this.data.abbr);
                 this._title.setDescription(i18n.get('clans.docDescriptionOne').replace(`{{abbr}}`, this.data.abbr));
+                this._title.setRendered();
                 this._store.clans.add(this.data.abbr);
             }, err => {
                 this.error = JSON.stringify(err, null, 4);

@@ -81,6 +81,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
 
                 this.title.setTitle(this.i18n.get('armory.item.docTitle', { item: this.data.name }));
                 this.title.setDescription(this.i18n.get('armory.docDescription'));
+                this.title.setRendered();
 
                 this.getUsage();
                 // this.getFaction();

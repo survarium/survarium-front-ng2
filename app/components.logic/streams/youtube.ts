@@ -45,11 +45,22 @@ export class Youtube extends StreamsComponent {
 
         changeDetector.detach();
 
+        var defers = 2;
+        var done = function () {
+            if (--defers) {
+                return;
+            }
+
+            title.setRendered();
+        };
+
         youtube.list({}).subscribe((data) => {
             this.data.archive = data.items;
 
             changeDetector.markForCheck();
             changeDetector.detectChanges();
+
+            done();
         });
 
         youtube.list({ live: true }).subscribe((data) => {
@@ -57,6 +68,8 @@ export class Youtube extends StreamsComponent {
 
             changeDetector.markForCheck();
             changeDetector.detectChanges();
+
+            done();
         });
     }
 }

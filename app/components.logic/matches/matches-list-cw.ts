@@ -10,7 +10,7 @@ import Clan from '../../components.common/clan/clan'
 import { i18n } from '../../services/i18n'
 
 @Component({
-    template: `<data-grid [stream]="stream" [columns]="columns"></data-grid>`,
+    template: `<data-grid [stream]="stream" [streamOnSuccess]="streamOnSuccess" [columns]="columns"></data-grid>`,
     selector: 'matches-list-cw',
     styles: []
 })
@@ -41,6 +41,10 @@ export class MatchesListCW {
             .list(options);
     };
 
+    private streamOnSuccess () {
+        this._title.setRendered();
+    }
+
     constructor(private _matchesService :MatchesService,
                 private _title :TitleService) {
 
@@ -48,5 +52,6 @@ export class MatchesListCW {
         this._title.setDescription(i18n.get('matches.cw.docDescription'));
 
         this.stream = this.stream.bind(this);
+        this.streamOnSuccess = this.streamOnSuccess.bind(this);
     }
 }

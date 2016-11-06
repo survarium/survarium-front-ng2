@@ -49,6 +49,8 @@ export class Twitch extends StreamsComponent{
 
             changeDetector.markForCheck();
             changeDetector.detectChanges();
+
+            title.setRendered();
         });
     }
 }

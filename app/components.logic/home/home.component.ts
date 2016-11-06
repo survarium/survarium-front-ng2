@@ -15,6 +15,7 @@ export class Home {
     constructor (private title :TitleService, private _sanitizer: DomSanitizer) {
         title.setTitle();
         title.setDescription(i18n.get('home.docDescription'));
+        title.setRendered();
 
         if (i18n.lang.lang === 'en') {
             this.twitter = 'SurvariumVG';

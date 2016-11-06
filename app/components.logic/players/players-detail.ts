@@ -75,6 +75,7 @@ export class PlayersDetail implements OnInit, OnDestroy {
 
                 this._title.setTitle(this.data.nickname);
                 this._title.setDescription(i18n.get('players.docDescriptionOne', { nickname: this.data.nickname }));
+                this._title.setRendered();
                 this._store.players.add(this.data.nickname);
             }, err => {
                 this.error = JSON.stringify(err, null, 4);

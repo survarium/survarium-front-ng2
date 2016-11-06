@@ -40,6 +40,7 @@ export class Bans {
             return elem;
         });
         this._data = val;
+        this._title.setRendered();
     }
 
     private load (options ?:any) {

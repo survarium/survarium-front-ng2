@@ -22,6 +22,10 @@ export class ClansList implements AfterViewInit {
         return this._sanitizer.bypassSecurityTrustHtml(this.i18n.get(this.showCW ? 'clans.listCWDescription' : 'clans.listDescription'));
     }
 
+    private streamOnSuccess () {
+        this._title.setRendered();
+    }
+
     private stream (options ?:any)  {
         options = options || {};
         options.publicStats = !this.showCW;
@@ -53,6 +57,7 @@ export class ClansList implements AfterViewInit {
                 private _sanitizer :DomSanitizer) {
 
         this.stream = this.stream.bind(this);
+        this.streamOnSuccess = this.streamOnSuccess.bind(this);
 
         this._title.setTitle(i18n.get('clans.docTitle'));
         this._title.setDescription(i18n.get('clans.docDescription'));

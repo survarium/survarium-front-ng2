@@ -540,6 +540,22 @@ export class VgService {
     }
 
     /**
+     * Получить список языков сообзений
+     * @returns {Observable<R>}
+     */
+    langs() :Observable<any> {
+        let params = new URLSearchParams();
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new Request({ url: this._handle + '/langs', headers: headers, search: params, method: 'get' , body: '' });
+
+        return this.http.request(options)
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
+
+    /**
      * Получить списки банов
      * @returns {Observable<R>}
      */

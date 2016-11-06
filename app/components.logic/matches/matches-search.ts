@@ -20,6 +20,7 @@ export class MatchesSearch {
     ) {
         _title.setTitle(i18n.get('matches.search.docTitle'));
         _title.setDescription(i18n.get('matches.search.docDescription'));
+        _title.setRendered();
     }
 
     showMatch(id) {

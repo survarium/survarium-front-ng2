@@ -20,6 +20,7 @@ export class ClansSearch {
     ) {
         _title.setTitle(i18n.get('clans.search.docTitle'));
         _title.setDescription(i18n.get('clans.search.docDescription'));
+        _title.setRendered();
     }
 
     showClan(abbr) {

@@ -18,6 +18,8 @@ export class About {
     ) {
         this._title.setTitle(i18n.get('about.docTitle'));
         this._title.setDescription(i18n.get('about.docDescription'));
+        this._title.setRendered();
+
         playersService
             .fetch('Vaseker')
             .subscribe((developer) => {

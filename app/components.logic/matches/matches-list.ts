@@ -10,7 +10,7 @@ import { MatchType } from '../../components.common/match-type/match-type'
 import { i18n } from '../../services/i18n'
 
 @Component({
-    template: `<data-grid [stream]="stream" [columns]="columns" [name]="matches-list-global"></data-grid>`,
+    template: `<data-grid [stream]="stream" [streamOnSuccess]="streamOnSuccess" [columns]="columns" [name]="matches-list-global"></data-grid>`,
     selector: 'matches-list',
     styles: []
 })
@@ -52,6 +52,10 @@ export class MatchesList {
             .list(options);
     };
 
+    private streamOnSuccess () {
+        this._title.setRendered();
+    }
+
     constructor(private _matchesService :MatchesService,
                 private _title :TitleService) {
 
@@ -59,5 +63,6 @@ export class MatchesList {
         this._title.setDescription(i18n.get('matches.docDescription'));
 
         this.stream = this.stream.bind(this);
+        this.streamOnSuccess = this.streamOnSuccess.bind(this);
     }
 }

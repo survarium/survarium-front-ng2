@@ -59,7 +59,6 @@ export class TitleService {
         this.track.visit({ title: nextTitle });
 
         this.updateAlternates();
-        this.setRendered();
     }
 
     setDescription(description :string) {

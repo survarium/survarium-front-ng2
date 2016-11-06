@@ -14,6 +14,7 @@ import { Observable } from 'rxjs'
 export class DevMessages {
     private error :any;
     private devs :{ id: number, name: string }[];
+    private langs :string[];
 
     private htmlEntities (value :string) {
         return value.replace(/&quot;/gm, '"');
@@ -58,7 +59,8 @@ export class DevMessages {
 
         let start = Observable.forkJoin(
             this._vgService.devs(),
-            this._vgService.messages()
+            this._vgService.messages(),
+            this._vgService.langs()
         );
 
         start.subscribe((x) => {
@@ -67,6 +69,9 @@ export class DevMessages {
                 return prev;
             }, {});
             this.data = x[1];
+            this.langs = x[2];
+
+            this._title.setRendered();
         }, (err) => {
             this.error = JSON.stringify(err, null, 4);
         });

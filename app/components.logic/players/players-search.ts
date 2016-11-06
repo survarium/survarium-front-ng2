@@ -24,6 +24,7 @@ export class PlayersSearch {
     ) {
         _title.setTitle(i18n.get('players.search.docTitle'));
         _title.setDescription(i18n.get('players.search.docDescription'));
+        _title.setRendered();
     }
 
     showPlayer() {

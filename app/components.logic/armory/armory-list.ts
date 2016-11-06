@@ -74,6 +74,7 @@ export class ArmoryList {
                 this.versions = versions;
                 this.setVersion();
                 this.setArmoryType();
+                title.setRendered();
             }, () => {});
     }
 
