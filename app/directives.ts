@@ -20,6 +20,10 @@ import { VkGroup } from './components.common/vk-group/vk-group'
 import { WinRate } from './components.common/winrate/winrate'
 import { DataGridCounters } from './components.common/data-grid/data-grid-counters'
 import { DataGridPagination } from './components.common/data-grid/data-grid-pagination'
+import { DataGridFiltersNumber } from './components.common/data-grid/data-grid-filters-number';
+import { DataGridFiltersDate } from './components.common/data-grid/data-grid-filters-date';
+import { DataGridFiltersSelect } from './components.common/data-grid/data-grid-filters-select';
+import { DataGridFilters } from './components.common/data-grid/data-grid-filters'
 import { MatchType } from './components.common/match-type/match-type'
 
 export const DIRECTIVES = [
@@ -31,6 +35,10 @@ export const DIRECTIVES = [
     DateTime,
     DataGridCounters,
     DataGridPagination,
+    DataGridFiltersNumber,
+    DataGridFiltersDate,
+    DataGridFiltersSelect,
+    DataGridFilters,
     //DFP,
     Elapsed,
     Footer,

@@ -109,8 +109,11 @@ export class DataGridFiltersDate {
         }
     };
 
+    @Input('onDelete') private onDelete :Function;
+
     del (filter) {
         this.filter.value = false;
+        this.onDelete();
     }
 
     get min () {

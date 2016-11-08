@@ -1,5 +1,7 @@
 <div class="loading" *ngIf="!data">{{'loading' | i18n}}</div>
 
+<div *ngIf="filters?.length" [filters]="filters" [name]="'DG-dev-messages'" (onFilter)="filter($event)"></div>
+
 <template [ngIf]="data">
     <div *ngFor="let message of data.data" class="message">
         <a [href]="message.dev.url" target="_blank" rel="nofollow" class="author">{{message.dev.name}}</a><a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.date | datetime}}</a> <a *ngIf="message.banlist" class="banlist">({{'info.messages.banlist' | i18n}})</a>
@@ -16,6 +18,6 @@
 </div>
 
 <div *ngIf="data" class="footer">
-    <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total"></data-grid-counters>
-    <div pagination [skip]="data.skip" [limit]="data.limit" [total]="data.total" (onPaginate)="paginate($event)"></div>
+    <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total" [filtered]="data.filtered"></data-grid-counters>
+    <div pagination [skip]="data.skip" [limit]="data.limit" [total]="data.filtered" (onPaginate)="paginate($event)"></div>
 </div>

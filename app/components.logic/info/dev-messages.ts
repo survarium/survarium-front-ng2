@@ -14,7 +14,7 @@ import { Observable } from 'rxjs'
 export class DevMessages {
     private error :any;
     private devs :{ id: number, name: string }[];
-    private langs :string[];
+    private filters = [];
 
     private htmlEntities (value :string) {
         return value.replace(/&quot;/gm, '"');
@@ -59,7 +59,6 @@ export class DevMessages {
 
         let start = Observable.forkJoin(
             this._vgService.devs(),
-            this._vgService.messages(),
             this._vgService.langs()
         );
 
@@ -68,23 +67,40 @@ export class DevMessages {
                 prev[next.id] = next;
                 return prev;
             }, {});
-            this.data = x[1];
-            this.langs = x[2];
 
-            this._title.setRendered();
+            this.filters.push({
+                title: i18n.get('info.messages.lang'),
+                filter: { field: 'lang', type: 'select', values: x[1].reduce((result, lang) => {
+                    result.push({ value: lang, title: i18n.get(`lang.${lang}`) });
+                    return result;
+                }, []) }
+            });
         }, (err) => {
             this.error = JSON.stringify(err, null, 4);
         });
     }
 
-    paginate (skip) {
+    request () {
         this._vgService
-            .messages({ skip })
+            .messages({ skip: this.skip, filter: this.search })
             .subscribe((x) => {
                 this.data = x;
+                this._title.setRendered();
                 window.scrollTo(0, 0); // FIXME: CLIENT-SIDE ONLY
             }, (err) => {
                 this.error = JSON.stringify(err, null, 4);
             })
+    }
+
+    skip :number = 0;
+    paginate (skip) {
+        this.skip = skip;
+        this.request();
+    }
+
+    search :any;
+    filter (params) {
+        this.search = params;
+        this.paginate(0);
     }
 }

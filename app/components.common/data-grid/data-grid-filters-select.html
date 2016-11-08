@@ -1,0 +1,5 @@
+<a (click)="del(_filter)" class="del">×</a>
+<h5 class="title">{{_filter.title}}</h5>
+<select required [(ngModel)]="eq">
+    <option *ngFor="let option of _filter.values" [value]="option.value">{{option.title}}</option>
+</select>

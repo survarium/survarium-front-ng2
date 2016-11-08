@@ -77,8 +77,11 @@ export class DataGridFiltersNumber {
         }
     };
 
+    @Input('onDelete') private onDelete :Function;
+
     del (filter) {
         this._filter.value = false;
+        this.onDelete();
     }
 
     get min () {

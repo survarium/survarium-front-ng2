@@ -508,6 +508,12 @@ export class VgService {
             });
         }
 
+        if (query.filter) {
+            query.filter.forEach((condition) => {
+                params.set(`filter[${condition.field}]`, JSON.stringify(condition.value));
+            });
+        }
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new Request({
             url: this._handle + '/messages',

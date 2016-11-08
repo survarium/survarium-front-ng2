@@ -5,7 +5,10 @@ import { Storage } from '../../utils/storage'
     selector: '[filters]',
     template: require('./data-grid-filters.html'),
     styles: [require('./data-grid-filters.styl')],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        '[class.data-grid-filters]': 'true'
+    }
 })
 
 export class DataGridFilters implements OnInit {
@@ -34,6 +37,8 @@ export class DataGridFilters implements OnInit {
             column.filter.title = column.title;
             return column.filter;
         });
+
+        this.updateDefaultOption();
     }
 
     @Output('onFilter') event :EventEmitter<any> = new EventEmitter();
@@ -42,6 +47,12 @@ export class DataGridFilters implements OnInit {
         return this.filters.filter(filter => {
             return !filter.value;
         });
+    }
+
+    filterToAdd ?:any;
+
+    private updateDefaultOption () {
+        this.filterToAdd = this.unused.length && this.unused[0].field;
     }
 
     private set unused (val) {}
@@ -94,10 +105,20 @@ export class DataGridFilters implements OnInit {
         }
 
         filter.value = {};
+
+        this.updateDefaultOption();
+    }
+
+    private onDelete() {
+        this.updateDefaultOption();
     }
 
     ngOnInit () {
         this.trigger();
+    }
+
+    constructor () {
+        this.onDelete = this.onDelete.bind(this);
     }
 }
 
