@@ -210,7 +210,8 @@ let dict = {
             title: 'Developer messages',
             telegram: 'Also you can receive developer messages to your pocket device via ',
             docDescription: 'Survarium developers messages on official forum: Dima, Yava, Dargalon, Phantom, joewillburn and others.',
-            banlist: 'Banlist'
+            banlist: 'Banlist',
+            lang: 'Forum'
         }
     },
     home: {
@@ -523,6 +524,10 @@ let dict = {
         title: 'Advertising',
         preloader: 'Loading ads...',
         adblock: 'Please disable AdBlock'
+    },
+    lang: {
+        ru: 'Russian',
+        en: 'English'
     }
 };
 
