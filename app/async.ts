@@ -3,7 +3,7 @@ import { appProvider } from './services/app'
 
 export function ngOnLoad(window, document) {
     window['WebFontConfig'] = {
-        google: { families: [ 'Exo+2:400,700:latin,cyrillic' ] }
+        google: { families: [ 'Play:400,700:latin,cyrillic' ] }
     };
 
     const isWebBrowser = CONFIG.isWebBrowser;

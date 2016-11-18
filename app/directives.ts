@@ -4,7 +4,6 @@ import { AvgScore } from './components.common/avg-score/avg-score'
 import { ChartComponent } from './components.common/chart/chart'
 import { Clan } from './components.common/clan/clan'
 import { DateTime } from './components.common/datetime/datetime'
-//import { DFP } from './components.common/dfp/dfp'
 import { Elapsed } from './components.common/elapsed/elapsed'
 import { Footer } from './components.common/footer/footer'
 import { KD } from './components.common/kd/kd'
@@ -16,6 +15,7 @@ import { Nickname } from './components.common/nickname/nickname'
 import { Percent } from './components.common/percent/percent'
 import { Role } from './components.common/role/role'
 import { TelegramChannel } from './components.common/telegram-channel/telegram-channel'
+import { FbGroup } from './components.common/fb-group/fb-group'
 import { VkGroup } from './components.common/vk-group/vk-group'
 import { WinRate } from './components.common/winrate/winrate'
 import { DataGridCounters } from './components.common/data-grid/data-grid-counters'
@@ -39,8 +39,8 @@ export const DIRECTIVES = [
     DataGridFiltersDate,
     DataGridFiltersSelect,
     DataGridFilters,
-    //DFP,
     Elapsed,
+    FbGroup,
     Footer,
     KD,
     LangSwitcher,

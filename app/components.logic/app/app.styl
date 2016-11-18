@@ -1,7 +1,7 @@
 @import "../../components.common/variables.styl"
 
-.wf-exo2-n4-active
-    font-family 'Exo 2', sans-serif
+.wf-play-n4-active
+    font-family 'Play', sans-serif
 
 .bg
  background url(/assets/dstny-bg.jpg) repeat scroll 50% 0/cover #1e222b
@@ -19,7 +19,7 @@ survarium-stats
     margin 3em 18px 1em
 
   &, a, a:visited
-    color rgba(245, 245, 245, 0.65)
+    color $baseFontColor
 
 
 $footerHeight = 3em
@@ -101,6 +101,11 @@ footer
 
     &_r
       float right
+      padding-top .7em
+
+    &_r &_link
+      width 40px
+      height 40px
 
 
     &_link
@@ -145,6 +150,9 @@ footer
   padding 0 $padLeft
   max-width 1500px
   margin 0 auto
+
+.fb_sv_pro
+  background url(/assets/fb.svg) no-repeat 50% 50%/cover
 
 .vk_sv_pro
   background url(/assets/vk.svg) no-repeat 50% 50%/cover
