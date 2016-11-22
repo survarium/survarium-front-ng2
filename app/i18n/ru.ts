@@ -16,7 +16,7 @@ let dict = {
     map          : 'Карта',
     match        : 'Матч',
     mode         : 'Режим',
-    loose        : 'Проигрыш',
+    loose        : 'Поражение',
     score        : 'Счет',
     kills        : 'Убийств',
     dies         : 'Смертей',
