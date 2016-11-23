@@ -50,6 +50,7 @@ export class Twitch extends StreamsComponent{
             changeDetector.markForCheck();
             changeDetector.detectChanges();
 
+            changeDetector.reattach();
             title.setRendered();
         });
     }

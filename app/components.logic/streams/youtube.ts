@@ -51,6 +51,7 @@ export class Youtube extends StreamsComponent {
                 return;
             }
 
+            changeDetector.reattach();
             title.setRendered();
         };
 
