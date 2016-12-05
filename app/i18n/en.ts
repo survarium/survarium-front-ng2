@@ -44,6 +44,7 @@ let dict = {
     total       : 'Total',
     lastUpdate  : 'Updated',
     wide        : 'Wide',
+    place       : 'Place',
     roles        : {
         commander: 'Commander',
         warlord  : 'Warlord',
@@ -58,8 +59,6 @@ let dict = {
     boxesBringed : 'Brought boxes',
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
-    random_match_elo: 'ELO (PVP)',
-    rating_match_elo: 'ELO (rating)',
     random_match_elo_title: 'Player rating for random matches',
     rating_match_elo_title: 'Player rating for rating matches (leagues)',
     wastedTime   : 'Battle time',

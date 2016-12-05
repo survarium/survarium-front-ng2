@@ -45,6 +45,7 @@ export class PlayersDetailMatches {
         { title: i18n.get('win'), field: `victory`, render: function (value) {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center', sort: { victory: {  } } },
+        { title: i18n.get('place'), field: `place`, classes: 'center' },
         { title: i18n.get('kills'), field: `kills`, classes: 'center', sort: { kills: {} } },
         { title: i18n.get('dies'), field: `dies`, classes: 'center', width: 80, sort: { dies: {} } },
         { title: i18n.get('kd'), field: `kd`, classes: 'center nowrap', width: 80, sort: { kd: {} } },

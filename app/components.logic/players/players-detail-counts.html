@@ -5,16 +5,6 @@
         <dd class="def-list__desc">{{data.progress.level}}</dd>
     </dl>
 
-    <dl class="def-list" *ngIf="data.progress.rating_match_elo" [title]="'rating_match_elo_title' | i18n">
-        <dt class="def-list__term">{{'rating_match_elo' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.progress.rating_match_elo | number}}</dd>
-    </dl>
-
-    <dl class="def-list" *ngIf="data.progress.random_match_elo" [title]="'random_match_elo_title' | i18n">
-        <dt class="def-list__term">{{'random_match_elo' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.progress.random_match_elo | number}}</dd>
-    </dl>
-
     <dl class="def-list">
         <dt class="def-list__term">{{'exp' | i18n}}</dt>
         <dd class="def-list__desc">{{data.progress.experience | number}}</dd>
@@ -67,6 +57,19 @@
         <dd class="def-list__desc">{{data.wasted | elapsed}}</dd>
     </dl>
 </div>
+
+<template [ngIf]="_elo?.length">
+    <h4 class="def-list__title">ELO ({{'matches.rating' | i18n}} / {{'matches.random' | i18n}})</h4>
+    <div class="def-list__values">
+        <dl class="def-list" *ngFor="let elo of _elo">
+            <dt class="def-list__term">{{'modes.' + elo.mode | i18n}}</dt>
+            <dd class="def-list__desc">
+                <span [title]="'rating_match_elo_title' | i18n">{{elo.rating || number}}</span> /
+                <span [title]="'random_match_elo_title' | i18n">{{elo.random || number}}</span>
+            </dd>
+        </dl>
+    </div>
+</template>
 
 <h4 class="def-list__title">{{'details' | i18n}}</h4>
 <div class="def-list__values">

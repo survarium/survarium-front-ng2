@@ -46,6 +46,7 @@ export class ClansDetailMatches {
         { title: i18n.get('win'), field: `victory`, render: function (value) {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center', sort: { victory: {  } } },
+        { title: i18n.get('place'), field: 'place', width: 80, classes: 'center' },
         { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } },
         {
             title: i18n.get('player'),

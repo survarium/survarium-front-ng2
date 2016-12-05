@@ -29,8 +29,6 @@ let dict = {
     opponent: 'Супротивник',
     role: 'Роль',
     rating: 'Рейтинг',
-    random_match_elo: 'ELO (PVP)',
-    rating_match_elo: 'ELO (рейтинг)',
     random_match_elo_title: 'Рейтинг игрока при участии в рандомных боях',
     rating_match_elo_title: 'Рейтинг игрока при участии в рейтинговых боях (лигах)',
     winrate: 'Вінрейт',
@@ -47,6 +45,7 @@ let dict = {
     all          : 'Все',
     lastUpdate: 'Оновлено',
     wide: 'Глибокий',
+    place: 'Місце',
     roles: {
         commander: 'Командир',
         warlord: 'Сержант',
@@ -155,10 +154,14 @@ let dict = {
     loading: 'Завантаження...',
     modes: {
         'Командный бой': 'TDM',
+        'Team Deathmatch': 'TDM',
         'Последний герой': 'DM',
         'Исследование': 'Дослід',
+        'Research': 'Дослід',
         'Защитное устройство': 'Батареї',
+        'Battery retrieval': 'Батареї',
         'Охота за артефактом': 'Артефакт',
+        'Artifact Hunt': 'Артефакт',
         full: {
             'Командный бой': 'Командний бій',
             'Последний герой': 'Останній герой',
