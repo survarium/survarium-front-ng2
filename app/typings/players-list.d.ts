@@ -10,9 +10,7 @@ export interface PlayersList {
         nickname :string,
         id :string,
         progress :{
-            elo :number,
-            rating_match_elo :number,
-            random_match_elo :number,
+            elo :any,
             level :number,
             experience :number
         },

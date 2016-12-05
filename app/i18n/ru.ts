@@ -29,8 +29,6 @@ let dict = {
     opponent     : 'Противник',
     role         : 'Роль',
     rating       : 'Рейтинг',
-    random_match_elo: 'PVP',
-    rating_match_elo: 'рандом',
     random_match_elo_title: 'Рейтинг игрока при участии в рандомных боях',
     rating_match_elo_title: 'Рейтинг игрока при участии в рейтинговых боях (лигах)',
     winrate      : 'Винрейт',

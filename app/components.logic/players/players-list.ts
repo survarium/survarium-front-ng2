@@ -67,20 +67,6 @@ export class PlayersList {
                 classes: 'center',
                 filter: { field: 'progress.level', type: 'number', min: 0, max: 100, value: { $gte: 10 } }
             }, {
-                title: i18n.get('random_match_elo'),
-                field: 'progress.random_match_elo',
-                width: 70,
-                sort: { 'progress.random_match_elo': { } },
-                classes: 'center',
-                filter: { type: 'number' }
-            }, {
-                title: i18n.get('rating_match_elo'),
-                field: 'progress.rating_match_elo',
-                width: 70,
-                sort: { 'progress.rating_match_elo': { } },
-                classes: 'center',
-                filter: { type: 'number' }
-            }, {
                 title: i18n.get('avgScore'),
                 field: 'total.scoreAvg',
                 name: 'scoreAvg',
