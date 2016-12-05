@@ -13,6 +13,7 @@ export class PlayersDetailHistoryCounts {
     private types = [
         'matches',
         'victories',
+        'place',
         'level',
         'kills',
         'dies',
@@ -23,7 +24,8 @@ export class PlayersDetailHistoryCounts {
     ];
 
     private avgs = [
-        'level'
+        'level',
+        'place'
     ];
 
     @Input('group') private group :string;
