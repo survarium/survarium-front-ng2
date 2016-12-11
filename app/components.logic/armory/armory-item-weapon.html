@@ -11,7 +11,7 @@
     </dl>
     <dl>
         <dt>{{ 'armory.item.rounds_per_minute' | i18n }}</dt>
-        <dd>{{ verData.parameters.rounds_per_minute }}</dd>
+        <dd>{{ verData.parameters.chambered_rounds_per_minute || verData.parameters.rounds_per_minute }}</dd>
     </dl>
     <dl>
         <dt>{{ 'armory.item.magazine_capacity' | i18n }}</dt>
@@ -57,7 +57,11 @@
 <div class="def">-->
     <dl>
         <dt>{{ 'armory.item.match_participation_cost' | i18n }}</dt>
-        <dd>{{ verData.parameters.match_participation_cost }}</dd>
+        <dd>{{ verData.parameters.match_participation_cost_modifier }}</dd>
+    </dl>
+    <dl *ngIf="verData.parameters.chamber_a_round_time">
+        <dt>{{ 'armory.item.chamber_a_round_time' | i18n }}</dt>
+        <dd>{{ verData.parameters.chamber_a_round_time }} {{ 'armory.item.sec' | i18n }}</dd>
     </dl>
     <dl>
         <dt>{{ 'armory.item.hip_modifier' | i18n }}</dt>

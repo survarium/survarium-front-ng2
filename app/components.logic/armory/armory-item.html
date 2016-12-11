@@ -30,7 +30,7 @@
                 <dd class="def-list__desc">{{faction}}<span *ngIf="verData.parameters.faction_data?.faction_id"> ({{verData.parameters.faction_data.faction_reputation_level}})</span></dd>
             </dl>
         </div>
-        <div class="basic">
+        <div *ngIf="usage" class="basic">
             <dl class="def-list">
                 <dt class="def-list__term">{{ 'armory.item.owners' | i18n }}</dt>
                 <dd class="def-list__desc">{{data.owners}}<span *ngIf="usage?.total"> ({{ (data.owners / usage.total * 100) | percent }})</span></dd>
@@ -48,4 +48,5 @@
     <div drugs [verData]="verData" *ngIf="type.name === 'drugs'"></div>
     <div ammo [verData]="verData" *ngIf="type.name === 'ammo'"></div>
     <div armor [verData]="verData" *ngIf="type.name === 'armor'"></div>
+    <div trap [verData]="verData" *ngIf="type.name === 'trap'"></div>
 </template>

@@ -13,6 +13,7 @@ import { ArmoryItemGrenade } from './armory-item-grenade'
 import { ArmoryItemDrugs } from './armory-item-drugs'
 import { ArmoryItemAmmo } from './armory-item-ammo'
 import { ArmoryItemArmor } from './armory-item-armor'
+import { ArmoryItemTrap } from './armory-item-trap'
 import { SharedModule } from '../../shared'
 
 @Component({
@@ -29,6 +30,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
     private verData :any;
     private usage :any;
     private faction :string;
+    private showUsage :boolean;
 
     private type :any;
 
@@ -45,9 +47,12 @@ export class ArmoryItem implements OnInit, OnDestroy {
         }
     }
 
+    private getShowUsage() {
+        return this.showUsage = !!~['weapons', 'armor'].indexOf(this.type.name);
+    }
 
     private getUsage() {
-        if (this.usage) {
+        if (!this.getShowUsage() || this.usage) {
             return;
         }
 
@@ -65,6 +70,18 @@ export class ArmoryItem implements OnInit, OnDestroy {
             .getName(this.verData.parameters.faction)
             .subscribe(data => { this.faction = data }, () => {});
     }*/
+
+    private calcRPM() {
+        let parameters = this.verData.parameters;
+        let rpm = parameters.rounds_per_minute;
+        let chamberReloadTime = parameters.chamber_a_round_time;
+
+        if (!rpm || !chamberReloadTime) {
+            return;
+        }
+
+        parameters.chambered_rounds_per_minute = Math.floor(60 / chamberReloadTime);
+    }
 
     private getItem() {
         this.gameService
@@ -84,6 +101,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
                 this.title.setRendered();
 
                 this.getUsage();
+                this.calcRPM();
                 // this.getFaction();
             }, () => {});
     }
@@ -129,6 +147,7 @@ export class ArmoryItem implements OnInit, OnDestroy {
         ArmoryItemDrugs,
         ArmoryItemAmmo,
         ArmoryItemArmor,
+        ArmoryItemTrap,
         Visual
     ]
 })

@@ -1,0 +1,47 @@
+<h3>{{'armory.item.params.trap' | i18n }}</h3>
+
+<div class="def">
+    <dl>
+        <dt>{{ 'armory.item.damage' | i18n }}</dt>
+        <dd>{{ (verData.parameters.trap_damage * 100) | number:{ fixed: 0 } }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.defuse_time' | i18n }}</dt>
+        <dd>{{ verData.data.trap.defuse_time }} {{ 'armory.item.sec' | i18n }}</dd>
+    </dl>
+    <dl>
+        <dt>{{ 'armory.item.scanner_detectable' | i18n }}</dt>
+        <dd>{{ verData.data.trap.scanner_detectable ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+    </dl>
+</div>
+
+<template [ngIf]="verData.data.mine?.explosive">
+    <h3>{{'armory.item.explosion' | i18n }}</h3>
+
+    <div class="def">
+        <dl>
+            <dt>{{ 'armory.item.splash_min_damage' | i18n }}</dt>
+            <dd>{{ (verData.data.mine.explosive.min_damage * 100) | number:{ fixed: 0 } }}</dd>
+        </dl>
+        <dl>
+            <dt>{{ 'armory.item.splash_max_damage' | i18n }}</dt>
+            <dd>{{ (verData.data.mine.explosive.max_damage * 100) | number:{ fixed: 0 } }}</dd>
+        </dl>
+        <dl>
+            <dt>{{ 'armory.item.splash_radius' | i18n }}</dt>
+            <dd>{{ verData.data.mine.explosive.max_range }} {{ 'armory.item.meter' | i18n }}</dd>
+        </dl>
+        <dl>
+            <dt>{{ 'armory.item.stopping_power' | i18n }}</dt>
+            <dd>{{ verData.data.mine.explosive.stopping_power }}</dd>
+        </dl>
+        <dl>
+            <dt>{{ 'armory.item.delay_activation_ms' | i18n }}</dt>
+            <dd>{{ verData.data.mine.delay_activation_ms }} {{ 'armory.item.ms' | i18n }}</dd>
+        </dl>
+        <dl>
+            <dt>{{ 'armory.item.explode_on_trigger_item' | i18n }}</dt>
+            <dd>{{ verData.data.mine.explode_on_trigger_item ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
+        </dl>
+    </div>
+</template>

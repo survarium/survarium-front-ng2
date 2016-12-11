@@ -324,7 +324,8 @@ let dict = {
                 grenade: 'Характеристики гранаты',
                 drugs: 'Характеристики медикамента',
                 ammo: 'Характеристики патрона',
-                armor: 'Характеристики брони'
+                armor: 'Характеристики брони',
+                trap: 'Характеристики ловушки'
             },
             is_premium: 'Премиум',
             yes: 'Да',
@@ -360,6 +361,7 @@ let dict = {
             reliability: 'Удобство',
             aim_time: 'Время прицеливания',
             sec:  'сек.',
+            ms: 'мс.',
             aim_time_modifier: 'Мод. прицеливания',
             reload_time: 'Время перезарядки',
             reload_speed_modifier: 'Мод. перезарядки',
@@ -462,6 +464,7 @@ let dict = {
                 title: 'Зоны поражения'
 
             },
+            explosion: 'Взрыв',
             ano_armor: 'Защита от аномалий',
             explosion_armor: 'Защита от взрыва',
             speed_armor: 'speed_armor',
@@ -469,7 +472,12 @@ let dict = {
             bleeding_resistance: 'Сопротивление кровотечению',
             stamina_armor: 'stamina_armor',
             camo_available: 'Доступны камуфляжи',
-            decal_available: 'Доступны декали'
+            decal_available: 'Доступны декали',
+            chamber_a_round_time: 'Время досылки патрона',
+            explode_on_trigger_item: 'Дистанционный подрыв',
+            defuse_time: 'Время обезвреживания',
+            scanner_detectable: 'Обнаружение сканером',
+            delay_activation_ms: 'Задержка срабатывания'
         }
     },
     ammunition: {

@@ -320,7 +320,8 @@ let dict = {
                 grenade: 'Grenade params',
                 drugs: 'Drugs params',
                 ammo: 'Ammo params',
-                armor: 'Armor params'
+                armor: 'Armor params',
+                trap: 'Trap params'
             },
             is_premium: 'Premium',
             yes: 'Yes',
@@ -356,6 +357,7 @@ let dict = {
             reliability: 'Reliability',
             aim_time: 'Aim time',
             sec: 'sec',
+            ms: 'ms.',
             aim_time_modifier: 'Aim time modifier',
             reload_time: 'Reload time',
             reload_speed_modifier: 'Reload speed modifier',
@@ -458,6 +460,7 @@ let dict = {
                 title: 'Hit target'
 
             },
+            explosion: 'Explosion',
             ano_armor: 'Anomalies protection',
             explosion_armor: 'Explosion protection',
             speed_armor: 'Speed armor',
@@ -465,7 +468,12 @@ let dict = {
             bleeding_resistance: 'Bleeding resistance',
             stamina_armor: 'Stamina armor',
             camo_available: 'Camo available',
-            decal_available: 'Decal available'
+            decal_available: 'Decal available',
+            chamber_a_round_time: 'Chamber a round time',
+            explode_on_trigger_item: 'Explode on trigger',
+            defuse_time: 'Defuse time',
+            scanner_detectable: 'Scanner detectable',
+            delay_activation_ms: 'Delay activation'
             /*
             health_regeneration_speed_modifier: 'health_regeneration_speed_modifier',
             pocket_slots_grenade_modifier: 'pocket_slots_grenade_modifier',
