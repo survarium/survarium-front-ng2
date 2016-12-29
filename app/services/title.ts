@@ -11,6 +11,7 @@ export class TitleService {
 
     description :any;
     alternates :any;
+    canonical :any;
 
     private get url () {
         return this.route.url.split('?')[0];
@@ -38,8 +39,23 @@ export class TitleService {
         });
     }
 
+    private createCanonical() {
+        let canonical = document.createElement('link');
+
+        canonical.rel = 'canonical';
+        canonical.href = this.url;
+
+        this.description.parentNode.insertBefore(canonical, this.description);
+
+        return this.canonical = canonical;
+    }
+
     private updateAlternates() {
         this.alternates.forEach(this.setAlt.bind(this));
+    }
+
+    private updateCanonical() {
+        this.canonical.href = this.url;
     }
 
     constructor(private title :TitleProvider,
@@ -51,6 +67,7 @@ export class TitleService {
         this.description = document.querySelector('meta[name="description"]');
 
         this.createAlternates();
+        this.createCanonical();
     }
 
     setTitle(title ?:string) {
@@ -59,6 +76,7 @@ export class TitleService {
         this.track.visit({ title: nextTitle });
 
         this.updateAlternates();
+        this.updateCanonical();
     }
 
     setDescription(description :string) {
