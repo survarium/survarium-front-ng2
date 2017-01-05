@@ -22,11 +22,11 @@
             <label><input type="radio" name="paymentType" value="PC"><span><i class="pc"></i></span></label><label><input type="radio" name="paymentType" value="AC" checked="checked"><span><i class="ac"></i></span></label><label><input type="radio" name="paymentType" value="MC"><span><i class="mc"></i></span></label>
         </div>
     </div>
-    <div class="data-unit">
+    <div class="data-unit comment">
         <label class="data-unit__label">{{ 'donate.commentLabel' | i18n }}</label>
         <textarea name="comment" maxlength="200" class="data-unit__base" placeholder="{{ 'donate.comment' | i18n }}"></textarea>
     </div>
-    <div class="data-unit">
+    <div class="data-unit submit">
         <div class="data-unit__label"></div>
         <div class="data-unit__base">
             <input type="submit" value="{{ 'donate.confirm' | i18n }}">

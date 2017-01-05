@@ -141,6 +141,18 @@ input[type='submit']
   &:active
     background-color #fc0
 
-small
-  display block
-  margin-bottom .5em
+@media (max-width: 485px)
+  .form,
+  .data-unit__label,
+  .data-unit__base
+    width auto
+
+  .comment .data-unit__label
+    display block
+
+  .submit .data-unit__label
+    display none
+
+  .data-unit__label
+    text-align left
+    padding-bottom .3em
