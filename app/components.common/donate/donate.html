@@ -1,5 +1,35 @@
-<template [ngIf]="iframeSrc">
-    <h2>{{ 'donate' | i18n }}</h2>
-    <small>{{ 'donateThanks.info' | i18n }}</small>
-    <iframe [src]="iframeSrc" [width]="width" [height]="height" allowtransparency="true" frameborder="0"></iframe>
-</template>
+<h2>{{ 'donate.title' | i18n }}</h2>
+
+<form ngNoForm class="form" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+    <input type="hidden" name="receiver" value="41001435441981">
+    <input type="hidden" name="quickpay-form" value="donate">
+    <input type="hidden" name="targets" value="{{ 'donate.target' | i18n }}">
+    <div class="data-unit">
+        <label class="data-unit__label">{{ 'donate.targetLabel' | i18n }}</label>
+        <div class="data-unit__base">{{ 'donate.target' | i18n }}</div>
+    </div>
+    <div class="data-unit amount">
+        <label class="data-unit__label" for="donate__sum">{{ 'donate.amountLabel' | i18n }}</label>
+        <div class="data-unit__base">
+            <input type="number" id="donate__sum" name="sum" value="300" data-type="number">
+            <span class="currency">{{ 'donate.currency' | i18n }}</span>
+        </div>
+    </div>
+    <input type="hidden" name="successURL" value="https://survarium.pro/info/donate-thanks">
+    <div class="data-unit paymentType">
+        <label class="data-unit__label">{{ 'donate.paymentTypeLabel' | i18n }}</label>
+        <div class="data-unit__base radiogroup">
+            <label><input type="radio" name="paymentType" value="PC"><span><i class="pc"></i></span></label><label><input type="radio" name="paymentType" value="AC" checked="checked"><span><i class="ac"></i></span></label><label><input type="radio" name="paymentType" value="MC"><span><i class="mc"></i></span></label>
+        </div>
+    </div>
+    <div class="data-unit">
+        <label class="data-unit__label">{{ 'donate.commentLabel' | i18n }}</label>
+        <textarea name="comment" maxlength="200" class="data-unit__base" placeholder="{{ 'donate.comment' | i18n }}"></textarea>
+    </div>
+    <div class="data-unit">
+        <div class="data-unit__label"></div>
+        <div class="data-unit__base">
+            <input type="submit" value="{{ 'donate.confirm' | i18n }}">
+        </div>
+    </div>
+</form>

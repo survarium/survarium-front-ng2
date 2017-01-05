@@ -65,11 +65,20 @@ let dict = {
     time         : 'Time',
     noData       : 'No data',
     banned       : 'Bans',
-    donate       : 'Donate',
+    donate       : {
+        title: 'Donate',
+        target: 'Donation for survarium.pro',
+        targetLabel: 'The transfer purpose',
+        comment     : 'You may write your nickname or any other information if you like.',
+        commentLabel: 'Comment',
+        amountLabel: 'Amount',
+        currency: 'RUB',
+        paymentTypeLabel: 'Payment method',
+        confirm: 'Transfer'
+    },
     donateThanks : {
         docTitle : 'Thank you for the donation',
-        thanks   : 'Thank you for the donation!',
-        info     : 'In the donation form you may write your nickname or any other information if you like. Thanks :)'
+        thanks   : 'Thank you for the donation!'
     },
     players: {
         docTitle: 'Players',
