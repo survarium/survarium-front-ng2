@@ -5,6 +5,7 @@ import { Info } from './info'
 import { DevMessages } from './dev-messages'
 import { About } from './about'
 import { Bans } from './bans'
+import { DonateThanks } from './donate-thanks'
 
 export const routes :Routes = [
     {
@@ -27,6 +28,10 @@ export const routes :Routes = [
             {
                 path: 'bans',
                 component: Bans
+            },
+            {
+                path: 'donate-thanks',
+                component: DonateThanks
             }
         ]
     }

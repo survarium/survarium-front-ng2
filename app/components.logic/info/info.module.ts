@@ -6,11 +6,13 @@ import { DevMessages } from './dev-messages'
 import { About } from './about'
 import { Bans } from './bans'
 import { Thanks } from './thanks'
+import { Donate } from '../../components.common/donate/donate';
+import { DonateThanks } from './donate-thanks';
 import { routing  } from './info.routing'
 
 @NgModule({
     imports: [SharedModule, routing],
-    declarations: [Info, DevMessages, About, Bans, Thanks]
+    declarations: [Info, DevMessages, About, Bans, Thanks, Donate, DonateThanks]
 })
 
 export class InfoModule {}

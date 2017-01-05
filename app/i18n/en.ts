@@ -65,6 +65,12 @@ let dict = {
     time         : 'Time',
     noData       : 'No data',
     banned       : 'Bans',
+    donate       : 'Donate',
+    donateThanks : {
+        docTitle : 'Thank you for the donation',
+        thanks   : 'Thank you for the donation!',
+        info     : 'In the donation form you may write your nickname or any other information if you like. Thanks :)'
+    },
     players: {
         docTitle: 'Players',
         docDescription: 'Survarium player list. Filters, progress, details, matches, results, clan information.',
