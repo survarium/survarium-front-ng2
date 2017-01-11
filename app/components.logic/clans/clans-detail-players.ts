@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { i18n } from '../../services/i18n'
 import { ClansService } from '../../services/api'
+import { Modes } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
 import { Percent } from '../../components.common/percent/percent'
 import { Role } from '../../components.common/role/role'
@@ -27,7 +28,9 @@ export class ClansDetailPlayers {
             .players(this.clan.abbr, options);
     };
 
-    private columns = [
+    modes = Modes;
+
+    private columns = [].concat([
         {
             title: i18n.get('role'),
             component: Role,
@@ -143,7 +146,20 @@ export class ClansDetailPlayers {
             sort: { 'total.boxesBringed': { } },
             classes: 'center'
         }
-    ];
+    ], (this.modes.map(mode => {
+        let gameMode = mode[0];
+        let gameType = mode[1];
+        let field = `progress.elo.${gameMode}.${gameType}`;
+
+        return {
+            title: `ELO ${i18n.get(`matches.${gameType}`)} ${i18n.get(`modes.${gameMode}`)}`,
+            field,
+            width: 90,
+            sort: { [field]: { } },
+            classes: 'center',
+            filter: { field, type: 'number', min: 0, max: 2000 }
+        }
+    })));
 
     constructor (private _clansService :ClansService) {}
 }

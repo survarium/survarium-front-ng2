@@ -3,6 +3,17 @@ import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http
 import { Observable } from 'rxjs/Observable'
 import { I18N } from '../services/i18n'
 
+const MODES = ['Battery retrieval', 'Team Deathmatch', 'Research', 'Artifact Hunt'];
+const MATCH_TYPES = ['random', 'rating'];
+
+export const Modes = MODES.reduce((result, mode) => {
+    MATCH_TYPES.forEach(type => {
+        result.push([mode, type]);
+    });
+
+    return result;
+}, []);
+
 @Injectable()
 export class PlayersService {
     private apiLang :string;

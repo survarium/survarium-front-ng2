@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
+import { Modes } from '../../services/api'
 import TitleService from '../../services/title'
 import Nickname from '../../components.common/nickname/nickname'
 import Percent from '../../components.common/percent/percent'
@@ -16,6 +17,7 @@ import { PlayersList as PlayersListTyping } from '../../typings/players-list'
 
 export class PlayersList {
     data :any[];
+    modes = Modes;
 
     private columns :any[] = [];
 
@@ -46,7 +48,7 @@ export class PlayersList {
         this.stream = this.stream.bind(this);
         this.streamOnSuccess = this.streamOnSuccess.bind(this);
 
-        this.columns = [
+        this.columns = [].concat([
             {
                 title: '№',
                 number: true,
@@ -167,6 +169,19 @@ export class PlayersList {
                 classes: 'center',
                 filter: { type: 'number' }
             }
-        ];
+        ], (this.modes.map(mode => {
+            let gameMode = mode[0];
+            let gameType = mode[1];
+            let field = `progress.elo.${gameMode}.${gameType}`;
+
+            return {
+                title: `ELO ${i18n.get(`matches.${gameType}`)} ${i18n.get(`modes.${gameMode}`)}`,
+                field,
+                width: 90,
+                sort: { [field]: { } },
+                classes: 'center',
+                filter: { field, type: 'number', min: 0, max: 2000 }
+            }
+        })));
     }
 }
