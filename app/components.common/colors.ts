@@ -9,7 +9,8 @@ export const Colors = <any> ((COLORS) => {
             pointHoverBackgroundColor: `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
             pointHoverBorderColor    : `#fff`,
             color                    : `rgba(${_color[0]},${_color[1]},${_color[2]},1)`,
-            highlight                : `rgba(${_color[0]},${_color[1]},${_color[2]},0.8)`
+            highlight                : `rgba(${_color[0]},${_color[1]},${_color[2]},0.8)`,
+            soft                     : `rgba(${_color[0]},${_color[1]},${_color[2]},0.5)`
         };
         return result;
     }, {

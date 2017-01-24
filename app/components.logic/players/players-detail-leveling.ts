@@ -81,20 +81,36 @@ export class PlayersDetailLeveling {
     private setData() {
         let start = 0;
         let data = experience;
+        let width = this.view.element.nativeElement.offsetWidth;
 
         if (!this.fullMode) {
             start = this.level - 2;
+
             if (start < 0) {
                 start = 0;
             }
 
-            let width = this.view.element.nativeElement.offsetWidth;
             let right = width < 400 ? 10 : 20;
+
             data = data.slice(start, this.level + right);
         }
 
+        let pos = this.level - start;
+        let exp = this.exp;
+
         let playerPos = [];
-        playerPos[this.level - start] = this.exp;
+        playerPos[pos] = exp;
+
+        let nearest = data.slice().map(limit => exp > limit ? limit : exp);
+        let labelLimit = width < 400 ? 50 : width < 600 ? 25 : 10;
+
+        let labels = this.fullMode ?
+            data.map((val, i) => {
+                let label = start + i + 1;
+
+                return (label === 1 || !(label % labelLimit)) ? label : '  ';
+            }) :
+            data.map((val, i) => start + i + 1);
 
         this.data = {
             datasets: [
@@ -106,6 +122,13 @@ export class PlayersDetailLeveling {
                     backgroundColor: Colors['sun-flower'].color
                 },
                 {
+                    data: nearest,
+                    label: 'Player level',
+                    borderColor: Colors['transparent'],
+                    borderWidth: 3,
+                    backgroundColor: Colors['sun-flower'].soft
+                },
+                {
                     data: data,
                     label: 'Exp',
                     borderColor: Colors['turquoise'].color,
@@ -113,7 +136,7 @@ export class PlayersDetailLeveling {
                     backgroundColor: Colors['turquoise'].backgroundColor,
                 }
             ],
-            labels: data.map((val, i) => start + i + 1)
+            labels: labels
         };
     }
 
