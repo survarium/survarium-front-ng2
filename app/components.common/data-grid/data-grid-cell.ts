@@ -23,8 +23,8 @@ export class DataGridCell implements OnInit, AfterContentInit {
 
     @Input() column :any;
     @Input() columnIndex :number;
-    @Input() @Optional() row :any;
-    @Input() @Optional() rowIndex :number;
+    @Input() row :any = null;
+    @Input() rowIndex :number = null;
     @Input() skip :number;
 
     /*@Output() cellClick :EventEmitter<any> = new EventEmitter();
@@ -71,6 +71,7 @@ export class DataGridCell implements OnInit, AfterContentInit {
         if (!path) {
             return 'ERR: no data path provided';
         }
+
         return path.split('.').reduce((row, field) => {
             return row && row[field];
         }, this.row);
@@ -115,6 +116,7 @@ export class DataGridCell implements OnInit, AfterContentInit {
         if (column.inputs) {
             Object.keys(column.inputs).forEach((input) => {
                 let __input = column.inputs[input];
+
                 componentRef.instance[input] = __input.useValue !== undefined ? __input.useValue : this.getCell(__input);
             });
         }
