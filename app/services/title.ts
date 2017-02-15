@@ -67,7 +67,7 @@ export class TitleService {
         this.description = document.querySelector('meta[name="description"]');
 
         this.createAlternates();
-        this.createCanonical();
+        //this.createCanonical();
     }
 
     setTitle(title ?:string) {
@@ -76,7 +76,7 @@ export class TitleService {
         this.track.visit({ title: nextTitle });
 
         this.updateAlternates();
-        this.updateCanonical();
+        //this.updateCanonical();
     }
 
     setDescription(description :string) {
