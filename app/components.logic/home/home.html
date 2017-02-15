@@ -3,7 +3,9 @@
 <players-unique></players-unique>
 <players-top></players-top>
 <timeline></timeline>
-<twitter [user]="twitter" width="400" height="600"></twitter>
-<discord id="177509497038831616" width="400" height="600"></discord>
-<vk-feed id="110270873" width="400" height="600"></vk-feed>
-<facebook page="Survarium" width="400" height="600"></facebook>
+<template [ngIf]="isWebBrowser">
+    <twitter [user]="twitter" width="400" height="600"></twitter>
+    <discord id="177509497038831616" width="400" height="600"></discord>
+    <vk-feed id="110270873" width="400" height="600"></vk-feed>
+    <facebook page="Survarium" width="400" height="600"></facebook>
+</template>

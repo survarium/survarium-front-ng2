@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 import { TitleService } from '../../services/title'
 import { i18n } from '../../services/i18n'
+import CONFIG from '../../config'
 
 @Component({
     selector: 'home',
@@ -23,6 +24,8 @@ export class Home {
             this.twitter = 'SurvariumVostok';
         }
     }
+
+    isWebBrowser = CONFIG.isWebBrowser;
 
     jsonLD = this._sanitizer.bypassSecurityTrustHtml(`<script type="application/ld+json">
         {
