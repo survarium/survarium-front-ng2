@@ -16,7 +16,7 @@ function detectLang () {
         language = Storage.getItem('language');
     }
 
-    if (!language) {
+    if (!language && CONFIG.isWebBrowser) {
         // FIXME: CLIENT-SIDE ONLY
         language = window.navigator['userLanguage'] || window.navigator['language'];
     }

@@ -1,7 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules }   from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, NoPreloading }   from '@angular/router';
 
 import { Error404 } from '../errors/404'
+import CONFIG from '../../config'
 
 export const routes: Routes = [
     {
@@ -41,4 +42,6 @@ export const routes: Routes = [
 
 export const routingProviders: any[] = [];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
+    preloadingStrategy: CONFIG.isWebBrowser ? PreloadAllModules : NoPreloading
+});
