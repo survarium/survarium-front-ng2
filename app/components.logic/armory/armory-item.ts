@@ -94,14 +94,17 @@ export class ArmoryItem implements OnInit, OnDestroy {
                 this.data = data[0];
                 this.verData = this.data.versions[this.version.id.replace(/\./g, '_dot_')];
                 this.type = SUBTYPES[this.data.category];
-                this.verData.image = this.type.image && this.type.image(this.verData.ui_desc.icon);
+
+                if (this.verData) {
+                    this.verData.image = this.type.image && this.type.image(this.verData.ui_desc.icon);
+                    this.calcRPM();
+                }
 
                 this.title.setTitle(this.i18n.get('armory.item.docTitle', { item: this.data.name }));
                 this.title.setDescription(this.i18n.get('armory.docDescription'));
                 this.title.setRendered();
 
                 this.getUsage();
-                this.calcRPM();
                 // this.getFaction();
             }, () => {});
     }

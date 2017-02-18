@@ -2,51 +2,54 @@
 <template [ngIf]="data">
     <h2>{{data.name}}</h2>
     <visual *ngIf="data.visual" [model]="data.key"></visual>
-    <div class="clearfix">
-        <img *ngIf="verData.image" [src]="verData.image" />
-        <div class="basic">
-            <dl class="def-list">
-                <dt class="def-list__term">{{ 'armory.item.is_premium' | i18n }}</dt>
-                <dd class="def-list__desc">{{verData.is_premium ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n)}}</dd>
-            </dl>
-            <dl class="def-list">
-                <dt class="def-list__term">{{ 'armory.item.drop_weight' | i18n }}</dt>
-                <dd class="def-list__desc">{{verData.parameters.drop_weight}}</dd>
-            </dl>
-            <dl class="def-list" *ngIf="verData.parameters.base_rarity_level">
-                <dt class="def-list__term">{{ 'armory.item.base_rarity_level' | i18n }}</dt>
-                <dd class="def-list__desc">{{verData.parameters.base_rarity_level}}</dd>
-            </dl>
-            <dl class="def-list">
-                <dt class="def-list__term">{{ 'level' | i18n }}</dt>
-                <dd class="def-list__desc"><span title="{{ 'armory.item.item_level' | i18n }}">{{verData.parameters.item_level}}</span> (<span title="{{ 'armory.item.match_making_level' | i18n }}">{{verData.parameters.match_making_level}}</span>)</dd>
-            </dl>
-            <dl class="def-list" *ngIf="verData.parameters.weight">
-                <dt class="def-list__term">{{ 'armory.item.weight' | i18n }}</dt>
-                <dd class="def-list__desc">{{verData.parameters.weight}} {{ 'armory.item.kg' | i18n }}</dd>
-            </dl>
-            <dl class="def-list" *ngIf="faction">
-                <dt class="def-list__term">{{ 'armory.item.faction' | i18n }}</dt>
-                <dd class="def-list__desc">{{faction}}<span *ngIf="verData.parameters.faction_data?.faction_id"> ({{verData.parameters.faction_data.faction_reputation_level}})</span></dd>
-            </dl>
+    <h3 *ngIf="!verData">{{ 'armory.item.not_in_version' | i18n}} {{version.id}}</h3>
+    <template [ngIf]="verData">
+        <div class="clearfix">
+            <img *ngIf="verData.image" [src]="verData.image" />
+            <div class="basic">
+                <dl class="def-list">
+                    <dt class="def-list__term">{{ 'armory.item.is_premium' | i18n }}</dt>
+                    <dd class="def-list__desc">{{verData.is_premium ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n)}}</dd>
+                </dl>
+                <dl class="def-list">
+                    <dt class="def-list__term">{{ 'armory.item.drop_weight' | i18n }}</dt>
+                    <dd class="def-list__desc">{{verData.parameters.drop_weight}}</dd>
+                </dl>
+                <dl class="def-list" *ngIf="verData.parameters.base_rarity_level">
+                    <dt class="def-list__term">{{ 'armory.item.base_rarity_level' | i18n }}</dt>
+                    <dd class="def-list__desc">{{verData.parameters.base_rarity_level}}</dd>
+                </dl>
+                <dl class="def-list">
+                    <dt class="def-list__term">{{ 'level' | i18n }}</dt>
+                    <dd class="def-list__desc"><span title="{{ 'armory.item.item_level' | i18n }}">{{verData.parameters.item_level}}</span> (<span title="{{ 'armory.item.match_making_level' | i18n }}">{{verData.parameters.match_making_level}}</span>)</dd>
+                </dl>
+                <dl class="def-list" *ngIf="verData.parameters.weight">
+                    <dt class="def-list__term">{{ 'armory.item.weight' | i18n }}</dt>
+                    <dd class="def-list__desc">{{verData.parameters.weight}} {{ 'armory.item.kg' | i18n }}</dd>
+                </dl>
+                <dl class="def-list" *ngIf="faction">
+                    <dt class="def-list__term">{{ 'armory.item.faction' | i18n }}</dt>
+                    <dd class="def-list__desc">{{faction}}<span *ngIf="verData.parameters.faction_data?.faction_id"> ({{verData.parameters.faction_data.faction_reputation_level}})</span></dd>
+                </dl>
+            </div>
+            <div *ngIf="usage" class="basic">
+                <dl class="def-list">
+                    <dt class="def-list__term">{{ 'armory.item.owners' | i18n }}</dt>
+                    <dd class="def-list__desc">{{data.owners}}<span *ngIf="usage?.total"> ({{ (data.owners / usage.total * 100) | percent }})</span></dd>
+                </dl>
+                <dl *ngIf="usage?.used || data.used" class="def-list">
+                    <dt class="def-list__term">{{ 'armory.item.usage' | i18n }}</dt>
+                    <dd class="def-list__desc">{{usage?.used || data.used}}<span *ngIf="usage?.total"> ({{ (usage.used / usage.total * 100) | percent }})</span></dd>
+                </dl>
+                <p class="owners-desc">{{ 'armory.item.owners-desc' | i18n }}</p>
+            </div>
         </div>
-        <div *ngIf="usage" class="basic">
-            <dl class="def-list">
-                <dt class="def-list__term">{{ 'armory.item.owners' | i18n }}</dt>
-                <dd class="def-list__desc">{{data.owners}}<span *ngIf="usage?.total"> ({{ (data.owners / usage.total * 100) | percent }})</span></dd>
-            </dl>
-            <dl *ngIf="usage?.used || data.used" class="def-list">
-                <dt class="def-list__term">{{ 'armory.item.usage' | i18n }}</dt>
-                <dd class="def-list__desc">{{usage?.used || data.used}}<span *ngIf="usage?.total"> ({{ (usage.used / usage.total * 100) | percent }})</span></dd>
-            </dl>
-            <p class="owners-desc">{{ 'armory.item.owners-desc' | i18n }}</p>
-        </div>
-    </div>
 
-    <div weapon [verData]="verData" *ngIf="type.name === 'weapons'"></div>
-    <div grenade [verData]="verData" *ngIf="type.name === 'grenade'"></div>
-    <div drugs [verData]="verData" *ngIf="type.name === 'drugs'"></div>
-    <div ammo [verData]="verData" *ngIf="type.name === 'ammo'"></div>
-    <div armor [verData]="verData" *ngIf="type.name === 'armor'"></div>
-    <div trap [verData]="verData" *ngIf="type.name === 'trap'"></div>
+        <div weapon [verData]="verData" *ngIf="type.name === 'weapons'"></div>
+        <div grenade [verData]="verData" *ngIf="type.name === 'grenade'"></div>
+        <div drugs [verData]="verData" *ngIf="type.name === 'drugs'"></div>
+        <div ammo [verData]="verData" *ngIf="type.name === 'ammo'"></div>
+        <div armor [verData]="verData" *ngIf="type.name === 'armor'"></div>
+        <div trap [verData]="verData" *ngIf="type.name === 'trap'"></div>
+    </template>
 </template>

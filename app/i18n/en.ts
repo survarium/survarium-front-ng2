@@ -320,6 +320,7 @@ let dict = {
         item: {
             docTitle: 'Armory | {{item}}',
             title: 'Armory | {{item}}',
+            not_in_version: 'The item wasn\'t in version',
             usage: 'Usage (active in battle profiles)',
             owners: 'Owners (have in inventory)',
             'owners-desc': 'The amount of owners accumulates with matches import. Usage data calculates every 30 minutes based on players profiles data.',
