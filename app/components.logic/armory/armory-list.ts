@@ -174,10 +174,14 @@ export class ArmoryList {
                 version: this.version.id,
                 thin: true
             })
-            .subscribe(items => this.data = items.map(item => {
-                item.props && (item.props = item.props.filter(prop => prop.name));
-                return item;
-            }).sort((a, b) => b.level - a.level));
+            .subscribe(items => this.data = items
+                .filter(item => item.ver)
+                .map(item => {
+                    item.props && (item.props = item.props.filter(prop => prop.name));
+
+                    return item;
+                })
+                .sort((a, b) => b.level - a.level));
     }
 }
 
