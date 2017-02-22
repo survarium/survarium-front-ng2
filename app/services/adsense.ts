@@ -27,7 +27,7 @@ export class AdsenseService {
             try {
                 window['adsbygoogle'].push({
                     google_ad_client: config.adsense.client,
-                    enable_page_level_ads: config.isMobile
+                    enable_page_level_ads: false //config.isMobile
                 });
             } catch (e) {}
             this.loaded = true;

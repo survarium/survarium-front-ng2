@@ -8,7 +8,7 @@ export function ngOnLoad(window, document) {
 
     const isWebBrowser = CONFIG.isWebBrowser;
 
-    var scripts = document.getElementsByTagName('script')[0],
+    let scripts = document.getElementsByTagName('script')[0],
         targets = [
             //{ src: 'https://an.yandex.ru/system/context.js' },
             isWebBrowser && { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
@@ -27,10 +27,10 @@ export function ngOnLoad(window, document) {
             isWebBrowser && { src: 'https://viewer.marmoset.co/main/marmoset.js' }
         ].filter(Boolean);
 
-    for (var i = 0, script; i < targets.length; i++) {
+    for (let i = 0, script; i < targets.length; i++) {
         script = targets[i];
 
-        var domScript = document.createElement('script');
+        let domScript = document.createElement('script');
         domScript.type = 'text/javascript';
         (script.async === undefined || script.async) && (domScript.async = true);
         domScript.src = script.src;
