@@ -47,6 +47,7 @@ class I18N {
             let exp = '\{\{' + key + '\}\}';
             translation = translation.replace(new RegExp(exp), variables[key]);
         });
+
         return translation;
     }
 

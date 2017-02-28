@@ -36,6 +36,13 @@ export const CONFIG = {
                 apiLang: 'english',
                 gameLang: 'english',
                 originName: 'English'
+            },
+            {
+                lang: 'pl',
+                alternate: 'pl',
+                apiLang: 'english',
+                gameLang: 'polish',
+                originName: 'Polski'
             }
         ]
     }
