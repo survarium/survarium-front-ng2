@@ -1,999 +1,1071 @@
 {
-    "101": {
-        "pos": [
-            2,
-            1
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Быстрая реакция",
-            "ua": "Швидка реакція",
-            "en": "Quick response"
-        },
-        "icon": 8,
-        "description": {
-            "ru": "Скорость прицеливания:",
-            "ua": "Швидкість прицілювання",
-            "en": "The speed of aiming:"
-        },
-        "type": "percent",
-        "sign": -1,
-        "mods": {
-            "aim_time_modifier": [
-                -2,
-                -4,
-                -6,
-                -8,
-                -10
-            ]
-        }
+  "101": {
+    "pos": [
+      2,
+      1
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Быстрая реакция",
+      "ua": "Швидка реакція",
+      "en": "Quick response",
+      "pl": "Szybka reakcja"
     },
-    "102": {
-        "pos": [
-            3,
-            1
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Боевая стойка",
-            "ua": "Бойова стійка",
-            "en": "Battle stance"
-        },
-        "icon": 0,
-        "description": {
-            "ru": "Скорость передвижения в прицеливании:",
-            "ua": "Швидкість пересування при прицілюванні:",
-            "en": "The speed of movement while aiming:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "movement_speed_when_aiming_modifier": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        }
+    "icon": 8,
+    "description": {
+      "ru": "Скорость прицеливания:",
+      "ua": "Швидкість прицілювання",
+      "en": "The speed of aiming:",
+      "pl": "Prędkość celowania:"
     },
-    "111": {
-        "pos": [
-            1,
-            2
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Быстрый взвод",
-            "ua": "Зведений курок",
-            "en": "Trigger discipline"
-        },
-        "icon": 3,
-        "description": {
-            "ru": "Скорость передергивания затвора:",
-            "ua": "Швидкість пересмикування затвору:",
-            "en": "Bolt cocking speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "chamber_a_round_modifier": [
-                10,
-                20
-            ]
-        }
-    },
-    "112": {
-        "pos": [
-            3,
-            2
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Невозмутимость",
-            "ua": "Незворушність",
-            "en": "Equanimity"
-        },
-        "icon": 6,
-        "description": {
-            "ru": "Штраф точности при ранении рук:",
-            "ua": "Штраф дисперсії при пораненні рук:",
-            "en": "Dispersion penalty when hands are wounded:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "injury_penalty_modifier": [
-                -25,
-                -50,
-                -75
-            ]
-        }
-    },
-    "113": {
-        "pos": [
-            4,
-            2
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Ловкие руки",
-            "ua": "Спритні руки",
-            "en": "Deft hands"
-        },
-        "icon": 2,
-        "description": {
-            "ru": "Скорость смены оружия:",
-            "ua": "Швидкість зміни зброї:",
-            "en": "Change weapon swap speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "change_weapon_speed_modifier": [
-                10,
-                20
-            ]
-        }
-    },
-    "121": {
-        "pos": [
-            1,
-            3
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Железные легкие",
-            "ua": "Залізні легені",
-            "en": "Iron lungs"
-        },
-        "icon": 4,
-        "description": {
-            "ru": "Время задержки дыхания:",
-            "ua": "Час затамування подиху:",
-            "en": "The breath hold time:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "breath_holding_time_modifier": [
-                25,
-                50
-            ]
-        }
-    },
-    "122": {
-        "pos": [
-            2,
-            3
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Точность",
-            "ua": "Точність",
-            "en": "Accuracy"
-        },
-        "icon": 10,
-        "description": {
-            "ru": "Точность при стрельбе от бедра:",
-            "ua": "Влучність при стрільбі від стегна:",
-            "en": "Accuracy when firing from the hip:"
-        },
-        "type": "percent",
-        "sign": -1,
-        "mods": {
-            "dispersion_from_hip_modifier": [
-                -1,
-                -2,
-                -3,
-                -4,
-                -5
-            ]
-        }
-    },
-    "123": {
-        "pos": [
-            3,
-            3
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Крепкий хват",
-            "ua": "Тверда рука",
-            "en": "Firm grip"
-        },
-        "icon": 5,
-        "description": {
-            "ru": "Точность в движении:",
-            "ua": "Точність при пересуванні:",
-            "en": "Precision during motion:"
-        },
-        "type": "percent",
-        "sign": -1,
-        "mods": {
-            "dispersion_movement_influence_modifier": [
-                -3,
-                -6,
-                -9
-            ]
-        }
-    },
-    "124": {
-        "pos": [
-            4,
-            3
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Перезарядка",
-            "ua": "Перезарядка",
-            "en": "Reload"
-        },
-        "icon": 7,
-        "description": {
-            "ru": "Скорость перезарядки:",
-            "ua": "Швидкість перезарядки:",
-            "en": "Reload speed"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "reload_speed_modifier": [
-                5,
-                10
-            ]
-        }
-    },
-    "131": {
-        "pos": [
-            2,
-            4
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Ровный выдох",
-            "ua": "Рівний видих",
-            "en": "Steady Breath"
-        },
-        "icon": 14,
-        "description": {
-            "ru": "Раскачивание оружия при прицеливании:",
-            "ua": "Розгойдування зброї при прицілюванні:",
-            "en": "Weapon sway when aiming:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "breath_vibration_modifier": [
-                -2,
-                -4,
-                -6,
-                -8,
-                -10
-            ]
-        }
-    },
-    "132": {
-        "pos": [
-            3,
-            4
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Гашение отдачи",
-            "ua": "Гасіння віддачі",
-            "en": "Recoil damping "
-        },
-        "icon": 13,
-        "description": {
-            "ru": "Отдача оружия:",
-            "ua": "Віддача зброї:",
-            "en": "Weapon recoil:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "recoil_modifier": [
-                -1,
-                -2,
-                -3,
-                -4,
-                -5
-            ]
-        }
-    },
-    "142": {
-        "pos": [
-            2,
-            5
-        ],
-        "branch": "shooting",
-        "name": {
-            "ru": "Терминатор",
-            "ua": "Термінатор",
-            "en": "Terminator"
-        },
-        "icon": 9,
-        "description": {
-            "ru": "Вы можете взять в бой два основных оружия.",
-            "ua": "Ваша додаткова зброя також може бути дворучною.",
-            "en": "You can carry two two-handed weapons into a match."
-        },
-        "mods": {
-            "use_two_double_handed_weapons_modifier": [
-                1
-            ]
-        }
-    },
-    "201": {
-        "pos": [
-            2,
-            1
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Дыхание",
-            "ua": "Дихання",
-            "en": "Breath"
-        },
-        "icon": 6,
-        "description": {
-            "ru": "Скорость восстановления энергии:",
-            "ua": "Швидкість відновлення енергії:",
-            "en": "Stamina recovery speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "stamina_regeneration_speed_modifier": [
-                2,
-                4,
-                6,
-                8,
-                10
-            ]
-        }
-    },
-    "202": {
-        "pos": [
-            3,
-            1
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Стайер",
-            "ua": "Стаєр",
-            "en": "Stayer"
-        },
-        "icon": 13,
-        "description": {
-            "ru": "Максимальная величина энергии:",
-            "ua": "Максимальна величина енергії:",
-            "en": "Maximum energy:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "stamina_health_increase_modifier": [
-                5,
-                10,
-                15,
-                20,
-                25
-            ]
-        }
-    },
-    "211": {
-        "pos": [
-            1,
-            2
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Гренадер",
-            "ua": "Гренадер",
-            "en": "Grenadier"
-        },
-        "icon": 0,
-        "description": {
-            "ru": "Дальность броска:",
-            "ua": "Дальність кидка:",
-            "en": "Throwing distance:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "grenade_throw_power_modifier": [
-                10,
-                20
-            ]
-        }
-    },
-    "212": {
-        "pos": [
-            3,
-            2
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Силач",
-            "ua": "Силач",
-            "en": "Athlete"
-        },
-        "icon": 8,
-        "description": {
-            "ru": "Переносимый вес:",
-            "ua": "Переносима вага:",
-            "en": "Portable weight:"
-        },
-        "type": "kg",
-        "sign": 1,
-        "mods": {
-            "max_carried_weight_modifier": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        }
-    },
-    "213": {
-        "pos": [
-            4,
-            2
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Второе дыхание",
-            "ua": "Друге дихання",
-            "en": "Second wind"
-        },
-        "icon": 14,
-        "description": {
-            "ru": "Восстановление энергии при убийстве противника:",
-            "ua": "Відновлення енергії при вбивстві супротивника:",
-            "en": "Stamina recovered by killing the enemy:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "stamina_boost_amount_modifier": [
-                50,
-                100
-            ],
-            "stamina_boost_interval_modifier": [
-                0,
-                0
-            ],
-            "stamina_boost_time_modifier": [
-                10000,
-                20000
-            ]
-        }
-    },
-    "221": {
-        "pos": [
-            1,
-            3
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Десантник",
-            "ua": "Десантник",
-            "en": "Paratrooper"
-        },
-        "icon": 1,
-        "description": {
-            "ru": "Повреждения при падении:",
-            "ua": "Пошкодження при падінні:",
-            "en": "Damage when falling:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "fall_damage_modifier": [
-                -15,
-                -30
-            ]
-        }
-    },
-    "222": {
-        "pos": [
-            2,
-            3
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Выносливость",
-            "ua": "Витривалість",
-            "en": "Endurance"
-        },
-        "icon": 2,
-        "description": {
-            "ru": "Влияние веса на расход энергии:",
-            "ua": "Вплив ваги на витрату енергії:",
-            "en": "Effect of weight on energy consumption:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "max_carried_weight_spending_speed_modifier": [
-                -10,
-                -20,
-                -30
-            ]
-        }
-    },
-    "223": {
-        "pos": [
-            3,
-            3
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Упаковщик",
-            "ua": "Паківник",
-            "en": "Packrat"
-        },
-        "icon": 11,
-        "description": {
-            "ru": "Влияние веса на скорость передвижения:",
-            "ua": "Вплив ваги на швидкість пересування:",
-            "en": "The influence of weight on movement speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "overweight_penalty_modifier": [
-                -10,
-                -20,
-                -30
-            ]
-        }
-    },
-    "224": {
-        "pos": [
-            4,
-            3
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Мобильность",
-            "ua": "Мобільність",
-            "en": "Mobility"
-        },
-        "icon": 15,
-        "description": {
-            "ru": "Скорость передвижения в приседе:",
-            "ua": "Швидкість пересування навприсядки:",
-            "en": "Crouched movement speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "movement_speed_in_crouch_modifier": [
-                5,
-                10
-            ]
-        }
-    },
-    "231": {
-        "pos": [
-            2,
-            4
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Стремительный",
-            "ua": "Стрімголовий",
-            "en": "Rapid"
-        },
-        "icon": 9,
-        "description": {
-            "ru": "Скорость передвижения:",
-            "ua": "Швидкість пересування:",
-            "en": "Movement speed:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "movement_speed_modifier": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ],
-            "movement_speed_in_crouch_modifier": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
-        }
-    },
-    "232": {
-        "pos": [
-            3,
-            4
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Неудержимый",
-            "ua": "Нестримний",
-            "en": "Unstoppable"
-        },
-        "icon": 12,
-        "description": {
-            "ru": "Замедление при получении ранений:",
-            "ua": "Уповільнення при отриманні поранень:",
-            "en": "Slowdown after injuries:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "stagger_defence_modifier": [
-                5,
-                10,
-                15,
-                20,
-                25
-            ]
-        }
-    },
-    "241": {
-        "pos": [
-            2,
-            5
-        ],
-        "branch": "physical",
-        "name": {
-            "ru": "Неистовство",
-            "ua": "Шаленство",
-            "en": "Frenzy"
-        },
-        "icon": 4,
-        "description": {
-            "ru": "Во время спринта получаемый урон от огнестрельного оружия уменьшен на 25%.",
-            "ua": "Під час спринту одержувана шкода від вогнепальної зброї зменшена на 25%.",
-            "en": "While sprinting damage taken from firearms reduced by 25%."
-        },
-        "mods": {
-            "ranged_sprinting_damage_modifier": [
-                -0.25
-            ]
-        }
-    },
-    "501": {
-        "pos": [
-            2,
-            1
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Концентрация",
-            "ua": "Концентрація",
-            "en": "Concentration"
-        },
-        "icon": 0,
-        "description": {
-            "ru": "Время разрушения аномалии:",
-            "ua": "Час руйнування аномалії:",
-            "en": "Anomaly will be destroyed in:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "artefact_search_time_modifier": [
-                -5,
-                -10,
-                -15,
-                -20,
-                -25
-            ]
-        }
-    },
-    "502": {
-        "pos": [
-            3,
-            1
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Сопротивление",
-            "ua": "Опір",
-            "en": "Resistance"
-        },
-        "icon": 1,
-        "description": {
-            "ru": "Защита от аномалий:",
-            "ua": "Шкоди від аномалій:",
-            "en": "Damage from anomalies:"
-        },
-        "type": "percent",
-        "sign": -1,
-        "mods": {
-            "anomaly_damage_modifier": [
-                -1,
-                -2,
-                -3,
-                -4,
-                -5
-            ]
-        }
-    },
-    "511": {
-        "pos": [
-            1,
-            2
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Сила артефактов",
-            "ua": "Сила артефактів",
-            "en": "Artifacts Power"
-        },
-        "icon": 11,
-        "description": {
-            "ru": "Сила пассивного бонуса артефактов:",
-            "ua": "Сила пасивного бонусу артефактів:",
-            "en": "Power of passive artifacts bonus:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "artefact_passive_power_modifier": [
-                10,
-                20,
-                30,
-                40,
-                50
-            ]
-        }
-    },
-    "512": {
-        "pos": [
-            2,
-            2
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Использование артефактов",
-            "ua": "Використання артефактів",
-            "en": "Using artifacts"
-        },
-        "icon": 3,
-        "description": {
-            "ru": "Вы можете использовать артефакты.",
-            "ua": "Ви можете використовувати артефакти.",
-            "en": "You can use artifacts."
-        },
-        "mods": {
-            "use_artefact_modifier": [
-                1
-            ]
-        }
-    },
-    "513": {
-        "pos": [
-            4,
-            2
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Защита Леса",
-            "ua": "Захист Лісу",
-            "en": "Forest Protection"
-        },
-        "icon": 7,
-        "description": {
-            "ru": "Урон от огнестрельных и осколочных ранений внутри аномалии:",
-            "ua": "Шкода від вогнепальних і осколкових поранень всередині аномалії:",
-            "en": "Damage from gunshot and shrapnel wounds inside the anomaly:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "incoming_weapon_damage_in_anomaly_modifier": [
-                -10,
-                -20,
-                -30
-            ]
-        }
-    },
-    "521": {
-        "pos": [
-            1,
-            3
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Знание артефактов",
-            "ua": "Знання артефактів",
-            "en": "Knowledge of artifacts"
-        },
-        "icon": 4,
-        "description": {
-            "ru": "Длительность активного эффекта артефактов:",
-            "ua": "Тривалість активного ефекту артефактів:",
-            "en": "The duration of the active effect of artifacts:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "artefact_duration_modifier": [
-                6,
-                12,
-                18,
-                24,
-                30
-            ]
-        }
-    },
-    "522": {
-        "pos": [
-            3,
-            3
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Адаптация",
-            "ua": "Адаптація",
-            "en": "Adaptation"
-        },
-        "icon": 5,
-        "description": {
-            "ru": "Находясь в аномалии, вы постепенно получаете\nиммунитет к ее негативному воздействию.\nСекунд до полного иммунитета:",
-            "ua": "Перебуваючи в аномалії, ви отримуєте поступово імунітет до її негативного впливу. Секунд до повного імунітету:",
-            "en": "Being in an anomaly, you gradually become immune to its negative effects. Seconds to full immunity:"
-        },
-        "type": "seconds",
-        "mods": {
-            "ascending_adaption_to_anomaly_modifier": [
-                18000,
-                16000,
-                14000,
-                12000,
-                10000
-            ],
-            "descending_adaption_to_anomaly_modifier": [
-                1000,
-                1500,
-                2000,
-                2500,
-                3000
-            ]
-        }
-    },
-    "523": {
-        "pos": [
-            4,
-            3
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Прощение Леса",
-            "ua": "Прощення Лісу",
-            "en": "Mercy of the Forest"
-        },
-        "icon": 8,
-        "description": {
-            "ru": "Аномалии перестают вредить игроку после достижения порога здоровья в:",
-            "ua": "Аномалії перестають шкодити гравцеві після досягнення порогу здоров'я в:",
-            "en": "Anomalies cease to harm the player after reaching the threshold of health in:"
-        },
-        "type": "percent",
-        "mods": {
-            "friendly_anomaly_modifier": [
-                10,
-                20
-            ]
-        }
-    },
-    "531": {
-        "pos": [
-            1,
-            4
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Нейтрализация",
-            "ua": "Нейтралізація",
-            "en": "Neutralization"
-        },
-        "icon": 13,
-        "description": {
-            "ru": "Артефакты в пассивном состоянии предоставляют\nзащиту от аномалии своего типа.\nЗащита от аномалий:",
-            "ua": "Артефакти в пасивному стані надають\nзахист від аномалії свого типу.Захист від аномалій:",
-            "en": "Artifacts passively neutralize some of the negative effect of the anomaly type which created it. :Damage neutralized:"
-        },
-        "type": "percent",
-        "sign": -1,
-        "mods": {
-            "neutralization_modifier": [
-                -10,
-                -30
-            ]
-        }
-    },
-    "532": {
-        "pos": [
-            2,
-            4
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Энергия артефактов",
-            "ua": "Енергія артефактів",
-            "en": "Artifacts Energy"
-        },
-        "icon": 6,
-        "description": {
-            "ru": "Сила активного бонуса артефактов:",
-            "ua": "Сила активного бонусу артефактів:",
-            "en": "Power of the active artifacts effect:"
-        },
-        "type": "percent",
-        "sign": 1,
-        "mods": {
-            "artefact_active_power_modifier": [
-                5,
-                10,
-                15,
-                20,
-                25
-            ]
-        }
-    },
-    "533": {
-        "pos": [
-            4,
-            4
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Аномальный контакт",
-            "ua": "Аномальний контакт",
-            "en": "Anomalous Contact"
-        },
-        "icon": 10,
-        "description": {
-            "ru": "Находясь в аномалии, вы получаете пассивный бонус артефакта этой аномалии.",
-            "ua": "Перебуваючи у аномалії, ви отримуєте пасивний бонус артефакту цієї аномалії.",
-            "en": "While in an anomaly, you gain a passive bonus similar to the artifact of the anomaly."
-        },
-        "mods": {
-            "anomaly_contact_modifier": [
-                1
-            ]
-        }
-    },
-    "541": {
-        "pos": [
-            2,
-            5
-        ],
-        "branch": "anomaly",
-        "name": {
-            "ru": "Чувство Леса",
-            "ua": "Почуття Лісу",
-            "en": "Forest Sense"
-        },
-        "icon": 2,
-        "description": {
-            "ru": "На мини-карте отображаются аномалии в радиусе 150 метров.",
-            "ua": "На мінікарті відображаються аномалії у радіусі 150 метрів.",
-            "en": " Anomalies are displayed on the minimap in 150m radius."
-        },
-        "mods": {
-            "spot_artefacts_radius_modifier": [
-                150
-            ],
-            "spot_enemies_with_artefacts_modifier": [
-                0
-            ]
-        }
+    "type": "percent",
+    "sign": -1,
+    "mods": {
+      "aim_time_modifier": [
+        -2,
+        -4,
+        -6,
+        -8,
+        -10
+      ]
     }
+  },
+  "102": {
+    "pos": [
+      3,
+      1
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Боевая стойка",
+      "ua": "Бойова стійка",
+      "en": "Battle stance",
+      "pl": "Pozycja bojowa"
+    },
+    "icon": 0,
+    "description": {
+      "ru": "Скорость передвижения в прицеливании:",
+      "ua": "Швидкість пересування при прицілюванні:",
+      "en": "The speed of movement while aiming:",
+      "pl": "Prędkość poruszania się podczas celowania:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "movement_speed_when_aiming_modifier": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "111": {
+    "pos": [
+      1,
+      2
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Быстрый взвод",
+      "ua": "Зведений курок",
+      "en": "Trigger discipline",
+      "pl": "Opanowanie spustu"
+    },
+    "icon": 3,
+    "description": {
+      "ru": "Скорость передергивания затвора:",
+      "ua": "Швидкість пересмикування затвору:",
+      "en": "Bolt cocking speed:",
+      "pl": "Szybkość pociągania za spust"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "chamber_a_round_modifier": [
+        10,
+        20
+      ]
+    }
+  },
+  "112": {
+    "pos": [
+      3,
+      2
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Невозмутимость",
+      "ua": "Незворушність",
+      "en": "Equanimity",
+      "pl": "Spokój"
+    },
+    "icon": 6,
+    "description": {
+      "ru": "Штраф точности при ранении рук:",
+      "ua": "Штраф дисперсії при пораненні рук:",
+      "en": "Dispersion penalty when hands are wounded:",
+      "pl": "Kara do rozrzutu przy zranieniu rąk:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "injury_penalty_modifier": [
+        -25,
+        -50,
+        -75
+      ]
+    }
+  },
+  "113": {
+    "pos": [
+      4,
+      2
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Ловкие руки",
+      "ua": "Спритні руки",
+      "en": "Deft hands",
+      "pl": "Zręczne dłonie"
+    },
+    "icon": 2,
+    "description": {
+      "ru": "Скорость смены оружия:",
+      "ua": "Швидкість зміни зброї:",
+      "en": "Change weapon swap speed:",
+      "pl": "Szybkość zmiany broni:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "change_weapon_speed_modifier": [
+        10,
+        20
+      ]
+    }
+  },
+  "121": {
+    "pos": [
+      1,
+      3
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Железные легкие",
+      "ua": "Залізні легені",
+      "en": "Iron lungs",
+      "pl": "Żelazne płuca"
+    },
+    "icon": 4,
+    "description": {
+      "ru": "Время задержки дыхания:",
+      "ua": "Час затамування подиху:",
+      "en": "The breath hold time:",
+      "pl": "Czas wstrzymania oddechu:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "breath_holding_time_modifier": [
+        25,
+        50
+      ]
+    }
+  },
+  "122": {
+    "pos": [
+      2,
+      3
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Точность",
+      "ua": "Точність",
+      "en": "Accuracy",
+      "pl": "Celność"
+    },
+    "icon": 10,
+    "description": {
+      "ru": "Точность при стрельбе от бедра:",
+      "ua": "Влучність при стрільбі від стегна:",
+      "en": "Accuracy when firing from the hip:",
+      "pl": "Precyzja przy strzale z biodra:"
+    },
+    "type": "percent",
+    "sign": -1,
+    "mods": {
+      "dispersion_from_hip_modifier": [
+        -1,
+        -2,
+        -3,
+        -4,
+        -5
+      ]
+    }
+  },
+  "123": {
+    "pos": [
+      3,
+      3
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Крепкий хват",
+      "ua": "Тверда рука",
+      "en": "Firm grip",
+      "pl": "Twardy orzech"
+    },
+    "icon": 5,
+    "description": {
+      "ru": "Точность в движении:",
+      "ua": "Точність при пересуванні:",
+      "en": "Precision during motion:",
+      "pl": "Precyzja w ruchu:"
+    },
+    "type": "percent",
+    "sign": -1,
+    "mods": {
+      "dispersion_movement_influence_modifier": [
+        -3,
+        -6,
+        -9
+      ]
+    }
+  },
+  "124": {
+    "pos": [
+      4,
+      3
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Перезарядка",
+      "ua": "Перезарядка",
+      "en": "Reload",
+      "pl": "Przeładowanie"
+    },
+    "icon": 7,
+    "description": {
+      "ru": "Скорость перезарядки:",
+      "ua": "Швидкість перезарядки:",
+      "en": "Reload speed",
+      "pl": "Szybkość przeładowania:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "reload_speed_modifier": [
+        5,
+        10
+      ]
+    }
+  },
+  "131": {
+    "pos": [
+      2,
+      4
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Ровный выдох",
+      "ua": "Рівний видих",
+      "en": "Steady Breath",
+      "pl": "Równy oddech"
+    },
+    "icon": 14,
+    "description": {
+      "ru": "Раскачивание оружия при прицеливании:",
+      "ua": "Розгойдування зброї при прицілюванні:",
+      "en": "Weapon sway when aiming:",
+      "pl": "Przechylenie broni podczas celowania:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "breath_vibration_modifier": [
+        -2,
+        -4,
+        -6,
+        -8,
+        -10
+      ]
+    }
+  },
+  "132": {
+    "pos": [
+      3,
+      4
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Гашение отдачи",
+      "ua": "Гасіння віддачі",
+      "en": "Recoil damping ",
+      "pl": "Tłumienie odrzutu"
+    },
+    "icon": 13,
+    "description": {
+      "ru": "Отдача оружия:",
+      "ua": "Віддача зброї:",
+      "en": "Weapon recoil:",
+      "pl": "Odrzut broni:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "recoil_modifier": [
+        -1,
+        -2,
+        -3,
+        -4,
+        -5
+      ]
+    }
+  },
+  "142": {
+    "pos": [
+      2,
+      5
+    ],
+    "branch": "shooting",
+    "name": {
+      "ru": "Терминатор",
+      "ua": "Термінатор",
+      "en": "Terminator",
+      "pl": "Terminator"
+    },
+    "icon": 9,
+    "description": {
+      "ru": "Вы можете взять в бой два основных оружия.",
+      "ua": "Ваша додаткова зброя також може бути дворучною.",
+      "en": "You can carry two two-handed weapons into a match.",
+      "pl": "Możesz wziąć do walki dwie bronie dwuręczne."
+    },
+    "mods": {
+      "use_two_double_handed_weapons_modifier": [
+        1
+      ]
+    }
+  },
+  "201": {
+    "pos": [
+      2,
+      1
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Дыхание",
+      "ua": "Дихання",
+      "en": "Breath",
+      "pl": "Oddech"
+    },
+    "icon": 6,
+    "description": {
+      "ru": "Скорость восстановления энергии:",
+      "ua": "Швидкість відновлення енергії:",
+      "en": "Stamina recovery speed:",
+      "pl": "Szybkość odzyskiwania energii:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "stamina_regeneration_speed_modifier": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ]
+    }
+  },
+  "202": {
+    "pos": [
+      3,
+      1
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Стайер",
+      "ua": "Стаєр",
+      "en": "Stayer",
+      "pl": "Wytrwały"
+    },
+    "icon": 13,
+    "description": {
+      "ru": "Максимальная величина энергии:",
+      "ua": "Максимальна величина енергії:",
+      "en": "Maximum energy:",
+      "pl": "Maksymalna ilość energii:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "stamina_health_increase_modifier": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    }
+  },
+  "211": {
+    "pos": [
+      1,
+      2
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Гренадер",
+      "ua": "Гренадер",
+      "en": "Grenadier",
+      "pl": "Grenadier"
+    },
+    "icon": 0,
+    "description": {
+      "ru": "Дальность броска:",
+      "ua": "Дальність кидка:",
+      "en": "Throwing distance:",
+      "pl": "Odległość rzutu:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "grenade_throw_power_modifier": [
+        10,
+        20
+      ]
+    }
+  },
+  "212": {
+    "pos": [
+      3,
+      2
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Силач",
+      "ua": "Силач",
+      "en": "Athlete",
+      "pl": "Siłacz"
+    },
+    "icon": 8,
+    "description": {
+      "ru": "Переносимый вес:",
+      "ua": "Переносима вага:",
+      "en": "Portable weight:",
+      "pl": "Udźwig:"
+    },
+    "type": "kg",
+    "sign": 1,
+    "mods": {
+      "max_carried_weight_modifier": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "213": {
+    "pos": [
+      4,
+      2
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Второе дыхание",
+      "ua": "Друге дихання",
+      "en": "Second wind",
+      "pl": "Drugi oddech"
+    },
+    "icon": 14,
+    "description": {
+      "ru": "Восстановление энергии при убийстве противника:",
+      "ua": "Відновлення енергії при вбивстві супротивника:",
+      "en": "Stamina recovered by killing the enemy:",
+      "pl": "Odzyskanie energii po zabiciu przeciwnika:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "stamina_boost_amount_modifier": [
+        50,
+        100
+      ],
+      "stamina_boost_interval_modifier": [
+        0,
+        0
+      ],
+      "stamina_boost_time_modifier": [
+        10000,
+        20000
+      ]
+    }
+  },
+  "221": {
+    "pos": [
+      1,
+      3
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Десантник",
+      "ua": "Десантник",
+      "en": "Paratrooper",
+      "pl": "Desantowiec"
+    },
+    "icon": 1,
+    "description": {
+      "ru": "Повреждения при падении:",
+      "ua": "Пошкодження при падінні:",
+      "en": "Damage when falling:",
+      "pl": "Obrażenia przy upadku:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "fall_damage_modifier": [
+        -15,
+        -30
+      ]
+    }
+  },
+  "222": {
+    "pos": [
+      2,
+      3
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Выносливость",
+      "ua": "Витривалість",
+      "en": "Endurance",
+      "pl": "Wytrzymałość"
+    },
+    "icon": 2,
+    "description": {
+      "ru": "Влияние веса на расход энергии:",
+      "ua": "Вплив ваги на витрату енергії:",
+      "en": "Effect of weight on energy consumption:",
+      "pl": "Wpływ masy na zużycie energii:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "max_carried_weight_spending_speed_modifier": [
+        -10,
+        -20,
+        -30
+      ]
+    }
+  },
+  "223": {
+    "pos": [
+      3,
+      3
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Упаковщик",
+      "ua": "Паківник",
+      "en": "Packrat",
+      "pl": "Pakowacz"
+    },
+    "icon": 11,
+    "description": {
+      "ru": "Влияние веса на скорость передвижения:",
+      "ua": "Вплив ваги на швидкість пересування:",
+      "en": "The influence of weight on movement speed:",
+      "pl": "Wpływ wagi na prędkość poruszania się:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "overweight_penalty_modifier": [
+        -10,
+        -20,
+        -30
+      ]
+    }
+  },
+  "224": {
+    "pos": [
+      4,
+      3
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Мобильность",
+      "ua": "Мобільність",
+      "en": "Mobility",
+      "pl": "Mobilność"
+    },
+    "icon": 15,
+    "description": {
+      "ru": "Скорость передвижения в приседе:",
+      "ua": "Швидкість пересування навприсядки:",
+      "en": "Crouched movement speed:",
+      "pl": "Prędkość poruszania się w przysiadzie:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "movement_speed_in_crouch_modifier": [
+        5,
+        10
+      ]
+    }
+  },
+  "231": {
+    "pos": [
+      2,
+      4
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Стремительный",
+      "ua": "Стрімголовий",
+      "en": "Rapid",
+      "pl": "Porywczy"
+    },
+    "icon": 9,
+    "description": {
+      "ru": "Скорость передвижения:",
+      "ua": "Швидкість пересування:",
+      "en": "Movement speed:",
+      "pl": "Szybkość poruszania się:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "movement_speed_modifier": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "movement_speed_in_crouch_modifier": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "232": {
+    "pos": [
+      3,
+      4
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Неудержимый",
+      "ua": "Нестримний",
+      "en": "Unstoppable",
+      "pl": "Niepowstrzymany"
+    },
+    "icon": 12,
+    "description": {
+      "ru": "Замедление при получении ранений:",
+      "ua": "Уповільнення при отриманні поранень:",
+      "en": "Slowdown after injuries:",
+      "pl": "Spowolnienie na skutek ran:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "stagger_defence_modifier": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    }
+  },
+  "241": {
+    "pos": [
+      2,
+      5
+    ],
+    "branch": "physical",
+    "name": {
+      "ru": "Неистовство",
+      "ua": "Шаленство",
+      "en": "Frenzy",
+      "pl": "Furia"
+    },
+    "icon": 4,
+    "description": {
+      "ru": "Во время спринта получаемый урон от огнестрельного оружия уменьшен на 25%.",
+      "ua": "Під час спринту одержувана шкода від вогнепальної зброї зменшена на 25%.",
+      "en": "While sprinting damage taken from firearms reduced by 25%.",
+      "pl": "Podczas biegu obrażenia od broni palnej są mniejsze o 25%."
+    },
+    "mods": {
+      "ranged_sprinting_damage_modifier": [
+        -0.25
+      ]
+    }
+  },
+  "501": {
+    "pos": [
+      2,
+      1
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Концентрация",
+      "ua": "Концентрація",
+      "en": "Concentration",
+      "pl": "Koncentracja"
+    },
+    "icon": 0,
+    "description": {
+      "ru": "Время разрушения аномалии:",
+      "ua": "Час руйнування аномалії:",
+      "en": "Anomaly will be destroyed in:",
+      "pl": "Czas zniszczenia anomalii:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "artefact_search_time_modifier": [
+        -5,
+        -10,
+        -15,
+        -20,
+        -25
+      ]
+    }
+  },
+  "502": {
+    "pos": [
+      3,
+      1
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Сопротивление",
+      "ua": "Опір",
+      "en": "Resistance",
+      "pl": "Opór"
+    },
+    "icon": 1,
+    "description": {
+      "ru": "Защита от аномалий:",
+      "ua": "Шкоди від аномалій:",
+      "en": "Damage from anomalies:",
+      "pl": "Obrażenia od anomalii:"
+    },
+    "type": "percent",
+    "sign": -1,
+    "mods": {
+      "anomaly_damage_modifier": [
+        -1,
+        -2,
+        -3,
+        -4,
+        -5
+      ]
+    }
+  },
+  "511": {
+    "pos": [
+      1,
+      2
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Сила артефактов",
+      "ua": "Сила артефактів",
+      "en": "Artifacts Power",
+      "pl": "Moc artefaktów"
+    },
+    "icon": 11,
+    "description": {
+      "ru": "Сила пассивного бонуса артефактов:",
+      "ua": "Сила пасивного бонусу артефактів:",
+      "en": "Power of passive artifacts bonus:",
+      "pl": "Siła pasywnego bonusu artefaktów:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "artefact_passive_power_modifier": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ]
+    }
+  },
+  "512": {
+    "pos": [
+      2,
+      2
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Использование артефактов",
+      "ua": "Використання артефактів",
+      "en": "Using artifacts",
+      "pl": "Używanie artefaktów"
+    },
+    "icon": 3,
+    "description": {
+      "ru": "Вы можете использовать артефакты.",
+      "ua": "Ви можете використовувати артефакти.",
+      "en": "You can use artifacts.",
+      "pl": "Możesz używać artefaktów."
+    },
+    "mods": {
+      "use_artefact_modifier": [
+        1
+      ]
+    }
+  },
+  "513": {
+    "pos": [
+      4,
+      2
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Защита Леса",
+      "ua": "Захист Лісу",
+      "en": "Forest Protection",
+      "pl": "Obrona Lasu"
+    },
+    "icon": 7,
+    "description": {
+      "ru": "Урон от огнестрельных и осколочных ранений внутри аномалии:",
+      "ua": "Шкода від вогнепальних і осколкових поранень всередині аномалії:",
+      "en": "Damage from gunshot and shrapnel wounds inside the anomaly:",
+      "pl": "Obrażenia od ran postrzałowych i odłamków wewnątrz anomalii:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "incoming_weapon_damage_in_anomaly_modifier": [
+        -10,
+        -20,
+        -30
+      ]
+    }
+  },
+  "521": {
+    "pos": [
+      1,
+      3
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Знание артефактов",
+      "ua": "Знання артефактів",
+      "en": "Knowledge of artifacts",
+      "pl": "Znajomość artefaktów"
+    },
+    "icon": 4,
+    "description": {
+      "ru": "Длительность активного эффекта артефактов:",
+      "ua": "Тривалість активного ефекту артефактів:",
+      "en": "The duration of the active effect of artifacts:",
+      "pl": "Czas trwania aktywnego efektu artefaktów:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "artefact_duration_modifier": [
+        6,
+        12,
+        18,
+        24,
+        30
+      ]
+    }
+  },
+  "522": {
+    "pos": [
+      3,
+      3
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Адаптация",
+      "ua": "Адаптація",
+      "en": "Adaptation",
+      "pl": "Adaptacja"
+    },
+    "icon": 5,
+    "description": {
+      "ru": "Находясь в аномалии, вы постепенно получаете\nиммунитет к ее негативному воздействию.\nСекунд до полного иммунитета:",
+      "ua": "Перебуваючи в аномалії, ви отримуєте поступово імунітет до її негативного впливу. Секунд до повного імунітету:",
+      "en": "Being in an anomaly, you gradually become immune to its negative effects. Seconds to full immunity:",
+      "pl": "Kiedy jesteś w anomalii, stopniowo zyskujesz odporność na jej negatywne działanie. Sekund do pełnej odporności:"
+    },
+    "type": "seconds",
+    "mods": {
+      "ascending_adaption_to_anomaly_modifier": [
+        18000,
+        16000,
+        14000,
+        12000,
+        10000
+      ],
+      "descending_adaption_to_anomaly_modifier": [
+        1000,
+        1500,
+        2000,
+        2500,
+        3000
+      ]
+    }
+  },
+  "523": {
+    "pos": [
+      4,
+      3
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Прощение Леса",
+      "ua": "Прощення Лісу",
+      "en": "Mercy of the Forest",
+      "pl": "Wybaczenie Lasu"
+    },
+    "icon": 8,
+    "description": {
+      "ru": "Аномалии перестают вредить игроку после достижения порога здоровья в:",
+      "ua": "Аномалії перестають шкодити гравцеві після досягнення порогу здоров'я в:",
+      "en": "Anomalies cease to harm the player after reaching the threshold of health in:",
+      "pl": "Anomalie przestają szkodzić graczowi po osiągnięciu poziomu zdrowia:"
+    },
+    "type": "percent",
+    "mods": {
+      "friendly_anomaly_modifier": [
+        10,
+        20
+      ]
+    }
+  },
+  "531": {
+    "pos": [
+      1,
+      4
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Нейтрализация",
+      "ua": "Нейтралізація",
+      "en": "Neutralization",
+      "pl": "Neutralizacja"
+    },
+    "icon": 13,
+    "description": {
+      "ru": "Артефакты в пассивном состоянии предоставляют\nзащиту от аномалии своего типа.\nЗащита от аномалий:",
+      "ua": "Артефакти в пасивному стані надають\nзахист від аномалії свого типу.Захист від аномалій:",
+      "en": "Artifacts passively neutralize some of the negative effect of the anomaly type which created it. :Damage neutralized:",
+      "pl": "Artefakty w stanie pasywnym neutralizują\nnegatywny efekt anomalii tego samego typu.\n:Neutralizowane obrażenia:"
+    },
+    "type": "percent",
+    "sign": -1,
+    "mods": {
+      "neutralization_modifier": [
+        -10,
+        -30
+      ]
+    }
+  },
+  "532": {
+    "pos": [
+      2,
+      4
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Энергия артефактов",
+      "ua": "Енергія артефактів",
+      "en": "Artifacts Energy",
+      "pl": "Energia artefaktów"
+    },
+    "icon": 6,
+    "description": {
+      "ru": "Сила активного бонуса артефактов:",
+      "ua": "Сила активного бонусу артефактів:",
+      "en": "Power of the active artifacts effect:",
+      "pl": "Siła aktywnego bonusu artefaktów:"
+    },
+    "type": "percent",
+    "sign": 1,
+    "mods": {
+      "artefact_active_power_modifier": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    }
+  },
+  "533": {
+    "pos": [
+      4,
+      4
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Аномальный контакт",
+      "ua": "Аномальний контакт",
+      "en": "Anomalous Contact",
+      "pl": "Kontakt z anomalią"
+    },
+    "icon": 10,
+    "description": {
+      "ru": "Находясь в аномалии, вы получаете пассивный бонус артефакта этой аномалии.",
+      "ua": "Перебуваючи у аномалії, ви отримуєте пасивний бонус артефакту цієї аномалії.",
+      "en": "While in an anomaly, you gain a passive bonus similar to the artifact of the anomaly.",
+      "pl": "Kiedy jesteś w anomalii, otrzymujesz pasywny bonus artefaktu tej anomalii."
+    },
+    "mods": {
+      "anomaly_contact_modifier": [
+        1
+      ]
+    }
+  },
+  "541": {
+    "pos": [
+      2,
+      5
+    ],
+    "branch": "anomaly",
+    "name": {
+      "ru": "Чувство Леса",
+      "ua": "Почуття Лісу",
+      "en": "Forest Sense",
+      "pl": "Poczucie Strefy"
+    },
+    "icon": 2,
+    "description": {
+      "ru": "На мини-карте отображаются аномалии в радиусе 150 метров.",
+      "ua": "На мінікарті відображаються аномалії у радіусі 150 метрів.",
+      "en": " Anomalies are displayed on the minimap in 150m radius.",
+      "pl": "Na mapie wyświetlają się anomalie."
+    },
+    "mods": {
+      "spot_artefacts_radius_modifier": [
+        150
+      ],
+      "spot_enemies_with_artefacts_modifier": [
+        0
+      ]
+    }
+  }
 }
