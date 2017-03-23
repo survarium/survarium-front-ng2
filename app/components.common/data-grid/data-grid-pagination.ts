@@ -10,6 +10,7 @@ export class DataGridPagination {
     @Input() skip :number;
     @Input() limit :number;
     @Input() total :number;
+    @Input() controls :boolean = false;
 
     get totalPages () :number {
         return Math.ceil(this.total / this.limit);

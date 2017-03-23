@@ -1,4 +1,6 @@
 <template [ngIf]="totalPages > 1">
+    <a *ngIf="controls" class="data-grid__page data-grid__page_prev" [class.disabled]="!current" (click)="switch(current - 1)">{{ 'dataGrid.pagination.prev' | i18n }}</a>
     <a *ngFor="let page of pages" (click)="!page.breaker && switch(page.num)" class="data-grid__page" [class.data-grid__page_breaker]="page.breaker" [class.data-grid__page_current]="page.num === current">{{page.breaker ? '...' : (page.num + 1)}}</a>
+    <a *ngIf="controls" class="data-grid__page data-grid__next" [class.disabled]="current === totalPages - 1" (click)="switch(current + 1)">{{ 'dataGrid.pagination.next' | i18n }}</a>
 </template>
 <ng-content></ng-content>

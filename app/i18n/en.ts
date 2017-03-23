@@ -202,6 +202,10 @@ let dict = {
         },
         limits: {
             title: 'Items amount'
+        },
+        pagination: {
+            prev: 'Prev',
+            next: 'Next'
         }
     },
     streams: {

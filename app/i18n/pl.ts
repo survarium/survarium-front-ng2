@@ -202,6 +202,10 @@ let dict = {
         },
         limits: {
             title: 'Wyświetlane wiersze'
+        },
+        pagination: {
+            prev: 'Pop.',
+            next: 'Nast.'
         }
     },
     streams: {

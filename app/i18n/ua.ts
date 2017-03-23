@@ -223,6 +223,10 @@ let dict = {
         },
         limits: {
             title: 'Показувати по'
+        },
+        pagination: {
+            prev: 'Попер.',
+            next: 'Наст.'
         }
     },
     streams: {
