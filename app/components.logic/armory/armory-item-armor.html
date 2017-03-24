@@ -187,7 +187,7 @@
     </dl>-->
 </div>
 
-<template [ngIf]="verData.data.damage_protection?.length">
+<ng-template [ngIf]="verData.data.damage_protection?.length">
     <h3>{{ 'armory.item.damage_protection.title' | i18n }}</h3>
     <div class="def">
         <dl *ngFor="let dp of verData.data.damage_protection">
@@ -195,18 +195,18 @@
             <dd>{{ (dp.modifier * 100) | percent }}</dd>
         </dl>
     </div>
-</template>
+</ng-template>
 
-<template [ngIf]="hitTypes?.length">
+<ng-template [ngIf]="hitTypes?.length">
     <h3>{{ 'armory.item.hit_params.title' | i18n }}</h3>
     <table *ngFor="let param of hitTypes" class="def inline">
         <tr *ngFor="let type of param">
             <td [attr.colspan]="type.colspan > 1 ? type.colspan : false">
                 <h4 *ngIf="type.target">{{ 'armory.item.hit_params.' + type.target | i18n }}</h4>
                 <h5 *ngIf="type.type">{{ 'armory.item.damage_protection.' + type.type | i18n }}</h5>
-                <template [ngIf]="type.name">{{ 'armory.item.' + type.name | i18n }}</template>
+                <ng-template [ngIf]="type.name">{{ 'armory.item.' + type.name | i18n }}</ng-template>
             </td>
             <td *ngIf="type.showValue">{{ (type.value * 100) | percent }}</td>
         </tr>
     </table>
-</template>
+</ng-template>

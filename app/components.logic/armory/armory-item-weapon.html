@@ -136,7 +136,7 @@
         <dd>{{ verData.parameters.hide_time }} {{ 'armory.item.sec' | i18n }}</dd>
     </dl>
 <!--</div>-->
-<template [ngIf]="verData.parameters.experience_bonus_modifier || verData.parameters.money_bonus_modifier || verData.parameters.reputation_bonus_modifier">
+<ng-template [ngIf]="verData.parameters.experience_bonus_modifier || verData.parameters.money_bonus_modifier || verData.parameters.reputation_bonus_modifier">
     <dl>
         <dt>{{ 'armory.item.experience_bonus_modifier' | i18n }}</dt>
         <dd>{{ verData.parameters.experience_bonus_modifier }}</dd>
@@ -149,7 +149,7 @@
         <dt>{{ 'armory.item.reputation_bonus_modifier' | i18n }}</dt>
         <dd>{{ verData.parameters.reputation_bonus_modifier }}</dd>
     </dl>
-</template>
+</ng-template>
 <!--<div class="def">-->
     <dl *ngIf="verData.parameters.unknown_mods_count">
         <dt>{{ 'armory.item.unknown_mods_count' | i18n }}</dt>

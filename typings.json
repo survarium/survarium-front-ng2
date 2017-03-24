@@ -1,11 +1,9 @@
 {
   "ambientDependencies": {
-    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#41f8573534b0fff88707d0a4cb870456b50cd43b",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#8cf8164641be73e8f1e652c2a5b967c7210b6729",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/index.d.ts#a4a912a0cd1849fa7df0e5d909c8625fba04e49d",
     "webpack": "github:DefinitelyTyped/DefinitelyTyped/webpack/webpack.d.ts#95c02169ba8fa58ac1092422efbd2e3174a206f4",
-    "zone.js": "github:DefinitelyTyped/DefinitelyTyped/zone.js/zone.js.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711"
+    "zone.js": "github:DefinitelyTyped/DefinitelyTyped/zone.js/index.d.ts#49b1ac6a384fab428e0bad052b47f47ff8306193"
   },
   "dependencies": {
-    "es6-promise": "github:typed-typings/npm-es6-promise#fb04188767acfec1defd054fc8024fafa5cd4de7"
   }
 }

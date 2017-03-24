@@ -35,7 +35,7 @@
     </dl>
 </div>
 
-<template [ngIf]="verData.data.influences?.length">
+<ng-template [ngIf]="verData.data.influences?.length">
     <h3>{{ 'armory.item.influences.title' | i18n }}</h3>
     <div class="def">
         <dl *ngFor="let inf of verData.data.influences">
@@ -43,4 +43,4 @@
             <dd>{{ (inf.amount * 100) | percent }}</dd>
         </dl>
     </div>
-</template>
+</ng-template>

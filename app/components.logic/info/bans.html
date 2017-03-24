@@ -1,6 +1,6 @@
 <div class="loading" *ngIf="!data">{{'loading' | i18n}}</div>
 
-<template [ngIf]="data">
+<ng-template [ngIf]="data">
     <div *ngFor="let message of data.data; let i = index;" class="elem">
         <div class="message">
             <a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.vg_message.date | datetime}}</a>
@@ -15,7 +15,7 @@
         <adsense *ngIf="!i" [slot]="3384977769" [width]="'100%'" [height]="'100px'"></adsense>
         <!--<dfp *ngIf="!i" [id]="'bans'"></dfp>-->
     </div>
-</template>
+</ng-template>
 
 <div *ngIf="data" class="footer">
     <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total"></data-grid-counters>

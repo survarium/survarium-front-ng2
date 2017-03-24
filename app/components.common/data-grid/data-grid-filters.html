@@ -1,4 +1,4 @@
-<template [ngIf]="filters.length">
+<ng-template [ngIf]="filters.length">
     <h3 class="title">{{'dataGrid.filters.title' | i18n}}</h3>
     <div *ngIf="unused?.length">
         <select [(ngModel)]="filterToAdd" #ffa>
@@ -30,4 +30,4 @@
             </div>
         </div>
     </div>
-</template>
+</ng-template>

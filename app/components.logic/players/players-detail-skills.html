@@ -1,4 +1,4 @@
 <h3 class="skills" (click)="toggle()">{{(shown ? 'skills.hide' : 'skills.show') | i18n}}</h3>
-<template [ngIf]="shown && skills">
+<ng-template [ngIf]="shown && skills">
     <skills [skills]="skills"></skills>
-</template>
+</ng-template>

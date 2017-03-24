@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core'
-import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http'
+import { Http, Response, Headers, Request, RequestMethod, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
@@ -10,14 +10,13 @@ export class SteamService {
 
     online() :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: `${this._handle}/online`,
-            headers: headers,
-            method: 'get',
-            body: ''
+            headers,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request(options))
             .map(res => res.json().count)
             .catch(this.handleError.bind(this));
     }

@@ -1,4 +1,4 @@
 <a *ngIf="abbr" routerLink="/clans/{{abbr}}" title="{{_preTitle}}{{name}}" class="clan" [class]="_classes">
-    <template [ngIf]="nowrap"><span class="abbr">{{abbr}}</span></template>
-    <template [ngIf]="!nowrap">[<span class="abbr">{{abbr}}</span>]</template>
+    <ng-template [ngIf]="nowrap"><span class="abbr">{{abbr}}</span></ng-template>
+    <ng-template [ngIf]="!nowrap">[<span class="abbr">{{abbr}}</span>]</ng-template>
 </a>

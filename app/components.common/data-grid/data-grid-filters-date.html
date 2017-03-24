@@ -4,10 +4,10 @@
     <label><input type="radio" #typeFromTo [checked]="type === typeFromTo.value" value="from-to" (change)="typeChange($event)"> {{'dataGrid.filter.fromTo' | i18n}}</label>
     <label><input type="radio" #typeEq [checked]="type === typeEq.value" value="equal" (change)="typeChange($event)"> {{'dataGrid.filter.equal' | i18n}}</label>
 </div>-->
-<template [ngIf]="type === 'from-to'"><!--typeFromTo.value-->
+<ng-template [ngIf]="type === 'from-to'"><!--typeFromTo.value-->
 <label>{{'dataGrid.filter.from' | i18n}}: <input type="datetime-local" [(ngModel)]="from"></label>
 <label>{{'dataGrid.filter.to' | i18n}}: <input type="datetime-local" [(ngModel)]="to"></label><!--[min]="min" [max]="max"-->
-</template>
-<!--<template [ngIf]="type === typeEq.value">
+</ng-template>
+<!--<ng-template [ngIf]="type === typeEq.value">
     {{'dataGrid.filter.equal' | i18n}}: <input type="date" [min]="min" [max]="max" [(ngModel)]="eq">
-</template>-->
+</ng-template>-->

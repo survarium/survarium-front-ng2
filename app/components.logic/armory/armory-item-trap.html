@@ -15,7 +15,7 @@
     </dl>
 </div>
 
-<template [ngIf]="verData.data.mine?.explosive">
+<ng-template [ngIf]="verData.data.mine?.explosive">
     <h3>{{'armory.item.explosion' | i18n }}</h3>
 
     <div class="def">
@@ -44,4 +44,4 @@
             <dd>{{ verData.data.mine.explode_on_trigger_item ? ('armory.item.yes' | i18n) : ('armory.item.no' | i18n) }}</dd>
         </dl>
     </div>
-</template>
+</ng-template>

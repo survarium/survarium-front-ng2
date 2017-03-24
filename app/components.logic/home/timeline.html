@@ -1,4 +1,4 @@
-<template [ngIf]="data">
+<ng-template [ngIf]="data">
     <h2>{{'matches.timeline.title' | i18n}}: <span class="value">{{total | number}}</span> (<span class="type" (click)="switch()">{{typesI18N[type]}}</span>)</h2>
     <chart *ngIf="total" [data]="data" [options]="options" [height]="height"></chart>
-</template>
+</ng-template>

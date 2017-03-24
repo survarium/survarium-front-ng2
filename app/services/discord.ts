@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Http, Response, Headers, Request } from '@angular/http'
+import { Http, Response, Headers, Request, RequestMethod, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
@@ -11,14 +11,13 @@ export class DiscordService {
 
     widget() :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: `${this._handle}/${this._id}/widget.json`,
-            headers: headers,
-            method: 'get',
-            body: ''
+            headers,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request(options))
             .map(res => res.json())
             .do(data => console.log(data))
             .catch(this.handleError.bind(this));

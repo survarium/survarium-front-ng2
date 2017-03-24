@@ -58,7 +58,7 @@
     </dl>
 </div>
 
-<template [ngIf]="_elo?.length">
+<ng-template [ngIf]="_elo?.length">
     <h4 class="def-list__title">ELO ({{'matches.rating' | i18n}} / {{'matches.random' | i18n}})</h4>
     <div class="def-list__values">
         <dl class="def-list" *ngFor="let elo of _elo">
@@ -69,7 +69,7 @@
             </dd>
         </dl>
     </div>
-</template>
+</ng-template>
 
 <h4 class="def-list__title">{{'details' | i18n}}</h4>
 <div class="def-list__values">

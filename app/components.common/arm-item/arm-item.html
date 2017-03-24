@@ -10,19 +10,19 @@
         <dl *ngFor="let mod of defaultMods" class="mod" [id]="'mod_' + mod.id">
             <dt>{{mod.name}}</dt>
             <dd [ngSwitch]="mod.postfix">
-                <template [ngSwitchCase]="'st_item_props_percent'">{{mod.value > 0 ? '+' : ''}}{{mod.value * 100 | percent}}</template>
-                <template [ngSwitchCase]="'st_item_props_kg'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.kg' | i18n }}</template>
-                <template [ngSwitchCase]="'st_item_props_sec'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.sec' | i18n }}</template>
-                <template ngSwitchDefault>{{mod.value > 0 ? '+' : ''}}{{mod.value}}</template>
+                <ng-template [ngSwitchCase]="'st_item_props_percent'">{{mod.value > 0 ? '+' : ''}}{{mod.value * 100 | percent}}</ng-template>
+                <ng-template [ngSwitchCase]="'st_item_props_kg'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.kg' | i18n }}</ng-template>
+                <ng-template [ngSwitchCase]="'st_item_props_sec'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.sec' | i18n }}</ng-template>
+                <ng-template ngSwitchDefault>{{mod.value > 0 ? '+' : ''}}{{mod.value}}</ng-template>
             </dd>
         </dl>
         <dl *ngFor="let mod of mods" class="mod" [id]="'mod_' + mod.id">
             <dt>{{mod.name}}</dt>
             <dd [ngSwitch]="mod.postfix">
-                <template [ngSwitchCase]="'st_item_props_percent'">{{mod.value > 0 ? '+' : ''}}{{mod.value * 100 | percent}}</template>
-                <template [ngSwitchCase]="'st_item_props_kg'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.kg' | i18n }}</template>
-                <template [ngSwitchCase]="'st_item_props_sec'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.sec' | i18n }}</template>
-                <template ngSwitchDefault>{{mod.value > 0 ? '+' : ''}}{{mod.value * 100}}</template>
+                <ng-template [ngSwitchCase]="'st_item_props_percent'">{{mod.value > 0 ? '+' : ''}}{{mod.value * 100 | percent}}</ng-template>
+                <ng-template [ngSwitchCase]="'st_item_props_kg'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.kg' | i18n }}</ng-template>
+                <ng-template [ngSwitchCase]="'st_item_props_sec'">{{mod.value > 0 ? '+' : ''}}{{mod.value}} {{ 'armory.item.sec' | i18n }}</ng-template>
+                <ng-template ngSwitchDefault>{{mod.value > 0 ? '+' : ''}}{{mod.value * 100}}</ng-template>
             </dd>
         </dl>
     </div>

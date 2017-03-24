@@ -1,7 +1,7 @@
-<template [ngIf]="data">
+<ng-template [ngIf]="data">
     <div class="cell">
         <div>{{'till.next' | i18n}}: {{experience[level] - exp | number}}</div>
         <div>{{'till.last' | i18n}}: {{experience[experience.length - 1] - exp | number}}</div>
     </div>
     <chart *ngIf="data" class="cell" [data]="data" [options]="options" [type]="type" [height]="'170px'" [width]="'100%'"></chart>
-</template>
+</ng-template>

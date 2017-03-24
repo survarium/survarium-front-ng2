@@ -1,6 +1,6 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
 <pre *ngIf="error">{{error}}</pre>
-<template [ngIf]="data">
+<ng-template [ngIf]="data">
     <h3 [class.imaged]="mapImage" [style.background-image]="mapImage">ID {{data.id}} / {{data.map.name}} ({{data.map.weather}}) / {{data.map.mode}}</h3>
     <div class="def-list__values">
         <dl class="def-list">
@@ -48,4 +48,4 @@
     </div>
 
     <data-grid *ngIf="data" [stream]="stream" [columns]="columns" [group]="group"></data-grid>
-</template>
+</ng-template>

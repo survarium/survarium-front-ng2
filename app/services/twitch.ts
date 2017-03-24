@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http'
+import { Http, Response, Headers, Request, URLSearchParams, RequestMethod, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
@@ -34,15 +34,14 @@ export class TwitchService {
             'Client-ID': this.key
         });
 
-        let options = new Request({
+        let options = new RequestOptions({
             url: `${this._handle}/streams`,
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request(options))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));

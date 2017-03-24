@@ -1,8 +1,8 @@
-<template [ngIf]="tree">
+<ng-template [ngIf]="tree">
     <div *ngIf="!skills.length">{{'noData' | i18n}}</div>
-    <template [ngIf]="skills.length">
+    <ng-template [ngIf]="skills.length">
         <div *ngFor="let branch of branches">
-            <template [ngIf]="tree[branch] && tree[branch].length">
+            <ng-template [ngIf]="tree[branch] && tree[branch].length">
                 <h2 class="branch">{{'skills.branches.' + branch | i18n}}</h2>
                 <div class="skill" *ngFor="let skill of tree[branch]">
                     <img [src]="skill.icon" class="icon">
@@ -11,7 +11,7 @@
                         {{skill.description}} {{skill.value}}
                     </div>
                 </div>
-            </template>
+            </ng-template>
         </div>
-    </template>
-</template>
+    </ng-template>
+</ng-template>

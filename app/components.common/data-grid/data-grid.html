@@ -15,7 +15,7 @@
         <div class="body">
             <div *ngFor="let row of data, let i=index" class="row">
                 <td *ngIf="row.__group" [attr.colSpan]="columnsCount" class="data-grid-rowgroup" [innerHTML]="row.content"></td>
-                <template [ngIf]="!row.__group">
+                <ng-template [ngIf]="!row.__group">
                     <data-grid-cell
                             *ngFor="let column of columns, let j=index"
                             [row]="row"
@@ -26,7 +26,7 @@
                             [height]="columnHeight"
                             [skip]="skip"
                             (click)="cellClick({ column: column, columnIndex: j, row: row, rowIndex: i }, $event)"></data-grid-cell>
-                </template>
+                </ng-template>
             </div>
         </div>
     </div>

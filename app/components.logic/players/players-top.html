@@ -1,5 +1,5 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
-<template [ngIf]="data?.length">
+<ng-template [ngIf]="data?.length">
     <h2>{{'players.top.title' | i18n}} <a class="switch" (click)="switch()">{{(period === 'day' ? 'players.top.day' : 'players.top.hour') | i18n}}</a></h2>
     <div class="list">
         <div *ngFor="let item of data" class="elem" [class.best]="item.best">
@@ -9,4 +9,4 @@
             <div>{{'match' | i18n}}: <match [id]="item.match"></match></div>
         </div>
     </div>
-</template>
+</ng-template>

@@ -1,9 +1,9 @@
 <a class="back" routerLink="/armory">{{'armory.title' | i18n}}</a>
-<template [ngIf]="data">
+<ng-template [ngIf]="data">
     <h2>{{data.name}}</h2>
     <visual *ngIf="data.visual" [model]="data.key"></visual>
     <h3 *ngIf="!verData">{{ 'armory.item.not_in_version' | i18n}} {{version.id}}</h3>
-    <template [ngIf]="verData">
+    <ng-template [ngIf]="verData">
         <div class="clearfix">
             <img *ngIf="verData.image" [src]="verData.image" />
             <div class="basic">
@@ -51,5 +51,5 @@
         <div ammo [verData]="verData" *ngIf="type.name === 'ammo'"></div>
         <div armor [verData]="verData" *ngIf="type.name === 'armor'"></div>
         <div trap [verData]="verData" *ngIf="type.name === 'trap'"></div>
-    </template>
-</template>
+    </ng-template>
+</ng-template>

@@ -43,4 +43,4 @@
     <arm-item *ngFor="let item of items" class="item" [item]="item"></arm-item>
 </div>
 
-<template [ngIf]="data?.length && !items?.length">{{'noData' | i18n}}</template>
+<ng-template [ngIf]="data?.length && !items?.length">{{'noData' | i18n}}</ng-template>

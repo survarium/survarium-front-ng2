@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core'
-import { Http, Response, Headers, Request, URLSearchParams } from '@angular/http'
+import { Http, Response, Headers, Request, URLSearchParams, RequestMethod, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
-import { I18N } from '../services/i18n'
+import { I18N } from './i18n'
 
 const MODES = ['Battery retrieval', 'Team Deathmatch', 'Research', 'Artifact Hunt'];
 const MATCH_TYPES = ['random', 'rating'];
@@ -43,9 +43,9 @@ export class PlayersService {
         wide && params.set('wide', 'true');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handleV2, headers: headers, search: params, method: 'get' , body: '' });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -60,9 +60,9 @@ export class PlayersService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2 + '/' + encodeURIComponent(nickname), headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handleV2 + '/' + encodeURIComponent(nickname), headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -74,9 +74,9 @@ export class PlayersService {
      */
     skills(nickname :string) :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2 + '/' + encodeURIComponent(nickname) + '/skills', headers: headers, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handleV2 + '/' + encodeURIComponent(nickname) + '/skills', headers, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -102,9 +102,9 @@ export class PlayersService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/stats`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/stats`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -134,9 +134,9 @@ export class PlayersService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handleV2, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handleV2, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -152,9 +152,9 @@ export class PlayersService {
         params.set('period', query.period === 'day' ? 'day' : 'hour');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/top`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handleV2}/top`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -173,9 +173,9 @@ export class PlayersService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/unique`, headers: headers, search: params, method: 'get', body: '' });
+        let options = new RequestOptions({ url: `${this._handleV2}/unique`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -192,9 +192,9 @@ export class PlayersService {
         params.set('group', {'avg': 'avg', 'sum': 'sum'}[query.group] || 'avg');
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/history`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handleV2}/${encodeURIComponent(nickname)}/history`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -249,9 +249,9 @@ export class MatchesService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + (query.cw ? '/cw' : ''), headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handle + (query.cw ? '/cw' : ''), headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             .catch(this.handleError.bind(this));
     }
@@ -266,9 +266,9 @@ export class MatchesService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + '/' + id, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handle + '/' + id, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -293,9 +293,9 @@ export class MatchesService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${id}/stats`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${id}/stats`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -310,9 +310,9 @@ export class MatchesService {
         params.set('type', opts.type);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/timeline`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/timeline`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -320,9 +320,9 @@ export class MatchesService {
 
     checkReplay(match :number) :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${match}/replay`, headers: headers, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${match}/replay`, headers, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -373,7 +373,7 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: this._handle + (query.publicStats ? '' : '/cw'),
             headers: headers,
             search: params,
@@ -381,7 +381,7 @@ export class ClansService {
             body: ''
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -397,9 +397,9 @@ export class ClansService {
         params.set('lang', this.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${encodeURIComponent(abbr)}`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -423,9 +423,9 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/players`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${encodeURIComponent(abbr)}/players`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -449,9 +449,9 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/matches`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${encodeURIComponent(abbr)}/matches`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -475,9 +475,9 @@ export class ClansService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: `${this._handle}/${encodeURIComponent(abbr)}/clanwars`, headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: `${this._handle}/${encodeURIComponent(abbr)}/clanwars`, headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -526,15 +526,14 @@ export class VgService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: this._handle + '/messages',
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -548,9 +547,9 @@ export class VgService {
         let params = new URLSearchParams();
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + '/devs', headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handle + '/devs', headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -564,9 +563,9 @@ export class VgService {
         let params = new URLSearchParams();
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({ url: this._handle + '/langs', headers: headers, search: params, method: 'get' , body: '' });
+        let options = new RequestOptions({ url: this._handle + '/langs', headers, params, method: RequestMethod.Get });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -590,15 +589,14 @@ export class VgService {
         }
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: this._handleBans + '/bans',
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -629,15 +627,14 @@ export class GameService {
         params.set('language', this.i18n.lang.apiLang);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: this._handle + '/factions',
-            headers: headers,
-            method: 'get',
-            search: params,
-            body: ''
-        });
+            headers,
+            method: RequestMethod.Get,
+            params
+        })
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -649,14 +646,13 @@ export class GameService {
      */
     versions() :Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: this._handle + '/versions',
-            headers: headers,
-            method: 'get',
-            body: ''
+            headers,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -678,15 +674,14 @@ export class GameService {
         query.language !== undefined && params.set('language', query.language);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: path,
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -696,14 +691,13 @@ export class GameService {
         var path = `${this._handle}/items/${id}/usage`;
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: path,
-            headers: headers,
-            method: 'get',
-            body: ''
+            headers,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
@@ -719,15 +713,14 @@ export class GameService {
         query.language !== undefined && params.set('language', query.language);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: path,
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json().reduce((result, slot) => {
                 result[slot.id] = slot.name;
                 return result;
@@ -751,15 +744,14 @@ export class GameService {
         query.language !== undefined && params.set('language', query.language);
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new Request({
+        let options = new RequestOptions({
             url: path,
-            headers: headers,
-            search: params,
-            method: 'get',
-            body: ''
+            headers,
+            params,
+            method: RequestMethod.Get
         });
 
-        return this.http.request(options)
+        return this.http.request(new Request((options)))
             .map(res => res.json())
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
