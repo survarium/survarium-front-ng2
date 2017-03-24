@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 8080;
 var metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
-	baseUrl    : 'https://survarium.pro/',
+	baseUrl    : process.env.BASE_URL || 'https://survarium.pro/',
 	host       : HOST,
 	port       : PORT,
 	ENV        : ENV,
@@ -72,10 +72,10 @@ module.exports = helpers.validate({
 				test   : /\.ts$/,
 				loader : 'ts-loader',
 				query  : {
-					// remove TypeScript helpers to be injected below by DefinePlugin
-					'compilerOptions': {
-						'removeComments': true,
-						'noEmitHelpers' : true
+					    // remove TypeScript helpers to be injected below by DefinePlugin
+                    'compilerOptions': {
+                        'removeComments': true,
+                        'noEmitHelpers' : true
 					}
 				},
 				exclude: [/\.(spec|e2e|async)\.ts$/]
@@ -149,14 +149,16 @@ module.exports = helpers.validate({
 			// comments: true,//debug
 
 			beautify: false,
-			mangle  : false,//{ screw_ie8 : true },
-			compress: { screw_ie8: true },
+            mangle: {
+                keep_fnames: true
+            },
+			compress: { screw_ie8: true, warnings: false },
 			comments: false,
-			sourceMap: false,
-            exclude: [
+			sourceMap: false
+            /*exclude: [
                 /\.js($|\?)/i,
-                /^node_modules.*/
-            ]
+                /^node_modules.*!/
+            ]*/
 		}), // include uglify in production
 		/*new CompressionPlugin({
 			algorithm: helpers.gzipMaxLevel,
