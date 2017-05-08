@@ -26,6 +26,7 @@ export class PlayersDetailMatches {
     }
 
     private apiLang = i18n.apiLang;
+    private apiDefaultLang = i18n.apiDefaultLang;
 
     private columns :any[] = [
         { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { date: { } }, classes: 'nowrap' },
@@ -39,8 +40,8 @@ export class PlayersDetailMatches {
             classes: 'center',
             sort: { 'rating_match': { } }
         },
-        { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiLang}.name`] }, width: 100 },
-        { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] }, width: 100 },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiDefaultLang}.name`] }, width: 100 },
+        { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiDefaultLang}.mode`] }, width: 100 },
         { title: i18n.get('level'), field: `level`, classes: 'center', width: 80, sort: { level: {} } },
         { title: i18n.get('win'), field: `victory`, render: function (value) {
             return value ? i18n.get('win') : i18n.get('loose');

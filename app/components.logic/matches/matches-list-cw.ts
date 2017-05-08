@@ -18,7 +18,7 @@ import { i18n } from '../../services/i18n'
 export class MatchesListCW {
     private data :any[];
 
-    private apiLang = i18n.apiLang;
+    private apiLang = i18n.apiDefaultLang;
 
     private columns = [
         { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'id': { } } },

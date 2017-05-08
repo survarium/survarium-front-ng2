@@ -37,6 +37,7 @@ class I18N {
     dict  :any;
     cache :any = {};
     public lang  :Language;
+    public apiDefaultLang = CONFIG.i18n.apiDefaultLang;
 
     constructor (LANG ?:Language) {
         this.lang = LANG || LANGUAGE;

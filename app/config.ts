@@ -15,6 +15,7 @@ export const CONFIG = {
         client: 'ca-pub-8677968039358823'
     },
     i18n: {
+        apiDefaultLang: 'english',
         languages: [
             {
                 lang: 'ru',

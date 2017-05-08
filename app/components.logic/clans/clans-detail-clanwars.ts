@@ -19,7 +19,7 @@ export class ClansDetailClanwars {
     };
     get clan () { return this._clan; }
 
-    apiLang = i18n.apiLang;
+    apiLang = i18n.apiDefaultLang;
 
     private limits = [15, 30, 50];
 

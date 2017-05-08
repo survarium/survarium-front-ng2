@@ -18,7 +18,7 @@ import { i18n } from '../../services/i18n'
 export class MatchesList {
     private data :any[];
 
-    private apiLang = i18n.apiLang;
+    private apiLang = i18n.apiDefaultLang;
 
     private columns = [
         {

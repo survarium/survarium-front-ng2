@@ -26,6 +26,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
     private stats :any[];
 
     private apiLang = i18n.apiLang;
+    private apiDefaultLang = i18n.apiDefaultLang;
 
     replay :SafeUrl;
     private replaySubscriber :any;
@@ -199,11 +200,21 @@ export class MatchesDetail implements OnInit, OnDestroy {
             .subscribe(data => {
                 this.setMap(data);
 
-                data.map = data.map ? data.map.lang[this.apiLang] : {
-                    name: i18n.get(`maps.${data.place.title.toLowerCase()}`),
-                    weather: i18n.get(`weather.${data.weather.title}`),
-                    mode: i18n.get(`modes.${data.mode.title}`)
-                };
+                if (data.map) {
+                    let map = data.map.lang[this.apiDefaultLang];
+
+                    data.map = {
+                        name: i18n.get(`maps.${map.name.toLowerCase()}`),
+                        weather: i18n.get(`weather.${map.weather}`),
+                        mode: i18n.get(`modes.${map.mode.toLowerCase()}`)
+                    };
+                } else {
+                    data.map = {
+                        name: i18n.get(`maps.${data.place.title.toLowerCase()}`),
+                        weather: i18n.get(`weather.${data.weather.title}`),
+                        mode: i18n.get(`modes.${data.mode.title}`)
+                    };
+                }
 
                 this.data = data;
 
