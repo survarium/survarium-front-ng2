@@ -38,8 +38,8 @@ export class MatchesList {
             classes: 'center',
             sort: { 'rating_match': { } }
         },
-        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
-        { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`place.title`, `map.lang.${this.apiLang}.name`] } },
+        { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
         {
             title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
             filter: { field: 'level', type: 'number', min: 0, max: 100 }

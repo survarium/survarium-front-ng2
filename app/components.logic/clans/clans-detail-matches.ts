@@ -41,8 +41,8 @@ export class ClansDetailMatches {
             classes: 'center',
             sort: { 'rating_match': { } }
         },
-        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
-        { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiLang}.name`] } },
+        { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
         { title: i18n.get('win'), field: `victory`, render: function (value) {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center', sort: { victory: {  } } },

@@ -23,8 +23,8 @@ export class MatchesListCW {
     private columns = [
         { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { 'id': { } } },
         { title: i18n.get('match'), width: 90, component: Match, inputs: { id: `id` }, sort: { 'id': { value: -1 } } },
-        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
-        { title: i18n.get('mode'), component: Mode, width: 90, inputs: { name: `map.lang.${this.apiLang}.mode` } },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`place.title`, `map.lang.${this.apiLang}.name`] } },
+        { title: i18n.get('mode'), component: Mode, width: 90, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
         { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } },
         { title: i18n.get('matches.cw.clan1.score'), field: `score.0`, width: 80, classes: 'center' },
         { title: i18n.get('matches.cw.clan1.title'), classes: 'center nowrap', component: Clan, inputs: { classes: { useValue: null }, abbr: `clans.0.clan.abbr`, name: `clans.0.clan.name`, win: `clans.0.win` } },

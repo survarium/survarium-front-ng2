@@ -168,22 +168,28 @@ let dict = {
     },
     loading: 'Loading...',
     modes: {
-        'Team Deathmatch': 'TDM',
-        'Last Stand': 'DM',
-        'Research': 'Research',
-        'Battery retrieval': 'Batteries',
-        'Artifact Hunt': 'Artifact'
+        'team deathmatch': 'TDM',
+        'research': 'Research',
+        'battery retrieval': 'Batteries',
+        'artifact hunt': 'Artifact'
     },
     maps: {
-        'Chemical Plant': 'Plant',
-        'Vector Laboratory': 'Vector',
-        'Rudnya': 'Rudnya',
-        'Tarakanovsky Fort': 'Fort',
-        'Vostok Radar Station': 'Radar',
-        'Cologne Bridge': 'Cologne',
-        'School': 'School',
-        'London': 'London',
-        'Mamayev Kurgan': 'Kurgan'
+        'chemical plant': 'Plant',
+        'vector laboratory': 'Vector',
+        'rudnya': 'Rudnya',
+        'tarakanovsky fort': 'Fort',
+        'vostok radar station': 'Radar',
+        'cologne bridge': 'Cologne',
+        'school': 'School',
+        'london': 'London',
+        'mamayev kurgan': 'Kurgan'
+    },
+    weather: {
+        evening: 'Evening',
+        day: 'Day',
+        rain: 'Rain',
+        prerain: 'Prerain',
+        night: 'Night'
     },
     dataGrid: {
         counter: 'Showing {{from}} to {{to}} of {{total}} entries',

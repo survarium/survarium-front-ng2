@@ -11,7 +11,7 @@ export class Map {
 
     @Input('name') set name (val) {
         this.original = val;
-        this.i18nKey  = `maps.${val}`;
+        this.i18nKey  = `maps.${val ? val.toLowerCase() : val}`;
     };
 }
 

@@ -50,8 +50,8 @@ export class ClansDetailClanwars {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center' },
         { title: i18n.get('opponent'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `opponent.clan.abbr`, name: `opponent.clan.name` } },
-        { title: i18n.get('map'), component: Map, inputs: { name: `map.lang.${this.apiLang}.name` } },
-        { title: i18n.get('mode'), component: Mode, inputs: { name: `map.lang.${this.apiLang}.mode` } },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiLang}.name`] } },
+        { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
         { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } }
     ];
 

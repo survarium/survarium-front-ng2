@@ -133,8 +133,8 @@ export class MatchesDetail implements OnInit, OnDestroy {
     }
 
     mapImage :any;
-    private setMap(map) {
-        this.mapImage = this._mapsService.image(map);
+    private setMap(data) {
+        this.mapImage = this._mapsService.image(data.map, data.place, data.weather);
     }
 
     private _columns :any[];
@@ -197,9 +197,13 @@ export class MatchesDetail implements OnInit, OnDestroy {
         this.dataSubscriber = this._matchesService
             .fetch(this.match)
             .subscribe(data => {
-                this.setMap(data.map);
+                this.setMap(data);
 
-                data.map = data.map.lang[this.apiLang];
+                data.map = data.map ? data.map.lang[this.apiLang] : {
+                    name: i18n.get(`maps.${data.place.title.toLowerCase()}`),
+                    weather: i18n.get(`weather.${data.weather.title}`),
+                    mode: i18n.get(`modes.${data.mode.title}`)
+                };
 
                 this.data = data;
 

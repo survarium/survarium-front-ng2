@@ -168,26 +168,28 @@ let dict = {
     },
     loading: 'Загрузка...',
     modes: {
-        'Командный бой': 'TDM',
-        'Team Deathmatch': 'TDM',
-        'Последний герой': 'DM',
-        'Исследование': 'Захват',
-        'Research': 'Захват',
-        'Защитное устройство': 'Ящики',
-        'Battery retrieval': 'Ящики',
-        'Охота за артефактом': 'Артефакт',
-        'Artifact Hunt': 'Артефакт'
+        'team deathmatch': 'TDM',
+        'research': 'Захват',
+        'battery retrieval': 'Ящики',
+        'artifact hunt': 'Артефакт'
     },
     maps: {
-        'Химзавод': 'Химзавод',
-        'Лаборатория Вектор': 'Вектор',
-        'Рудня': 'Рудня',
-        'Таракановский форт': 'Форт',
-        'РЛС Восток': 'РЛС',
-        'Кельн': 'Кельн',
-        'Школа': 'Школа',
-        'Лондон': 'Лондон',
-        'Мамаев курган': 'Курган'
+        'chemical plant': 'Химзавод',
+        'vector laboratory': 'Вектор',
+        'rudnya': 'Рудня',
+        'tarakanovsky fort': 'Форт',
+        'vostok radar station': 'РЛС',
+        'cologne bridge': 'Кельн',
+        'school': 'Школа',
+        'london': 'Лондон',
+        'mamayev kurgan': 'Курган'
+    },
+    weather: {
+        evening: 'Вечер',
+        day: 'День',
+        rain: 'Дождь',
+        prerain: 'Пасмурный',
+        night: 'Ночь'
     },
     dataGrid: {
         counter: 'Показано с {{from}} по {{to}} из {{total}} записей',

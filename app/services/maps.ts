@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser'
 const BASE_LANG = 'english';
 
 const MAPPED = {
-    'Rudnya': {
+    'rudnya': {
         id: 1,
         weather: {
             day: 'day',
@@ -12,7 +12,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'School': {
+    'school': {
         id: 2,
         weather: {
             day: 'day',
@@ -20,7 +20,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Vostok Radar Station': {
+    'vostok radar station': {
         id: 3,
         weather: {
             day: 'day',
@@ -28,7 +28,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Chemical Plant': {
+    'chemical plant': {
         id: 4,
         weather: {
             day: 'day',
@@ -36,7 +36,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Tarakanovsky Fort': {
+    'tarakanovsky fort': {
         id: 5,
         weather: {
             day: 'day',
@@ -44,7 +44,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Mamayev Kurgan': {
+    'mamayev kurgan': {
         id: 6,
         weather: {
             day: 'day',
@@ -52,7 +52,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Vector Laboratory': {
+    'vector laboratory': {
         id: 7,
         weather: {
             day: 'day',
@@ -60,7 +60,7 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'Cologne Bridge': {
+    'cologne bridge': {
         id: 8,
         weather: {
             day: 'day',
@@ -69,7 +69,7 @@ const MAPPED = {
             prerain: 'prerain'
         }
     },
-    'London': {
+    'london': {
         id: 9,
         weather: {
             day: 'day',
@@ -81,15 +81,15 @@ const MAPPED = {
 
 const I18N_MAPS = {
     russian: {
-        'Рудня': 'Rudnya',
-        'Школа': 'School',
-        'РЛС Восток': 'Vostok Radar Station',
-        'Химзавод': 'Chemical Plant',
-        'Таракановский форт': 'Tarakanovsky Fort',
-        'Мамаев курган': 'Mamayev Kurgan',
-        'Лаборатория Вектор': 'Vector Laboratory',
-        'Кельн': 'Cologne Bridge',
-        'Лондон': 'London'
+        'рудня': 'rudnya',
+        'школа': 'school',
+        'рлс восток': 'vostok radar station',
+        'химзавод': 'chemical plant',
+        'таракановский форт': 'tarakanovsky fort',
+        'мамаев курган': 'mamayev kurgan',
+        'лаборатория вектор': 'vector laboratory',
+        'кельн': 'cologne bridge',
+        'лондон': 'london'
     }
 };
 
@@ -113,24 +113,33 @@ export class MapsService {
         }
 
         return {
-            name: I18N_MAPS[lang][info.name],
+            name: I18N_MAPS[lang][info.name.toLowerCase()],
             weather: I18N_WEATHER[lang][info.weather]
         };
     }
 
-    public image(map ?:{ id :number, lang :any }) {
-        if (!map) {
+    public image(map :{ id :number, lang :any }, place :any, weather :any) {
+        if (!map && (!place && !weather)) {
             return;
         }
 
-        let data = map.lang;
-        let info = data[BASE_LANG] || this.translateInfo(data);
+        let info;
+
+        if (map) {
+            let data = map.lang;
+            info = data[BASE_LANG] || this.translateInfo(data);
+        } else {
+            info = {
+                name: place.title,
+                weather: weather.title
+            };
+        }
 
         if (!info) {
             return;
         }
 
-        let MAP = MAPPED[info.name];
+        let MAP = MAPPED[info.name.toLowerCase()];
 
         let image = ['level', MAP.id, MAP.weather[info.weather]].filter(Boolean);
 

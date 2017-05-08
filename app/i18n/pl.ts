@@ -168,22 +168,28 @@ let dict = {
     },
     loading: 'Ładowanie...',
     modes: {
-        'Team Deathmatch': 'TDM',
-        'Last Stand': 'DM',
-        'Research': 'Badania',
-        'Battery retrieval': 'Baterie',
-        'Artifact Hunt': 'Artefakty'
+        'team deathmatch': 'TDM',
+        'research': 'Badania',
+        'battery retrieval': 'Baterie',
+        'artifact hunt': 'Artefakty'
     },
     maps: {
-        'Chemical Plant': 'Zakłady',
-        'Vector Laboratory': 'Vector',
-        'Rudnya': 'Rudnya',
-        'Tarakanovsky Fort': 'Fort',
-        'Vostok Radar Station': 'Radar',
-        'Cologne Bridge': 'Kolonia',
-        'School': 'Szkoła',
-        'London': 'Londyn',
-        'Mamayev Kurgan': 'Kurhan'
+        'chemical plant': 'Zakłady',
+        'vector laboratory': 'Vector',
+        'rudnya': 'Rudnya',
+        'tarakanovsky fort': 'Fort',
+        'vostok radar station': 'Radar',
+        'cologne bridge': 'Kolonia',
+        'school': 'Szkoła',
+        'london': 'Londyn',
+        'mamayev kurgan': 'Kurhan'
+    },
+    weather: {
+        evening: 'Wieczór',
+        day: 'Dzień',
+        rain: 'Deszcz',
+        prerain: 'Pochmurny',
+        night: 'Noc'
     },
     dataGrid: {
         counter: 'Pokaż {{from}} do {{to}} z {{total}} meczy',

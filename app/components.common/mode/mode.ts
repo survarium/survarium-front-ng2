@@ -9,7 +9,7 @@ export class Mode {
     i18nKey :string;
 
     @Input('name') set name (val) {
-        this.i18nKey = `modes.${val}`;
+        this.i18nKey = `modes.${val ? val.toLowerCase() : val}`;
     };
 }
 

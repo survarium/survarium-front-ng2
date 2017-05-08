@@ -62,7 +62,7 @@
     <h4 class="def-list__title">ELO ({{'matches.rating' | i18n}} / {{'matches.random' | i18n}})</h4>
     <div class="def-list__values">
         <dl class="def-list" *ngFor="let elo of _elo">
-            <dt class="def-list__term">{{'modes.' + elo.mode | i18n}}</dt>
+            <dt class="def-list__term">{{'modes.' + elo.mode.toLowerCase() | i18n}}</dt>
             <dd class="def-list__desc">
                 <span [title]="'rating_match_elo_title' | i18n">{{elo.rating || number}}</span> /
                 <span [title]="'random_match_elo_title' | i18n">{{elo.random || number}}</span>

@@ -67,14 +67,32 @@ export class DataGridCell implements OnInit, AfterContentInit {
 
     constructor (private componentResolver: ComponentFactoryResolver) {}
 
-    private getCell (path :string) {
+    private getDataFromPath (path :string) {
+        return path.split('.').reduce((row, field) => {
+            return row && row[field];
+        }, this.row);
+    }
+
+    private getCell (path :any) {
         if (!path) {
             return 'ERR: no data path provided';
         }
 
-        return path.split('.').reduce((row, field) => {
-            return row && row[field];
-        }, this.row);
+        if (path instanceof Array) {
+            let data;
+
+            for (let i = 0; i < path.length; i++) {
+                data = this.getDataFromPath(path[i]);
+
+                if (data) {
+                    break;
+                }
+            }
+
+            return data;
+        }
+
+        return this.getDataFromPath(path);
     }
 
     ngOnInit () :any {
