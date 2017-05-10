@@ -175,7 +175,7 @@ export class PlayersList {
             let field = `progress.elo.${gameMode}.${gameType}`;
 
             return {
-                title: `ELO ${i18n.get(`matches.${gameType}`)} ${i18n.get(`modes.${gameMode}`)}`,
+                title: `ELO ${i18n.get(`matches.${gameType}`)} ${i18n.get(`modes.${gameMode.toLowerCase()}`)}`,
                 field,
                 width: 90,
                 sort: { [field]: { } },
