@@ -7,7 +7,8 @@ import { AdsenseService } from '../../services/adsense'
     template: require('./adsense.html'),
     styles: [require('./adsense.styl')],
     host: {
-        '[class.shown]': '!config.isMobile'
+        '[class.shown]': '!config.isMobile',
+        '[class.sns]': 'true'
     }
 })
 

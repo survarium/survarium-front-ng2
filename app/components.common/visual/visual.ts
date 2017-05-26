@@ -1,6 +1,7 @@
 import { Component, Input, Inject, ViewContainerRef } from '@angular/core'
+import { TrackService } from '../../services/track'
 
-declare var marmoset :any;
+declare let marmoset :any;
 // FIXME: CLIENT-SIDE ONLY
 
 @Component({
@@ -15,7 +16,8 @@ declare var marmoset :any;
 export class Visual {
     constructor (private view :ViewContainerRef,
                  @Inject('CONFIG') private config,
-                 @Inject('window') private window) {}
+                 @Inject('window') private window,
+                 private _trackService :TrackService) {}
 
     @Input('model') model :string;
 
@@ -42,6 +44,11 @@ export class Visual {
 
     onLoad () {
         this.loaded = true;
+
+        this._trackService.track({
+            ya: { goal: 'armory.model', options: { model: this.model } },
+            ga: { category: 'Armory', action: 'view model', label : `model:${this.model}`,}
+        });
     }
 
     load() {
