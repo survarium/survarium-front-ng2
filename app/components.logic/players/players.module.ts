@@ -18,12 +18,13 @@ import Ammunition from './players-detail-ammunition'
 import { Badge, Badges } from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { Skills } from '../../components.common/skills/skills'
+import { PlayerId } from '../../components.common/player-id/player-id'
 
 @NgModule({
     imports: [routing, SharedModule, DataGridModule],
     declarations: [
         Players, PlayersSearch, PlayersList, PlayersDetail, PlayersDetailHistoryCounts, PlayersDetailSkills,
-        Counts, Matches, Badge, Badges, History, AlsoKnown, Leveling, Skills, Ammunition
+        Counts, Matches, Badge, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, PlayerId
     ]
 })
 
