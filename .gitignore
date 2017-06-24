@@ -5,4 +5,5 @@ typings
 dist
 .DS*
 models
+package-lock.json
 **/direct.js
