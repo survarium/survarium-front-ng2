@@ -292,6 +292,7 @@ let dict = {
         title: 'Zbrojownia',
         docTitle: 'Armory',
         docDescription: 'Weapons, armor and equipment of Survarium game.',
+        outdated: 'Informacje są nieaktualne i może być używana tylko w celach historycznych',
         versions: {
             label: 'Wersja'
         },

@@ -292,6 +292,7 @@ let dict = {
         title: 'Armory',
         docTitle: 'Armory',
         docDescription: 'Weapons, armor and equipment of Survarium game.',
+        outdated: 'Information is outdated and can be used only for historical purposes',
         versions: {
             label: 'Version'
         },
