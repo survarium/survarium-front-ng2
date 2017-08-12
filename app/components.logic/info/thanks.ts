@@ -10,6 +10,10 @@ import { PlayersService } from '../../services/api'
 export class Thanks {
     private data :any = [
         { players: [
+            { nickname: '_-Albi-_' }, 
+            { nickname: 'Emto' }
+        ], message: 'Polish localization' },
+        { players: [
             { nickname: 'SoaDDimitrov' },
             { nickname: 'Dimikadze' },
             { nickname: 'FiatLux' }
