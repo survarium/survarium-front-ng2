@@ -33,7 +33,7 @@ export class MatchesList {
             title: i18n.get('type'),
             field: 'rating_match',
             component: MatchType,
-            inputs: { type: `rating_match` },
+            inputs: { type: `rating_match`, mode: `mode` },
             width: 80,
             classes: 'center',
             sort: { 'rating_match': { } }

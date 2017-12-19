@@ -141,6 +141,10 @@ export class MapsService {
 
         let MAP = MAPPED[info.name.toLowerCase()];
 
+        if (!MAP) {
+            return;
+        }
+
         let image = ['level', MAP.id, MAP.weather[info.weather]].filter(Boolean);
 
         if (image.length < 3) {

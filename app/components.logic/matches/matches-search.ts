@@ -27,7 +27,9 @@ export class MatchesSearch {
         if (!id && !/^\d+$/.test(id)) {
             return;
         }
-        id = id.trim();
+        if (id.trim) {
+            id = id.trim();
+        }
         Storage.setItem('match:find', id);
         this._router.navigate(['matches', id]);
     }

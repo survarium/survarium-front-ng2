@@ -1,7 +1,7 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
 <pre *ngIf="error">{{error}}</pre>
 <ng-template [ngIf]="data">
-    <h3 [class.imaged]="mapImage" [style.background-image]="mapImage">ID {{data.id}} / {{data.map.name}} ({{data.map.weather}}<span *ngIf="data.map_version > 0">, {{data.map_version}}</span>) / {{data.map.mode}}</h3>
+    <h3 [class.imaged]="mapImage" [style.background-image]="mapImage">ID {{data.id}} / {{data.map.name}} ({{data.map.weather ? data.map.weather + ', ' : ''}}<span *ngIf="data.map_version > 0">{{data.map_version}}</span>) / {{data.map.mode}}</h3>
     <div class="def-list__values">
         <dl class="def-list">
             <dt class="def-list__term">{{'time_start' | i18n }}</dt>
@@ -31,14 +31,14 @@
             <dd class="def-list__desc">{{winner}}</dd>
         </dl>
 
-        <dl *ngIf="score" class="def-list">
+        <dl *ngIf="score && data.mode && data.mode.title !== 'pve'" class="def-list">
             <dt class="def-list__term">{{'score' | i18n }}</dt>
             <dd class="def-list__desc">{{score}}</dd>
         </dl>
 
         <dl *ngIf="score" class="def-list">
             <dt class="def-list__term">{{'type' | i18n }}</dt>
-            <dd class="def-list__desc"><match-type [type]="data.rating_match"></match-type></dd>
+            <dd class="def-list__desc"><match-type [type]="data.rating_match" [mode]="data.mode"></match-type></dd>
         </dl>
 
         <dl class="def-list" *ngIf="replay">

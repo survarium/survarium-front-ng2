@@ -171,7 +171,9 @@ let dict = {
         'team deathmatch': 'TDM',
         'research': 'Badania',
         'battery retrieval': 'Baterie',
-        'artifact hunt': 'Artefakty'
+        'artifact hunt': 'Artefakty',
+        'slaughter': 'Rzeź',
+        'pve': 'PVE'
     },
     maps: {
         'chemical plant': 'Zakłady',
@@ -182,7 +184,8 @@ let dict = {
         'cologne bridge': 'Kolonia',
         'school': 'Szkoła',
         'london': 'Londyn',
-        'mamayev kurgan': 'Kurhan'
+        'mamayev kurgan': 'Kurhan',
+        'pve': 'PVE'
     },
     weather: {
         evening: 'Wieczór',
