@@ -18,7 +18,7 @@
     "stages": [
       {
         "map": {
-          "url": "/assets/pve/missions/stage-1-map.jpg",
+          "url": "/assets/pve/missions/dangerous-knowledge/stage-1-map.jpg",
           "width": 1527,
           "height": 2160,
           "copyright": "4apay"
@@ -61,13 +61,13 @@
       },
       {
         "map": {
-          "url": "/assets/pve/missions/stage-2-map.jpg",
+          "url": "/assets/pve/missions/dangerous-knowledge/stage-2-map.jpg",
           "copyright": "Albi"
         }
       },
       {
         "map": {
-          "url": "/assets/pve/missions/stage-3-map.jpg",
+          "url": "/assets/pve/missions/dangerous-knowledge/stage-3-map.jpg",
           "copyright": "Albi"
         }
       }
