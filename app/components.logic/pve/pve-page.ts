@@ -67,9 +67,9 @@ export class PvePage implements OnInit, OnDestroy {
             }
 
             this.setStage(0);
-        } else {
+        }/* else {
             this.router.navigate(['/pve']);
-        }
+        }*/
     }
 
     private isNotFound = false;
