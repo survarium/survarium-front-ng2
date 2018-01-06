@@ -24,6 +24,16 @@ export class Thanks {
     ];
 
     constructor(private playersService :PlayersService, private changeDetector :ChangeDetectorRef) {
+        /**
+         * Сейчас ChangeDetection выполняется для кажого блока игроков. Код в комментарии ниже выполнит проверку для общего числа игроков
+         let count = 0;
+         let resolve = (() => () => {
+            if (!(--count)) {
+                this.changeDetector.markForCheck();
+            }
+        })();
+         */
+
         this.data.forEach((thankful) => {
             if (thankful.players) {
                 let resolve = ((count) => () => {
