@@ -65,7 +65,7 @@ export class PvePage implements OnInit, OnDestroy {
         }
 
         this._page = page;
-        this.setStage(0);
+        this._page && this.setStage(0);
     }
 
     private isNotFound = false;
