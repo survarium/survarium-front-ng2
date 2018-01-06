@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import TitleService from '../../services/title'
 import { i18n as i18nBackend, I18N } from '../../services/i18n'
 
@@ -16,6 +16,7 @@ const DATA :any[] = require('./pve.json');
 export class PvePage implements OnInit, OnDestroy {
     constructor(private _title :TitleService,
                 private route :ActivatedRoute,
+                private router :Router,
                 private changeDetector: ChangeDetectorRef,
                 private i18n :I18N,
                 private domSanitizer :DomSanitizer,
@@ -58,14 +59,17 @@ export class PvePage implements OnInit, OnDestroy {
     }
 
     set page (page) {
-        if (page){
+        this._page = page;
+
+        if (page) {
             if (page.image) {
                 this.pageImage = this.domSanitizer.bypassSecurityTrustStyle(`url(${page.image})`);
             }
-        }
 
-        this._page = page;
-        this._page && this.setStage(0);
+            this.setStage(0);
+        } else {
+            this.router.navigate(['/pve']);
+        }
     }
 
     private isNotFound = false;
