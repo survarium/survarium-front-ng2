@@ -565,6 +565,14 @@ let dict = {
     lang: {
         ru: 'Russian',
         en: 'English'
+    },
+    pve: {
+        docTitle: 'Karty schowek PVE',
+        docDescription: 'lokalizacja skrzynek na mapie Survarium PVE',
+        title: 'PVE',
+        missions:  'Misji',
+        stage: 'Etap',
+        map: 'Mapa'
     }
 };
 

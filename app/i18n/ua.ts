@@ -556,6 +556,14 @@ let dict = {
     lang: {
         ru: 'Русский',
         en: 'Английский'
+    },
+    pve: {
+        docTitle: 'Карты схоронов PVE',
+        docDescription: 'Расположение схронов в PVE миссиях игры Survarium',
+        title: 'PVE',
+        missions:  'Миссия',
+        stage: 'Этап',
+        map: 'Карта'
     }
 };
 

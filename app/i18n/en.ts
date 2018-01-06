@@ -565,6 +565,14 @@ let dict = {
     lang: {
         ru: 'Russian',
         en: 'English'
+    },
+    pve: {
+        docTitle: 'PVE stash maps',
+        docDescription: 'Stash locations of Survarium PVE mode',
+        title: 'PVE',
+        missions:  'Mission',
+        stage: 'Stage',
+        map: 'Map'
     }
 };
 

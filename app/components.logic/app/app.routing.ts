@@ -30,6 +30,10 @@ export const routes: Routes = [
         loadChildren: () => require('es6-promise!../streams/streams.module')('StreamsModule')
     },
     {
+        path: 'pve',
+        loadChildren: () => require('es6-promise!../pve/pve.module')('PveModule')
+    },
+    {
         path: '',
         pathMatch: 'full',
         loadChildren: () => require('es6-promise!../home/home.module')('HomeModule')

@@ -31,7 +31,7 @@ export class VkFeed extends Widget implements AfterContentInit {
     }
 
     ngAfterContentInit () {
-        this.init();
+        setTimeout(() => this.init(), 500);
     }
 
 }

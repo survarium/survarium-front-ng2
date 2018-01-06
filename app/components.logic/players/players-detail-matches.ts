@@ -29,7 +29,7 @@ export class PlayersDetailMatches {
     private apiDefaultLang = i18n.apiDefaultLang;
 
     private columns :any[] = [
-        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date`, slim: { useValue: true } }, sort: { date: { } }, classes: 'nowrap' },
+        { title: i18n.get('date'), width: 125, component: DateTime, inputs: { date: `date` }, sort: { date: { } }, classes: 'nowrap' },
         { title: i18n.get('match'), component: Match, inputs: { id: `match.id` }, sort: { date: { value: -1 } } },
         {
             title: i18n.get('type'),

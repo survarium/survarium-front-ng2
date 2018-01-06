@@ -1,0 +1,20 @@
+<ng-template [ngIf]="page">
+    <h3 [class.imaged]="pageImage" [style.background-image]="pageImage">{{page.name | i18nL}}</h3>
+    <p>{{page.description | i18nL}}</p>
+    <div>
+        <h4>{{'pve.stage' | i18n}}</h4>:&nbsp;
+        <ul>
+            <li *ngFor="let pageStage of page.stages; let i = index;" [class.current]="i === stageIndex" (click)="setStage(i)">{{i + 1}}</li>
+        </ul>
+    </div>
+    <p>{{stage.description | i18nL: { allowEmpty: true } }}</p>
+    <figure>
+        <a [href]="stageMap" target="_blank"><img [src]="stageMap" alt="Survarium {{'pve.title' | i18n}} {{'pve.map' | i18n}} {{page.name | i18nL}}, {{'pve.stage' | i18n}} {{stageIndex + 1}}"></a>
+        <figcaption *ngIf="stage.map.copyright">&copy; {{stage.map.copyright}}</figcaption>
+    </figure>
+
+</ng-template>
+
+<ng-template [ngIf]="isNotFound">
+    404: /{{pageName}} not found
+</ng-template>

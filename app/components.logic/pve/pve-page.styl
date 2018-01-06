@@ -1,0 +1,44 @@
+@import "../../components.common/variables.styl"
+
+:host
+  display block
+  padding-top 1em
+
+h3
+  color $highlight
+  margin-top 0
+
+h4
+  display inline-block
+  font-size 1em
+  padding 0
+  margin 0
+
+ul
+  list-style-type none
+  padding 0
+  margin 0
+  display inline-block
+
+li
+  display inline-block
+  padding 0.5em 1em 0.5em 0
+  cursor pointer
+
+.current
+  color $highlight
+  text-decoration none !important
+
+.imaged
+  background-size cover
+  background-position 50% 50%
+  background-repeat no-repeat
+  box-shadow inset 0 0 5em rgba(0, 0, 0, .8)
+  padding 1.5em 1.3em
+  text-shadow 0 0 2px rgba(0, 0, 0, .8)
+
+img
+  max-width 100%
+
+figure
+  margin 1em 0

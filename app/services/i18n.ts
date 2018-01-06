@@ -71,6 +71,10 @@ class I18N {
         return fetched;
     }
 
+    chooseFrom (dict, options ?:any) {
+        return dict && (dict[this.lang.lang] || dict[this.lang.fallback]);
+    }
+
     get (key, options ?:any) {
         if (!key) {
             console.warn(`I18N: no key received`);
@@ -104,9 +108,11 @@ class I18N {
         if (language.lang === this.lang.lang) {
             return;
         }
+
         if (!~LANGUAGES.indexOf(language)) {
             return;
         }
+
         Storage.setItem('language', language.lang);
 
         // FIXME: CLIENT-SIDE ONLY

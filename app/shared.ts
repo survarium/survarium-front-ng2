@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
-import { I18NPipe } from './pipes/i18n'
+import { I18NPipe, I18NLocalPipe } from './pipes/i18n'
 import { DateTimePipe } from './pipes/datetime'
 import { ElapsedPipe } from './pipes/elapsed'
 import { NumberPipe } from './pipes/number'
@@ -15,6 +15,7 @@ import { DIRECTIVES } from './directives'
     imports: [CommonModule, RouterModule, FormsModule],
     declarations: [
         I18NPipe,
+        I18NLocalPipe,
         DateTimePipe,
         ElapsedPipe,
         NumberPipe,
@@ -26,6 +27,7 @@ import { DIRECTIVES } from './directives'
         RouterModule,
         FormsModule,
         I18NPipe,
+        I18NLocalPipe,
         DateTimePipe,
         ElapsedPipe,
         NumberPipe,

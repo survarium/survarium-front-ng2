@@ -26,6 +26,7 @@ export const CONFIG = {
             },
             {
                 lang: 'ua',
+                fallback: 'ru',
                 alternate: 'uk',
                 apiLang: 'russian',
                 gameLang: 'ukrainian',
@@ -40,6 +41,7 @@ export const CONFIG = {
             },
             {
                 lang: 'pl',
+                fallback: 'en',
                 alternate: 'pl',
                 apiLang: 'english',
                 gameLang: 'polish',
