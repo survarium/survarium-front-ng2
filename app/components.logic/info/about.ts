@@ -21,7 +21,7 @@ export class About {
         this._title.setRendered();
 
         playersService
-            .fetch('Vaseker')
+            .fetch('15238791817735151910') // Vaseker
             .subscribe((developer) => {
                 this.developer = developer;
             }, () => {});
