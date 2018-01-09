@@ -26,8 +26,8 @@
             "type": "yamoney",
             "receiver": "410014249880451",
             "message": {
-              "ru": "Поддержать автора карты",
-              "en": "Donate map author"
+              "ru": "Поддержка автора карты PVE01/01",
+              "en": "PVE01/01 map donation"
             }
           }
         },
@@ -75,8 +75,8 @@
             "type": "yamoney",
             "receiver": "410014249880451",
             "message": {
-              "ru": "Поддержать автора карты",
-              "en": "Donate map author"
+              "ru": "Поддержка автора карты PVE01/02",
+              "en": "PVE01/02 map donation"
             }
           }
         }
@@ -89,8 +89,8 @@
             "type": "yamoney",
             "receiver": "410014249880451",
             "message": {
-              "ru": "Поддержать автора карты",
-              "en": "Donate map author"
+              "ru": "Поддержка автора карты PVE01/03",
+              "en": "PVE01/03 map donation"
             }
           }
         }
