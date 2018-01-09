@@ -14,6 +14,15 @@ export function ngOnLoad(window, document) {
             isWebBrowser && { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
                 CONFIG.adblock = true;
                 appProvider.app.instance.adblocked = CONFIG.adblock;
+
+                if (window['yaParams']) {
+                    window['yaParams'].adblock = true;
+
+                    if (window['metrika']) {
+                        window['metrika'].params(window['yaParams']);
+                    }
+                }
+
                 appProvider.app.changeDetectorRef.markForCheck();
                 appProvider.app.changeDetectorRef.detectChanges();
             } },
