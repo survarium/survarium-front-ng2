@@ -19,9 +19,17 @@
       {
         "map": {
           "url": "/assets/pve/missions/dangerous-knowledge/stage-1-map.jpg",
-          "width": 1527,
-          "height": 2160,
-          "copyright": "4apay"
+          "width": 2480,
+          "height": 3508,
+          "copyright": "4apay",
+          "donate": {
+            "type": "yamoney",
+            "receiver": "410014249880451",
+            "message": {
+              "ru": "Поддержать автора карты",
+              "en": "Donate map author"
+            }
+          }
         },
         "stashes": [
           {
@@ -62,13 +70,29 @@
       {
         "map": {
           "url": "/assets/pve/missions/dangerous-knowledge/stage-2-map.jpg",
-          "copyright": "4apay"
+          "copyright": "4apay",
+          "donate": {
+            "type": "yamoney",
+            "receiver": "410014249880451",
+            "message": {
+              "ru": "Поддержать автора карты",
+              "en": "Donate map author"
+            }
+          }
         }
       },
       {
         "map": {
           "url": "/assets/pve/missions/dangerous-knowledge/stage-3-map.jpg",
-          "copyright": "4apay"
+          "copyright": "4apay",
+          "donate": {
+            "type": "yamoney",
+            "receiver": "410014249880451",
+            "message": {
+              "ru": "Поддержать автора карты",
+              "en": "Donate map author"
+            }
+          }
         }
       }
     ]
