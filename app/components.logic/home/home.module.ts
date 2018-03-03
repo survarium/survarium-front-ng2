@@ -8,6 +8,7 @@ import { VkFeedWidget } from '../../components.common/vk-feed/vk-feed-widget'
 import { Twitter } from  '../../components.common/twitter/twitter'
 import { Discord } from  '../../components.common/discord/discord'
 import { Facebook } from  '../../components.common/facebook/facebook'
+import { MOTD } from  '../../components.common/motd/motd'
 import { VkFeedService } from '../../services/vk-feed'
 import { SharedModule } from '../../shared'
 import { Home } from './home.component'
@@ -15,7 +16,7 @@ import { routing } from './home.routing'
 
 @NgModule({
     imports: [SharedModule, routing],
-    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord, PlayersOnlineSteam, Facebook],
+    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord, PlayersOnlineSteam, Facebook, MOTD],
     providers: [VkFeedService],
     entryComponents: [VkFeedWidget]
 })
