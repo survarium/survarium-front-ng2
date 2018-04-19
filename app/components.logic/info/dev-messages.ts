@@ -36,17 +36,20 @@ export class DevMessages {
             message.crumbs = [
                 message.forum.id && {
                     url: this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}`),
-                    name: this.htmlEntities(message.forum.name)
+                    name: this.htmlEntities(message.forum.name ||  message.topic.name)
                 },
-                message.topic.id && {
+                (message.topic.id !== undefined) && {
                     url: this._domSanitize.bypassSecurityTrustUrl(`https://forum.survarium.com/${message.lang}/viewtopic.php?f=${message.forum.id}&t=${message.topic.id}`),
-                    name: this.htmlEntities(message.topic.name)
+                    name: this.htmlEntities(message.topic.name || message.forum.name)
                 }
             ].filter(Boolean);
             return message;
         });
         this._data = val;
     }
+
+    private dataSubscriber :any;
+    private requestSubscriber :any;
 
     constructor(private _vgService :VgService,
                 private _title :TitleService,
@@ -62,7 +65,7 @@ export class DevMessages {
             this._vgService.langs()
         );
 
-        start.subscribe((x) => {
+        this.dataSubscriber = start.subscribe((x) => {
             this.devs = x[0].reduce((prev, next) => {
                 prev[next.id] = next;
                 return prev;
@@ -81,7 +84,7 @@ export class DevMessages {
     }
 
     request () {
-        this._vgService
+        this.requestSubscriber = this._vgService
             .messages({ skip: this.skip, filter: this.search })
             .subscribe((x) => {
                 this.data = x;
@@ -102,5 +105,15 @@ export class DevMessages {
     filter (params) {
         this.search = params;
         this.paginate(0);
+    }
+
+    ngOnDestroy () {
+        if (this.dataSubscriber) {
+            this.dataSubscriber.unsubscribe();
+        }
+
+        if (this.requestSubscriber) {
+            this.requestSubscriber.unsubscribe();
+        }
     }
 }

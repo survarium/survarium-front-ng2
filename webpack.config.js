@@ -1,13 +1,14 @@
-var helpers = require('./webpack.helpers');
+const helpers = require('./webpack.helpers');
 
-var path              = require('path');
-var webpack           = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var poststylus        = require('poststylus');
-var ENV               = process.env.ENV || 'development';
+const webpack           = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const poststylus        = require('poststylus');
+const ENV               = process.env.ENV || 'development';
 
-var metadata = {
+const ngPkg = require('@angular/common/package');
+
+const metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
 	baseUrl    : 'http://survarium.dev:3000/',
@@ -16,7 +17,8 @@ var metadata = {
 	ENV        : ENV,
 	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api',
 	version    : helpers.version,
-	updated    : helpers.updated
+	updated    : helpers.updated,
+    ngVersion  : ngPkg.version
 };
 /*
  * Config
@@ -93,7 +95,8 @@ module.exports = {
 				'TITLE'   : JSON.stringify(metadata.title),
 				'VERSION' : JSON.stringify(metadata.version),
 				'UPDATED' : JSON.stringify(metadata.updated),
-				'APP_DESCRIPTION': JSON.stringify(metadata.description)
+				'APP_DESCRIPTION': JSON.stringify(metadata.description),
+				'NG_VERSION': JSON.stringify(metadata.ngVersion)
 			}
 		})],
 

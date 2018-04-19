@@ -3,6 +3,7 @@ import { Routes, RouterModule }   from '@angular/router';
 
 import { Info } from './info'
 import { DevMessages } from './dev-messages'
+import { DevMessage } from './dev-message'
 import { About } from './about'
 import { Bans } from './bans'
 import { DonateThanks } from './donate-thanks'
@@ -19,7 +20,11 @@ export const routes :Routes = [
         children: [
             {
                 path: 'messages',
-                component: DevMessages
+                component: DevMessages,
+            },
+            {
+                path: 'messages/:message',
+                component: DevMessage
             },
             {
                 path: 'about',

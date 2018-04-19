@@ -1,6 +1,7 @@
 export const CONFIG = {
     production: process.env.ENV === 'production',
-    enableDebugTools: false,
+    enableDebugTools: true,
+    enableRouterTracing: false,
     isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
     isWebBrowser: window['isWebBrowser'] === undefined ? (window['isWebBrowser'] = !window.navigator.userAgent.match(/Prerender/i)) : window['isWebBrowser'],
     api: process.env.API_PATH,
@@ -8,7 +9,8 @@ export const CONFIG = {
     app: {
         version: process.env.VERSION,
         updated: process.env.UPDATED,
-        description: process.env.APP_DESCRIPTION
+        description: process.env.APP_DESCRIPTION,
+        ngVersion: process.env.NG_VERSION
     },
     adblock: false,
     adsense: {

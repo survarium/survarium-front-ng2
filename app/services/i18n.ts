@@ -104,7 +104,7 @@ class I18N {
         return this.lang.apiLang;
     }
 
-    public switch (language :Language) {
+    public switch (language :any) {
         if (language.lang === this.lang.lang) {
             return;
         }

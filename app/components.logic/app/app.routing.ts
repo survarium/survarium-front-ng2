@@ -47,5 +47,6 @@ export const routes: Routes = [
 export const routingProviders: any[] = [];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
-    preloadingStrategy: CONFIG.isWebBrowser ? PreloadAllModules : NoPreloading
+    preloadingStrategy: CONFIG.isWebBrowser ? PreloadAllModules : NoPreloading,
+    enableTracing: !CONFIG.production && CONFIG.enableRouterTracing
 });

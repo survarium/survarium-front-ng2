@@ -5,7 +5,9 @@
 <ng-template [ngIf]="data">
     <div *ngFor="let message of data.data; let i = index;" class="elem">
         <div class="message">
-            <a [href]="message.dev.url" target="_blank" rel="nofollow" class="author">{{message.dev.name}}</a><a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.date | datetime}}</a> <a *ngIf="message.banlist" class="banlist">({{'info.messages.banlist' | i18n}})</a>
+            <a class="static_url" [routerLink]="['./', message._id]">#</a>
+            <a [href]="message.dev.url" target="_blank" rel="nofollow" class="author">{{message.dev.name}}</a>
+            <a [href]="message.url" target="_blank" rel="nofollow" class="date">{{message.date | datetime}}</a> <a *ngIf="message.banlist" class="banlist">({{'info.messages.banlist' | i18n}})</a>
             <nav *ngIf="message.crumbs.length" class="crumbs">
                 <a *ngFor="let crumb of message.crumbs" [href]="crumb.url" target="_blank" rel="nofollow">{{crumb.name}}</a>
             </nav>

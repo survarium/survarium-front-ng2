@@ -138,48 +138,6 @@
         })(document, window, "topmailru-code");
     </script>-->
 
-    <!--<script type="text/javascript">
-        (function (d, w) {
-            (w['yandex_metrika_callbacks'] = w['yandex_metrika_callbacks'] || []).push(function () {
-                try {
-                    var counters = [
-                        { id: '35602115', name: 'metrika' },
-                        { id: '38127480', name: 'context' }
-                    ], i = 0, counter;
-                    for (; i < counters.length; i++) {
-                        counter = counters[i];
-                        w['yaCounter' + counter.id] = new Ya.Metrika({
-                            id:counter.id,
-                            clickmap:true,
-                            trackLinks:true,
-                            accurateTrackBounce:true,
-                            webvisor:true,
-                            trackHash:true
-                        });
-
-                        if (!w[counter.name]) {
-                            w[counter.name] = w['yaCounter' + counter.id];
-                        }
-                    }
-                } catch(e) { }
-            });
-
-            var scripts = d.getElementsByTagName("script")[0],
-                metrikaScript = d.createElement("script"),
-                f = function () {
-                    scripts.parentNode.insertBefore(metrikaScript, scripts);
-                };
-
-            metrikaScript.type = "text/javascript";
-            metrikaScript.async = true;
-            metrikaScript.src = "https://mc.yandex.ru/metrika/watch.js";
-
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
-        })(document, window);
-    </script>-->
-
     <script type="text/javascript">
         (function (d, w, c) {
             (w[c] = w[c] || []).push(function() {
@@ -219,7 +177,7 @@
         <noindex>Loading...</noindex>
         <div><noindex><a href="https://v1.survarium.pro" style="color: rgba(245, 245, 245, 0.65);">Survarium.pro V1</a></noindex></div>
         <div><%= webpackConfig.metadata.title %>. <%= webpackConfig.metadata.description %></div>
-        <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %></small></noindex>
+        <noindex><small>v. <%= webpackConfig.metadata.version %>, <%= webpackConfig.metadata.updated %> Angular@<%= webpackConfig.metadata.ngVersion %></small></noindex>
     </survarium-stats>
     <% if (webpackConfig.metadata.ENV === 'development') { %>
     <script src="http://<%= webpackConfig.metadata.host %>:<%= webpackConfig.metadata.port %>/webpack-dev-server.js"></script>

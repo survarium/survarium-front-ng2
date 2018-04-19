@@ -1,5 +1,4 @@
 <div>
-    <h4 style="color: #ff0905; display: block;">PRE-ALPHA</h4>
     <h4>{{'pve.missions' | i18n}}</h4>:&nbsp;
     <ul *ngIf="missions">
         <li *ngFor="let link of links;"><a routerLink="./{{link}}" routerLinkActive="router-link-active">{{missions[link].name | i18nL}}</a></li>

@@ -1,22 +1,24 @@
-var helpers = require('./webpack.helpers');
+const helpers = require('./webpack.helpers');
 // Webpack Plugins
-var webpack              = require('webpack');
-var ProvidePlugin        = require('webpack/lib/ProvidePlugin');
-var DefinePlugin         = require('webpack/lib/DefinePlugin');
-var OccurenceOrderPlugin = require('webpack/lib/optimize/OccurenceOrderPlugin');
-var DedupePlugin         = require('webpack/lib/optimize/DedupePlugin');
-var UglifyJsPlugin       = require('webpack/lib/optimize/UglifyJsPlugin');
-var CommonsChunkPlugin   = require('webpack/lib/optimize/CommonsChunkPlugin');
-var CompressionPlugin    = require('compression-webpack-plugin');
-var CopyWebpackPlugin    = require('copy-webpack-plugin');
-var HtmlWebpackPlugin    = require('html-webpack-plugin');
-var WebpackMd5Hash       = require('webpack-md5-hash');
-var poststylus           = require('poststylus');
-var ENV                  = process.env.NODE_ENV = process.env.ENV = 'production';
-var HOST = process.env.HOST || 'localhost';
-var PORT = process.env.PORT || 8080;
+const webpack              = require('webpack');
+const ProvidePlugin        = require('webpack/lib/ProvidePlugin');
+const DefinePlugin         = require('webpack/lib/DefinePlugin');
+const OccurenceOrderPlugin = require('webpack/lib/optimize/OccurenceOrderPlugin');
+const DedupePlugin         = require('webpack/lib/optimize/DedupePlugin');
+const UglifyJsPlugin       = require('webpack/lib/optimize/UglifyJsPlugin');
+const CommonsChunkPlugin   = require('webpack/lib/optimize/CommonsChunkPlugin');
+const CompressionPlugin    = require('compression-webpack-plugin');
+const CopyWebpackPlugin    = require('copy-webpack-plugin');
+const HtmlWebpackPlugin    = require('html-webpack-plugin');
+const WebpackMd5Hash       = require('webpack-md5-hash');
+const poststylus           = require('poststylus');
+const ENV                  = process.env.NODE_ENV = process.env.ENV = 'production';
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
 
-var metadata = {
+const ngPkg = require('@angular/common/package');
+
+const metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
 	baseUrl    : process.env.BASE_URL || 'https://survarium.pro/',
@@ -25,7 +27,8 @@ var metadata = {
 	ENV        : ENV,
 	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api',
 	version    : helpers.version,
-	updated    : helpers.updated
+	updated    : helpers.updated,
+    ngVersion  : ngPkg.version
 };
 
 /*
@@ -126,7 +129,8 @@ module.exports = helpers.validate({
 				'TITLE'   : JSON.stringify(metadata.title),
 				'VERSION' : JSON.stringify(metadata.version),
 				'UPDATED' : JSON.stringify(metadata.updated),
-				'APP_DESCRIPTION': JSON.stringify(metadata.description)
+				'APP_DESCRIPTION': JSON.stringify(metadata.description),
+                'NG_VERSION': JSON.stringify(metadata.ngVersion)
 			}
 		}),
 		new ProvidePlugin({

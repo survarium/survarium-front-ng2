@@ -538,6 +538,24 @@ export class VgService {
             //.do(data => console.log(data))
             .catch(this.handleError.bind(this));
     }
+    /**
+     * Сообщение разработчиков на форуме
+     * @param {Object} [query]
+     * @returns {Observable<R>}
+     */
+    message(query : { messageId :string }) :Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({
+            url: this._handle + '/messages/' + query.messageId,
+            headers,
+            method: RequestMethod.Get
+        });
+
+        return this.http.request(new Request((options)))
+            .map(res => res.json())
+            //.do(data => console.log(data))
+            .catch(this.handleError.bind(this));
+    }
 
     /**
      * Получить список разработчиков
