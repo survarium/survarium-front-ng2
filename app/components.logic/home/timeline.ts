@@ -83,31 +83,26 @@ export class Timeline {
         var datasets = [];
 
         var start = new Date();
-        var end = new Date();
-        start.setHours(start.getHours() - 23, 0, 0);
+        start.setHours(start.getHours() - 23, start.getMinutes(), 0);
 
         var labels  = [];
         var mapping = [];
         var hours   = [];
         var total   = 0;
 
-        for (let i = 0; i < 23; i++) {
+        for (let i = 0; i < 24; i++) {
             i && start.setHours(start.getHours() + 1);
             labels.push(this.formatDate(start));
             mapping.push(0);
             hours.push(start.getHours());
         }
 
-        labels.push(this.formatDate(end));
-        mapping.push(0);
-        hours.push(end.getHours());
-
         val
             .filter(dataset => dataset.level > 0)
             .sort((a, b) => {
                 return a.level - b.level;
             })
-            .forEach((dataset, j) => {
+            .forEach(dataset => {
                 var data = mapping.slice();
 
                 dataset.hours.forEach(hour => {
