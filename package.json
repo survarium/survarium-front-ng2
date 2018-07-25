@@ -1,13 +1,13 @@
 {
   "name": "survarium.pro-frontend-ng2",
-  "version": "2.14.6",
+  "version": "2.14.7",
   "description": "Angular 2 – based version survarium.pro frontend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run typings install",
     "bundle": "node builders/direct-bundler",
-    "start": "export API_PATH='http://127.0.0.1:3010/api' && export ENV='development' && npm run bundle && webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base app/",
+    "start": "export API_PATH='http://survarium.test:3010/api' && export ENV='development' && npm run bundle && webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base app/",
     "run": "npm start",
     "postbuild": "rimraf dist && mv dist_prod dist",
     "build": "npm run bundle && webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached",
