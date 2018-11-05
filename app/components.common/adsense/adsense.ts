@@ -2,7 +2,7 @@ import { Component, Inject, Input, AfterViewInit, OnDestroy } from '@angular/cor
 import { AdsenseService } from '../../services/adsense'
 
 @Component({
-    selector: 'adsense',
+    selector: 'sense',
     inputs: ['width', 'height'],
     template: require('./adsense.html'),
     styles: [require('./adsense.styl')],
