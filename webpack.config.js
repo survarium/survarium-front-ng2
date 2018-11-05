@@ -11,8 +11,8 @@ const ngPkg = require('@angular/common/package');
 const metadata = {
 	title      : 'Survarium stats',
 	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
-	baseUrl    : 'http://127.0.0.1:3000/',
-	host       : '127.0.0.1',
+	baseUrl    : 'http://survarium.test:3000/',
+	host       : 'survarium.test',
 	port       : 3000,
 	ENV        : ENV,
 	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api',
