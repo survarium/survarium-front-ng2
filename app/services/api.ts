@@ -318,16 +318,6 @@ export class MatchesService {
             .catch(this.handleError.bind(this));
     }
 
-    checkReplay(match :number) :Observable<any> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ url: `${this._handle}/${match}/replay`, headers, method: RequestMethod.Get });
-
-        return this.http.request(new Request((options)))
-            .map(res => res.json())
-            //.do(data => console.log(data))
-            .catch(this.handleError.bind(this));
-    }
-
     /**
      * Обработчик ошибок
      * @param error

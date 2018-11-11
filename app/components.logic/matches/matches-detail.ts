@@ -29,22 +29,10 @@ export class MatchesDetail implements OnInit, OnDestroy {
     private apiDefaultLang = i18n.apiDefaultLang;
 
     replay :SafeUrl;
-    private replaySubscriber :any;
     private setReplay() {
-        let replay = this.data.replay;
+        const { id } = this.data;
 
-        if (replay) {
-            return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://${replay.replace(/%2F/g, '/')}`);
-        }
-
-        this.replaySubscriber = this._matchesService.checkReplay(this.data.id)
-            .subscribe(replay => {
-                if (!replay) {
-                    return;
-                }
-
-                return this.replay = this._domSanitize.bypassSecurityTrustUrl(replay);
-            }, () => {});
+        return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://survarium.com/replay?id=${id}`);
     }
     private trackDownloadReplay() {
         this._trackService.track({
@@ -234,10 +222,6 @@ export class MatchesDetail implements OnInit, OnDestroy {
 
     private cleanup () {
         this.error = null;
-
-        if (this.replaySubscriber) {
-            this.replaySubscriber.unsubscribe();
-        }
 
         if (this.dataSubscriber) {
             this.dataSubscriber.unsubscribe();
