@@ -573,7 +573,14 @@ let dict = {
         missions:  'Mission',
         stage: 'Stage',
         map: 'Map'
-    }
+    },
+    factions: {
+        scavengers: 'Scavengers',
+        blackMarket: 'Black Market',
+        renaissance: 'The Renaissance Army',
+        edge: 'The Fringe Settlers'
+    },
+    factionChallenge: 'Faction Challenge'
 };
 
 export { dict }

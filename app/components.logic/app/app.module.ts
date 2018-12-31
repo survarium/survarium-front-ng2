@@ -1,6 +1,7 @@
 import { NgModule, APP_ID, QueryList } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http'
+import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common'
 import { FormsModule } from '@angular/forms';
 
@@ -32,6 +33,7 @@ import { Error404 } from '../errors/404'
     imports: [
         BrowserModule,
         HttpModule,
+        HttpClientModule,
         FormsModule,
         routing,
         SharedModule

@@ -547,7 +547,14 @@ let dict = {
         missions:  'Миссия',
         stage: 'Этап',
         map: 'Карта'
-    }
+    },
+    factions: {
+        scavengers: 'Бродяги',
+        blackMarket: 'Чёрный рынок',
+        renaissance: 'Армия возрождения',
+        edge: 'Поселение "Край"'
+    },
+    factionChallenge: 'Гонка группировок'
 };
 
 export { dict }
