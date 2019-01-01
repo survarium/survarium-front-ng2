@@ -97,6 +97,8 @@ export class Schedule {
         const { schedule, current } = this;
         const now = new Date();
 
+        let currentSet = false;
+
         for (let i = 0, event, length = schedule.length; i < length; i++) {
             event = schedule[i];
 
@@ -108,7 +110,17 @@ export class Schedule {
             current.event = event.index;
             current.active = event.start < now;
 
+            currentSet = true;
+
             break;
+        }
+
+        if (!currentSet) {
+            current.day = null;
+            current.event = null;
+            current.active = false;
+
+            return;
         }
 
         this.nextUpdate = setTimeout(this.updateCurrent.bind(this), 60 * 1000);
