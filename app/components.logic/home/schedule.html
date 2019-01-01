@@ -1,0 +1,14 @@
+<ng-template [ngIf]="render">
+    <h2>{{'factionChallenge.schedule' | i18n}}: <span class="visibility" (click)="changeVisibility()">{{ 'factionChallenge.' + visibility | i18n }}</span></h2>
+    <div [class]="visibility">
+        <div *ngFor="let day of render; let dayIndex=index" class="day" [class.day_current]="dayIndex === current.day">
+            <h3 class="day__title">{{day.date | datetime: 'date' }}</h3>
+            <div class="events">
+                <div *ngFor="let event of day.events; let eventIndex=index" class="event" [class.event_current]="dayIndex === current.day && eventIndex === current.event" [class.event_active]="current.active">
+                    <h4 class="event__title">{{event.start | datetime: 'time' }} – {{event.end | datetime: 'time' }}</h4>
+                    <div class="event__teams">{{event.vs}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,5 +1,5 @@
 export class Widget {
-    defaultWidth = 400;
+    defaultWidth = 360;
     defaultHeight = 600;
 
     protected _width :number = this.defaultWidth;

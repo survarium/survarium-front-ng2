@@ -571,7 +571,12 @@ let dict = {
         renaissance: 'Армия возрождения',
         edge: 'Поселение "Край"'
     },
-    factionChallenge: 'Гонка группировок'
+    factionChallenge: {
+        title: 'Гонка группировок',
+        schedule: 'Расписание битв',
+        all: 'Все',
+        future: 'Предстоящие'
+    }
 };
 
 export { dict }

@@ -9,12 +9,23 @@ export default function timeParse (date, options ?:any) :string {
     }
     options = options || {};
 
+    if (options.onlyTime) {
+        return leadZeros(date.getHours()) + ':' +
+            leadZeros(date.getMinutes());
+    }
+
     if (LANGUAGE.lang === 'en') {
         if (options.slim) {
             return leadZeros(date.getMonth() + 1) + '/' +
                 leadZeros(date.getDate()) + ' ' +
                 leadZeros(date.getHours()) + ':' +
                 leadZeros(date.getMinutes());
+        }
+
+        if (options.onlyDate) {
+            return date.getFullYear() + '-' +
+                leadZeros(date.getMonth() + 1) + '-' +
+                leadZeros(date.getDate());
         }
 
         return date.getFullYear() + '-' +
@@ -30,6 +41,12 @@ export default function timeParse (date, options ?:any) :string {
             i18n.get(`months.${monthsOrder[date.getMonth()]}`) + '. ' +
             leadZeros(date.getHours()) + ':' +
             leadZeros(date.getMinutes());
+    }
+
+    if (options.onlyDate) {
+        return leadZeros(date.getDate()) + '.' +
+            leadZeros(date.getMonth() + 1) + '.' +
+            date.getFullYear();
     }
 
     return leadZeros(date.getDate()) + '.' +

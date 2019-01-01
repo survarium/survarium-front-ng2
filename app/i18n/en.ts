@@ -580,7 +580,12 @@ let dict = {
         renaissance: 'The Renaissance Army',
         edge: 'The Fringe Settlers'
     },
-    factionChallenge: 'Faction Challenge'
+    factionChallenge: {
+        title: 'Faction Challenge',
+        schedule: 'Faction Challenge Battles Schedule',
+        all: 'All',
+        future: 'Oncoming'
+    }
 };
 
 export { dict }

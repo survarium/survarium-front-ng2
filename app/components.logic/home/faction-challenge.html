@@ -1,4 +1,4 @@
 <ng-template [ngIf]="data">
-    <h2>{{'factionChallenge' | i18n}}</h2>
+    <h2>{{'factionChallenge.title' | i18n}}</h2>
     <chart *ngIf="data" [type]="type" [data]="data" [options]="options" [height]="height"></chart>
 </ng-template>

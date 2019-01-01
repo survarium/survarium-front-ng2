@@ -13,11 +13,12 @@ import { VkFeedService } from '../../services/vk-feed'
 import { SharedModule } from '../../shared'
 import { Home } from './home.component'
 import { FactionChallenge } from './faction-challenge'
+import { Schedule } from './schedule'
 import { routing } from './home.routing'
 
 @NgModule({
     imports: [SharedModule, routing],
-    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord, PlayersOnlineSteam, Facebook, MOTD, FactionChallenge],
+    declarations: [Home, Timeline, PlayersTop, PlayersUnique, VkFeedWidget, VkFeed, Twitter, Discord, PlayersOnlineSteam, Facebook, MOTD, FactionChallenge, Schedule],
     providers: [VkFeedService],
     entryComponents: [VkFeedWidget]
 })
