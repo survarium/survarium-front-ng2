@@ -106,7 +106,7 @@ export class Schedule {
             break;
         }
 
-        this.nextUpdate = setTimeout(this.updateCurrent.bind(this), 1000);
+        this.nextUpdate = setTimeout(this.updateCurrent.bind(this), 60 * 1000);
     }
 
     ngOnDestroy () {
