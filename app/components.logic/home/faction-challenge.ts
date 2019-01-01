@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { GameService } from '../../services/api'
 import { i18n } from '../../services/i18n'
 import { Colors } from '../../components.common/colors'
@@ -105,7 +105,15 @@ export class FactionChallenge {
         };
     }
 
-    constructor(private gameService: GameService) {
+    @Input('till') private till :string;
+
+    constructor(private gameService: GameService) {}
+
+    ngOnInit () {
+        if (new Date() > new Date(this.till)) {
+            return;
+        }
+
         this.gameService.factionChallenge()
             .subscribe((data :any) => this.data = data);
     }
