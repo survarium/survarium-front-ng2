@@ -39,12 +39,11 @@ export class Schedule {
     schedule :any = null;
     times = [2, 10, 18];
     render :any;
+    eventDuration = 3;
 
     @Input('till') private till :string;
 
     ngOnInit() {
-        const eventDuration = 3;
-
         this.schedule = this.data.reduce((schedule, { date, events }, dayIndex) => {
             let dateParts = date.split('.').map(Number);
             let pointer = new Date(Date.UTC(dateParts[0], dateParts[1] - 1, dateParts[2], 0, 0, 0, 0));
@@ -56,7 +55,7 @@ export class Schedule {
 
                 let day = pointer.getTime();
                 let start = pointer.setUTCHours(this.times[index]);
-                let end = pointer.setUTCHours(pointer.getUTCHours() + eventDuration);
+                let end = pointer.setUTCHours(pointer.getUTCHours() + this.eventDuration);
 
                 schedule.push({
                     dayIndex,
@@ -90,7 +89,7 @@ export class Schedule {
         this.updateCurrent();
     }
 
-    private current = { day: null, event: null, active: false };
+    private current = { day: null, event: null, active: false, progress: 0 };
     private nextUpdate :number;
 
     updateCurrent() {
@@ -98,8 +97,9 @@ export class Schedule {
         const now = new Date();
 
         let currentSet = false;
+        let event;
 
-        for (let i = 0, event, length = schedule.length; i < length; i++) {
+        for (let i = 0, length = schedule.length; i < length; i++) {
             event = schedule[i];
 
             if (event.end < now) {
@@ -119,8 +119,15 @@ export class Schedule {
             current.day = null;
             current.event = null;
             current.active = false;
+            current.progress = 0;
 
             return;
+        }
+
+        if (current.active) {
+            current.progress = (now.getTime() - event.start.getTime()) / (this.eventDuration * 60 * 60 * 1000) * 100;
+        } else {
+            current.progress = 0;
         }
 
         this.nextUpdate = setTimeout(this.updateCurrent.bind(this), 60 * 1000);
