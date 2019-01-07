@@ -99,6 +99,8 @@ export class PlayersDetailHistory {
         return {
             data: [],
             label,
+            lineTension: .05,
+            cubicInterpolationMode: 'monotone',
             backgroundColor:  color.backgroundColor,
             borderColor: color.borderColor,
             borderWidth: 2,
