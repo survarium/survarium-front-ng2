@@ -50,6 +50,10 @@ export class Schedule {
     @Input('till') private till :string;
 
     ngOnInit() {
+        if (new Date() > new Date(this.till)) {
+            return;
+        }
+
         this.schedule = this.data.reduce((schedule, { date, events }, dayIndex) => {
             let dateParts = date.split('.').map(Number);
             let pointer = new Date(Date.UTC(dateParts[0], dateParts[1] - 1, dateParts[2], 0, 0, 0, 0));
@@ -75,10 +79,6 @@ export class Schedule {
 
             return schedule;
         }, []);
-
-        if (new Date() > new Date(this.till)) {
-            return;
-        }
 
         this.render = this.schedule.reduce((render, event) => {
             let { dayIndex, day } = event;
