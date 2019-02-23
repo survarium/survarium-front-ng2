@@ -168,20 +168,22 @@ export class PlayersList {
                 sort: { 'total.boxesBringed': { } },
                 classes: 'center',
                 filter: { type: 'number' }
-            }
-        ], (this.modes.map(mode => {
-            let gameMode = mode[0];
-            let gameType = mode[1];
-            let field = `progress.elo.${gameMode}.${gameType}`;
-
-            return {
-                title: `ELO ${i18n.get(`matches.${gameType}`)} ${i18n.get(`modes.${gameMode.toLowerCase()}`)}`,
-                field,
-                width: 90,
-                sort: { [field]: { } },
+            },
+            {
+                title: 'ELO Random',
+                field: 'progress.elo-random',
+                sort: { 'progress.elo-random': { } },
                 classes: 'center',
-                filter: { field, type: 'number', min: 0, max: 2000 }
+                width: 90,
+                filter: { field: 'progress.elo-random', type: 'number', min: 0, max: 2000 }
+            }, {
+                title: 'ELO Rating',
+                field: 'progress.elo-rating',
+                sort: { 'progress.elo-rating': { } },
+                classes: 'center',
+                width: 90,
+                filter: { field: 'progress.elo-rating', type: 'number', min: 0, max: 2000 }
             }
-        })));
+        ]);
     }
 }

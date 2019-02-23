@@ -87,7 +87,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
     private setTotalELO () {
         let elos = [0, 0];
 
-        this.stats.forEach(stat => elos[stat.team] += stat.player.progress.elo);
+        this.stats.forEach(stat => elos[stat.team] += stat.elo);
         this.totalELO = elos;
     }
 
@@ -144,7 +144,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
             { title: i18n.get('lvl'), field: `player.progress.level`, classes: 'center', width: 80 },
             {
                 title: i18n.get('elo'),
-                field: `player.progress.elo`,
+                field: `elo`,
                 classes: 'center',
                 width: 100
             },
