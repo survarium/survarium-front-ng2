@@ -173,7 +173,8 @@ let dict = {
         'battery retrieval': 'Ящики',
         'artifact hunt': 'Артефакт',
         'slaughter': 'Бойня',
-        'pve': 'PVE'
+        'pve': 'PVE',
+        'search and destroy': 'Бомба'
     },
     maps: {
         'chemical plant': 'Химзавод',
