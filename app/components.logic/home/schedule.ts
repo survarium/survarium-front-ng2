@@ -9,28 +9,15 @@ import { i18n } from '../../services/i18n'
 
 export class Schedule {
     data = [
-        { date: '2018.12.24', events: [null, null, 'Market - Army'] },
-        { date: '2018.12.25', events: ['Scavengers - Market', 'Market - Army', 'Army - Settlers'] },
-        { date: '2018.12.26', events: ['Settlers - Scavengers', 'Scavengers - Army', 'Market - Settlers'] },
-        { date: '2018.12.27', events: ['Market - Army', 'Army - Settlers', 'Settlers - Scavengers'] },
-        { date: '2018.12.28', events: ['Scavengers - Army', 'Market - Settlers', 'Scavengers - Market'] },
-        { date: '2018.12.29', events: ['Army - Settlers', 'Settlers - Scavengers', 'Scavengers - Army'] },
-        { date: '2018.12.30', events: ['Market - Settlers', 'Scavengers - Market', 'Market - Army'] },
-        { date: '2018.12.31', events: ['Settlers - Scavengers', 'Scavengers - Army', 'Market - Settlers'] },
-        { date: '2019.01.01', events: ['Scavengers - Market', 'Market - Army', 'Army - Settlers'] },
-        { date: '2019.01.02', events: ['Scavengers - Army', 'Market - Settlers', 'Scavengers - Market'] },
-        { date: '2019.01.03', events: ['Market - Army', 'Army - Settlers', 'Settlers - Scavengers'] },
-        { date: '2019.01.04', events: ['Market - Settlers', 'Scavengers - Market', 'Market - Army'] },
-        { date: '2019.01.05', events: ['Army - Settlers', 'Settlers - Scavengers', 'Scavengers - Army'] },
-        { date: '2019.01.06', events: ['Army - Settlers', 'Scavengers - Market', 'Market - Army'] },
-        { date: '2019.01.07', events: ['Market - Settlers', 'Settlers - Scavengers', 'Scavengers - Army'] },
-        { date: '2019.01.08', events: ['Settlers - Army', 'Market - Scavengers', 'Settlers - Scavengers'] },
-        { date: '2019.01.09', events: ['Scavengers - Market', 'Market - Army', 'Army - Settlers'] },
-        { date: '2019.01.10', events: ['Settlers - Scavengers', 'Scavengers - Army', 'Market - Settlers'] },
-        { date: '2019.01.11', events: ['Market - Army', 'Army - Settlers', 'Settlers - Scavengers'] },
-        { date: '2019.01.12', events: ['Scavengers - Army', 'Market - Settlers', 'Scavengers - Market'] },
-        { date: '2019.01.13', events: ['Army - Settlers', 'Settlers - Scavengers', 'Scavengers - Army'] },
-        { date: '2019.01.14', events: ['Market - Settlers', 'Scavengers - Market', 'Market - Army'] }
+        { date: '2019.05.08', events: [null, 'Scavengers - Settlers'] },
+        { date: '2019.05.09', events: ['Scavengers - Market', 'Settlers - Army'] },
+        { date: '2019.05.10', events: ['Settlers - Scavengers',	'Army - Market'] },
+        { date: '2019.05.11', events: ['Army - Settlers',	'Market - Scavengers'] },
+        { date: '2019.05.12', events: ['Market - Army', 'Scavengers - Settlers'] },
+        { date: '2019.05.13', events: ['Scavengers - Market', 'Settlers - Army'] },
+        { date: '2019.05.14', events: ['Settlers - Scavengers', 'Army - Market'] },
+        { date: '2019.05.15', events: ['Army - Settlers', 'Market - Scavengers'] },
+        { date: '2019.05.16', events: ['Market - Army', null] }
     ];
 
     private translator(key) {
@@ -43,9 +30,9 @@ export class Schedule {
     }
 
     schedule :any = null;
-    times = [2, 10, 18];
+    times = [1, 13];
     render :any;
-    eventDuration = 3;
+    eventDuration = 10;
 
     @Input('till') private till :string;
 
