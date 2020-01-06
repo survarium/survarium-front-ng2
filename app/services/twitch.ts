@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core'
-import { Http, Response, Headers, Request, URLSearchParams, RequestMethod, RequestOptions } from '@angular/http'
-import { Observable } from 'rxjs/Observable'
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, Request, URLSearchParams, RequestMethod, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TwitchService {
     private key     = '5j7vs0lxf7op1wduqjw893g6y13lom';
-    private _handle = 'https://api.twitch.tv/kraken';
+    private _handle = 'https://api.twitch.tv/helix';
+    private gameId  = 34211; // obtained by https://api.twitch.tv/helix/games?name=Survarium
 
     constructor (private http :Http) {}
 
@@ -20,9 +21,8 @@ export class TwitchService {
         var params = new URLSearchParams();
 
         var data = {
-            game : 'Survarium',
-            limit: 6,
-            stream_type: ['all', 'playlist', 'live']['all']
+            game_id : this.gameId,
+            first: 6
         };
 
         Object.keys(data).forEach((key) => {
@@ -30,7 +30,6 @@ export class TwitchService {
         });
 
         let headers = new Headers({
-            'Accept': 'application/vnd.twitchtv.v3+json',
             'Client-ID': this.key
         });
 
@@ -53,7 +52,7 @@ export class TwitchService {
      * @returns {ErrorObservable}
      */
     private handleError (error :Response) {
-        console.error('youtube.service', error);
+        console.error('twitch.service', error);
         return Observable.throw(error.json() || 'Server error');
     }
 }

@@ -9,7 +9,7 @@
     ],
     "max-line-length": [
       true,
-      100
+      160
     ],
     "member-ordering": [
       true,
@@ -51,8 +51,7 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-separator",
-      "check-type"
+      "check-separator"
     ]
   }
 }

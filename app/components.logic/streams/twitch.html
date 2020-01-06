@@ -1,7 +1,6 @@
 <div *ngIf="!data.live">{{'loading' | i18n}}</div>
 <div *ngIf="data.live && !data.live.length">{{'streams.none' | i18n}}</div>
 <div *ngIf="data.live && data.live.length" class="steams__group streams__group_live">
-    <h3 class="streams__heading">{{'streams.live' | i18n }}</h3>
     <div *ngFor="let video of data.live" class="streams__item" [style.width]="getPx(size.width)">
         <iframe
             [attr.width]="size.width"
@@ -12,10 +11,9 @@
             allowfullscreen="true">
         </iframe>
         <a target="_blank" [href]="getLink(video)" class="streams__info">
-            <div class="streams__viewers">{{'streams.viewers' | i18n : { count: video.viewers } }}</div>
-            <h4 class="streams__title">{{video.channel.display_name}}</h4>
-            <h4 class="streams__title">{{video.channel.status}}</h4>
-            <small>{{video.created_at | datetime }}</small>
+            <div class="streams__viewers">{{'streams.viewers' | i18n : { count: video.viewer_count } }}</div>
+            <h4 class="streams__title">{{video.title}}</h4>
+            <small>{{video.started_at | datetime}}</small>
         </a>
     </div>
 </div>

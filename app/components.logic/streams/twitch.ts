@@ -1,10 +1,10 @@
-import { StreamsComponent } from './streams.component'
-import { DomSanitizer } from '@angular/platform-browser'
-import { Component, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core'
-import { TitleService } from '../../services/title'
-import { I18N } from '../../services/i18n'
-import { StreamsFormatsService } from './streams__formats'
-import { TwitchService } from '../../services/twitch'
+import { StreamsComponent } from './streams.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Component, ViewContainerRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { TitleService } from '../../services/title';
+import { I18N } from '../../services/i18n';
+import { StreamsFormatsService } from './streams__formats';
+import { TwitchService } from '../../services/twitch';
 
 @Component({
     styles: [require('./streams.component.styl')],
@@ -12,23 +12,7 @@ import { TwitchService } from '../../services/twitch'
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class Twitch extends StreamsComponent{
-    private data = {
-        live: null
-    };
-
-    private getEmbed (video) {
-        return this._domSanitize.bypassSecurityTrustResourceUrl(`https://player.twitch.tv/?channel=${video.channel.name}&autoplay=false`);
-    }
-
-    private getLink (video) {
-        return this._domSanitize.bypassSecurityTrustUrl(video.channel.url);
-    }
-
-    private getPx (px) {
-        return this._domSanitize.bypassSecurityTrustStyle(`${px}px`);
-    }
-
+export class Twitch extends StreamsComponent {
     constructor(view :ViewContainerRef,
                 private twitch :TwitchService,
                 private title  :TitleService,
@@ -44,8 +28,8 @@ export class Twitch extends StreamsComponent{
 
         changeDetector.detach();
 
-        twitch.list({}).subscribe((data) => {
-            this.data.live = data.streams;
+        twitch.list({}).subscribe(response => {
+            this.data.live = response.data;
 
             changeDetector.markForCheck();
             changeDetector.detectChanges();
@@ -53,5 +37,22 @@ export class Twitch extends StreamsComponent{
             changeDetector.reattach();
             title.setRendered();
         });
+    }
+
+    // tslint:disable-next-line:member-ordering
+    private data = {
+        live: null
+    };
+
+    private getEmbed (video) {
+        return this._domSanitize.bypassSecurityTrustResourceUrl(`https://player.twitch.tv/?channel=${video.user_name}&autoplay=false`);
+    }
+
+    private getLink (video) {
+        return this._domSanitize.bypassSecurityTrustUrl(`https://www.twitch.tv/${video.user_name}`);
+    }
+
+    private getPx (px) {
+        return this._domSanitize.bypassSecurityTrustStyle(`${px}px`);
     }
 }
