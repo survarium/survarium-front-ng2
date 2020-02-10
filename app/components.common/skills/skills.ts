@@ -31,6 +31,10 @@ export class Skills implements OnInit {
         this.tree = this.skills.reduce((tree, data) => {
             const SKILL = SKILLS[data.id];
 
+            if (!SKILL) {
+                return tree;
+            }
+
             let skill = {
                 name: SKILL.name[this.lang],
                 description: SKILL.description[this.lang],

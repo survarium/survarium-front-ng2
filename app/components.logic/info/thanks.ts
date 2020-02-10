@@ -10,6 +10,10 @@ import { PlayersService } from '../../services/api'
 
 export class Thanks {
     private data :any = [
+        {
+            players: [{ nickname: '2051170159069531608' /* Chandrian */ }],
+            message: 'Thank you for tons of bug reports, massive feedback and Spanish translation.'
+        },
         { players: [
             { nickname: '18000654434592534125' }, // _-Albi-_
             { nickname: '12612213943157555362' } // Emto

@@ -48,9 +48,18 @@ export const CONFIG = {
                 apiLang: 'english',
                 gameLang: 'polish',
                 originName: 'Polski'
+            },
+            {
+                lang: 'es',
+                fallback: 'en',
+                alternate: 'es',
+                apiLang: 'english',
+                gameLang: 'english',
+                originName: 'Spanish',
+                hidden: true
             }
         ]
     }
 };
 
-export default CONFIG
+export default CONFIG;
