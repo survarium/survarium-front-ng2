@@ -5,7 +5,8 @@
       "ru": "Опасное знание",
       "ua": "Небезпечне знання",
       "en": "Dangerous knowledge",
-      "pl": "Niebezpieczna wiedza"
+      "pl": "Niebezpieczna wiedza",
+      "es": "Información peligrosa"
     },
     "image": "/assets/ui_pve/pve_mission_1_full_screen.jpg",
     "description": {
@@ -13,7 +14,8 @@
       "ru": "В ходе разведывательной операции в секторе А19, Армией Возрождения был захвачен один из атаманов Черного Рынка. На допросе рынковец сообщил, что на заброшенной лесопилке в центре сектора находится неизвестная аномалия, заинтересовавшая руководство банды. Генерал Захаров высылает элитную штурмовую группу Барс для зачистки сектора и сбора данных об аномалии.",
       "ua": "Під час розвідувальної операції в секторі А19 Армія відродження захопила одного з отаманів Чорного ринку. На допиті ринковець повідомив, що на покинутій лісопильці у центрі сектору розташована невідома аномалія, яка привернула увагу лідерів банди. Генерал Захаров надсилає елітну штурмову групу \"Барс\", яка має очистити сектор та зібрати дані про аномалію.",
       "en": "During a reconnaissance operation in the sector A19 the Renaissance Army captured one of the Black Market atamans.  At the interrogation the marketer said there is an unknown anomaly located at the abandoned sawmill at the center of the sector, and that drew attention of the gang leaders. General Zakharov sends an elite assault group \"Bars\" to clear out the sector and collect data on the anomaly.",
-      "pl": "Podczas operacji wywiadowczej w sektorze A19 Armia Renesansu pojmała jednego z członków Czarnego Rynku. Podczas przesłuchania powiedział on, że w opuszczonym tartaku w centrum sektora znajduje się nieznana anomalia, która przyciągnęła uwagę przywódców gangu. Generał Zacharow wysyła elitarną grupę szturmową \"Bars\", aby oczyściła sektor i zebrała dane na temat anomalii."
+      "pl": "Podczas operacji wywiadowczej w sektorze A19 Armia Renesansu pojmała jednego z członków Czarnego Rynku. Podczas przesłuchania powiedział on, że w opuszczonym tartaku w centrum sektora znajduje się nieznana anomalia, która przyciągnęła uwagę przywódców gangu. Generał Zacharow wysyła elitarną grupę szturmową \"Bars\", aby oczyściła sektor i zebrała dane na temat anomalii.",
+      "es": "Durante una operación de reconocimiento en el sector A19, el Ejército del Renacimiento capturó a uno de los atamanes del Mercado Negro. Al interrogarlo, el comerciante dijo que había una anomalía desconocida situada en el aserradero abandonado del centro del sector, y que eso había atraído la atención de los líderes de la banda. El general Zakharov envía al grupo de asalto de élite \"BARS\" para despejar el sector y reunir información acerca de la anomalía."
     },
     "stages": [
       {

@@ -40,14 +40,14 @@ let dict = {
     established : 'Fecha de creación',
     exp         : 'Experiencia',
     looses      : 'Derrotas',
-    all         : 'Todos',
+    all         : 'Todas',
     total       : 'Total',
     lastUpdate  : 'Actualizado',
     wide        : 'Wide',
     place       : 'Puesto',
     roles        : {
         commander: 'Comandante',
-        warlord  : 'Warlord',
+        warlord  : 'Sargento',
         assistant: 'Asistente',
         soldier  : 'Soldado'
     },
@@ -56,11 +56,11 @@ let dict = {
     meleeKills   : 'Bajas cuerpo a cuerpo',
     artefactKills: 'Bajas con artefactos',
     pointCaptures: 'Puntos capturados',
-    boxesBringed : 'Baterías traídas',
+    boxesBringed : 'Baterías recolectadas',
     artefactUses : 'Uso de artefactos',
     elo          : 'ELO',
     random_match_elo_title: 'Clasificación del jugador para partidas aleatorias',
-    rating_match_elo_title: 'Clasificación del jugador par partidas igualadas (ligas)',
+    rating_match_elo_title: 'Clasificación del jugador para partidas igualadas (ligas)',
     wastedTime   : 'Duración de la partida',
     time         : 'Duración',
     noData       : 'Sin datos',
@@ -87,8 +87,8 @@ let dict = {
         title: 'Jugadores',
         list: 'Lista de jugadores',
         search: {
-            docTitle: 'Buscar jugador',
-            title: 'Buscar jugador',
+            docTitle: 'Búsqueda de jugador',
+            title: 'Búsqueda de jugador',
             docDescription: 'Búsqueda de jugadores de Suvarium. Progreso, detalles, partidas, resultados, información sobre clanes.',
         },
         top: {
@@ -102,10 +102,10 @@ let dict = {
             day: 'el último día',
             half: 'los últimos 30 minutos'
         },
-        detail: 'Estadísticas de los jugadores de Survarium',
+        detail: 'Estadísticas del jugador de Survarium',
         history: {
             matches: 'Partidas',
-            ranges: 'Rango',
+            ranges: 'Intervalo',
             range: {
                 day: 'Día',
                 week: 'Semana',
@@ -118,7 +118,7 @@ let dict = {
             }
         }
     },
-    teamgroup: `Team {{tag}}`,
+    teamgroup: `Equipo {{tag}}`,
     type: 'Tipo',
     matches: {
         list: 'Partidas',
@@ -169,7 +169,7 @@ let dict = {
     },
     loading: 'Cargando...',
     modes: {
-        'team deathmatch': 'Lucha a muerte en equiipo',
+        'team deathmatch': 'Lucha a muerte en equipo',
         'research': 'Investigación',
         'battery retrieval': 'Baterías',
         'artifact hunt': 'Artefacto',
@@ -197,8 +197,8 @@ let dict = {
         night: 'Noche'
     },
     dataGrid: {
-        counter: 'Mostrando de {{from}} a {{to}} de {{total}} resultados',
-        counterFiltered: 'Mostrando de {{from}} a {{to}} de {{filtered}} resultados (en total {{total}})',
+        counter: 'Mostrando {{from}} a {{to}} de {{total}} resultados',
+        counterFiltered: 'Mostrando {{from}} a {{to}} de {{filtered}} resultados (en total {{total}})',
         filters: {
             title: 'Filtros',
             apply: 'Encontrar'
@@ -283,9 +283,9 @@ let dict = {
         hide: 'Ocultar habilidades',
         show: 'Mostrar habilidades',
         branches: {
-            shooting: 'Shooting',
-            physical: 'Físico',
-            anomaly: 'Anomalías'
+            shooting: 'Armas de fuego',
+            physical: 'Preparación física',
+            anomaly: 'Conocimiento del Bosque'
         },
         type: {
             percent: '%',
@@ -304,13 +304,13 @@ let dict = {
         types: {
             label: 'Tipo',
             subtype: 'Rama',
-            weapons: 'Arma',
+            weapons: 'Armas',
             armor: 'Protección',
             ammo: 'Munición',
             grenade: 'Granadas',
             trap: 'Trampas',
             drugs: 'Medicamentos',
-            assault: 'Asalto',
+            assault: 'Rifles de asalto',
             sniper: 'Rifles de francotirador',
             shotgun: 'Escopetas',
             smg: 'Subfusiles',
@@ -331,7 +331,7 @@ let dict = {
         },
         rarity: {
             label: 'Rareza',
-            rare: 'Raro'
+            rare: 'Único'
         },
         item: {
             docTitle: 'Armería | {{item}}',
@@ -403,7 +403,7 @@ let dict = {
             reputation_bonus_modifier: 'Modificador de bonificación de reputación',
             unknown_mods_count: 'Cantidad de modificadores desconocidos',
             details_to_craft: 'Piezas necesarias para crear',
-            recoil: 'Retroceso',
+            recoil: 'Retroceso desde la cadera',
             aim_recoil: 'Retroceso apuntando',
             left: 'Izquierda',
             top: 'Arriba',
@@ -592,4 +592,4 @@ let dict = {
 };
 
 export { dict }
-export default dict
+export default dict;
