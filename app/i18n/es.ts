@@ -61,7 +61,7 @@ let dict = {
     elo          : 'ELO',
     random_match_elo_title: 'Clasificación del jugador para partidas aleatorias',
     rating_match_elo_title: 'Clasificación del jugador para partidas igualadas (ligas)',
-    wastedTime   : 'Duración de la partida',
+    wastedTime   : 'Tiempo en combate',
     time         : 'Duración',
     noData       : 'Sin datos',
     banned       : 'Baneos',
@@ -113,7 +113,7 @@ let dict = {
             },
             groups: 'Valores',
             group: {
-                avg: 'Medio',
+                avg: 'Promedio',
                 sum: 'Total'
             }
         }
