@@ -83,11 +83,17 @@ class I18N {
 
         let fetched = this._getTranslation(key);
         if (!fetched) {
-            if (options && options.allowOriginal) {
-                if (typeof options.allowOriginal === 'string') {
-                    return options.allowOriginal;
+            if (options) {
+                if (options.fallback) {
+                    return this.get(options.fallback, { ...options, fallback: undefined });
                 }
-                return key;
+
+                if (options.allowOriginal) {
+                    if (typeof options.allowOriginal === 'string') {
+                        return options.allowOriginal;
+                    }
+                    return key;
+                }
             }
             console.warn(`I18N: no answer for key \`${key}\``);
             return fetched;

@@ -55,7 +55,8 @@ export const CONFIG = {
                 alternate: 'es',
                 apiLang: 'english',
                 gameLang: 'english',
-                originName: 'Spanish'
+                originName: 'Spanish',
+                hidden: false
             }
         ]
     }

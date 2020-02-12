@@ -98,8 +98,9 @@ let dict = {
         },
         unique: {
             title: 'Jugadores únicos de ',
+            titleForDay: 'Jugadores únicos del ',
             hour: 'la última hora',
-            day: 'el último día',
+            day: 'último día',
             half: 'los últimos 30 minutos'
         },
         detail: 'Estadísticas del jugador de Survarium',
