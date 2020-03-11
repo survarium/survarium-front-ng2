@@ -1,10 +1,10 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 //import { RouteConfig, AsyncRoute } from '@angular/router-deprecated'
 
 @Component({
     selector: 'armory',
     template: require('./armory.html'),
-    styles: [require('./armory.styl')]
+    styles: [require('./armory.styl'), require('../../components.common/sub-nav/sub-nav.styl')]
 })
 
 /*@RouteConfig([

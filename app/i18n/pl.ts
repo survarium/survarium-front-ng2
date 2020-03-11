@@ -292,6 +292,9 @@ let dict = {
             seconds: 's.'
         }
     },
+    'armory-ttk': {
+        title: 'TTK'
+    },
     armory: {
         title: 'Zbrojownia',
         docTitle: 'Armory',

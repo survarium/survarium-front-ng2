@@ -294,6 +294,9 @@ let dict = {
             seconds: 's.'
         }
     },
+    'armory-ttk': {
+        title: 'TTK'
+    },
     armory: {
         title: 'Armería',
         docTitle: 'Armería',
