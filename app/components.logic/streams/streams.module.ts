@@ -5,9 +5,9 @@ import { routing } from './streams.routes'
 import { StreamsFormats, StreamsFormatsService } from './streams__formats'
 import { Streams } from './streams'
 import { Twitch } from './twitch'
-import { Youtube } from './youtube'
 import { TwitchService } from '../../services/twitch'
-import { YoutubeService } from '../../services/youtube'
+/*import { YoutubeService } from '../../services/youtube'
+import { Youtube } from './youtube'*/
 
 @NgModule({
     imports: [SharedModule, routing],
@@ -15,9 +15,9 @@ import { YoutubeService } from '../../services/youtube'
         Streams,
         StreamsFormats,
         Twitch,
-        Youtube
+        /*Youtube*/
     ],
-    providers: [StreamsFormatsService, TwitchService, YoutubeService],
+    providers: [StreamsFormatsService, TwitchService/*, YoutubeService*/],
 })
 
 export class StreamsModule {}
