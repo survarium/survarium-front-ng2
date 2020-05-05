@@ -11,9 +11,9 @@
   .day
     display none
 
-    &:last-of-type
     &_current
-    &_current ~ .day
+    &_current + .day
+    &_current + .day + .day
       display block
 
 .day

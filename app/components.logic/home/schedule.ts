@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core'
-import { i18n } from '../../services/i18n'
+import { Component, Input } from '@angular/core';
+import { i18n } from '../../services/i18n';
 
 @Component({
     selector: 'schedule',
@@ -8,33 +8,40 @@ import { i18n } from '../../services/i18n'
 })
 
 export class Schedule {
-    data = [
-        { date: '2019.05.08', events: [null, 'Scavengers - Settlers'] },
-        { date: '2019.05.09', events: ['Scavengers - Market', 'Settlers - Army'] },
-        { date: '2019.05.10', events: ['Settlers - Scavengers',	'Army - Market'] },
-        { date: '2019.05.11', events: ['Army - Settlers',	'Market - Scavengers'] },
-        { date: '2019.05.12', events: ['Market - Army', 'Scavengers - Settlers'] },
-        { date: '2019.05.13', events: ['Scavengers - Market', 'Settlers - Army'] },
-        { date: '2019.05.14', events: ['Settlers - Scavengers', 'Army - Market'] },
-        { date: '2019.05.15', events: ['Army - Settlers', 'Market - Scavengers'] },
-        { date: '2019.05.16', events: ['Market - Army', null] }
-    ];
+    @Input('till') private till :string;
 
     private translator(key) {
         return i18n.get('factions.' + {
             Scavengers: 'scavengers',
-            Market: 'blackMarket',
-            Army: 'renaissance',
-            Settlers: 'edge'
+            'Black Market': 'blackMarket',
+            'The Renaissance Army': 'renaissance',
+            'The Fringe Settlers': 'edge'
         }[key]);
     }
 
+    private current = { day: null, event: null, active: false, progress: 0 };
+    private nextUpdate :number;
+
+    data = [
+        { date: '2020.05.08', events: [null, 'Scavengers - The Fringe Settlers'] },
+        { date: '2020.05.09', events: ['Scavengers - Black Market', 'The Fringe Settlers - The Renaissance Army'] },
+        { date: '2020.05.10', events: ['The Fringe Settlers - Scavengers', 'The Renaissance Army - Black Market'] },
+        { date: '2020.05.11', events: ['The Renaissance Army - The Fringe Settlers', 'Black Market - Scavengers'] },
+        { date: '2020.05.12', events: ['Black Market - The Renaissance Army', 'Scavengers - The Fringe Settlers'] },
+        { date: '2020.05.13', events: ['Scavengers - Black Market', 'The Fringe Settlers - The Renaissance Army'] },
+        { date: '2020.05.14', events: ['The Fringe Settlers - Scavengers', 'The Renaissance Army - Black Market'] },
+        { date: '2020.05.15', events: ['The Renaissance Army - The Fringe Settlers', 'Black Market - Scavengers'] },
+        { date: '2020.05.16', events: ['Black Market - The Renaissance Army', 'Scavengers - The Fringe Settlers'] },
+        { date: '2020.05.17', events: ['Black Market - Scavengers', 'The Renaissance Army - Black Market'] },
+        { date: '2020.05.18', events: ['The Fringe Settlers - The Renaissance Army', null] }
+    ];
+
+    now = new Date();
     schedule :any = null;
     times = [1, 13];
     render :any;
     eventDuration = 10;
-
-    @Input('till') private till :string;
+    visibility = 'future';
 
     ngOnInit() {
         if (new Date() > new Date(this.till)) {
@@ -82,12 +89,9 @@ export class Schedule {
         this.updateCurrent();
     }
 
-    private current = { day: null, event: null, active: false, progress: 0 };
-    private nextUpdate :number;
-
     updateCurrent() {
         const { schedule, current } = this;
-        const now = new Date();
+        const now = this.now;
 
         let currentSet = false;
         let event;
@@ -130,9 +134,7 @@ export class Schedule {
         clearTimeout(this.nextUpdate);
     }
 
-    visibility = 'future';
-
     changeVisibility () {
-        this.visibility = this.visibility === 'future' ? 'all' : 'future'
+        this.visibility = this.visibility === 'future' ? 'all' : 'future';
     }
 }

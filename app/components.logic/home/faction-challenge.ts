@@ -106,11 +106,16 @@ export class FactionChallenge {
     }
 
     @Input('till') private till :string;
+    @Input('from') private from :string;
 
     constructor(private gameService: GameService) {}
 
     ngOnInit () {
         if (new Date() > new Date(this.till)) {
+            return;
+        }
+
+        if (new Date() < new Date(this.from)) {
             return;
         }
 
