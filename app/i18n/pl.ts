@@ -65,21 +65,6 @@ let dict = {
     time         : 'Czas',
     noData       : 'Brak danych',
     banned       : 'Bany',
-    donate       : {
-        title: 'Dotacja',
-        target: 'Dotacja dla survarium.pro',
-        targetLabel: 'Cel transferu',
-        comment     : 'Możesz napisać swoją ksywę w grze lub inne informacje, jeśli chcesz.',
-        commentLabel: 'Komentarz',
-        amountLabel: 'Ilość',
-        currency: 'RUB',
-        paymentTypeLabel: 'Metoda płatnośći',
-        confirm: 'Potwierdź'
-    },
-    donateThanks : {
-        docTitle : 'Dziękuję za dotację',
-        thanks   : 'Dziękuję za dotację!'
-    },
     players: {
         docTitle: 'Gracze',
         docDescription: 'Lista graczy Survarium. Filters, progress, details, matches, results, clan information.',

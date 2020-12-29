@@ -13,9 +13,6 @@ export const CONFIG = {
         ngVersion: process.env.NG_VERSION
     },
     adblock: false,
-    adsense: {
-        client: 'ca-pub-8677968039358823'
-    },
     i18n: {
         apiDefaultLang: 'english',
         languages: [

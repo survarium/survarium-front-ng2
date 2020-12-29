@@ -47,7 +47,7 @@ export class PvePage implements OnInit, OnDestroy {
             let mapUrl = this.stage.map.url;
 
             if (mapUrl[0] === '/') {
-                mapUrl = `${window.location.protocol}//${window.location.host}${mapUrl}`;
+                mapUrl = `https://${window.location.host}${mapUrl}`;
             }
 
             this.stageMap = this.domSanitizer.bypassSecurityTrustResourceUrl(mapUrl);

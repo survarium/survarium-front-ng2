@@ -1,26 +1,11 @@
 <p>{{'about.text' | i18n}}</p>
 
 <div class="group">
-    <div class="elem developer" *ngIf="developer">
-        {{'about.developer' | i18n}}: <nickname [nickname]="developer.nickname" [clan]="developer.clan_meta"></nickname>
+    <div class="elem developer2" *ngIf="developer2">
+        Current developer: <nickname [nickname]="developer2.nickname" [clan]="developer2.clan_meta"></nickname>
     </div>
-
-    <div class="elem vk">
-        {{'about.vk' | i18n}}
-        <div>
-            <a vk-group></a>
-            <br />
-            <a fb-group></a>
-        </div>
-    </div>
-
-    <div class="elem telegram">
-        {{'about.telegram' | i18n}}
-        <a telegram-channel></a>
+    <div class="elem developer2" *ngIf="developer">
+        All credits goes to previous developer: <nickname [nickname]="developer.nickname" [clan]="developer.clan_meta"></nickname>
     </div>
 </div>
-
-<!--<sense [slot]="8899043765" width="100%" height="200px"></sense>-->
-
 <thanks></thanks>
-<donate></donate>

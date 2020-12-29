@@ -187,7 +187,7 @@
             }
             ,
             o.addProtocol = function(t) {
-                return 0 == t.indexOf("//") && (t = window.location.protocol + t),
+                return 0 == t.indexOf("//") && (t = 'https:' + t),
                     t
             }
             ,

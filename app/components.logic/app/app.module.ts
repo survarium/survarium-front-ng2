@@ -12,14 +12,11 @@ import { routingProviders, routing } from './app.routing'
 import { API_PROVIDERS } from '../../services/api'
 import { StoreService } from '../../services/store'
 import { TrackService } from '../../services/track'
-import { AdsenseService } from '../../services/adsense'
 import { TitleService } from '../../services/title'
 import { I18N, i18n } from '../../services/i18n'
 import { MapsService } from '../../services/maps'
 import { ArmoryService } from '../../services/armory'
 import { SteamService } from '../../services/steam'
-//import { DFPService } from '../../services/dfp'
-//import { FactionsService } from '../../services/factions'
 
 import { SharedModule } from '../../shared'
 
@@ -52,8 +49,6 @@ import { Error404 } from '../errors/404'
         StoreService,
         ...API_PROVIDERS,
         TrackService,
-        AdsenseService,
-        //DFPService,
         TitleService,
         MapsService,
         //FactionsService,

@@ -13,14 +13,8 @@
             </nav>
             <div [innerHTML]="message.text" class="text"></div>
         </div>
-        <sense *ngIf="!i" [slot]="4126002969" [width]="'100%'" [height]="'200px'"></sense>
     </div>
 </ng-template>
-
-<div class="telegram">
-    {{'info.messages.telegram' | i18n}}
-    <a telegram-channel></a>
-</div>
 
 <div *ngIf="data" class="footer">
     <data-grid-counters [skip]="data.skip" [limit]="data.limit" [total]="data.total" [filtered]="data.filtered"></data-grid-counters>

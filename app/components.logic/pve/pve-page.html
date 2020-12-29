@@ -10,9 +10,7 @@
     <p>{{stage.description | i18nL: { allowEmpty: true } }}</p>
     <figure>
         <a [href]="stageMap" target="_blank"><img [src]="stageMap" alt="Survarium {{'pve.title' | i18n}} {{'pve.map' | i18n}} {{page.name | i18nL}}, {{'pve.stage' | i18n}} {{stageIndex + 1}}"></a>
-        <figcaption *ngIf="stage.map.copyright">&copy; {{stage.map.copyright}}</figcaption>
-        <ng-template [ngIf]="stage.map.donate && stage.map.donate.type === 'yamoney'">
-            <donate-yamoney [receiver]="stage.map.donate.receiver" [target]="stage.map.donate.message | i18nL" [sum]='300' [comment]="'donate.comment' | i18n"></donate-yamoney>
+        <ng-template [ngIf]="false"><figcaption *ngIf="stage.map.copyright">&copy; {{stage.map.copyright}}</figcaption>
         </ng-template>
     </figure>
 

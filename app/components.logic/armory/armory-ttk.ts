@@ -21,7 +21,7 @@ export class ArmoryTTK implements OnInit {
 
     ngOnInit () {
         this.iframeSrc = this._domSanitize.bypassSecurityTrustResourceUrl(
-            `https://pi4.freeboxos.fr/survarium/true/true?utm_source=svpro&utm_lang=${this.i18n.lang.lang}`
+            `https://pi4.freeboxos.fr:8443/survarium/true/true?utm_source=svpro&utm_lang=${this.i18n.lang.lang}`
         );
 
         this.title.setRendered();

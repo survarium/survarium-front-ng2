@@ -19,7 +19,7 @@ export class TrackService {
 
     constructor(private location :Location, @Inject('window') private window) {
         let winLocation :any = window.location;
-        this.host = winLocation.protocol + '//' + winLocation.host;
+        this.host = 'https://' + winLocation.host;
 
         this.metrika;
         this.ga;

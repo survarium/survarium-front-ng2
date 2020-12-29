@@ -12,11 +12,11 @@ export function ngOnLoad(window, document) {
         targets = [
             //{ src: 'https://an.yandex.ru/system/context.js' },
             isWebBrowser && { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', onerror: () => {
-                CONFIG.adblock = true;
+                CONFIG.adblock = false;
                 appProvider.app.instance.adblocked = CONFIG.adblock;
 
                 if (window['yaParams']) {
-                    window['yaParams'].adblock = true;
+                    window['yaParams'].adblock = false;
 
                     if (window['metrika']) {
                         window['metrika'].params(window['yaParams']);

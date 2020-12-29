@@ -1,4 +1,3 @@
-import { Adsense } from './components.common/adsense/adsense'
 import { ArmItem } from './components.common/arm-item/arm-item'
 import { AvgScore } from './components.common/avg-score/avg-score'
 import { ChartComponent } from './components.common/chart/chart'
@@ -14,9 +13,6 @@ import { Mode } from './components.common/mode/mode'
 import { Nickname } from './components.common/nickname/nickname'
 import { Percent } from './components.common/percent/percent'
 import { Role } from './components.common/role/role'
-import { TelegramChannel } from './components.common/telegram-channel/telegram-channel'
-import { FbGroup } from './components.common/fb-group/fb-group'
-import { VkGroup } from './components.common/vk-group/vk-group'
 import { WinRate } from './components.common/winrate/winrate'
 import { DataGridCounters } from './components.common/data-grid/data-grid-counters'
 import { DataGridPagination } from './components.common/data-grid/data-grid-pagination'
@@ -27,7 +23,6 @@ import { DataGridFilters } from './components.common/data-grid/data-grid-filters
 import { MatchType } from './components.common/match-type/match-type'
 
 export const DIRECTIVES = [
-    Adsense,
     ArmItem,
     AvgScore,
     ChartComponent,
@@ -40,7 +35,6 @@ export const DIRECTIVES = [
     DataGridFiltersSelect,
     DataGridFilters,
     Elapsed,
-    FbGroup,
     Footer,
     KD,
     LangSwitcher,
@@ -51,7 +45,5 @@ export const DIRECTIVES = [
     Nickname,
     Percent,
     Role,
-    TelegramChannel,
-    VkGroup,
     WinRate
 ];

@@ -65,21 +65,6 @@ let dict = {
     lastUpdate   : 'Обновлено',
     noData       : 'Нет данных',
     banned       : 'Банов',
-    donate       : {
-        title    : 'Поддержать монетой',
-        target   : 'Поддержка survarium.pro',
-        comment     : 'Вы можете указать свой игровой никнейм, либо пожелание, предложение.',
-        commentLabel: 'Комментарий',
-        targetLabel: 'Назначение перевода',
-        amountLabel: 'Сумма',
-        currency: 'руб.',
-        paymentTypeLabel: 'Способ оплаты',
-        confirm: 'Перевести'
-    },
-    donateThanks : {
-        docTitle : 'Спасибо за поддержку',
-        thanks   : 'Спасибо за поддержку!'
-    },
     players: {
         docTitle: 'Игроки',
         docDescription: 'Список игроков survarium. Фильтры, прогресс, детали, матчи, результаты, информация о клане.',

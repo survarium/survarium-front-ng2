@@ -11,6 +11,7 @@ import { i18n } from '../../services/i18n'
 
 export class About {
     private developer;
+    private developer2;
 
     constructor(private playersService :PlayersService,
                 private _title :TitleService,
@@ -24,6 +25,12 @@ export class About {
             .fetch('15238791817735151910') // Vaseker
             .subscribe((developer) => {
                 this.developer = developer;
+            }, () => {});
+
+        playersService
+            .fetch('t0FF') // t0FF
+            .subscribe((developer2) => {
+                this.developer2 = developer2;
             }, () => {});
     }
 }

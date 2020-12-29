@@ -13,11 +13,6 @@
     <players-detail-ammunition [ammunition]="data.ammunition"></players-detail-ammunition>
     <players-detail-counts [data]="data"></players-detail-counts>
     <players-detail-matches [nickname]="data.nickname"></players-detail-matches>
-    <!--<dfp [id]="'playerSplit'"></dfp>-->
-    <div class="sns" [ngSwitch]="advType">
-        <sense *ngSwitchCase="0" [slot]="5659702564" width="100%" height="150px"></sense>
-        <sense *ngSwitchDefault [slot]="2047845364" width="100%" height="100px"></sense>
-    </div>
     <players-detail-history [nickname]="data.nickname"></players-detail-history>
     <div [innerHTML]="jsonLD"></div>
 </ng-template>

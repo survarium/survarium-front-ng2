@@ -6,37 +6,20 @@ import { DevMessages } from './dev-messages'
 import { DevMessage } from './dev-message'
 import { About } from './about'
 import { Bans } from './bans'
-import { DonateThanks } from './donate-thanks'
 
 export const routes :Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/info/messages'
+        redirectTo: '/info/about'
     },
     {
         path: '',
         component: Info,
         children: [
             {
-                path: 'messages',
-                component: DevMessages,
-            },
-            {
-                path: 'messages/:message',
-                component: DevMessage
-            },
-            {
                 path: 'about',
                 component: About
-            },
-            {
-                path: 'bans',
-                component: Bans
-            },
-            {
-                path: 'donate-thanks',
-                component: DonateThanks
             }
         ]
     }
