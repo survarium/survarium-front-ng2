@@ -11,12 +11,20 @@ export const routes :Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/info/about'
+        redirectTo: '/info/messages'
     },
     {
         path: '',
         component: Info,
         children: [
+            {
+                path: 'messages',
+                component: DevMessages,
+            },
+            {
+                path: 'messages/:message',
+                component: DevMessage
+            },
             {
                 path: 'about',
                 component: About
