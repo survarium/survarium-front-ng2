@@ -172,7 +172,7 @@ let dict = {
         'london': 'Лондон',
         'mamayev kurgan': 'Курган',
         'pve': 'PVE',
-        'cnpp cooling tower': 'Градирня ЧАЭС"',
+        'cnpp cooling tower': 'Градирня ЧАЭС',
         'duga radar station': 'РЛС "Дуга"',
         'abandoned base': 'Заброшенная база'
     },
