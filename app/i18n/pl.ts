@@ -171,7 +171,10 @@ let dict = {
         'school': 'Szkoła',
         'london': 'Londyn',
         'mamayev kurgan': 'Kurhan',
-        'pve': 'PVE'
+        'pve': 'PVE',
+        'cnpp cooling tower': 'Wieża chłodnicza CzAES',
+        'duga radar station': 'Stacja Radarowa "Duga"',
+        'abandoned base': 'Porzucona baza'
     },
     weather: {
         evening: 'Wieczór',

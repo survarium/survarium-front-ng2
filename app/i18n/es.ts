@@ -77,9 +77,9 @@ let dict = {
             docDescription: 'Búsqueda de jugadores de Suvarium. Progreso, detalles, partidas, resultados, información sobre clanes.',
         },
         top: {
-            title: 'Mejores jugadores de',
-            hour: 'la última hora',
-            day: 'el último día'
+            title: 'Mejores jugadores',
+            hour: 'de la última hora',
+            day: 'del último día'
         },
         unique: {
             title: 'Jugadores únicos de ',
@@ -173,7 +173,10 @@ let dict = {
         'school': 'Escuela',
         'london': 'Londres',
         'mamayev kurgan': 'Kurgan',
-        'pve': 'PVE'
+        'pve': 'PVE',
+        'cnpp cooling tower': 'Torre de refrigeración CNC',
+        'duga radar station' : 'Estación de Radar "Duga"',
+        'abandoned base': 'Base abandonada'
     },
     weather: {
         evening: 'Atardecer',

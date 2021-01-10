@@ -76,6 +76,38 @@ const MAPPED = {
             evening: 'evn',
             rain: 'rain'
         }
+    },
+    'london': {
+        id: 9,
+        weather: {
+            day: 'day',
+            evening: 'evn',
+            rain: 'rain'
+        }
+    },
+    'cnpp cooling tower': {
+        id: 10,
+        weather: {
+            day: 'day',
+            evening: 'evn',
+            rain: 'rain'
+        }
+    },
+    'duga radar station': {
+        id: 11,
+        weather: {
+            day: 'day',
+            evening: 'evn',
+            rain: 'rain'
+        }
+    },
+    'abandoned base': {
+        id: 12,
+        weather: {
+            day: 'day',
+            evening: 'evn',
+            rain: 'rain'
+        }
     }
 };
 
@@ -89,7 +121,10 @@ const I18N_MAPS = {
         'мамаев курган': 'mamayev kurgan',
         'лаборатория вектор': 'vector laboratory',
         'кельн': 'cologne bridge',
-        'лондон': 'london'
+        'лондон': 'london',
+        'градирня чаэс': 'cnpp cooling tower',
+        'рлс дуга': 'duga radar station',
+        'заброшенная база' : 'abandoned base'
     }
 };
 

@@ -178,6 +178,9 @@ let dict = {
         'london': 'Лондон',
         'mamayev kurgan': 'Курган',
         'pve': 'PVE',
+        'cnpp cooling tower': 'CCNP Soğutma Kulesi',
+        'duga radar station': 'Duga Radar İstasyonu',
+        'abandoned base': 'Terk edilmiş bir üs',
         full: {
             'Химзавод': 'Хімзавод',
             'Лаборатория Вектор': 'Лабораторія Вектор',
