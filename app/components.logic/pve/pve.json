@@ -20,7 +20,13 @@
     "stages": [
       {
         "map": {
-          "url": "/assets/pve/missions/dangerous-knowledge/stage-1-map.jpg",
+          "url": {
+            "ru": "/assets/pve/missions/dangerous-knowledge/ru/stage-1-map.jpg",
+            "ua": "/assets/pve/missions/dangerous-knowledge/ua/stage-1-map.jpg",
+            "en": "/assets/pve/missions/dangerous-knowledge/en/stage-1-map.jpg",
+            "pl": "/assets/pve/missions/dangerous-knowledge/pl/stage-1-map.jpg",
+            "es": "/assets/pve/missions/dangerous-knowledge/es/stage-1-map.jpg"
+          },
           "width": 2480,
           "height": 3508,
           "copyright": "4apay",
@@ -71,7 +77,13 @@
       },
       {
         "map": {
-          "url": "/assets/pve/missions/dangerous-knowledge/stage-2-map.jpg",
+          "url": {
+            "ru": "/assets/pve/missions/dangerous-knowledge/ru/stage-2-map.jpg",
+            "ua": "/assets/pve/missions/dangerous-knowledge/ua/stage-2-map.jpg",
+            "en": "/assets/pve/missions/dangerous-knowledge/en/stage-2-map.jpg",
+            "pl": "/assets/pve/missions/dangerous-knowledge/pl/stage-2-map.jpg",
+            "es": "/assets/pve/missions/dangerous-knowledge/es/stage-2-map.jpg"
+          },
           "copyright": "4apay",
           "donate": {
             "type": "yamoney",
@@ -85,7 +97,13 @@
       },
       {
         "map": {
-          "url": "/assets/pve/missions/dangerous-knowledge/stage-3-map.jpg",
+          "url": {
+            "ru": "/assets/pve/missions/dangerous-knowledge/ru/stage-3-map.jpg",
+            "ua": "/assets/pve/missions/dangerous-knowledge/ua/stage-3-map.jpg",
+            "en": "/assets/pve/missions/dangerous-knowledge/en/stage-3-map.jpg",
+            "pl": "/assets/pve/missions/dangerous-knowledge/pl/stage-3-map.jpg",
+            "es": "/assets/pve/missions/dangerous-knowledge/es/stage-3-map.jpg"
+          },
           "copyright": "4apay",
           "donate": {
             "type": "yamoney",

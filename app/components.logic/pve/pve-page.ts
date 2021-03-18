@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Inject, ChangeDetectionStrategy, ChangeDe
 import { DomSanitizer } from '@angular/platform-browser'
 import { ActivatedRoute, Router } from '@angular/router'
 import TitleService from '../../services/title'
-import { i18n as i18nBackend, I18N } from '../../services/i18n'
+import {i18n as i18nBackend, I18N, LANGUAGE} from '../../services/i18n'
 
 const DATA :any[] = require('./pve.json');
 
@@ -44,7 +44,7 @@ export class PvePage implements OnInit, OnDestroy {
             this.stageIndex = stage;
             this.stage = this.page.stages[this.stageIndex];
 
-            let mapUrl = this.stage.map.url;
+            let mapUrl = this.stage.map.url[i18nBackend.lang.lang];
 
             if (mapUrl[0] === '/') {
                 mapUrl = `https://${window.location.host}${mapUrl}`;
