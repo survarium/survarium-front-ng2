@@ -97,35 +97,28 @@ export class Timeline {
             hours.push(start.getHours());
         }
 
-        val
-            .filter(dataset => dataset.level > 0)
-            .sort((a, b) => {
-                return a.level - b.level;
-            })
-            .forEach(dataset => {
-                var data = mapping.slice();
+        var data = mapping.slice();
 
-                dataset.hours.forEach(hour => {
-                    let date = new Date(hour.date);
-                    data[hours.indexOf(date.getHours())] = hour.total;
-                });
+        val.forEach(dataHour => {
+            let date = new Date(dataHour.hours[0].date);
+            data[hours.indexOf(date.getHours())] = dataHour.hours[0].total;
+            total += dataHour.hours[0].total;
+        });
 
-                var label = `${i18n.get('lvl')} ${dataset.level}: ${NumberTransform(dataset.total)}`;
+        //var label = `${i18n.get('Matches')} ${dataset.level}: ${NumberTransform(dataset.total)}`;
+        var label = `Matches`;
 
-                datasets.push({
-                    label: label,
-                    data: data,
-                    backgroundColor:  this.styleLevels[dataset.level].backgroundColor,
-                    borderColor: this.styleLevels[dataset.level].borderColor,
-                    borderWidth: 1.5,
-                    pointBackgroundColor: this.styleLevels[dataset.level].pointBackgroundColor,
-                    pointBorderColor: this.styleLevels[dataset.level].pointBorderColor,
-                    pointHoverBackgroundColor: this.styleLevels[dataset.level].pointHoverBackgroundColor,
-                    pointHoverBorderColor: this.styleLevels[dataset.level].pointHoverBorderColor
-                });
-
-                total += dataset.total;
-            });
+        datasets.push({
+            label: label,
+            data: data,
+            backgroundColor:  this.styleLevels[4].backgroundColor,
+            borderColor: this.styleLevels[4].borderColor,
+            borderWidth: 1.5,
+            pointBackgroundColor: this.styleLevels[4].pointBackgroundColor,
+            pointBorderColor: this.styleLevels[4].pointBorderColor,
+            pointHoverBackgroundColor: this.styleLevels[4].pointHoverBackgroundColor,
+            pointHoverBorderColor: this.styleLevels[4].pointHoverBorderColor
+        });
 
         this.data = {
             labels: labels,
@@ -137,6 +130,8 @@ export class Timeline {
 
     private isMobile = false;
     private height = 'auto';
+    //private height = '400px';
+
 
     private types = ['all', 'rating', 'random'];
     private typesI18N = [i18n.get('all'), i18n.get('matches.rating'), i18n.get('matches.random')];
@@ -167,6 +162,9 @@ export class Timeline {
 
             this.options.maintainAspectRatio = false;
             this.height = '600px';
+        } else {
+            this.height = '700px';
+            this.options.maintainAspectRatio = false;
         }
 
         this.stream = Observable.create((observer) => this.streamTrigger = (options) => observer.next(options));
