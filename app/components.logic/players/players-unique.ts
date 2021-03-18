@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 import { PlayersService } from '../../services/api'
 import { TrackService } from '../../services/track'
 
-const PERIODS = ['day', 'hour', 'half'];
+const PERIODS = [ 'day', 'week', 'month', 'hour'];
 
 @Component({
     selector: 'players-unique',

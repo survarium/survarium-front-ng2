@@ -86,6 +86,8 @@ let dict = {
             title: 'Unikalni użytkownicy z ',
             hour: 'ostatniej godziny',
             day: 'ostatniego dnia',
+            week: 'ostatnim tygodniu',
+            month: 'ostatnim miesiącu',
             half: 'ostatnich 30 minut'
         },
         detail: 'Statystyki gracza',

@@ -28,7 +28,7 @@ let dict = {
     clanwar     : 'Clanwar',
     opponent    : 'Opponent',
     role        : 'Role',
-    rating      : 'Rating',
+    rating      : 'Ranked',
     winrate     : 'Winrate',
     avgScore    : 'Avg.Score',
     victories   : 'Victories',
@@ -60,7 +60,7 @@ let dict = {
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
     random_match_elo_title: 'Player rating for random matches',
-    rating_match_elo_title: 'Player rating for rating matches (leagues)',
+    rating_match_elo_title: 'Player rating for ranked matches (leagues)',
     wastedTime   : 'Battle time',
     time         : 'Time',
     noData       : 'No data',
@@ -85,6 +85,8 @@ let dict = {
         unique: {
             title: 'Unique players of ',
             hour: 'last hour',
+            week: 'last week',
+            month: 'last month',
             day: 'last day',
             half: '30 minutes'
         },
@@ -128,7 +130,7 @@ let dict = {
         timeline: {
             title: 'Matches count of latest 24h'
         },
-        rating: 'Rating',
+        rating: 'Ranked',
         random: 'PVP'
     },
     clans: {

@@ -86,6 +86,8 @@ let dict = {
             title: 'Jugadores únicos de ',
             titleForDay: 'Jugadores únicos del ',
             hour: 'la última hora',
+            week: 'la semana pasada',
+            month: 'último mes',
             day: 'último día',
             half: 'los últimos 30 minutos'
         },
