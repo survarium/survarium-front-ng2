@@ -77,14 +77,6 @@ const MAPPED = {
             rain: 'rain'
         }
     },
-    'london': {
-        id: 9,
-        weather: {
-            day: 'day',
-            evening: 'evn',
-            rain: 'rain'
-        }
-    },
     'cnpp cooling tower': {
         id: 10,
         weather: {

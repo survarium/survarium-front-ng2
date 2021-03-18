@@ -65,6 +65,7 @@ let dict = {
     lastUpdate   : 'Обновлено',
     noData       : 'Нет данных',
     banned       : 'Банов',
+    server       : 'Сервер',
     players: {
         docTitle: 'Игроки',
         docDescription: 'Список игроков survarium. Фильтры, прогресс, детали, матчи, результаты, информация о клане.',

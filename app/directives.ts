@@ -21,6 +21,7 @@ import { DataGridFiltersDate } from './components.common/data-grid/data-grid-fil
 import { DataGridFiltersSelect } from './components.common/data-grid/data-grid-filters-select';
 import { DataGridFilters } from './components.common/data-grid/data-grid-filters'
 import { MatchType } from './components.common/match-type/match-type'
+import { MatchServer } from './components.common/match-server/match-server'
 
 export const DIRECTIVES = [
     ArmItem,
@@ -41,6 +42,7 @@ export const DIRECTIVES = [
     Map,
     Match,
     MatchType,
+    MatchServer,
     Mode,
     Nickname,
     Percent,

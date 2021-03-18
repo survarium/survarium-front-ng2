@@ -45,6 +45,7 @@ let dict = {
     lastUpdate  : 'Aktualizacja',
     wide        : 'Szerokość',
     place       : 'Pozycja',
+    server      : 'Serwer',
     roles        : {
         commander: 'Dowódca',
         warlord  : 'Sierżant',

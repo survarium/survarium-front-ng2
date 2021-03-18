@@ -7,6 +7,7 @@ import Match from '../../components.common/match/match'
 import Map from '../../components.common/map/map'
 import Mode from '../../components.common/mode/mode'
 import { MatchType } from '../../components.common/match-type/match-type'
+import { MatchServer } from '../../components.common/match-server/match-server'
 import { i18n } from '../../services/i18n'
 
 @Component({
@@ -41,8 +42,12 @@ export class MatchesList {
         { title: i18n.get('map'), component: Map, inputs: { name: [`place.title`, `map.lang.${this.apiLang}.name`] } },
         { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
         {
-            title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } },
-            filter: { field: 'level', type: 'number', min: 0, max: 100 }
+            title: i18n.get('server'),
+            field: 'replay',
+            component: MatchServer,
+            inputs: {replay: `replay`},
+            width: 80,
+            classes: 'center'
         }
     ];
 

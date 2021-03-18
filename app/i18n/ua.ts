@@ -46,6 +46,7 @@ let dict = {
     lastUpdate: 'Оновлено',
     wide: 'Глибокий',
     place: 'Місце',
+    server       : 'Сервер',
     roles: {
         commander: 'Командир',
         warlord: 'Сержант',

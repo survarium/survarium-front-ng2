@@ -7,6 +7,7 @@ import Mode from '../../components.common/mode/mode'
 import { MatchType } from '../../components.common/match-type/match-type'
 import { PlayersService } from '../../services/api'
 import { i18n } from '../../services/i18n'
+import {MatchServer} from "../../components.common/match-server/match-server";
 
 @Component({
     selector: 'players-detail-matches',
@@ -42,7 +43,14 @@ export class PlayersDetailMatches {
         },
         { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiDefaultLang}.name`] }, width: 100 },
         { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiDefaultLang}.mode`] }, width: 100 },
-        { title: i18n.get('level'), field: `level`, classes: 'center', width: 80, sort: { level: {} } },
+        {
+            title: i18n.get('server'),
+            field: 'replay',
+            component: MatchServer,
+            inputs: {replay: `match.replay`},
+            width: 80,
+            classes: 'center'
+        },
         { title: i18n.get('win'), field: `victory`, render: function (value) {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center', sort: { victory: {  } } },

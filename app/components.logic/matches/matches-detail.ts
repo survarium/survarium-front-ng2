@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
 import { MatchesService } from '../../services/api'
 import { Nickname } from '../../components.common/nickname/nickname'
-import { MatchType } from '../../components.common/match-type/match-type'
 import Store from '../../services/store'
 import TitleService from '../../services/title'
 import { TrackService } from '../../services/track'
@@ -121,6 +120,23 @@ export class MatchesDetail implements OnInit, OnDestroy {
         return this.score = this.data.score.join(':');
     }
 
+    server :string;
+    private setServer() {
+        if(this.data.replay.includes('node-1')) {
+            return this.server = 'EU';
+        } else if(this.data.replay.includes('node-4')) {
+            return this.server = 'RU';
+        } else if(this.data.replay.includes('node-6')) {
+            return this.server = 'NA';
+        } else if(this.data.replay.includes('node-21')) {
+            return this.server = 'SEA';
+        } else if(this.data.replay.includes('node-19')) {
+            return this.server = 'SA';
+        } else {
+            return this.server = '-';
+        }
+    }
+
     mapImage :any;
     private setMap(data) {
         this.mapImage = this._mapsService.image(data.map, data.place, data.weather);
@@ -208,6 +224,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
 
                 this.setWinnerByData();
                 this.setScore();
+                this.setServer();
                 this.setReplay();
                 this.setDuration();
 

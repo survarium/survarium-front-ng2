@@ -65,6 +65,7 @@ let dict = {
     time         : 'Time',
     noData       : 'No data',
     banned       : 'Bans',
+    server       : 'Server',
     players: {
         docTitle: 'Players',
         docDescription: 'Survarium player list. Filters, progress, details, matches, results, clan information.',
