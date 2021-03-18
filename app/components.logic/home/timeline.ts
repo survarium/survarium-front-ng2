@@ -106,7 +106,7 @@ export class Timeline {
         });
 
         //var label = `${i18n.get('Matches')} ${dataset.level}: ${NumberTransform(dataset.total)}`;
-        var label = `Matches`;
+        var label = this.typesI18N[this.type];
 
         datasets.push({
             label: label,
@@ -133,8 +133,8 @@ export class Timeline {
     //private height = '400px';
 
 
-    private types = ['all', 'rating', 'random'];
-    private typesI18N = [i18n.get('all'), i18n.get('matches.rating'), i18n.get('matches.random')];
+    private types = ['all', 'rating', 'random', 'pve'];
+    private typesI18N = [i18n.get('all'), i18n.get('matches.rating'), i18n.get('matches.random'), i18n.get('modes.pve')];
     private type = 0;
 
     private switch () {
