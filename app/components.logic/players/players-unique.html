@@ -1,3 +1,3 @@
 <div *ngIf="data !== null">
-    <h2>{{ (period === 'day' ? 'players.unique.titleForDay' : 'players.unique.title') | i18n: { fallback:'players.unique.title' } }} <a class="switch" (click)="switch()">{{'players.unique.' + period | i18n}}</a>: <span class="value">{{data | number}}</span></h2>
+    <h2>{{ (period === 'day' || period === 'month' ? 'players.unique.titleForDay' : 'players.unique.title') | i18n: { fallback:'players.unique.title' } }} <a class="switch" (click)="switch()">{{'players.unique.' + period | i18n}}</a>: <span class="value">{{data | number}}</span></h2>
 </div>
