@@ -6,6 +6,7 @@ import { Mode } from '../../components.common/mode/mode'
 import { Match } from '../../components.common/match/match'
 import { DateTime } from '../../components.common/datetime/datetime'
 import Clan from '../../components.common/clan/clan'
+import {MatchServer} from "../../components.common/match-server/match-server";
 
 @Component({
     selector: 'clans-detail-clanwars',
@@ -50,9 +51,16 @@ export class ClansDetailClanwars {
             return value ? i18n.get('win') : i18n.get('loose');
         }, classes: 'center' },
         { title: i18n.get('opponent'), classes: 'center', component: Clan, inputs: { classes: { useValue: null }, abbr: `opponent.clan.abbr`, name: `opponent.clan.name` } },
-        { title: i18n.get('map'), component: Map, inputs: { name: [`battlefield.title`, `map.lang.${this.apiLang}.name`] } },
+        { title: i18n.get('map'), component: Map, inputs: { name: [`place.title`, `map.lang.${this.apiLang}.name`] } },
         { title: i18n.get('mode'), component: Mode, inputs: { name: [`mode.title`, `map.lang.${this.apiLang}.mode`] } },
-        { title: i18n.get('level'), field: 'level', width: 80, classes: 'center', sort: { 'level': { } } }
+        {
+            title: i18n.get('server'),
+            field: 'replay',
+            component: MatchServer,
+            inputs: {replay: `replay`},
+            width: 80,
+            classes: 'center'
+        },
     ];
 
     constructor (private _clansService :ClansService) {}
