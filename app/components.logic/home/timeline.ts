@@ -51,11 +51,7 @@ export class Timeline {
             }]
         },
         legend: {
-            labels: {
-                fontColor: Colors['gray-4'].color,
-                fontSize: 14,
-                padding: 15
-            }
+            display: false
         },
         tooltips: {
             custom: tooltip => {
@@ -130,7 +126,7 @@ export class Timeline {
 
     private isMobile = false;
     private height = 'auto';
-    //private height = '400px';
+    //private height = '200px';
 
 
     private types = ['all', 'rating', 'random', 'pve'];
@@ -161,9 +157,9 @@ export class Timeline {
             this.isMobile = true;
 
             this.options.maintainAspectRatio = false;
-            this.height = '600px';
+            this.height = '250px';
         } else {
-            this.height = '700px';
+            this.height = '250px';
             this.options.maintainAspectRatio = false;
         }
 
