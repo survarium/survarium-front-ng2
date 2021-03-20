@@ -7,6 +7,7 @@
 
 .title
   margin 0 auto .2em
+  font-weight 900
 
 .list
   display flex
@@ -14,15 +15,11 @@
   justify-content flex-start
 
 .elem
-  flex-grow 0
-  flex-shrink 1
-  flex-basis 170px
   box-sizing border-box
   padding .8em 1em .8em 0
 
 :host /deep/
-  .best
-    nickname .name
-    .score .val,
-    match a
-      color $highlight
+  nickname .name,
+  .val,
+  match a
+    color $highlight

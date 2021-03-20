@@ -6,8 +6,10 @@
 <players-top></players-top>
 <timeline></timeline>
 <ng-template [ngIf]="isWebBrowser">
-    <twitter [user]="twitter" width="375" height="600"></twitter>
-    <discord id="177509497038831616" width="375" height="600"></discord>
-    <facebook page="Survarium" width="375" height="600"></facebook>
-    <discord id="259251551984549889" width="375" height="600"></discord>
+    <div class="displayFlex">
+        <twitter [user]="twitter" width="360" height="600"></twitter>
+        <discord id="177509497038831616" width="360" height="600"></discord>
+        <facebook page="Survarium" width="360" height="600"></facebook>
+        <discord id="259251551984549889" width="360" height="600"></discord>
+    </div>
 </ng-template>
