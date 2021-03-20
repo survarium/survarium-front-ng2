@@ -1,11 +1,11 @@
 <div *ngIf="!data">{{'loading' | i18n}}</div>
 <ng-template [ngIf]="data?.length">
-    <h2>{{'players.top.title' | i18n}} <a class="switch" (click)="switch()">{{(period === 'day' ? 'players.top.day' : 'players.top.hour') | i18n}}</a></h2>
+    <h2 class="noBotMarge">{{'players.top.title' | i18n}} <a class="switch" (click)="switch()">{{(period === 'day' ? 'players.top.day' : 'players.top.hour') | i18n}}</a></h2>
     <div class="list">
         <div *ngFor="let item of data" class="elem">
-            <span *ngIf="item.rating_match === true; else ratingBlock" class="title">{{'matches.rating' | i18n}}: </span>
+            <h4 *ngIf="item.rating_match === true; else ratingBlock" class="title">{{'matches.rating' | i18n}}</h4>
             <ng-template #ratingBlock>
-                <span #ratingBlock class="title">{{'matches.random' | i18n}}: </span>
+                <h4 #ratingBlock class="title">{{'matches.random' | i18n}}</h4>
             </ng-template>
             <nickname [nickname]="item.player.nickname" [clan]="item.player.clan_meta"></nickname> - {{'score' | i18n}}: <span class="val">{{item.score | number}}</span>, {{'match' | i18n}}: <match [id]="item.match"></match>
         </div>

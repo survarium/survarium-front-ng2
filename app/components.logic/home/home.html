@@ -1,9 +1,11 @@
 <div [innerHTML]="jsonLD"></div>
 <motd></motd>
-<players-unique></players-unique>
+<div class="displayFlex">
+    <players-top></players-top>
+    <players-unique></players-unique>
+</div>
 <faction-challenge till="17 May 2019 21:00:00 GMT"></faction-challenge>
 <schedule till="17 May 2019 21:00:00 GMT"></schedule>
-<players-top></players-top>
 <timeline></timeline>
 <ng-template [ngIf]="isWebBrowser">
     <div class="displayFlex">
