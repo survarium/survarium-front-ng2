@@ -24,8 +24,14 @@ export class Video extends Widget implements OnInit {
 
     ngOnInit() {
         let allLinks = [];
-        allLinks[allLinks.length] = '4byq4TtQPME';
-        allLinks[allLinks.length] = 'BMBzTpRn7bs';
+        allLinks[allLinks.length] = 'LwW3kFvjoWY';
+        allLinks[allLinks.length] = 'csFgOOfd9es';
+        allLinks[allLinks.length] = 'Od4wfRfQfoI';
+        allLinks[allLinks.length] = 'u5M2Zm4vM4s';
+        allLinks[allLinks.length] = 'az5or4yqbBY';
+        allLinks[allLinks.length] = 'ir-wkh9nUqk';
+        allLinks[allLinks.length] = 'm5xsk47eiVY';
+        allLinks[allLinks.length] = '4gD01QkYmeA';
 
         let src = 'https://www.youtube.com/embed/' + this.getRandomItem(allLinks) + '?enablejsapi=1&autoplay=0&dark_theme=1&origin=http://survarium.pro';
         this.iframeSrc = this._domSanitize.bypassSecurityTrustResourceUrl(src);

@@ -1,3 +1,4 @@
 <div [style.width]="width + 'px'" [style.height]="height + 'px'">
+    <h2 class="branch">{{'twitter.title' | i18n}}</h2>
     <a #target class="twitter-timeline" href="https://twitter.com/{{user}}" attr.data-height="{{height}}" data-theme="dark" data-link-color="#FFCE1F">Твиты от @{{user}}</a>
 </div>
