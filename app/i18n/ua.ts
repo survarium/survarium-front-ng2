@@ -571,6 +571,14 @@ let dict = {
         schedule: 'Расписание битв',
         all: 'Все',
         future: 'Предстоящие'
+    },
+    twitter: {
+        title: 'Official Twitter',
+    },
+    video: {
+        title: 'Selected Survarium videos',
+        question: 'Videos change randomly on refresh',
+        message: 'Want to add a video here ? Contact t0FF on discord.gg/survarium',
     }
 };
 

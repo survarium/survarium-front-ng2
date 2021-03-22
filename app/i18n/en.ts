@@ -582,9 +582,9 @@ let dict = {
         title: 'Official Twitter',
     },
     video: {
-        title: 'Random Survarium video',
-        question: 'Want to add a video here ?',
-        message: 'Contact t0FF on the Survarium.pro discord or the Survarium official discord.',
+        title: 'Selected Survarium videos',
+        question: 'Videos change randomly on refresh',
+        message: 'Want to add a video here ? Contact t0FF on discord.gg/survarium',
     }
 };
 

@@ -583,6 +583,14 @@ let dict = {
         schedule: 'Calendario de batallas del desafío de facciones',
         all: 'Todas',
         future: 'Próximas'
+    },
+    twitter: {
+        title: 'Official Twitter',
+    },
+    video: {
+        title: 'Selected Survarium videos',
+        question: 'Videos change randomly on refresh',
+        message: 'Want to add a video here ? Contact t0FF on discord.gg/survarium',
     }
 };
 
