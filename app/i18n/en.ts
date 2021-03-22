@@ -577,6 +577,14 @@ let dict = {
         schedule: 'Faction Challenge Battles Schedule',
         all: 'All',
         future: 'Oncoming'
+    },
+    twitter: {
+        title: 'Official Twitter',
+    },
+    video: {
+        title: 'Random Survarium video',
+        question: 'Want to add a video here ?',
+        message: 'Contact t0FF on the Survarium.pro discord or the Survarium official discord.',
     }
 };
 
