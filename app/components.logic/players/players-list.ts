@@ -170,7 +170,7 @@ export class PlayersList {
                 filter: { type: 'number' }
             },
             {
-                title: 'ELO Random',
+                title: 'ELO PVP',
                 field: 'progress.elo-random',
                 sort: { 'progress.elo-random': { } },
                 classes: 'center',

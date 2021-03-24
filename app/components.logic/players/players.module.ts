@@ -12,9 +12,7 @@ import Counts from './players-detail-counts'
 import Matches from './players-detail-matches'
 import History from './players-detail-history'
 import Leveling from './players-detail-leveling'
-import { PlayersDetailSkills } from './players-detail-skills'
 import { PlayersDetailHistoryCounts } from './players-detail-history-counts'
-import Ammunition from './players-detail-ammunition'
 import { Badge, Badges } from '../../components.common/badges/badges'
 import { AlsoKnown } from '../../components.common/also-known/also-known'
 import { Skills } from '../../components.common/skills/skills'
@@ -23,8 +21,8 @@ import { PlayerId } from '../../components.common/player-id/player-id'
 @NgModule({
     imports: [routing, SharedModule, DataGridModule],
     declarations: [
-        Players, PlayersSearch, PlayersList, PlayersDetail, PlayersDetailHistoryCounts, PlayersDetailSkills,
-        Counts, Matches, Badge, Badges, History, AlsoKnown, Leveling, Skills, Ammunition, PlayerId
+        Players, PlayersSearch, PlayersList, PlayersDetail, PlayersDetailHistoryCounts,
+        Counts, Matches, Badge, Badges, History, AlsoKnown, Leveling, Skills, PlayerId
     ]
 })
 

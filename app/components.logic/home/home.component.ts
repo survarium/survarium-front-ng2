@@ -18,10 +18,10 @@ export class Home {
         title.setDescription(i18n.get('home.docDescription'));
         title.setRendered();
 
-        if (i18n.lang.lang === 'en') {
-            this.twitter = 'SurvariumVG';
-        } else {
+        if (i18n.lang.lang === 'ru' || i18n.lang.lang === 'ua') {
             this.twitter = 'SurvariumVostok';
+        } else {
+            this.twitter = 'SurvariumVG';
         }
     }
 
