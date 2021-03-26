@@ -58,7 +58,7 @@ let dict = {
     artefactKills: 'Bajas con artefactos',
     pointCaptures: 'Puntos capturados',
     boxesBringed : 'Baterías recolectadas',
-    artefactUses : 'Uso de artefactos',
+    artefactUses : 'artefactos usados',
     elo          : 'ELO',
     random_match_elo_title: 'Clasificación del jugador para partidas aleatorias',
     rating_match_elo_title: 'Clasificación del jugador para partidas igualadas (ligas)',
