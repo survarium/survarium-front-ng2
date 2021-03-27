@@ -20,7 +20,7 @@ export class Badges {
     @Input('player') set setPlayer (val) {
         this.badges = [];
 
-        if (val.nickname === 'Vaseker') {
+        if (val.nickname === 'Vaseker' || val.nickname === 't0FF') {
             this.badges.push('svpro-developer');
         }
 
