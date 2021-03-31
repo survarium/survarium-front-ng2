@@ -122,16 +122,16 @@ export class MatchesDetail implements OnInit, OnDestroy {
 
     server :string;
     private setServer() {
-        if(this.data.replay.includes('node-1')) {
-            return this.server = 'EU';
+        if(this.data.replay.includes('node-19')) {
+            return this.server = 'SA';
         } else if(this.data.replay.includes('node-4')) {
             return this.server = 'RU';
         } else if(this.data.replay.includes('node-6')) {
             return this.server = 'NA';
         } else if(this.data.replay.includes('node-21')) {
             return this.server = 'SEA';
-        } else if(this.data.replay.includes('node-19')) {
-            return this.server = 'SA';
+        } else if(this.data.replay.includes('node-1')) {
+            return this.server = 'EU';
         } else {
             return this.server = '-';
         }
