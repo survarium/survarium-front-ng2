@@ -161,6 +161,7 @@ let dict = {
         'battery retrieval': 'Батареї',
         'artifact Hunt': 'Артефакт',
         'slaughter': 'Бійня',
+        'paintball': 'Paintball',
         'pve': 'PVE',
         'search and destroy': 'Бомба',
         full: {
@@ -264,7 +265,9 @@ let dict = {
         text: 'Фан-сайт зі статистикою матчів, кланів та гравців. Статистика на цьому сайті збирається з січня 2016 року. ',
         thanks: {
             title: 'Подяка за переклад сайту'
-        }
+        },
+        current: 'Поточні розробники:',
+        previous: 'Усі права належать попередньому розробнику:'
     },
     badges: {
         'svpro-developer': 'Розробник survarium.pro',
@@ -558,7 +561,8 @@ let dict = {
         title: 'PVE',
         missions:  'Миссия',
         stage: 'Этап',
-        map: 'Карта'
+        map: 'Карта',
+        owenGuide: 'PVE гайди від Owens'
     },
     factions: {
         scavengers: 'Бродяги',
@@ -573,12 +577,12 @@ let dict = {
         future: 'Предстоящие'
     },
     twitter: {
-        title: 'Official Twitter',
+        title: 'Офіційний Twitter',
     },
     video: {
-        title: 'Selected Survarium videos',
+        title: 'Обрані відео Survarium',
         question: 'Videos change randomly on refresh',
-        message: 'Want to add a video here ? Contact t0FF on discord.gg/survarium',
+        message: 'Хочете додати сюди відео? Зв\'яжіться із t0FF на discord.gg/survarium',
     }
 };
 

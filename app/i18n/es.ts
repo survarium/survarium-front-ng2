@@ -163,6 +163,7 @@ let dict = {
         'battery retrieval': 'Baterías',
         'artifact hunt': 'Artefacto',
         'slaughter': 'Masacre',
+        'paintball': 'Paintball',
         'pve': 'PVE',
         'search and destroy': 'Buscar y Destruir'
     },
@@ -249,7 +250,9 @@ let dict = {
         text: 'Fan-site con estadísticas de partidas, jugadores y clanes. Las estadísticas de esta página web empezaron a recolectarse en enero de 2016.',
         thanks: {
             title: 'Agradecimientos'
-        }
+        },
+        current: 'Desarrollador actual:',
+        previous: 'Agradecimientos y créditos al desarrollador anterior:'
     },
     badges: {
         'svpro-developer': 'desarrollador de survarium.pro',
@@ -570,7 +573,8 @@ let dict = {
         title: 'PVE',
         missions:  'Misión',
         stage: 'Etapa',
-        map: 'Mapa'
+        map: 'Mapa',
+        owenGuide: 'Guía PVE hecha por Owens'
     },
     factions: {
         scavengers: 'Carroñeros',
@@ -585,12 +589,12 @@ let dict = {
         future: 'Próximas'
     },
     twitter: {
-        title: 'Official Twitter',
+        title: 'Twitter oficial',
     },
     video: {
-        title: 'Selected Survarium videos',
+        title: 'Vídeos destacados de Survarium',
         question: 'Videos change randomly on refresh',
-        message: 'Want to add a video here ? Contact t0FF on discord.gg/survarium',
+        message: '¿Quieres tu vídeo aquí? Contacta con t0FF en discord.gg/survarium',
     }
 };
 
