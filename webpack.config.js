@@ -10,12 +10,12 @@ const ngPkg = require('@angular/common/package');
 
 const metadata = {
 	title      : 'Survarium stats',
-	description: 'Статистика игроков, матчей, кланов Survarium. Стримы Survarium. Сообщения разработчиков Survarium.',
-	baseUrl    : 'http://survarium.test:3000/',
-	host       : 'survarium.test',
-	port       : 3000,
+	description: 'Player stats, matches and replays, Survarium clans. PVE map. Damage Calculator. Posts by Survarium devs.',
+	baseUrl    : 'https://survarium.pro/',
+	host       : 'survarium.pro',
+	port       : 1900,
 	ENV        : ENV,
-	API_PATH   : process.env.API_PATH || 'https://survarium.pro/api',
+	API_PATH   : 'https://survarium.pro/api',
 	version    : helpers.version,
 	updated    : helpers.updated,
     ngVersion  : ngPkg.version
