@@ -634,7 +634,7 @@
                 cssTransformPrefix: k("transform"),
                 cssTransform: null !== k("transform"),
                 cssTransition: null !== k("transition"),
-                cssFilterBlur: null !== k("filter:blur(2px)"),
+                cssFilterBlur: null !== k("blur(2px) brightness(0.6)"),
                 touch: !!("ontouchstart"in window || window.DocumentTouch && document instanceof DocumentTouch || o.msMaxTouchPoints),
                 postMessage: "function" == typeof window.postMessage && !(g || y || b || d),
                 longUrls: !(g || y || d || l)

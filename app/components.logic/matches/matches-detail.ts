@@ -31,8 +31,11 @@ export class MatchesDetail implements OnInit, OnDestroy {
     private setReplay() {
         const { id } = this.data;
 
-        return this.replay = this._domSanitize.bypassSecurityTrustUrl(`http://survarium.com/replay?id=${id}`);
+        return this.replay = this._domSanitize.bypassSecurityTrustUrl(`https://survarium.com/replay?id=${id}`);
     }
+
+
+
     private trackDownloadReplay() {
         this._trackService.track({
             ya: { goal: 'match.replay', options: { match: this.data.id } },
@@ -120,6 +123,20 @@ export class MatchesDetail implements OnInit, OnDestroy {
         return this.score = this.data.score.join(':');
     }
 
+    difficulty :string;
+    private setDifficulty() {
+        if(this.data.difficulty === 0) {
+            return this.difficulty = i18n.get('pve.easy');
+        } else if(this.data.difficulty === 1) {
+            return this.difficulty = i18n.get('pve.medium');
+        } else if(this.data.difficulty === 2) {
+            return this.difficulty = i18n.get('pve.hard');
+        } else {
+            return this.difficulty = '-';
+        }
+    }
+
+
     server :string;
     private setServer() {
         if(this.data.replay.includes('node-19')) {
@@ -174,7 +191,8 @@ export class MatchesDetail implements OnInit, OnDestroy {
             { title: i18n.get('artefactKills'), field: `artefactKills`, classes: 'center', width: 120, sort: { artefactKills: {} } },
             { title: i18n.get('artefactUses'), field: `artefactUses`, classes: 'center', width: 120, sort: { artefactUses: {} } },
             { title: i18n.get('pointCaptures'), field: `pointCaptures`, classes: 'center', sort: { pointCaptures: {} } },
-            { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } }
+            { title: i18n.get('boxesBringed'), field: `boxesBringed`, classes: 'center', sort: { boxesBringed: {} } },
+            { title: i18n.get('pveBoxesBringed'), field: `pveBoxesBringed`, classes: 'center', sort: { pveBoxesBringed: {} } }
         ]);
     }
 
@@ -226,6 +244,7 @@ export class MatchesDetail implements OnInit, OnDestroy {
                 this.setScore();
                 this.setServer();
                 this.setReplay();
+                this.setDifficulty();
                 this.setDuration();
 
                 this._title.setTitle(i18n.get('matches.match.docTitle', { id: this.data.id }));

@@ -1,113 +1,128 @@
-<h4 class="def-list__title">{{'progress' | i18n}}</h4>
-<div class="def-list__values">
-    <dl class="def-list">
-        <dt class="def-list__term">{{'level' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.progress.level}}</dd>
-    </dl>
+<div class="backdropFilter2">
+    <h4 class="def-list__title">{{'progress' | i18n}}</h4>
+    <div class="def-list__values">
+        <dl class="def-list">
+            <dt class="def-list__term">{{'level' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.progress.level}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'exp' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.progress.experience | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'exp' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.progress.experience | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'kills' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.kills | number}}</dd>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'kills' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.kills | number}}</dd>
 
-    </dl>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'dies' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.dies | number}}</dd>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'dies' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.dies | number}}</dd>
 
-    </dl>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'kd' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.kd}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'kd' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.kd}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'victories' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.victories | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'victories' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.victories | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'looses' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.matches - data.total.victories | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'looses' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.matches - data.total.victories | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'totalMatches' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.matches | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'totalMatches' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.matches | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'winrate' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.winRate | percent}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'winrate' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.winRate | percent}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'avgScore' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.scoreAvg | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'avgScore' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.scoreAvg | number}}</dd>
+        </dl>
 
-    <dl class="def-list" *ngIf="data.wasted">
-        <dt class="def-list__term">{{'wastedTime' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.wasted | elapsed}}</dd>
-    </dl>
-</div>
+        <dl class="def-list" *ngIf="data.wasted">
+            <dt class="def-list__term">{{'wastedTime' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.wasted | elapsed}}</dd>
+        </dl>
+    </div>
 
-<h4 class="def-list__title">ELO ({{'matches.rating' | i18n}} / {{'matches.random' | i18n}})</h4>
-<div class="def-list__values">
-    <dl class="def-list">
-        <dt class="def-list__term">{{'matches.rating' | i18n}}</dt>
-        <dd class="def-list__desc">
-            <span>{{data.progress['elo-rating'] || number}}</span>
-        </dd>
-    </dl>
-    <dl class="def-list">
-        <dt class="def-list__term">{{'matches.random' | i18n}}</dt>
-        <dd class="def-list__desc">
-            <span>{{data.progress['elo-random'] || number}}</span>
-        </dd>
-    </dl>
-</div>
+    <h4 class="def-list__title">ELO ({{'matches.rating' | i18n}} / {{'matches.random' | i18n}})</h4>
+    <div class="def-list__values">
+        <dl class="def-list">
+            <dt class="def-list__term">{{'matches.rating' | i18n}}</dt>
+            <dd class="def-list__desc">
+                <span>{{data.progress['elo-rating'] || number}}</span>
+            </dd>
+        </dl>
+        </dl>
+        <dl *ngIf="data.positionRanked && data.positionRanked != 0" class="def-list">
+            <dt class="def-list__term">{{'ranked_rank' | i18n}} <span style="font-size: small;">{{'ranked_rank_base' | i18n}}</span></dt>
+            <dd class="def-list__desc">
+                <span>{{data.positionRanked || number}}</span>
+            </dd>
+        </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'matches.random' | i18n}}</dt>
+            <dd class="def-list__desc">
+                <span>{{data.progress['elo-random'] || number}}</span>
+            </dd>
+        </dl>
+        <dl *ngIf="data.position" class="def-list">
+            <dt class="def-list__term">{{'elo_rank' | i18n}} <span style="font-size: small;">{{'elo_rank_base' | i18n}}</span></dt>
+            <dd class="def-list__desc">
+                <span>{{data.position || number}}</span>
+            </dd>
+        </dl>
+    </div>
 
-<h4 class="def-list__title">{{'details' | i18n}}</h4>
-<div class="def-list__values">
-    <dl class="def-list">
-        <dt class="def-list__term">{{'headshots' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.headshots | number}}</dd>
-    </dl>
+    <h4 class="def-list__title">{{'details' | i18n}}</h4>
+    <div class="def-list__values">
+        <dl class="def-list">
+            <dt class="def-list__term">{{'headshots' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.headshots | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'boxesBringed' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.boxesBringed | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'boxesBringed' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.boxesBringed | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'pointCaptures' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.pointCaptures | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'pointCaptures' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.pointCaptures | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'grenadeKills' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.grenadeKills | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'grenadeKills' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.grenadeKills | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'meleeKills' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.meleeKills | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'meleeKills' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.meleeKills | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'artefactKills' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.artefactKills | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'artefactKills' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.artefactKills | number}}</dd>
+        </dl>
 
-    <dl class="def-list">
-        <dt class="def-list__term">{{'artefactUses' | i18n}}</dt>
-        <dd class="def-list__desc">{{data.total.artefactUses | number}}</dd>
-    </dl>
+        <dl class="def-list">
+            <dt class="def-list__term">{{'artefactUses' | i18n}}</dt>
+            <dd class="def-list__desc">{{data.total.artefactUses | number}}</dd>
+        </dl>
+    </div>
 </div>

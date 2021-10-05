@@ -30,6 +30,7 @@ export default class PlayersDetailCounts {
 
     @Input('data') set data(val :any) {
         this._data = val;
+        console.log(this._data);
         this.makeElo()
     };
 

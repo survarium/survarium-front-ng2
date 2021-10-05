@@ -1,14 +1,16 @@
 <div *ngIf="!show">{{'loading' | i18n}}</div>
 <pre *ngIf="error">{{error}}</pre>
 <ng-template [ngIf]="show">
-    <h1 class="title">
-        <span>{{'players.detail' | i18n}}</span>
-        <nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname>
-        <player-id [id]="data.id"></player-id>
-        <players-detail-leveling [level]="data.progress.level" [exp]="data.progress.experience"></players-detail-leveling>
-    </h1>
-    <badges [player]="data"></badges>
-    <also-known [nicknames]="data.nicknames"></also-known>
+    <div class="backdropFilter2">
+        <h1 class="title">
+            <span>{{'players.detail' | i18n}}</span>
+            <nickname [nickname]="data.nickname" [class.highlight]="true" [clan]="data.clan"></nickname>
+            <player-id [id]="data.id"></player-id>
+            <players-detail-leveling [level]="data.progress.level" [exp]="data.progress.experience"></players-detail-leveling>
+        </h1>
+        <badges [player]="data"></badges>
+        <also-known [nicknames]="data.nicknames"></also-known>
+    </div>
     <players-detail-counts [data]="data"></players-detail-counts>
     <players-detail-matches [nickname]="data.nickname"></players-detail-matches>
     <players-detail-history [nickname]="data.nickname"></players-detail-history>

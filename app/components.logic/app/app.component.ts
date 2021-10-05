@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Inject, ViewContainerRef } from '@angular/core'
+import {Component, ViewEncapsulation, Inject, ViewContainerRef, OnInit} from '@angular/core'
 
 @Component({
     selector: 'survarium-stats',
@@ -10,8 +10,16 @@ import { Component, ViewEncapsulation, Inject, ViewContainerRef } from '@angular
     }
 })
 
-export class App {
-    constructor (@Inject('CONFIG') private config, public viewRef :ViewContainerRef) {}
+export class App implements OnInit {
+    constructor(@Inject('CONFIG') private config, public viewRef: ViewContainerRef) {
+    }
 
     public adblocked: false;
+    public ismobile: boolean;
+
+
+    ngOnInit() {
+        this.ismobile = window.screen.width <= 767;
+    }
 }
+

@@ -2,10 +2,10 @@
 
 <div class="group">
     <div class="elem developer2" *ngIf="developer2">
-        Current developer: <nickname [nickname]="developer2.nickname" [clan]="developer2.clan_meta"></nickname>
+        {{'about.current' | i18n}} <nickname [nickname]="developer2.nickname" [clan]="developer2.clan_meta"></nickname>
     </div>
     <div class="elem developer2" *ngIf="developer">
-        All credits goes to previous developer: <nickname [nickname]="developer.nickname" [clan]="developer.clan_meta"></nickname>
+        {{'about.previous' | i18n}} <nickname [nickname]="developer.nickname" [clan]="developer.clan_meta"></nickname>
     </div>
 </div>
 <thanks></thanks>

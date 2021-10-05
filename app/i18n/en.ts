@@ -57,8 +57,13 @@ let dict = {
     artefactKills: 'Artifacts kills',
     pointCaptures: 'Captured points',
     boxesBringed : 'Brought boxes',
+    pveBoxesBringed : 'Brought PVE boxes',
     artefactUses : 'Artifacts usage',
     elo          : 'ELO',
+    elo_rank     : 'PVP rank',
+    elo_rank_base: '(based on active players of last 30 days)',
+    ranked_rank     : 'rank',
+    ranked_rank_base: '(current or last season)',
     random_match_elo_title: 'Player rating for random matches',
     rating_match_elo_title: 'Player rating for ranked matches (leagues)',
     wastedTime   : 'Battle time',
@@ -116,7 +121,8 @@ let dict = {
             docDescription: 'Survarium clanwars list. Winner highlighting, map, mode, level.',
             clan1: { title: 'Clan 1', score: 'Score 1' },
             clan2: { title: 'Clan 2', score: 'Score 2' },
-            winner: 'Winner'
+            winner: 'Winner',
+            abbr: 'CW'
         },
         search: {
             title: 'Search',
@@ -252,7 +258,29 @@ let dict = {
     badges: {
         'svpro-developer': 'survarium.pro developer',
         'cheater': 'Cheater (ban)',
-        premium: 'Premium'
+        premium: 'Premium',
+        scl1: 'SCL S1 1st place',
+        scl2: 'SCL S1 2nd place',
+        scl3: 'SCL S1 3rd place',
+        scl4: 'SCL S1 4th place',
+        scl5: 'SCL S1 5th place',
+        scl6: 'SCL S1 6th place',
+        scl7: 'SCL S1 7th place',
+        scl8: 'SCL S1 8th place',
+        scl9: 'SCL S1 9th place',
+        scl10: 'SCL S1 10th place',
+        scl2_1: 'SCL S2 1st place',
+        scl2_2: 'SCL S2 2nd place',
+        scl2_3: 'SCL S2 3rd place',
+        scl2_4: 'SCL S2 4th place',
+        scl2_5: 'SCL S2 5th place',
+        scl2_6: 'SCL S2 6th place',
+        scl2_7: 'SCL S2 7th place',
+        scl2_8: 'SCL S2 8th place',
+        scl2_9: 'SCL S2 9th place',
+        scl2_10: 'SCL S2 10th place',
+        sclCheat: 'Match fixing in SCL',
+        sclCheat2: 'Breaking SCL rules',
     },
     discord: {
         description: 'Discord service provides skype/teamspeak/raidcall/slack functionality. It includes text and voice channels for FREE!'
@@ -527,6 +555,25 @@ let dict = {
             */
         }
     },
+    scl: {
+        title: 'SCL',
+        docTitle: 'SCL',
+        docDescription: 'SCL',
+        scl1: {
+            title: 'SCL 1',
+            docTitle: 'SCL 1',
+            docDescription: 'SCL 1',
+        },
+        scl2: {
+            title: 'SCL 2',
+            docTitle: 'SCL 2',
+            docDescription: 'SCL 2',
+        },
+        discord      : {
+            text    : 'Join SCL Discord!',
+            url     : 'discord.gg/fXNfUx7sPY'
+        },
+    },
     ammunition: {
         show: 'Show inventory',
         hide: 'Hide inventory'
@@ -568,7 +615,11 @@ let dict = {
         missions:  'Mission',
         stage: 'Stage',
         map: 'Map',
-        owenGuide: 'PVE Guide by Owens'
+        owenGuide: 'PVE Guide by Owens',
+        difficulty: 'Difficulty',
+        easy: 'Easy',
+        medium: 'Medium',
+        hard: 'Hard',
     },
     factions: {
         scavengers: 'Scavengers',

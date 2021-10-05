@@ -96,7 +96,11 @@ export class Timeline {
         var data = mapping.slice();
 
         val.forEach(dataHour => {
+
+            let offset = new Date().getTimezoneOffset();
             let date = new Date(dataHour.hours[0].date);
+            date.setMinutes(date.getMinutes() - offset);
+
             data[hours.indexOf(date.getHours())] = dataHour.hours[0].total;
             total += dataHour.hours[0].total;
         });

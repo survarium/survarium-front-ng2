@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable'
 import { catchError } from 'rxjs/operators'
 import { I18N } from './i18n'
 
-const MODES = ['Battery retrieval', 'Team Deathmatch', 'Research', 'Artifact Hunt', 'Slaughter'];
+const MODES = ['Battery retrieval', 'Team Deathmatch', 'Research', 'Artifact Hunt', 'Slaughter', 'Paintball'];
 const MATCH_TYPES = ['random', 'rating'];
 
 export const Modes = MODES.reduce((result, mode) => {

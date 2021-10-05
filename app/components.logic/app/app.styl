@@ -4,12 +4,14 @@
     font-family 'Play', sans-serif
 
 .bg
- background url(/assets/survarium_pro_bg.jpg) repeat scroll 50% 0/cover #1e222b
+ background url(/assets/sv_bg_low.jpg) repeat scroll 50% 0/cover #1e222b
  position fixed
  top 0
  width 100%
  height 100%
  z-index -1
+ @media (min-width: 1024px)
+   background url(/assets/sv_bg.jpg) repeat scroll 50% 0/cover #1e222b
 
 survarium-stats
   font-smoothing antialiased
@@ -202,3 +204,9 @@ facebook
   border 2px solid $highlight
 
 @import "../../components.common/def-list/def-list.styl"
+
+.backdropFilter2
+  backdrop-filter blur(2px) brightness(0.6)
+
+.noticeSpan
+    color $highlight

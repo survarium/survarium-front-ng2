@@ -14,6 +14,10 @@ export const routes: Routes = [
         loadChildren: () => require('es6-promise!../info/info.module')('InfoModule')
     },
     {
+        path: 'scl',
+        loadChildren: () => require('es6-promise!../scl/scl.module')('SclModule')
+    },
+    {
         path: 'matches',
         loadChildren: () => require('es6-promise!../matches/matches.module')('MatchesModule')
     },

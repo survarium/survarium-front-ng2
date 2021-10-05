@@ -28,8 +28,15 @@ export class Badges {
             this.badges.push('cheater');
         }
 
-        if (val.ammunition && val.ammunition.length > 2) {
-            this.badges.push('premium');
+        if (val.scl && val.scl.includes('scl')) {
+            let allBadges = val.scl.split(' ');
+            let tmpArray = [];
+            allBadges.forEach(function e(element) {
+                if(element != "sclCheat") {
+                    tmpArray.push(element);
+                }
+            });
+            tmpArray.forEach(element => this.badges.push(element));
         }
     }
 }

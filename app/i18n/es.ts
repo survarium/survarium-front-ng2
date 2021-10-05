@@ -58,8 +58,13 @@ let dict = {
     artefactKills: 'Bajas con artefactos',
     pointCaptures: 'Puntos capturados',
     boxesBringed : 'Baterías recolectadas',
+    pveBoxesBringed : 'Cajas PVE halladas',
     artefactUses : 'artefactos usados',
     elo          : 'ELO',
+    elo_rank     : 'Rango PVP',
+    elo_rank_base: ' (Según los jugadores activos de los últimos 30 días)',
+    ranked_rank     : 'Rango',
+    ranked_rank_base: '(current or last season)',
     random_match_elo_title: 'Clasificación del jugador para partidas aleatorias',
     rating_match_elo_title: 'Clasificación del jugador para partidas igualadas (ligas)',
     wastedTime   : 'Tiempo en combate',
@@ -117,7 +122,8 @@ let dict = {
             docDescription: 'Lista de las guerras de clanes de Survarium. Winner highlighting, map, mode, level.',
             clan1: { title: 'Clan 1', score: 'Puntuación 1' },
             clan2: { title: 'Clan 2', score: 'Puntuación 2' },
-            winner: 'Ganador'
+            winner: 'Ganador',
+            abbr: 'CW'
         },
         search: {
             title: 'Búsqueda',
@@ -226,6 +232,25 @@ let dict = {
             large: 'Grande'
         }
     },
+    scl: {
+        title: 'SCL',
+        docTitle: 'SCL',
+        docDescription: 'SCL',
+        scl1: {
+            title: 'SCL 1',
+            docTitle: 'SCL 1',
+            docDescription: 'SCL 1',
+        },
+        scl2: {
+            title: 'SCL 2',
+            docTitle: 'SCL 2',
+            docDescription: 'SCL 2',
+        },
+        discord      : {
+            text    : 'Join SCL Discord!',
+            url     : 'discord.gg/fXNfUx7sPY'
+        },
+    },
     info: {
         title: 'Info',
         messages: {
@@ -257,7 +282,29 @@ let dict = {
     badges: {
         'svpro-developer': 'desarrollador de survarium.pro',
         'cheater': 'Tramposo (baneado)',
-        premium: 'Premium'
+        premium: 'Premium',
+        scl1: '1.ᵉʳ puesto en la SCL S1',
+        scl2: '2.º puesto en la SCL S1',
+        scl3: '3.ᵉʳ puesto en la SCL S1',
+        scl4: '4.º puesto en la SCL S1',
+        scl5: '5.º puesto en la SCL S1',
+        scl6: '6.º puesto en la SCL S1',
+        scl7: '7.º puesto en la SCL S1',
+        scl8: '8.º puesto en la SCL S1',
+        scl9: '9.º puesto en la SCL S1',
+        scl10: '10.º puesto en la SCL S1',
+        scl2_1: '1.ᵉʳ puesto en la SCL S2',
+        scl2_2: '2.º puesto en la SCL S2',
+        scl2_3: '3.ᵉʳ puesto en la SCL S2',
+        scl2_4: '4.º puesto en la SCL S2',
+        scl2_5: '5.º puesto en la SCL S2',
+        scl2_6: '6.º puesto en la SCL S2',
+        scl2_7: '7.º puesto en la SCL S2',
+        scl2_8: '8.º puesto en la SCL S2',
+        scl2_9: '9.º puesto en la SCL S2',
+        scl2_10: '10.º puesto en la SCL S2',
+        sclCheat: 'Amaño de partidas en la SCL',
+        sclCheat2: 'Breaking SCL rules',
     },
     discord: {
         description: 'El servicio de Discord proporciona las mismas funcionalidades que Skype/Teamspeak/Raidcall. ¡Incluye canales de texto y de voz GRATIS!'
@@ -574,7 +621,11 @@ let dict = {
         missions:  'Misión',
         stage: 'Etapa',
         map: 'Mapa',
-        owenGuide: 'Guía PVE hecha por Owens'
+        owenGuide: 'Guía PVE hecha por Owens',
+        difficulty: 'Dificultad',
+        easy: 'Fácil',
+        medium: 'Media',
+        hard: 'Difícil',
     },
     factions: {
         scavengers: 'Carroñeros',

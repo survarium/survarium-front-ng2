@@ -1,20 +1,22 @@
-<div class="params">
-    <div class="ranges">
-        <span>{{'players.history.ranges' | i18n}}:</span>
-        <a *ngFor="let range of ranges" class="param range" [class.current]="range === currentRange" (click)="setRange(range)">{{'players.history.range.' + range | i18n}}</a>
+<div class="backdropFilter2">
+    <div class="params">
+        <div class="ranges">
+            <span>{{'players.history.ranges' | i18n}}:</span>
+            <a *ngFor="let range of ranges" class="param range" [class.current]="range === currentRange" (click)="setRange(range)">{{'players.history.range.' + range | i18n}}</a>
+        </div>
+
+        <div class="groups">
+            <span>{{'players.history.groups' | i18n}}:</span>
+            <a *ngFor="let group of groups" class="param group" [class.current]="group === currentGroup" (click)="setGroup(group)">{{'players.history.group.' + group | i18n}}</a>
+        </div>
     </div>
 
-    <div class="groups">
-        <span>{{'players.history.groups' | i18n}}:</span>
-        <a *ngFor="let group of groups" class="param group" [class.current]="group === currentGroup" (click)="setGroup(group)">{{'players.history.group.' + group | i18n}}</a>
+    <div *ngIf="raw?.length === 0" class="no-data">
+        {{'noData' | i18n}}
     </div>
-</div>
 
-<div *ngIf="raw?.length === 0" class="no-data">
-    {{'noData' | i18n}}
+    <ng-template [ngIf]="raw?.length">
+        <players-detail-history-counts [data]="raw" [group]="currentGroup"></players-detail-history-counts>
+        <chart [data]="data" [options]="options" [height]="height"></chart>
+    </ng-template>
 </div>
-
-<ng-template [ngIf]="raw?.length">
-    <players-detail-history-counts [data]="raw" [group]="currentGroup"></players-detail-history-counts>
-    <chart [data]="data" [options]="options" [height]="height"></chart>
-</ng-template>

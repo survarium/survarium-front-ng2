@@ -59,8 +59,13 @@ let dict = {
     artefactKills: 'Вбивств артефактами',
     pointCaptures: 'Точок захоплено',
     boxesBringed: 'Принесено батарей',
+    pveBoxesBringed: 'Принесено PVE ящиків',
     artefactUses: 'Використано артефактів',
     elo: 'ELO',
+    elo_rank     : 'PVP звання',
+    elo_rank_base: ' (на основі активних гравців останніх 30-и днів)',
+    ranked_rank     : 'звання',
+    ranked_rank_base: '(current or last season)',
     wastedTime   : 'Времени в матчах',
     time         : 'Время',
     total: 'Усього',
@@ -116,7 +121,8 @@ let dict = {
             docDescription: 'Список кланових боїв гри survarium. Підсвічування клану–переможця, карта, режим, результати.',
             clan1: {title: 'Клан 1', score: 'Рахунок 1'},
             clan2: {title: 'Клан 2', score: 'Рахунок 2'},
-            winner: 'Переможець'
+            winner: 'Переможець',
+            abbr: 'CW'
         },
         search: {
             title: 'Пошук',
@@ -132,6 +138,25 @@ let dict = {
         },
         rating: 'Рейтинговый',
         random: 'PVP'
+    },
+    scl: {
+        title: 'SCL',
+        docTitle: 'SCL',
+        docDescription: 'SCL',
+        scl1: {
+            title: 'SCL 1',
+            docTitle: 'SCL 1',
+            docDescription: 'SCL 1',
+        },
+        scl2: {
+            title: 'SCL 2',
+            docTitle: 'SCL 2',
+            docDescription: 'SCL 2',
+        },
+        discord      : {
+            text    : 'Join SCL Discord!',
+            url     : 'discord.gg/fXNfUx7sPY'
+        },
     },
     clans: {
         title: 'Клани',
@@ -272,7 +297,29 @@ let dict = {
     badges: {
         'svpro-developer': 'Розробник survarium.pro',
         'cheater': 'Читер (бан)',
-        premium: 'Premium'
+        premium: 'Premium',
+        scl1: '1-е місце в SCL S1',
+        scl2: '2-е місце в SCL S1',
+        scl3: '3-є місце в SCL S1',
+        scl4: '4-е місце в SCL S1',
+        scl5: '5-е місце в SCL S1',
+        scl6: '6-е місце в SCL S1',
+        scl7: '7-е місце в SCL S1',
+        scl8: '8-е місце в SCL S1',
+        scl9: '9-е місце в SCL S1',
+        scl10: '10-е мі²сце в SCL S2',
+        scl2_1: '1-е місце в SCL S2',
+        scl2_2: '2-е місце в SCL S2',
+        scl2_3: '3-є місце в SCL S2',
+        scl2_4: '4-е місце в SCL S2',
+        scl2_5: '5-е місце в SCL S2',
+        scl2_6: '6-е місце в SCL S2',
+        scl2_7: '7-е місце в SCL S2',
+        scl2_8: '8-е місце в SCL S2',
+        scl2_9: '9-е місце в SCL S2',
+        scl2_10: '10-е мі²сце в SCL S2',
+        sclCheat: 'Виправлення відповідності у SCL',
+        sclCheat2: 'Breaking SCL rules',
     },
     discord: {
         description: 'Сервіс Discord представляє функціонал, аналогічний skype, teamspeak, raidcall, slack. У ньому є тектовые і голосові канали, причому – безкоштовно!'
@@ -562,7 +609,11 @@ let dict = {
         missions:  'Миссия',
         stage: 'Этап',
         map: 'Карта',
-        owenGuide: 'PVE гайди від Owens'
+        owenGuide: 'PVE гайди від Owens',
+        difficulty: 'Складність',
+        easy: 'Легкий',
+        medium: 'Середній',
+        hard: 'Важкий',
     },
     factions: {
         scavengers: 'Бродяги',

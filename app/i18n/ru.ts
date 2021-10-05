@@ -57,8 +57,13 @@ let dict = {
     artefactKills: 'Убийств артефактами',
     pointCaptures: 'Точек захвачено',
     boxesBringed : 'Принесено ящиков',
+    pveBoxesBringed : 'Собрано ПВЕ ящиков',
     artefactUses : 'Использовано артефактов',
     elo          : 'ELO',
+    elo_rank     : 'PVP ранг',
+    elo_rank_base: '(Основан за последние 30 дней)',
+    ranked_rank     : 'ранг',
+    ranked_rank_base: '(current or last season)',
     wastedTime   : 'Времени в матчах',
     time         : 'Время',
     total        : 'Всего',
@@ -116,7 +121,8 @@ let dict = {
             docDescription: 'Список клановых боев игры survarium. Подсветка клана–победителя, карта, режим, результаты.',
             clan1: { title: 'Клан 1', score: 'Счет 1' },
             clan2: { title: 'Клан 2', score: 'Счет 2' },
-            winner: 'Победитель'
+            winner: 'Победитель',
+            abbr: 'КВ'
         },
         search: {
             title: 'Поиск',
@@ -131,7 +137,26 @@ let dict = {
             title: 'Количество матчей за последние сутки'
         },
         rating: 'Рейтинговый',
-        random: 'PVP'
+        random: 'ПВП'
+    },
+    scl: {
+        title: 'SCL',
+        docTitle: 'SCL',
+        docDescription: 'SCL',
+        scl1: {
+            title: 'SCL 1',
+            docTitle: 'SCL 1',
+            docDescription: 'SCL 1',
+        },
+        scl2: {
+            title: 'SCL 2',
+            docTitle: 'SCL 2',
+            docDescription: 'SCL 2',
+        },
+        discord      : {
+            text    : 'Join SCL Discord!',
+            url     : 'discord.gg/fXNfUx7sPY'
+        },
     },
     clans: {
         title: 'Кланы',
@@ -156,13 +181,13 @@ let dict = {
     },
     loading: 'Загрузка...',
     modes: {
-        'team deathmatch': 'TDM',
+        'team deathmatch': 'КБ',
         'research': 'Захват',
         'battery retrieval': 'Ящики',
         'artifact hunt': 'Артефакт',
         'slaughter': 'Бойня',
-        'paintball': 'Paintball',
-        'pve': 'PVE',
+        'paintball': 'пейнтбол',
+        'pve': 'ПВЕ',
         'search and destroy': 'Бомба'
     },
     maps: {
@@ -255,7 +280,29 @@ let dict = {
     badges: {
         'svpro-developer': 'Разработчик survarium.pro',
         'cheater': 'Читер (бан)',
-        premium: 'Премиум'
+        premium: 'Премиум',
+        scl1: '1-е место в SCL S1',
+        scl2: '2-е место в SCL S1',
+        scl3: '3-е место в SCL S1',
+        scl4: '4-е место в SCL S1',
+        scl5: '5-е место в SCL S1',
+        scl6: '6-е место в SCL S1',
+        scl7: '7-е место в SCL S1',
+        scl8: '8-е место в SCL S1',
+        scl9: '9-е место в SCL S1',
+        scl10: '10-е место в SCL S1',
+        scl2_1: '1-е место в SCL S2',
+        scl2_2: '2-е место в SCL S2',
+        scl2_3: '3-е место в SCL S2',
+        scl2_4: '4-е место в SCL S2',
+        scl2_5: '5-е место в SCL S2',
+        scl2_6: '6-е место в SCL S2',
+        scl2_7: '7-е место в SCL S2',
+        scl2_8: '8-е место в SCL S2',
+        scl2_9: '9-е место в SCL S2',
+        scl2_10: '10-е место в SCL S2',
+        sclCheat: 'Сверка итогов в SCL',
+        sclCheat2: 'Breaking SCL rules',
     },
     discord: {
         description: 'Сервис Discord представляет функционал, аналогичный skype, teamspeak, raidcall, slack. В нем есть тектовые и голосовые каналы, причем – бесплатно!'
@@ -545,7 +592,11 @@ let dict = {
         missions:  'Миссия',
         stage: 'Этап',
         map: 'Карта',
-        owenGuide: 'ПВЕ гайды от Owens'
+        owenGuide: 'ПВЕ гайды от Owens',
+        difficulty: 'Сложность',
+        easy: 'Легко',
+        medium: 'Средне',
+        hard: 'Сложно',
     },
     factions: {
         scavengers: 'Бродяги',

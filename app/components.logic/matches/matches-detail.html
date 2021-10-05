@@ -41,6 +41,11 @@
             <dd class="def-list__desc"><match-type [type]="data.rating_match" [mode]="data.mode"></match-type></dd>
         </dl>
 
+        <dl class="def-list" *ngIf="difficulty && difficulty !== '-'">
+            <dt class="def-list__term">{{'pve.difficulty' | i18n }}</dt>
+            <dd class="def-list__desc">{{difficulty}}</dd>
+        </dl>
+
         <dl class="def-list" *ngIf="replay">
             <dt class="def-list__term">{{'replay' | i18n }}</dt>
             <dd class="def-list__desc"><a (click)="trackDownloadReplay()" [href]="replay" target="_blank">{{'download' | i18n }}</a></dd>
